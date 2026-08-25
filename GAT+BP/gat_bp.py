@@ -30,16 +30,25 @@ class TannerGraph:
     inverse_check_order: Tensor
     variable_slices: List[Tuple[int, int]]
     check_slices: List[Tuple[int, int]]
+    variable_degrees: Tensor
     check_degrees: Tensor
+    variable_positional: Tensor
+    check_positional: Tensor
 
     @classmethod
-    def from_parity_check(cls, parity_check: np.ndarray | Tensor) -> "TannerGraph":
+    def from_parity_check(
+        cls,
+        parity_check: np.ndarray | Tensor,
+        positional_dim: int = 0,
+    ) -> "TannerGraph":
         if isinstance(parity_check, Tensor):
             h = parity_check.detach().cpu().numpy()
         else:
             h = np.asarray(parity_check)
         if h.ndim != 2:
             raise ValueError("The parity-check matrix must be two-dimensional.")
+        if positional_dim < 0:
+            raise ValueError("positional_dim must be non-negative.")
         h = (h != 0).astype(np.uint8)
         n_checks, n_variables = h.shape
         raw_checks, raw_variables = np.nonzero(h)
@@ -63,7 +72,15 @@ class TannerGraph:
         variable_slices = _contiguous_slices(edge_variables, n_variables)
         check_sorted_checks = edge_checks[check_order]
         check_slices = _contiguous_slices(check_sorted_checks, n_checks)
+        variable_degrees = np.bincount(edge_variables, minlength=n_variables).astype(np.float32)
         check_degrees = np.bincount(edge_checks, minlength=n_checks).astype(np.float32)
+        variable_positional, check_positional = _spectral_positional_encoding(
+            edge_variables,
+            edge_checks,
+            n_variables,
+            n_checks,
+            positional_dim,
+        )
 
         return cls(
             n_variables=n_variables,
@@ -74,7 +91,10 @@ class TannerGraph:
             inverse_check_order=torch.as_tensor(inverse_check_order, dtype=torch.long),
             variable_slices=variable_slices,
             check_slices=check_slices,
+            variable_degrees=torch.as_tensor(variable_degrees, dtype=torch.float32),
             check_degrees=torch.as_tensor(check_degrees, dtype=torch.float32),
+            variable_positional=torch.as_tensor(variable_positional, dtype=torch.float32),
+            check_positional=torch.as_tensor(check_positional, dtype=torch.float32),
         )
 
     @property
@@ -85,6 +105,12 @@ class TannerGraph:
         """Average edge values into check-node features."""
         ordered = edge_values.index_select(1, self.check_order.to(edge_values.device))
         chunks = [ordered[:, start:end].mean(dim=1) for start, end in self.check_slices]
+        return torch.stack(chunks, dim=1)
+
+    def product_by_check(self, edge_values: Tensor) -> Tensor:
+        """Multiply scalar edge values into check-node features."""
+        ordered = edge_values.index_select(1, self.check_order.to(edge_values.device))
+        chunks = [ordered[:, start:end].prod(dim=1) for start, end in self.check_slices]
         return torch.stack(chunks, dim=1)
 
 
@@ -101,6 +127,60 @@ def _contiguous_slices(labels: np.ndarray, count: int) -> List[Tuple[int, int]]:
     if start != len(labels):
         raise RuntimeError("Tanner-graph edge layout is not contiguous.")
     return slices
+
+
+def _spectral_positional_encoding(
+    edge_variables: np.ndarray,
+    edge_checks: np.ndarray,
+    n_variables: int,
+    n_checks: int,
+    positional_dim: int,
+) -> Tuple[np.ndarray, np.ndarray]:
+    """Return deterministic Laplacian positional encodings for Tanner nodes.
+
+    The first eigenvector of the normalized Laplacian is the constant mode and
+    is discarded. Eigenvector signs are fixed using the largest-magnitude
+    entry so that the encoding is reproducible across runs.
+    """
+    if positional_dim == 0:
+        return (
+            np.zeros((n_variables, 0), dtype=np.float32),
+            np.zeros((n_checks, 0), dtype=np.float32),
+        )
+
+    total_nodes = n_variables + n_checks
+    adjacency = np.zeros((total_nodes, total_nodes), dtype=np.float64)
+    check_nodes = n_variables + edge_checks
+    adjacency[edge_variables, check_nodes] = 1.0
+    adjacency[check_nodes, edge_variables] = 1.0
+    degrees = adjacency.sum(axis=1)
+    inv_sqrt_degree = 1.0 / np.sqrt(np.maximum(degrees, 1.0))
+    normalized_adjacency = (
+        inv_sqrt_degree[:, None] * adjacency * inv_sqrt_degree[None, :]
+    )
+    laplacian = np.eye(total_nodes, dtype=np.float64) - normalized_adjacency
+    _, eigenvectors = np.linalg.eigh(laplacian)
+    usable_dim = min(positional_dim, max(total_nodes - 1, 0))
+    encoding = eigenvectors[:, 1 : 1 + usable_dim].copy()
+
+    for column in range(encoding.shape[1]):
+        pivot = int(np.argmax(np.abs(encoding[:, column])))
+        if encoding[pivot, column] < 0.0:
+            encoding[:, column] *= -1.0
+
+    # Eigenvectors have unit norm over all Tanner nodes. Scaling by sqrt(N)
+    # keeps their per-feature magnitude comparable to normalized learned inputs.
+    encoding *= np.sqrt(float(total_nodes))
+    if usable_dim < positional_dim:
+        encoding = np.pad(
+            encoding,
+            ((0, 0), (0, positional_dim - usable_dim)),
+            mode="constant",
+        )
+    return (
+        encoding[:n_variables].astype(np.float32),
+        encoding[n_variables:].astype(np.float32),
+    )
 
 
 def _atanh_clamped(x: Tensor, eps: float = 1e-6) -> Tensor:
@@ -192,7 +272,12 @@ class SumProductBP(nn.Module):
 
 
 class EdgeAwareGAT(nn.Module):
-    """One-hop check-to-variable GAT with BP edge messages as edge features."""
+    """Edge-conditioned multi-head GATv2-style check-to-variable update.
+
+    Attention is normalized over each variable node's incident checks. The
+    edge embedding influences both the attention compatibility score and the
+    value message, so BP reliability is used rather than only node states.
+    """
 
     def __init__(
         self,
@@ -214,31 +299,44 @@ class EdgeAwareGAT(nn.Module):
         self.dropout = float(dropout)
         projected_dim = heads * head_dim
 
-        self.query = nn.Linear(variable_dim, projected_dim, bias=False)
-        self.key = nn.Linear(check_dim, projected_dim, bias=False)
-        self.value = nn.Linear(check_dim, projected_dim, bias=False)
-        self.edge_key = nn.Linear(edge_dim, projected_dim, bias=False)
+        # Encode node features before splitting into attention heads. This
+        # gives the residual block a common hidden space for variable/check
+        # states while retaining the bipartite graph direction.
+        self.variable_encoder = nn.Linear(variable_dim, hidden_dim)
+        self.check_encoder = nn.Linear(check_dim, hidden_dim)
+        self.query = nn.Linear(hidden_dim, projected_dim, bias=False)
+        self.key = nn.Linear(hidden_dim, projected_dim, bias=False)
+        self.value = nn.Linear(hidden_dim, projected_dim, bias=False)
+        self.edge_attention = nn.Linear(edge_dim, projected_dim, bias=False)
         self.edge_value = nn.Linear(edge_dim, projected_dim, bias=False)
-        self.attn_query = nn.Parameter(torch.empty(heads, head_dim))
-        self.attn_key = nn.Parameter(torch.empty(heads, head_dim))
-        self.attn_edge = nn.Parameter(torch.empty(heads, head_dim))
-        self.update = nn.Sequential(
-            nn.Linear(variable_dim + projected_dim, hidden_dim),
-            nn.LayerNorm(hidden_dim),
+        self.edge_bias = nn.Linear(edge_dim, heads, bias=False)
+        self.attn_vector = nn.Parameter(torch.empty(heads, head_dim))
+        self.output = nn.Linear(projected_dim, hidden_dim)
+        self.norm_message = nn.LayerNorm(hidden_dim)
+        self.feed_forward = nn.Sequential(
+            nn.Linear(hidden_dim, 4 * hidden_dim),
             nn.GELU(),
             nn.Dropout(dropout),
+            nn.Linear(4 * hidden_dim, hidden_dim),
+            nn.Dropout(dropout),
         )
+        self.norm_feed_forward = nn.LayerNorm(hidden_dim)
         self.reset_parameters()
 
     def reset_parameters(self) -> None:
+        nn.init.xavier_uniform_(self.variable_encoder.weight)
+        nn.init.zeros_(self.variable_encoder.bias)
+        nn.init.xavier_uniform_(self.check_encoder.weight)
+        nn.init.zeros_(self.check_encoder.bias)
         nn.init.xavier_uniform_(self.query.weight)
         nn.init.xavier_uniform_(self.key.weight)
         nn.init.xavier_uniform_(self.value.weight)
-        nn.init.xavier_uniform_(self.edge_key.weight)
+        nn.init.xavier_uniform_(self.edge_attention.weight)
         nn.init.xavier_uniform_(self.edge_value.weight)
-        nn.init.xavier_uniform_(self.attn_query.unsqueeze(0))
-        nn.init.xavier_uniform_(self.attn_key.unsqueeze(0))
-        nn.init.xavier_uniform_(self.attn_edge.unsqueeze(0))
+        nn.init.xavier_uniform_(self.edge_bias.weight)
+        nn.init.xavier_uniform_(self.attn_vector.unsqueeze(0))
+        nn.init.xavier_uniform_(self.output.weight)
+        nn.init.zeros_(self.output.bias)
 
     def forward(
         self,
@@ -249,16 +347,18 @@ class EdgeAwareGAT(nn.Module):
     ) -> Tensor | Tuple[Tensor, Tensor]:
         batch_size = variable_features.shape[0]
         n_checks = check_features.shape[1]
-        projected_variables = self.query(variable_features).view(
+        variable_hidden = self.variable_encoder(variable_features)
+        check_hidden = self.check_encoder(check_features)
+        projected_variables = self.query(variable_hidden).view(
             batch_size, -1, self.heads, self.head_dim
         )
-        projected_checks = self.key(check_features).view(
+        projected_checks = self.key(check_hidden).view(
             batch_size, n_checks, self.heads, self.head_dim
         )
-        values = self.value(check_features).view(
+        values = self.value(check_hidden).view(
             batch_size, n_checks, self.heads, self.head_dim
         )
-        edge_keys = self.edge_key(edge_features).view(
+        edge_context = self.edge_attention(edge_features).view(
             batch_size, -1, self.heads, self.head_dim
         )
         edge_values = self.edge_value(edge_features).view(
@@ -270,12 +370,16 @@ class EdgeAwareGAT(nn.Module):
         query_edges = projected_variables.index_select(1, edge_variables)
         key_edges = projected_checks.index_select(1, edge_checks)
         value_edges = values.index_select(1, edge_checks) + edge_values
+        compatibility = F.leaky_relu(
+            query_edges + key_edges + edge_context,
+            negative_slope=0.2,
+        )
         logits = (
-            query_edges * self.attn_query
-            + key_edges * self.attn_key
-            + edge_keys * self.attn_edge
+            compatibility * self.attn_vector
         ).sum(dim=-1) / (self.head_dim**0.5)
-        logits = F.leaky_relu(logits, negative_slope=0.2)
+        logits = logits + self.edge_bias(edge_features).view(
+            batch_size, -1, self.heads
+        )
 
         # Each variable node normalizes over its incident check nodes.
         attention = torch.cat(
@@ -290,43 +394,288 @@ class EdgeAwareGAT(nn.Module):
             ],
             dim=1,
         ).reshape(batch_size, self.graph.n_variables, -1)
-        updated = self.update(torch.cat((variable_features, aggregated), dim=-1))
+        message = self.output(aggregated)
+        updated = self.norm_message(variable_hidden + F.dropout(
+            message, p=self.dropout, training=self.training
+        ))
+        updated = self.norm_feed_forward(updated + self.feed_forward(updated))
         if return_attention:
             return updated, attention
         return updated
 
 
-class HybridBPGAT(nn.Module):
-    """BP followed by an edge-aware GAT residual correction."""
+class DirectedEdgeGATv2(nn.Module):
+    """One sparse, edge-conditioned GATv2 message-passing direction."""
 
     def __init__(
         self,
-        parity_check: np.ndarray | Tensor,
-        bp_iterations: int = 5,
-        bp_damping: float = 0.0,
+        hidden_dim: int,
+        edge_dim: int,
+        heads: int = 2,
+        head_dim: int = 16,
+        dropout: float = 0.0,
+    ):
+        super().__init__()
+        if heads < 1 or head_dim < 1:
+            raise ValueError("heads and head_dim must be positive.")
+        if not 0.0 <= dropout < 1.0:
+            raise ValueError("dropout must be in [0, 1).")
+        self.heads = heads
+        self.head_dim = head_dim
+        self.dropout = float(dropout)
+        projected_dim = heads * head_dim
+
+        self.query = nn.Linear(hidden_dim, projected_dim, bias=False)
+        self.key = nn.Linear(hidden_dim, projected_dim, bias=False)
+        self.value = nn.Linear(hidden_dim, projected_dim, bias=False)
+        self.edge_attention = nn.Linear(edge_dim, projected_dim, bias=False)
+        self.edge_value = nn.Linear(edge_dim, projected_dim, bias=False)
+        self.edge_bias = nn.Linear(edge_dim, heads, bias=False)
+        self.attn_vector = nn.Parameter(torch.empty(heads, head_dim))
+        self.output = nn.Linear(projected_dim, hidden_dim)
+        self.norm_message = nn.LayerNorm(hidden_dim)
+        self.feed_forward = nn.Sequential(
+            nn.Linear(hidden_dim, 2 * hidden_dim),
+            nn.SiLU(),
+            nn.Dropout(dropout),
+            nn.Linear(2 * hidden_dim, hidden_dim),
+            nn.Dropout(dropout),
+        )
+        self.norm_feed_forward = nn.LayerNorm(hidden_dim)
+        self.reset_parameters()
+
+    def reset_parameters(self) -> None:
+        for module in (
+            self.query,
+            self.key,
+            self.value,
+            self.edge_attention,
+            self.edge_value,
+            self.edge_bias,
+            self.output,
+        ):
+            nn.init.xavier_uniform_(module.weight)
+            if module.bias is not None:
+                nn.init.zeros_(module.bias)
+        nn.init.xavier_uniform_(self.attn_vector.unsqueeze(0))
+
+    def forward(
+        self,
+        target_hidden: Tensor,
+        source_hidden: Tensor,
+        edge_features: Tensor,
+        source_index: Tensor,
+        target_index: Tensor,
+        target_slices: List[Tuple[int, int]],
+        n_targets: int,
+        edge_order: Optional[Tensor] = None,
+        inverse_edge_order: Optional[Tensor] = None,
+        return_attention: bool = False,
+    ) -> Tensor | Tuple[Tensor, Tensor]:
+        batch_size = target_hidden.shape[0]
+        device = target_hidden.device
+        source_index = source_index.to(device)
+        target_index = target_index.to(device)
+
+        if edge_order is not None:
+            edge_order = edge_order.to(device)
+            source_index = source_index.index_select(0, edge_order)
+            target_index = target_index.index_select(0, edge_order)
+            edge_features = edge_features.index_select(1, edge_order)
+
+        target_projection = self.query(target_hidden).view(
+            batch_size, -1, self.heads, self.head_dim
+        )
+        source_projection = self.key(source_hidden).view(
+            batch_size, -1, self.heads, self.head_dim
+        )
+        source_values = self.value(source_hidden).view(
+            batch_size, -1, self.heads, self.head_dim
+        )
+        target_edges = target_projection.index_select(1, target_index)
+        source_edges = source_projection.index_select(1, source_index)
+        values = source_values.index_select(1, source_index)
+        edge_context = self.edge_attention(edge_features).view(
+            batch_size, -1, self.heads, self.head_dim
+        )
+        values = values + self.edge_value(edge_features).view(
+            batch_size, -1, self.heads, self.head_dim
+        )
+
+        compatibility = F.leaky_relu(
+            target_edges + source_edges + edge_context,
+            negative_slope=0.2,
+        )
+        logits = (
+            compatibility * self.attn_vector
+        ).sum(dim=-1) / (self.head_dim**0.5)
+        logits = logits + self.edge_bias(edge_features).view(
+            batch_size, -1, self.heads
+        )
+        attention = torch.cat(
+            [F.softmax(logits[:, start:end], dim=1) for start, end in target_slices],
+            dim=1,
+        )
+        attention = F.dropout(attention, p=self.dropout, training=self.training)
+
+        weighted_values = attention.unsqueeze(-1) * values
+        scatter_index = target_index.view(1, -1, 1, 1).expand(
+            batch_size, -1, self.heads, self.head_dim
+        )
+        aggregated = torch.zeros(
+            batch_size,
+            n_targets,
+            self.heads,
+            self.head_dim,
+            device=device,
+            dtype=weighted_values.dtype,
+        )
+        aggregated.scatter_add_(1, scatter_index, weighted_values)
+        message = self.output(aggregated.reshape(batch_size, n_targets, -1))
+        updated = self.norm_message(
+            target_hidden
+            + F.dropout(message, p=self.dropout, training=self.training)
+        )
+        updated = self.norm_feed_forward(updated + self.feed_forward(updated))
+
+        if return_attention:
+            if inverse_edge_order is not None:
+                attention = attention.index_select(1, inverse_edge_order.to(device))
+            return updated, attention
+        return updated
+
+
+class BidirectionalEdgeGATv2(nn.Module):
+    """One efficient V→C→V edge-aware Tanner-graph refinement block."""
+
+    def __init__(
+        self,
+        graph: TannerGraph,
+        variable_dim: int,
+        check_dim: int,
+        edge_dim: int = 6,
         hidden_dim: int = 32,
         heads: int = 2,
         head_dim: int = 16,
         dropout: float = 0.0,
     ):
         super().__init__()
-        graph = TannerGraph.from_parity_check(parity_check)
         self.graph = graph
+        self.variable_encoder = nn.Linear(variable_dim, hidden_dim)
+        self.check_encoder = nn.Linear(check_dim, hidden_dim)
+        self.v_to_c = DirectedEdgeGATv2(
+            hidden_dim, edge_dim, heads, head_dim, dropout
+        )
+        self.c_to_v = DirectedEdgeGATv2(
+            hidden_dim, edge_dim, heads, head_dim, dropout
+        )
+        nn.init.xavier_uniform_(self.variable_encoder.weight)
+        nn.init.zeros_(self.variable_encoder.bias)
+        nn.init.xavier_uniform_(self.check_encoder.weight)
+        nn.init.zeros_(self.check_encoder.bias)
+
+    def forward(
+        self,
+        variable_features: Tensor,
+        check_features: Tensor,
+        edge_features: Tensor,
+        return_attention: bool = False,
+    ) -> Tuple[Tensor, Tensor, Dict[str, Tensor]]:
+        variable_hidden = self.variable_encoder(variable_features)
+        check_hidden = self.check_encoder(check_features)
+        attention: Dict[str, Tensor] = {}
+        if return_attention:
+            refined_check, v_to_c_attention = self.v_to_c(
+                target_hidden=check_hidden,
+                source_hidden=variable_hidden,
+                edge_features=edge_features,
+                source_index=self.graph.edge_variables,
+                target_index=self.graph.edge_checks,
+                target_slices=self.graph.check_slices,
+                n_targets=self.graph.n_checks,
+                edge_order=self.graph.check_order,
+                inverse_edge_order=self.graph.inverse_check_order,
+                return_attention=True,
+            )
+            refined_variable, c_to_v_attention = self.c_to_v(
+                target_hidden=variable_hidden,
+                source_hidden=refined_check,
+                edge_features=edge_features,
+                source_index=self.graph.edge_checks,
+                target_index=self.graph.edge_variables,
+                target_slices=self.graph.variable_slices,
+                n_targets=self.graph.n_variables,
+                return_attention=True,
+            )
+            attention = {
+                "v_to_c": v_to_c_attention,
+                "c_to_v": c_to_v_attention,
+            }
+        else:
+            refined_check = self.v_to_c(
+                target_hidden=check_hidden,
+                source_hidden=variable_hidden,
+                edge_features=edge_features,
+                source_index=self.graph.edge_variables,
+                target_index=self.graph.edge_checks,
+                target_slices=self.graph.check_slices,
+                n_targets=self.graph.n_checks,
+                edge_order=self.graph.check_order,
+                inverse_edge_order=self.graph.inverse_check_order,
+                return_attention=False,
+            )
+            refined_variable = self.c_to_v(
+                target_hidden=variable_hidden,
+                source_hidden=refined_check,
+                edge_features=edge_features,
+                source_index=self.graph.edge_checks,
+                target_index=self.graph.edge_variables,
+                target_slices=self.graph.variable_slices,
+                n_targets=self.graph.n_variables,
+                return_attention=False,
+            )
+        return refined_variable, refined_check, attention
+
+
+class HybridBPGAT(nn.Module):
+    """BP followed by one bidirectional edge-aware GATv2 refinement block."""
+
+    def __init__(
+        self,
+        parity_check: np.ndarray | Tensor,
+        bp_iterations: int = 5,
+        bp_damping: float = 0.0,
+        positional_dim: int = 0,
+        hidden_dim: int = 32,
+        heads: int = 2,
+        head_dim: int = 16,
+        dropout: float = 0.0,
+        correction_scale: float = 2.0,
+    ):
+        super().__init__()
+        if correction_scale <= 0.0:
+            raise ValueError("correction_scale must be positive.")
+        graph = TannerGraph.from_parity_check(
+            parity_check,
+            positional_dim=positional_dim,
+        )
+        self.graph = graph
+        self.positional_dim = positional_dim
+        self.correction_scale = float(correction_scale)
         self.bp = SumProductBP(graph, iterations=bp_iterations, damping=bp_damping)
-        self.gat = EdgeAwareGAT(
+        self.gat = BidirectionalEdgeGATv2(
             graph,
-            variable_dim=4,
-            check_dim=5,
-            edge_dim=4,
+            variable_dim=5 + positional_dim,
+            check_dim=6 + positional_dim,
+            edge_dim=6,
             hidden_dim=hidden_dim,
             heads=heads,
             head_dim=head_dim,
             dropout=dropout,
         )
         self.correction = nn.Sequential(
-            nn.Linear(4 + hidden_dim, hidden_dim),
-            nn.LayerNorm(hidden_dim),
-            nn.GELU(),
+            nn.Linear(2 * hidden_dim + 6, hidden_dim),
+            nn.SiLU(),
             nn.Linear(hidden_dim, 1),
         )
         # Start exactly at the BP decoder.  The refinement is learned as a
@@ -350,8 +699,25 @@ class HybridBPGAT(nn.Module):
             ),
             dim=-1,
         )
+        variable_degree = self.graph.variable_degrees.to(channel_llr.device)
+        variable_degree = (
+            variable_degree / variable_degree.max().clamp_min(1.0)
+        ).view(1, -1, 1).expand(channel_llr.shape[0], -1, -1)
+        variable_features = torch.cat(
+            (
+                variable_features,
+                variable_degree,
+                self.graph.variable_positional.to(channel_llr.device)
+                .unsqueeze(0)
+                .expand(channel_llr.shape[0], -1, -1),
+            ),
+            dim=-1,
+        )
         check_v2c = self.graph.mean_by_check(variable_to_check)
         check_c2v = self.graph.mean_by_check(check_to_variable)
+        soft_check_product = self.graph.product_by_check(
+            torch.tanh(0.5 * variable_to_check)
+        )
         check_features = torch.cat(
             (
                 check_v2c.unsqueeze(-1),
@@ -365,6 +731,10 @@ class HybridBPGAT(nn.Module):
                 .to(channel_llr.device)
                 .view(1, -1, 1)
                 .expand(channel_llr.shape[0], -1, -1),
+                (1.0 - soft_check_product).unsqueeze(-1),
+                self.graph.check_positional.to(channel_llr.device)
+                .unsqueeze(0)
+                .expand(channel_llr.shape[0], -1, -1),
             ),
             dim=-1,
         )
@@ -374,6 +744,8 @@ class HybridBPGAT(nn.Module):
                 check_to_variable,
                 variable_to_check.abs(),
                 check_to_variable.abs(),
+                torch.tanh(0.5 * variable_to_check),
+                torch.tanh(0.5 * check_to_variable),
             ),
             dim=-1,
         )
@@ -388,16 +760,36 @@ class HybridBPGAT(nn.Module):
         variable_features, check_features, edge_features = self._features(
             channel_llr, bp_llr, variable_to_check, check_to_variable
         )
-        gat_hidden, attention = self.gat(
-            variable_features, check_features, edge_features, return_attention=True
+        gat_variable, gat_check, attention = self.gat(
+            variable_features,
+            check_features,
+            edge_features,
+            return_attention=return_aux,
         )
-        correction = self.correction(torch.cat((variable_features, gat_hidden), dim=-1)).squeeze(-1)
+        edge_variables = self.graph.edge_variables.to(channel_llr.device)
+        edge_checks = self.graph.edge_checks.to(channel_llr.device)
+        edge_variable_hidden = gat_variable.index_select(1, edge_variables)
+        edge_check_hidden = gat_check.index_select(1, edge_checks)
+        edge_input = torch.cat(
+            (edge_variable_hidden, edge_check_hidden, edge_features), dim=-1
+        )
+        raw_edge_correction = self.correction(edge_input).squeeze(-1)
+        edge_correction = self.correction_scale * torch.tanh(raw_edge_correction)
+        correction = torch.zeros_like(bp_llr)
+        correction.scatter_add_(
+            1,
+            edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
+            edge_correction,
+        )
         final_llr = bp_llr + correction
         if return_aux:
             return final_llr, {
                 "bp_llr": bp_llr,
                 "correction": correction,
-                "attention": attention,
+                "edge_correction": edge_correction,
+                "attention": attention["c_to_v"],
+                "v_to_c_attention": attention["v_to_c"],
+                "c_to_v_attention": attention["c_to_v"],
                 "variable_to_check": variable_to_check,
                 "check_to_variable": check_to_variable,
             }

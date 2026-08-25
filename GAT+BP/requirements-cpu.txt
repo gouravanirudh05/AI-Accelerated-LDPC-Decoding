@@ -1,0 +1,6 @@
+# CPU-only environment for local tests and training.
+--index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0+cpu
+--extra-index-url https://pypi.org/simple
+numpy==2.5.2
+pytest==9.1.1

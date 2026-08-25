@@ -1,0 +1,27 @@
+# Reproducible baseline sweep for the existing GAT+BP architecture.
+# The Python CLI remains the source of truth; this file records the runs.
+
+code_type: LDPC
+code_n: 49
+code_k: 24
+
+bp_iterations: [1, 3, 5, 10]
+bp_damping: 0.0
+positional_dim: 0
+
+seed: 42
+validation_seed: 43
+deterministic: true
+
+train_ebn0_min: 2.0
+train_ebn0_max: 6.0
+eval_ebn0: [2.0, 3.0, 4.0, 5.0, 6.0]
+eval_frames: 102400
+
+# Existing model/training defaults; do not change for the baseline sweep.
+hidden_dim: 32
+heads: 2
+head_dim: 16
+dropout: 0.0
+correction_scale: 2.0
+correction_weight: 0.0001
