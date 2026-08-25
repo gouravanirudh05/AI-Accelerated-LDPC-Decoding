@@ -794,10 +794,11 @@ class HybridBPGAT(nn.Module):
     def _posterior_from_check_messages(
         self, channel_llr: Tensor, check_to_variable: Tensor
     ) -> Tensor:
+        edge_variables = self.graph.edge_variables.to(channel_llr.device)
         posterior = channel_llr.clone()
         posterior.scatter_add_(
             1,
-            self.graph.edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
+            edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
             check_to_variable,
         )
         return posterior
