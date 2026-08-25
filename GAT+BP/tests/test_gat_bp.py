@@ -164,6 +164,27 @@ def test_zero_initialized_correction_is_exact_bp() -> None:
     assert torch.equal(inference_llr, final_llr)
 
 
+def test_iterative_gat_schedule_has_finite_message_updates() -> None:
+    torch.manual_seed(11)
+    model = HybridBPGAT(
+        small_graph(),
+        bp_iterations=6,
+        gat_every=2,
+        positional_dim=0,
+        hidden_dim=8,
+        heads=2,
+        head_dim=4,
+    ).eval()
+    channel_llr = torch.randn(4, 4)
+
+    final_llr, auxiliary = model(channel_llr, return_aux=True)
+    assert len(auxiliary["stage_llrs"]) == 3
+    assert len(auxiliary["edge_corrections"]) == 3
+    assert final_llr.shape == channel_llr.shape
+    assert torch.isfinite(final_llr).all()
+    assert torch.isfinite(auxiliary["check_to_variable"]).all()
+
+
 def test_fixed_validation_dataset_and_evaluation_are_repeatable() -> None:
     parity_check = small_graph()
     generator = small_generator()

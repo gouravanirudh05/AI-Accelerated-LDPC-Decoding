@@ -227,6 +227,40 @@ class SumProductBP(nn.Module):
         ordered_messages = torch.cat(check_messages, dim=1)
         return ordered_messages.index_select(1, self.inverse_check_order)
 
+    def step(
+        self,
+        channel_llr: Tensor,
+        variable_to_check: Tensor,
+        check_to_variable: Tensor,
+    ) -> Tuple[Tensor, Tensor, Tensor]:
+        """Run one differentiable flooding-schedule BP iteration."""
+        new_check_to_variable = self._check_to_variable(variable_to_check)
+        if self.damping:
+            new_check_to_variable = (
+                self.damping * check_to_variable
+                + (1.0 - self.damping) * new_check_to_variable
+            )
+
+        incoming = torch.zeros_like(channel_llr)
+        incoming.scatter_add_(
+            1,
+            self.edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
+            new_check_to_variable,
+        )
+        new_variable_to_check = (
+            channel_llr.index_select(1, self.edge_variables)
+            + incoming.index_select(1, self.edge_variables)
+            - new_check_to_variable
+        )
+
+        posterior = channel_llr.clone()
+        posterior.scatter_add_(
+            1,
+            self.edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
+            new_check_to_variable,
+        )
+        return posterior, new_variable_to_check, new_check_to_variable
+
     def forward(
         self, channel_llr: Tensor, return_messages: bool = False
     ) -> Tensor | Tuple[Tensor, Tensor, Tensor]:
@@ -238,34 +272,13 @@ class SumProductBP(nn.Module):
         variable_to_check = channel_llr.index_select(1, self.edge_variables)
         check_to_variable = torch.zeros_like(variable_to_check)
 
+        posterior = channel_llr
         for _ in range(self.iterations):
-            new_check_to_variable = self._check_to_variable(variable_to_check)
-            if self.damping:
-                check_to_variable = (
-                    self.damping * check_to_variable
-                    + (1.0 - self.damping) * new_check_to_variable
-                )
-            else:
-                check_to_variable = new_check_to_variable
-
-            incoming = torch.zeros_like(channel_llr)
-            incoming.scatter_add_(
-                1,
-                self.edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
+            posterior, variable_to_check, check_to_variable = self.step(
+                channel_llr,
+                variable_to_check,
                 check_to_variable,
             )
-            variable_to_check = (
-                channel_llr.index_select(1, self.edge_variables)
-                + incoming.index_select(1, self.edge_variables)
-                - check_to_variable
-            )
-
-        posterior = channel_llr.clone()
-        posterior.scatter_add_(
-            1,
-            self.edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
-            check_to_variable,
-        )
         if return_messages:
             return posterior, variable_to_check, check_to_variable
         return posterior
@@ -651,10 +664,15 @@ class HybridBPGAT(nn.Module):
         head_dim: int = 16,
         dropout: float = 0.0,
         correction_scale: float = 2.0,
+        gat_every: int = 0,
     ):
         super().__init__()
         if correction_scale <= 0.0:
             raise ValueError("correction_scale must be positive.")
+        if gat_every < 0:
+            raise ValueError("gat_every must be non-negative.")
+        if gat_every > bp_iterations:
+            raise ValueError("gat_every cannot exceed bp_iterations.")
         graph = TannerGraph.from_parity_check(
             parity_check,
             positional_dim=positional_dim,
@@ -662,6 +680,10 @@ class HybridBPGAT(nn.Module):
         self.graph = graph
         self.positional_dim = positional_dim
         self.correction_scale = float(correction_scale)
+        # gat_every=0 preserves the original one-shot postprocessor.  A
+        # positive value injects a GAT message correction every N BP rounds,
+        # allowing the learned graph update to influence later BP messages.
+        self.gat_every = int(gat_every)
         self.bp = SumProductBP(graph, iterations=bp_iterations, damping=bp_damping)
         self.gat = BidirectionalEdgeGATv2(
             graph,
@@ -673,15 +695,33 @@ class HybridBPGAT(nn.Module):
             head_dim=head_dim,
             dropout=dropout,
         )
+        edge_input_dim = 2 * hidden_dim + 6
         self.correction = nn.Sequential(
-            nn.Linear(2 * hidden_dim + 6, hidden_dim),
+            nn.Linear(edge_input_dim, hidden_dim),
+            nn.SiLU(),
+            nn.Linear(hidden_dim, 1),
+        )
+        # These heads are used only by the iterative mode.  They are
+        # initialized to zero so the learned decoder starts exactly at BP.
+        self.v2c_message_correction = nn.Sequential(
+            nn.Linear(edge_input_dim, hidden_dim),
+            nn.SiLU(),
+            nn.Linear(hidden_dim, 1),
+        )
+        self.c2v_message_correction = nn.Sequential(
+            nn.Linear(edge_input_dim, hidden_dim),
             nn.SiLU(),
             nn.Linear(hidden_dim, 1),
         )
         # Start exactly at the BP decoder.  The refinement is learned as a
         # residual and cannot damage the initial BP solution at initialization.
-        nn.init.zeros_(self.correction[-1].weight)
-        nn.init.zeros_(self.correction[-1].bias)
+        for head in (
+            self.correction,
+            self.v2c_message_correction,
+            self.c2v_message_correction,
+        ):
+            nn.init.zeros_(head[-1].weight)
+            nn.init.zeros_(head[-1].bias)
 
     def _features(
         self,
@@ -751,45 +791,150 @@ class HybridBPGAT(nn.Module):
         )
         return variable_features, check_features, edge_features
 
+    def _posterior_from_check_messages(
+        self, channel_llr: Tensor, check_to_variable: Tensor
+    ) -> Tensor:
+        posterior = channel_llr.clone()
+        posterior.scatter_add_(
+            1,
+            self.graph.edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
+            check_to_variable,
+        )
+        return posterior
+
+    def _edge_inputs(
+        self,
+        variable_hidden: Tensor,
+        check_hidden: Tensor,
+        edge_features: Tensor,
+    ) -> Tensor:
+        edge_variables = self.graph.edge_variables.to(variable_hidden.device)
+        edge_checks = self.graph.edge_checks.to(variable_hidden.device)
+        return torch.cat(
+            (
+                variable_hidden.index_select(1, edge_variables),
+                check_hidden.index_select(1, edge_checks),
+                edge_features,
+            ),
+            dim=-1,
+        )
+
     def forward(
         self, channel_llr: Tensor, return_aux: bool = False
     ) -> Tensor | Tuple[Tensor, Dict[str, Tensor]]:
-        bp_llr, variable_to_check, check_to_variable = self.bp(
-            channel_llr, return_messages=True
-        )
-        variable_features, check_features, edge_features = self._features(
-            channel_llr, bp_llr, variable_to_check, check_to_variable
-        )
-        gat_variable, gat_check, attention = self.gat(
-            variable_features,
-            check_features,
-            edge_features,
-            return_attention=return_aux,
-        )
-        edge_variables = self.graph.edge_variables.to(channel_llr.device)
-        edge_checks = self.graph.edge_checks.to(channel_llr.device)
-        edge_variable_hidden = gat_variable.index_select(1, edge_variables)
-        edge_check_hidden = gat_check.index_select(1, edge_checks)
-        edge_input = torch.cat(
-            (edge_variable_hidden, edge_check_hidden, edge_features), dim=-1
-        )
-        raw_edge_correction = self.correction(edge_input).squeeze(-1)
-        edge_correction = self.correction_scale * torch.tanh(raw_edge_correction)
-        correction = torch.zeros_like(bp_llr)
-        correction.scatter_add_(
-            1,
-            edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
-            edge_correction,
-        )
-        final_llr = bp_llr + correction
+        # Backward-compatible efficient mode: run BP once, then apply one
+        # residual GAT correction to the final posterior.
+        if self.gat_every == 0:
+            bp_llr, variable_to_check, check_to_variable = self.bp(
+                channel_llr, return_messages=True
+            )
+            variable_features, check_features, edge_features = self._features(
+                channel_llr, bp_llr, variable_to_check, check_to_variable
+            )
+            gat_variable, gat_check, attention = self.gat(
+                variable_features,
+                check_features,
+                edge_features,
+                return_attention=return_aux,
+            )
+            edge_input = self._edge_inputs(
+                gat_variable, gat_check, edge_features
+            )
+            raw_edge_correction = self.correction(edge_input).squeeze(-1)
+            edge_correction = self.correction_scale * torch.tanh(raw_edge_correction)
+            edge_variables = self.graph.edge_variables.to(channel_llr.device)
+            correction = torch.zeros_like(bp_llr)
+            correction.scatter_add_(
+                1,
+                edge_variables.unsqueeze(0).expand(channel_llr.shape[0], -1),
+                edge_correction,
+            )
+            final_llr = bp_llr + correction
+            if return_aux:
+                return final_llr, {
+                    "bp_llr": bp_llr,
+                    "correction": correction,
+                    "edge_correction": edge_correction,
+                    "edge_corrections": [edge_correction],
+                    "stage_llrs": [final_llr],
+                    "attention": attention["c_to_v"],
+                    "v_to_c_attention": attention["v_to_c"],
+                    "c_to_v_attention": attention["c_to_v"],
+                    "variable_to_check": variable_to_check,
+                    "check_to_variable": check_to_variable,
+                }
+            return final_llr
+
+        # Iterative mode: the GAT predicts residual V->C and C->V message
+        # updates.  The corrected messages are fed into the next BP round,
+        # which lets the graph network escape BP fixed points.
+        variable_to_check = channel_llr.index_select(1, self.bp.edge_variables)
+        check_to_variable = torch.zeros_like(variable_to_check)
+        final_llr = channel_llr
+        last_plain_bp_llr = channel_llr
+        stage_llrs = []
+        edge_corrections = []
+        attention: Dict[str, Tensor] = {}
+
+        for iteration in range(1, self.bp.iterations + 1):
+            plain_bp_llr, variable_to_check, check_to_variable = self.bp.step(
+                channel_llr,
+                variable_to_check,
+                check_to_variable,
+            )
+            last_plain_bp_llr = plain_bp_llr
+            if iteration % self.gat_every != 0:
+                continue
+
+            variable_features, check_features, edge_features = self._features(
+                channel_llr,
+                plain_bp_llr,
+                variable_to_check,
+                check_to_variable,
+            )
+            gat_variable, gat_check, current_attention = self.gat(
+                variable_features,
+                check_features,
+                edge_features,
+                return_attention=return_aux,
+            )
+            if return_aux:
+                attention = current_attention
+            edge_input = self._edge_inputs(
+                gat_variable, gat_check, edge_features
+            )
+            raw_v2c = self.v2c_message_correction(edge_input).squeeze(-1)
+            raw_c2v = self.c2v_message_correction(edge_input).squeeze(-1)
+            v2c_delta = self.correction_scale * torch.tanh(raw_v2c)
+            c2v_delta = self.correction_scale * torch.tanh(raw_c2v)
+            variable_to_check = variable_to_check + v2c_delta
+            check_to_variable = check_to_variable + c2v_delta
+            final_llr = self._posterior_from_check_messages(
+                channel_llr, check_to_variable
+            )
+            stage_llrs.append(final_llr)
+            edge_corrections.append(torch.cat((v2c_delta, c2v_delta), dim=1))
+
+        # If the schedule does not land exactly on the last BP iteration, the
+        # final posterior still comes from the last corrected C->V messages.
+        if not stage_llrs:
+            final_llr = last_plain_bp_llr
+        correction = final_llr - last_plain_bp_llr
         if return_aux:
+            last_edge_correction = (
+                edge_corrections[-1]
+                if edge_corrections
+                else torch.zeros_like(variable_to_check)
+            )
             return final_llr, {
-                "bp_llr": bp_llr,
+                "bp_llr": last_plain_bp_llr,
                 "correction": correction,
-                "edge_correction": edge_correction,
-                "attention": attention["c_to_v"],
-                "v_to_c_attention": attention["v_to_c"],
-                "c_to_v_attention": attention["c_to_v"],
+                "edge_correction": last_edge_correction,
+                "edge_corrections": edge_corrections,
+                "stage_llrs": stage_llrs,
+                "attention": attention.get("c_to_v"),
+                "v_to_c_attention": attention.get("v_to_c"),
+                "c_to_v_attention": attention.get("c_to_v"),
                 "variable_to_check": variable_to_check,
                 "check_to_variable": check_to_variable,
             }

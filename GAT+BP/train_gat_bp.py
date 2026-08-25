@@ -22,9 +22,10 @@ from typing import Dict, Iterable, Mapping, Optional, Tuple
 
 import numpy as np
 import torch
+from torch.nn import functional as F
 
 from Codes import Get_Generator_and_Parity
-from gat_bp import HybridBPGAT, bce_from_llr, hard_decode
+from gat_bp import HybridBPGAT, hard_decode
 
 
 def configure_logger(log_file: Path) -> logging.Logger:
@@ -137,6 +138,35 @@ def parity_consistency_loss(llr: torch.Tensor, parity_check: torch.Tensor) -> to
         even_probability = ((1.0 + check_product) * 0.5).clamp_min(1e-6)
         check_losses.append(-torch.log(even_probability).mean())
     return torch.stack(check_losses).mean()
+
+
+def fer_aware_decode_loss(
+    llr: torch.Tensor,
+    target: torch.Tensor,
+    frame_focus_weight: float = 0.0,
+    soft_frame_weight: float = 0.0,
+) -> torch.Tensor:
+    """BCE with optional emphasis on frames containing bit errors."""
+    per_bit = F.binary_cross_entropy_with_logits(
+        -llr,
+        target.float(),
+        reduction="none",
+    )
+    if frame_focus_weight:
+        hard_frame = (hard_decode(llr) != target).any(dim=1).float().detach()
+        per_bit = per_bit * (
+            1.0 + frame_focus_weight * hard_frame.unsqueeze(1)
+        )
+    loss = per_bit.mean()
+
+    if soft_frame_weight:
+        signed_llr = llr * (1.0 - 2.0 * target.float())
+        bit_error_probability = torch.sigmoid(-signed_llr)
+        frame_error_probability = 1.0 - torch.prod(
+            (1.0 - bit_error_probability).clamp_min(1e-6), dim=1
+        )
+        loss = loss + soft_frame_weight * frame_error_probability.mean()
+    return loss
 
 
 def syndrome_error_count(
@@ -280,6 +310,11 @@ def evaluate(
             final_llr, aux = model(llr, return_aux=True)
             final_pred = hard_decode(final_llr)
             bp_pred = hard_decode(aux["bp_llr"])
+            if getattr(model, "gat_every", 0):
+                # Iterative GAT corrections are fed back into BP, so the
+                # pre-correction state in aux is not an independent BP
+                # baseline. Compute plain BP separately for the comparison.
+                bp_pred = hard_decode(model.bp(llr))
             bit_errors, frame_errors, bits = error_counts(final_pred, target)
             final_bit_errors += bit_errors
             final_frame_errors += frame_errors
@@ -338,6 +373,7 @@ def train(args: argparse.Namespace) -> None:
         head_dim=args.head_dim,
         dropout=args.dropout,
         correction_scale=args.correction_scale,
+        gat_every=args.gat_every,
     ).to(device)
     generator = generator.to(device)
     parity_check = parity_check.to(device)
@@ -395,16 +431,56 @@ def train(args: argparse.Namespace) -> None:
     started = time.time()
     for step in range(1, args.steps + 1):
         model.train()
-        ebn0 = torch.empty(args.batch_size, device=device).uniform_(args.train_ebn0_min, args.train_ebn0_max)
+        if args.train_ebn0_values:
+            snr_values = torch.as_tensor(
+                args.train_ebn0_values,
+                device=device,
+                dtype=torch.float32,
+            )
+            snr_indices = torch.randint(
+                0,
+                snr_values.numel(),
+                (args.batch_size,),
+                device=device,
+            )
+            ebn0 = snr_values.index_select(0, snr_indices)
+        else:
+            ebn0 = torch.empty(args.batch_size, device=device).uniform_(
+                args.train_ebn0_min,
+                args.train_ebn0_max,
+            )
         channel_llr, target, _, _ = sample_channel_batch(
             generator, args.batch_size, ebn0, device, zero_codeword=args.zero_codeword
         )
         final_llr, aux = model(channel_llr, return_aux=True)
-        bce_loss = bce_from_llr(final_llr, target)
+        bce_loss = fer_aware_decode_loss(
+            final_llr,
+            target,
+            frame_focus_weight=args.frame_focus_weight,
+            soft_frame_weight=args.soft_frame_weight,
+        )
+        stage_llrs = aux.get("stage_llrs", [])
+        intermediate_loss = torch.zeros_like(bce_loss)
+        if args.deep_supervision_weight and len(stage_llrs) > 1:
+            intermediate_losses = [
+                fer_aware_decode_loss(
+                    stage_llr,
+                    target,
+                    frame_focus_weight=args.frame_focus_weight,
+                    soft_frame_weight=args.soft_frame_weight,
+                )
+                for stage_llr in stage_llrs[:-1]
+            ]
+            intermediate_loss = torch.stack(intermediate_losses).mean()
         parity_loss = parity_consistency_loss(final_llr, parity_check)
-        correction_loss = aux["edge_correction"].abs().mean()
+        edge_corrections = aux.get("edge_corrections", [])
+        if edge_corrections:
+            correction_loss = torch.cat(edge_corrections, dim=1).abs().mean()
+        else:
+            correction_loss = aux["edge_correction"].abs().mean()
         loss = (
             bce_loss
+            + args.deep_supervision_weight * intermediate_loss
             + args.parity_weight * parity_loss
             + args.correction_weight * correction_loss
         )
@@ -422,6 +498,7 @@ def train(args: argparse.Namespace) -> None:
             elapsed = time.time() - started
             logger.info(
                 f"step={step:6d} loss={loss.item():.4e} bce={bce_loss.item():.4e} "
+                f"deep={intermediate_loss.item():.4e} "
                 f"parity={parity_loss.item():.4e} correction={correction_loss.item():.4e} "
                 f"ber={ber:.4e} fer={fer:.4e} "
                 f"lr={scheduler.get_last_lr()[0]:.2e} time={elapsed:.1f}s"
@@ -492,9 +569,33 @@ def make_parser() -> argparse.ArgumentParser:
     parser.add_argument("--code-k", type=int, default=24)
     parser.add_argument("--bp-iterations", type=int, default=5)
     parser.add_argument("--bp-damping", type=float, default=0.0)
+    parser.add_argument(
+        "--gat-every",
+        type=int,
+        default=0,
+        help="Inject GAT message corrections every N BP rounds; 0 keeps one-shot mode.",
+    )
     parser.add_argument("--positional-dim", type=int, default=0)
     parser.add_argument("--parity-weight", type=float, default=0.05)
     parser.add_argument("--correction-weight", type=float, default=1e-4)
+    parser.add_argument(
+        "--frame-focus-weight",
+        type=float,
+        default=0.0,
+        help="Extra BCE weight for frames with at least one detached hard-decision error.",
+    )
+    parser.add_argument(
+        "--soft-frame-weight",
+        type=float,
+        default=0.0,
+        help="Weight for the differentiable noisy-OR frame-error estimate.",
+    )
+    parser.add_argument(
+        "--deep-supervision-weight",
+        type=float,
+        default=0.0,
+        help="Weight for losses on intermediate iterative GAT outputs.",
+    )
     parser.add_argument("--hidden-dim", type=int, default=32)
     parser.add_argument("--heads", type=int, default=2)
     parser.add_argument("--head-dim", type=int, default=16)
@@ -509,6 +610,13 @@ def make_parser() -> argparse.ArgumentParser:
     parser.add_argument("--log-every", type=int, default=50)
     parser.add_argument("--train-ebn0-min", type=float, default=2.0)
     parser.add_argument("--train-ebn0-max", type=float, default=6.0)
+    parser.add_argument(
+        "--train-ebn0-values",
+        type=float,
+        nargs="+",
+        default=[],
+        help="Balanced discrete training SNR values; overrides train-ebn0-min/max.",
+    )
     parser.add_argument("--eval-ebn0", type=float, nargs="+", default=[2.0, 3.0, 4.0, 5.0, 6.0])
     parser.add_argument("--eval-every", type=int, default=500)
     parser.add_argument("--eval-batches", type=int, default=50)
