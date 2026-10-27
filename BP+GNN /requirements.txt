@@ -1,0 +1,17 @@
+# CPU environment for the corrector package.
+#   ./.venv/bin/pip install -r ldpc_corrector/requirements.txt
+#
+# The repo's .venv already carries torch/numpy/pytest from GAT+BP; the rest
+# were added for this package. torch_geometric 2.8 needs no torch_scatter or
+# torch_sparse -- it falls back to torch.scatter_reduce, which is enough here.
+--index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0+cpu
+--extra-index-url https://pypi.org/simple
+numpy==2.5.2
+pytest==9.1.1
+torch_geometric==2.8.0
+# Evaluation and plotting: .venv had torch but no plotting stack, so nothing
+# could both decode and produce a figure.
+matplotlib==3.10.7
+pyyaml==6.0.3
+scipy==1.16.3
