@@ -1,0 +1,174 @@
+{
+  "retrieved": "2026-10-29",
+  "codes": [
+    {
+      "file": "MACKAY_N204_K102.alist",
+      "n": 204,
+      "m": 102,
+      "rank": 102,
+      "k": 102,
+      "rate": 0.5,
+      "edges": 612,
+      "vn_degrees": [
+        3
+      ],
+      "cn_degrees": [
+        6
+      ],
+      "girth": 6,
+      "sha256": "03f8b364a9e731b8df8ce192d3f7a36c4ef58c170f0be8a9662544867be52517",
+      "family": "MacKay regular (3,6) Gallager code",
+      "source_id": "204.33.484",
+      "url": "https://www.inference.org.uk/mackay/codes/EN/C/204.33.484",
+      "source_sha256": "03f8b364a9e731b8df8ce192d3f7a36c4ef58c170f0be8a9662544867be52517",
+      "modified": false
+    },
+    {
+      "file": "WIMAX_N576_K288.alist",
+      "n": 576,
+      "m": 288,
+      "rank": 288,
+      "k": 288,
+      "rate": 0.5,
+      "edges": 1824,
+      "vn_degrees": [
+        2,
+        3,
+        6
+      ],
+      "cn_degrees": [
+        6,
+        7
+      ],
+      "girth": 6,
+      "sha256": "0d75a8f10d1cdb5d2ad5331a2b0d3f361a10fd42d964f906e5e28566c50d9a31",
+      "family": "IEEE 802.16e (WiMAX) rate 1/2, z=24, QC",
+      "source_id": "WIMAX_288_576",
+      "url": "https://raw.githubusercontent.com/aff3ct/configuration_files/develop/dec/LDPC/WIMAX_288_576.alist",
+      "source_sha256": "0d75a8f10d1cdb5d2ad5331a2b0d3f361a10fd42d964f906e5e28566c50d9a31",
+      "modified": false,
+      "reference_curve": "references/LDPC_N576_K288_flooding_SPA_i100_WiMAX.txt"
+    },
+    {
+      "file": "WIFI_N648_K540.alist",
+      "n": 648,
+      "m": 108,
+      "rank": 108,
+      "k": 540,
+      "rate": 0.8333,
+      "edges": 2376,
+      "vn_degrees": [
+        2,
+        3,
+        4
+      ],
+      "cn_degrees": [
+        22
+      ],
+      "girth": 6,
+      "sha256": "e785e0bf825e1d1a441aa6650cff7b782df9b7bad7f5b4c295a21bc91a094019",
+      "family": "IEEE 802.11n (Wi-Fi) rate 5/6, z=27, QC",
+      "source_id": "WIFI_540_648",
+      "url": "https://raw.githubusercontent.com/aff3ct/configuration_files/develop/dec/LDPC/WIFI_540_648.alist",
+      "source_sha256": "e785e0bf825e1d1a441aa6650cff7b782df9b7bad7f5b4c295a21bc91a094019",
+      "modified": false,
+      "reference_curve": "references/LDPC_N648_K540_hlayered_SPA_i10_Wi-Fi.txt"
+    },
+    {
+      "file": "MACKAY_N816_K410.alist",
+      "n": 816,
+      "m": 408,
+      "rank": 406,
+      "k": 410,
+      "rate": 0.5025,
+      "edges": 2448,
+      "vn_degrees": [
+        3
+      ],
+      "cn_degrees": [
+        6
+      ],
+      "girth": 6,
+      "sha256": "9f8d3bc342793b3ece1bcd6f818e92c05b9eb241d3880cf1dc40e3586eaade16",
+      "family": "MacKay regular (3,6) Gallager code",
+      "source_id": "816.3.174",
+      "url": "https://www.inference.org.uk/mackay/codes/EN/C/816.3.174",
+      "source_sha256": "9f8d3bc342793b3ece1bcd6f818e92c05b9eb241d3880cf1dc40e3586eaade16",
+      "modified": false,
+      "note": "MacKay lists K=408; H has 2 dependent rows so the true dimension is 410."
+    },
+    {
+      "file": "MACKAY_N1008_K504.alist",
+      "n": 1008,
+      "m": 504,
+      "rank": 504,
+      "k": 504,
+      "rate": 0.5,
+      "edges": 3024,
+      "vn_degrees": [
+        3
+      ],
+      "cn_degrees": [
+        6
+      ],
+      "girth": 6,
+      "sha256": "d0735fe217b40777da09f5d9c04e25f61b9982c335c7b6ae4ff3aeac9a1d0795",
+      "family": "MacKay regular (3,6) Gallager code",
+      "source_id": "504.504.3.504",
+      "url": "https://www.inference.org.uk/mackay/codes/504.504.3.504",
+      "source_sha256": "d0735fe217b40777da09f5d9c04e25f61b9982c335c7b6ae4ff3aeac9a1d0795",
+      "modified": false,
+      "note": "Token-identical to AFF3CT MACKAY_504_1008.alist.",
+      "reference_curve": "references/LDPC_N1008_K504_flooding_GALA_i200_MacKay.txt"
+    },
+    {
+      "file": "PEG_N1008_K504.alist",
+      "n": 1008,
+      "m": 504,
+      "rank": 504,
+      "k": 504,
+      "rate": 0.5,
+      "edges": 3024,
+      "vn_degrees": [
+        3
+      ],
+      "cn_degrees": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "girth": 8,
+      "sha256": "ded664ad1fb1605733e0fc8901ad05bf29e1e64a9f90a40a20b8e3d3a2c8e180",
+      "family": "Progressive-edge-growth (Hu et al.), column weight 3",
+      "source_id": "PEG_Reg_1008x504",
+      "url": "https://raw.githubusercontent.com/aff3ct/configuration_files/develop/dec/LDPC/PEG_Reg_1008x504.alist",
+      "source_sha256": "ded664ad1fb1605733e0fc8901ad05bf29e1e64a9f90a40a20b8e3d3a2c8e180",
+      "modified": false
+    },
+    {
+      "file": "ETH10G_N2048_K1723.alist",
+      "n": 2048,
+      "m": 384,
+      "rank": 325,
+      "k": 1723,
+      "rate": 0.8413,
+      "edges": 12288,
+      "vn_degrees": [
+        6
+      ],
+      "cn_degrees": [
+        32
+      ],
+      "girth": 6,
+      "sha256": "2e5aa3530fa0331f78a3091dcb134dfa5f78578d12628825740bb9d6b6e37e64",
+      "family": "IEEE 802.3an (10GBASE-T) RS-based LDPC",
+      "source_id": "10GBPS-ETHERNET_1723_2048",
+      "url": "https://raw.githubusercontent.com/aff3ct/configuration_files/develop/dec/LDPC/10GBPS-ETHERNET_1723_2048.alist",
+      "source_sha256": "82bb985534f6e211744157dd1e4dc95f8f27150e57ff6611fb4f418faa69edee",
+      "modified": true,
+      "note": "Leading '#' comment line removed so every file is plain, comment-free alist; matrix unchanged.",
+      "reference_curve": "references/LDPC_N2048_K1723_flooding_SPA_i100_eth_10Gbps.txt"
+    }
+  ]
+}

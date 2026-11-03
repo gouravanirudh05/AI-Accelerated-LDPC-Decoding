@@ -231,3 +231,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# sparse_gt: code provenance must be tracked despite the *.json rule above; run outputs are not.
+!codes/manifest.json
+results/
