@@ -1,0 +1,381 @@
+{
+ "experiment": "tune3a_5G_BG1_k528_n704",
+ "device": "cuda",
+ "gpu": "Tesla T4",
+ "models": {
+  "SGT r3_k50": {
+   "kind": "sgt",
+   "params": 72193,
+   "kwargs": {
+    "d": 64,
+    "heads": 4,
+    "hidden": 128,
+    "gt_layers": 2,
+    "k_frac": 0.5,
+    "k_min": 8,
+    "stages": 4,
+    "bp_iters": 10,
+    "attn": "global",
+    "select": "llr",
+    "fix": "residual",
+    "base": "prior",
+    "struct_bias": true,
+    "warm": false,
+    "num_vn_types": 68,
+    "num_cn_types": 46,
+    "num_edge_types": 316
+   },
+   "train_cfg": {
+    "steps": 10000000,
+    "batch": 192,
+    "lr": 0.001,
+    "lr_min": 1e-05,
+    "lam_syn": 0.1,
+    "eval_every": 500,
+    "val_frames": 16384,
+    "grad_clip": 1.0,
+    "max_minutes": 30.0,
+    "schedule": "plateau",
+    "patience": 6,
+    "hard_frac": 0.75,
+    "mining_bp_iters": 10,
+    "pool_bins": 4,
+    "pool_new": 64,
+    "pool_init": 1024,
+    "pool_size": 20000,
+    "pool_refresh_every": 10,
+    "mining_chunk": 32768,
+    "mining_max_frames": 262144,
+    "val_mode": "hard",
+    "val_hard_bins": 3,
+    "val_hard_frames": 1000,
+    "val_hard_max_frames": 8000000,
+    "train_ebno": [
+     1.5,
+     3.75
+    ],
+    "val_ebno": 3.88,
+    "val_hard_ebno": [
+     3.88,
+     4.75
+    ]
+   },
+   "train_minutes": 30.18,
+   "history": [
+    {
+     "step": 500,
+     "minutes": 16.72,
+     "loss": 0.07898790389299393,
+     "bce": 0.06605298817157745,
+     "syn": 0.12934914231300354,
+     "val_ber": 7.543263517528223e-06,
+     "val_bler": 0.0001838235294117647,
+     "lr": 0.001,
+     "hard_fer": [
+      0.031,
+      0.018,
+      0.028169014084507043
+     ],
+     "hard_score": 0.025723004694835683,
+     "pool_sizes": [
+      4224,
+      4224,
+      4224,
+      4224
+     ]
+    },
+    {
+     "step": 985,
+     "minutes": 30.02,
+     "loss": 0.0830911174416542,
+     "bce": 0.06670548766851425,
+     "syn": 0.16385629773139954,
+     "val_ber": 7.311163101604278e-06,
+     "val_bler": 0.00024509803921568627,
+     "lr": 0.001,
+     "hard_fer": [
+      0.034,
+      0.019,
+      0.030181086519114688
+     ],
+     "hard_score": 0.027727028839704893,
+     "pool_sizes": [
+      7296,
+      7296,
+      7296,
+      7296
+     ]
+    }
+   ],
+   "train_codes": [
+    "5G_BG1_k528_n704"
+   ]
+  },
+  "SGT r3_w50m50": {
+   "kind": "sgt",
+   "params": 72193,
+   "kwargs": {
+    "d": 64,
+    "heads": 4,
+    "hidden": 128,
+    "gt_layers": 2,
+    "k_frac": 0.5,
+    "k_min": 8,
+    "stages": 4,
+    "bp_iters": 10,
+    "attn": "global",
+    "select": "llr",
+    "fix": "residual",
+    "base": "prior",
+    "struct_bias": true,
+    "warm": true,
+    "num_vn_types": 68,
+    "num_cn_types": 46,
+    "num_edge_types": 316
+   },
+   "train_cfg": {
+    "steps": 10000000,
+    "batch": 192,
+    "lr": 0.001,
+    "lr_min": 1e-05,
+    "lam_syn": 0.1,
+    "eval_every": 500,
+    "val_frames": 16384,
+    "grad_clip": 1.0,
+    "max_minutes": 30.0,
+    "schedule": "plateau",
+    "patience": 6,
+    "hard_frac": 0.75,
+    "mining_bp_iters": 50,
+    "pool_bins": 4,
+    "pool_new": 64,
+    "pool_init": 1024,
+    "pool_size": 20000,
+    "pool_refresh_every": 50,
+    "mining_chunk": 32768,
+    "mining_max_frames": 262144,
+    "val_mode": "hard",
+    "val_hard_bins": 3,
+    "val_hard_frames": 1000,
+    "val_hard_max_frames": 4000000,
+    "train_ebno": [
+     1.5,
+     3.75
+    ],
+    "val_ebno": 3.88,
+    "val_hard_ebno": [
+     3.88,
+     4.75
+    ]
+   },
+   "train_minutes": 30.04,
+   "history": [
+    {
+     "step": 500,
+     "minutes": 16.02,
+     "loss": 0.30449220538139343,
+     "bce": 0.2766287922859192,
+     "syn": 0.278634250164032,
+     "val_ber": 5.802510398098633e-06,
+     "val_bler": 0.0001838235294117647,
+     "lr": 0.001,
+     "hard_fer": [
+      0.7310344827586207,
+      0.8571428571428571,
+      1.0
+     ],
+     "hard_score": 0.8627257799671592,
+     "pool_sizes": [
+      1664,
+      1664,
+      1664,
+      1112
+     ]
+    },
+    {
+     "step": 1000,
+     "minutes": 28.21,
+     "loss": 0.21450889110565186,
+     "bce": 0.18703162670135498,
+     "syn": 0.27477261424064636,
+     "val_ber": 3.5975564468211526e-06,
+     "val_bler": 0.0001838235294117647,
+     "lr": 0.001,
+     "hard_fer": [
+      0.7862068965517242,
+      0.9047619047619048,
+      1.0
+     ],
+     "hard_score": 0.8969896004378763,
+     "pool_sizes": [
+      2304,
+      2304,
+      2304,
+      1752
+     ]
+    },
+    {
+     "step": 1077,
+     "minutes": 30.01,
+     "loss": 0.2761082947254181,
+     "bce": 0.2510201930999756,
+     "syn": 0.2508809566497803,
+     "val_ber": 4.8741087344028524e-06,
+     "val_bler": 0.0001838235294117647,
+     "lr": 0.001,
+     "hard_fer": [
+      0.7586206896551724,
+      0.9047619047619048,
+      1.0
+     ],
+     "hard_score": 0.8877941981390257,
+     "pool_sizes": [
+      2368,
+      2368,
+      2368,
+      1816
+     ]
+    }
+   ],
+   "train_codes": [
+    "5G_BG1_k528_n704"
+   ]
+  }
+ },
+ "codes": {
+  "5G_BG1_k528_n704": {
+   "code": {
+    "name": "5G_BG1_k528_n704",
+    "n": 704,
+    "k": 528,
+    "rate": 0.75,
+    "H_shape": [
+     240,
+     768
+    ],
+    "edges": 2928,
+    "rank": 240,
+    "bg": "bg1",
+    "Z": 24,
+    "i_ls": 1,
+    "k_ldpc": 528,
+    "fillers": 0,
+    "punctured": 64,
+    "base_rows_kept": 10,
+    "base_cols_kept": 32
+   },
+   "ber_bler": {
+    "SGT r3_k50": [
+     {
+      "ebno": 3.25,
+      "ber": 0.0003894014514131702,
+      "bler": 0.007662259615384615,
+      "frames": 13312,
+      "frame_errors": 102,
+      "bit_errors": 2737,
+      "avg_iters": 9.101036658653847,
+      "osd_frac": 0.0,
+      "seconds": 2.17
+     },
+     {
+      "ebno": 3.5,
+      "ber": 9.132154060132575e-05,
+      "bler": 0.0017961774553571428,
+      "frames": 57344,
+      "frame_errors": 103,
+      "bit_errors": 2765,
+      "avg_iters": 7.323887416294643,
+      "osd_frac": 0.0,
+      "seconds": 5.21
+     },
+     {
+      "ebno": 3.75,
+      "ber": 1.6069767844921175e-05,
+      "bler": 0.0003072673286604361,
+      "frames": 328704,
+      "frame_errors": 101,
+      "bit_errors": 2789,
+      "avg_iters": 6.340114510319315,
+      "osd_frac": 0.0,
+      "seconds": 18.24
+     }
+    ],
+    "SGT r3_w50m50": [
+     {
+      "ebno": 3.25,
+      "ber": 0.00041013775449810606,
+      "bler": 0.00616455078125,
+      "frames": 16384,
+      "frame_errors": 101,
+      "bit_errors": 3548,
+      "avg_iters": 8.34295654296875,
+      "osd_frac": 0.0,
+      "seconds": 2.49
+     },
+     {
+      "ebno": 3.5,
+      "ber": 9.166482832587237e-05,
+      "bler": 0.0014796401515151515,
+      "frames": 67584,
+      "frame_errors": 100,
+      "bit_errors": 3271,
+      "avg_iters": 7.079308712121212,
+      "osd_frac": 0.0,
+      "seconds": 5.97
+     },
+     {
+      "ebno": 3.75,
+      "ber": 1.3752300601783968e-05,
+      "bler": 0.000225014400921659,
+      "frames": 444416,
+      "frame_errors": 100,
+      "bit_errors": 3227,
+      "avg_iters": 6.2734149985599075,
+      "osd_frac": 0.0,
+      "seconds": 21.73
+     }
+    ],
+    "BP (50 it)": [
+     {
+      "ebno": 3.25,
+      "ber": 0.00025997277462121214,
+      "bler": 0.0039453125,
+      "frames": 25600,
+      "frame_errors": 101,
+      "bit_errors": 3514,
+      "avg_iters": 8.3001953125,
+      "osd_frac": 0.0,
+      "seconds": 1.5
+     },
+     {
+      "ebno": 3.5,
+      "ber": 6.889574455492425e-05,
+      "bler": 0.0011742001488095238,
+      "frames": 86016,
+      "frame_errors": 101,
+      "bit_errors": 3129,
+      "avg_iters": 7.0754278273809526,
+      "osd_frac": 0.0,
+      "seconds": 4.25
+     },
+     {
+      "ebno": 3.75,
+      "ber": 1.0021479442866162e-05,
+      "bler": 0.00016276041666666666,
+      "frames": 614400,
+      "frame_errors": 100,
+      "bit_errors": 3251,
+      "avg_iters": 6.274601236979167,
+      "osd_frac": 0.0,
+      "seconds": 21.39
+     }
+    ]
+   },
+   "macs": {
+    "SGT r3_k50": 133950912,
+    "SGT r3_w50m50": 133950912
+   },
+   "prof_ebno": 3.25
+  }
+ }
+}

@@ -1,0 +1,29 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+wimax_576_288: {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288}
+config r3_k50: {'k_frac': 0.5} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.5, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': False, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}
+config r3_w50m50: {'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.5, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}
+
+=== tune3a_wimax_576_288: training SGT r3_k50 (68289 parameters) on ['wimax_576_288'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354
+  step    500 |   13.9 min | lr 1.0e-03 | loss 0.0860 (bce 0.0758, syn 0.1020) | val BER 1.28e-05 BLER 2.45e-04 | hard-set FER 0.041 0.051 0.090
+  step   1000 |   26.2 min | lr 1.0e-03 | loss 0.0813 (bce 0.0708, syn 0.1058) | val BER 6.81e-06 BLER 1.23e-04 | hard-set FER 0.034 0.042 0.073
+  step   1154 |   30.0 min | lr 1.0e-03 | loss 0.0829 (bce 0.0740, syn 0.0882) | val BER 8.94e-06 BLER 1.84e-04 | hard-set FER 0.033 0.045 0.071
+
+=== tune3a_wimax_576_288: training SGT r3_w50m50 (68289 parameters) on ['wimax_576_288'] ===
+  hard pools (per band): [[1024, 1024, 1024, 199]]
+  hard validation set: 3.00-3.33 dB: 120, 3.33-3.67 dB: 36, 3.67-4.00 dB: 1
+  step    500 |   13.4 min | lr 1.0e-03 | loss 0.1925 (bce 0.1678, syn 0.2478) | val BER 4.26e-06 BLER 6.13e-05 | hard-set FER 0.675 0.806 0.000
+  step   1000 |   25.0 min | lr 1.0e-03 | loss 0.1884 (bce 0.1630, syn 0.2545) | val BER 8.72e-06 BLER 1.23e-04 | hard-set FER 0.650 0.611 0.000
+  step   1220 |   30.0 min | lr 1.0e-03 | loss 0.1941 (bce 0.1665, syn 0.2762) | val BER 5.53e-06 BLER 6.13e-05 | hard-set FER 0.717 0.750 0.000
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune3a_wimax_576_288: evaluating on wimax_576_288 {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288} ---
+  SGT r3_k50                         2.50dB:2.1e-03 2.75dB:6.0e-04 3.00dB:1.3e-04
+  SGT r3_w50m50                      2.50dB:1.6e-03 2.75dB:3.6e-04 3.00dB:8.2e-05
+  BP (50 it)                         2.50dB:1.3e-03 2.75dB:3.4e-04 3.00dB:6.8e-05
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   1.192  r3_w50m50  hard-set FER 0.42037037037037034  {'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}
+   1.779  r3_k50     hard-set FER 0.049540489642184556  {'k_frac': 0.5}
+done

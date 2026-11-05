@@ -1,0 +1,44 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+mackay_204_102: {'name': 'mackay_204_102', 'n': 204, 'k': 102, 'rate': 0.5, 'H_shape': [102, 204], 'edges': 612, 'rank': 102}
+config r2_w30cos: {'warm': True, 'k_frac': 0.3, 'schedule': 'cosine'} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.3, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}
+config r2_w50c: {'warm': True, 'k_frac': 0.5, 'hard_frac': 0.5, 'heads': 8} -> kwargs {'d': 64, 'heads': 8, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.5, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}
+
+=== tune2d_mackay_204_102: training SGT r2_w30cos (68097 parameters) on ['mackay_204_102'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.75-4.17 dB: 1000, 4.17-4.58 dB: 1000, 4.58-5.00 dB: 969
+  step    500 |    1.9 min | lr 9.8e-04 | loss 0.1281 (bce 0.1100, syn 0.1815) | val BER 6.02e-05 BLER 9.92e-04 | hard-set FER 0.170 0.165 0.164
+  step   1000 |    3.5 min | lr 9.3e-04 | loss 0.1314 (bce 0.1200, syn 0.1134) | val BER 4.98e-05 BLER 9.30e-04 | hard-set FER 0.158 0.161 0.153
+  step   1500 |    5.1 min | lr 8.5e-04 | loss 0.1100 (bce 0.0960, syn 0.1396) | val BER 5.35e-05 BLER 8.68e-04 | hard-set FER 0.157 0.145 0.161
+  step   2000 |    6.7 min | lr 7.5e-04 | loss 0.1154 (bce 0.1007, syn 0.1477) | val BER 5.23e-05 BLER 8.68e-04 | hard-set FER 0.167 0.152 0.163
+  step   2500 |    8.4 min | lr 6.3e-04 | loss 0.1142 (bce 0.0996, syn 0.1461) | val BER 6.99e-05 BLER 9.30e-04 | hard-set FER 0.175 0.157 0.164
+  step   3000 |   10.0 min | lr 5.1e-04 | loss 0.1369 (bce 0.1216, syn 0.1528) | val BER 5.90e-05 BLER 9.30e-04 | hard-set FER 0.166 0.144 0.160
+  step   3500 |   11.6 min | lr 3.8e-04 | loss 0.1314 (bce 0.1170, syn 0.1443) | val BER 5.96e-05 BLER 9.30e-04 | hard-set FER 0.166 0.144 0.165
+  step   4000 |   13.2 min | lr 2.7e-04 | loss 0.1141 (bce 0.1003, syn 0.1379) | val BER 3.89e-05 BLER 8.06e-04 | hard-set FER 0.156 0.144 0.163
+  step   4500 |   14.8 min | lr 1.6e-04 | loss 0.1194 (bce 0.1057, syn 0.1378) | val BER 5.35e-05 BLER 9.92e-04 | hard-set FER 0.185 0.176 0.168
+  step   5000 |   16.4 min | lr 8.5e-05 | loss 0.1120 (bce 0.0960, syn 0.1603) | val BER 7.05e-05 BLER 8.68e-04 | hard-set FER 0.184 0.174 0.178
+  step   5500 |   18.1 min | lr 3.3e-05 | loss 0.1140 (bce 0.1014, syn 0.1261) | val BER 5.23e-05 BLER 8.68e-04 | hard-set FER 0.198 0.170 0.185
+  step   6000 |   19.7 min | lr 1.1e-05 | loss 0.1144 (bce 0.1017, syn 0.1265) | val BER 6.20e-05 BLER 7.44e-04 | hard-set FER 0.190 0.176 0.182
+  step   6090 |   20.0 min | lr 1.0e-05 | loss 0.1312 (bce 0.1173, syn 0.1392) | val BER 5.96e-05 BLER 8.68e-04 | hard-set FER 0.192 0.174 0.184
+
+=== tune2d_mackay_204_102: training SGT r2_w50c (68161 parameters) on ['mackay_204_102'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.75-4.17 dB: 1000, 4.17-4.58 dB: 1000, 4.58-5.00 dB: 969
+  step    500 |    3.5 min | lr 1.0e-03 | loss 0.1248 (bce 0.1167, syn 0.0818) | val BER 4.68e-05 BLER 8.06e-04 | hard-set FER 0.155 0.143 0.150
+  step   1000 |    6.7 min | lr 1.0e-03 | loss 0.0956 (bce 0.0860, syn 0.0962) | val BER 6.02e-05 BLER 9.92e-04 | hard-set FER 0.156 0.161 0.159
+  step   1500 |   10.0 min | lr 1.0e-03 | loss 0.0840 (bce 0.0721, syn 0.1190) | val BER 4.98e-05 BLER 8.06e-04 | hard-set FER 0.159 0.152 0.164
+  step   2000 |   13.3 min | lr 1.0e-03 | loss 0.0984 (bce 0.0846, syn 0.1380) | val BER 6.20e-05 BLER 8.68e-04 | hard-set FER 0.165 0.157 0.166
+  step   2500 |   16.5 min | lr 1.0e-03 | loss 0.0944 (bce 0.0855, syn 0.0893) | val BER 6.63e-05 BLER 8.68e-04 | hard-set FER 0.163 0.152 0.157
+  step   3000 |   19.8 min | lr 1.0e-03 | loss 0.1701 (bce 0.1612, syn 0.0891) | val BER 7.54e-05 BLER 8.68e-04 | hard-set FER 0.158 0.151 0.160
+  step   3032 |   20.0 min | lr 1.0e-03 | loss 0.0913 (bce 0.0829, syn 0.0839) | val BER 6.99e-05 BLER 9.30e-04 | hard-set FER 0.160 0.158 0.162
+  plateau: lr -> 5.0e-04 (restored best, score 0.1492)
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune2d_mackay_204_102: evaluating on mackay_204_102 {'name': 'mackay_204_102', 'n': 204, 'k': 102, 'rate': 0.5, 'H_shape': [102, 204], 'edges': 612, 'rank': 102} ---
+  SGT r2_w30cos                      3.50dB:2.2e-03 4.00dB:3.8e-04 4.50dB:5.9e-05
+  SGT r2_w50c                        3.50dB:1.8e-03 4.00dB:3.6e-04 4.50dB:5.8e-05
+  BP (50 it)                         3.50dB:2.1e-03 4.00dB:3.8e-04 4.50dB:6.0e-05
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   0.925  r2_w50c    hard-set FER 0.14921293429652563  {'warm': True, 'k_frac': 0.5, 'hard_frac': 0.5, 'heads': 8}
+   1.006  r2_w30cos  hard-set FER 0.15433023735810114  {'warm': True, 'k_frac': 0.3, 'schedule': 'cosine'}
+done

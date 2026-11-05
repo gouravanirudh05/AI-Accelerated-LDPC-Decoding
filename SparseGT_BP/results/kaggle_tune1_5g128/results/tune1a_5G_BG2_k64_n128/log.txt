@@ -1,0 +1,160 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+5G_BG2_k64_n128: {'name': '5G_BG2_k64_n128', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [88, 152], 'edges': 463, 'rank': 88, 'bg': 'bg2', 'Z': 11, 'i_ls': 5, 'k_ldpc': 110, 'fillers': 46, 'punctured': 24, 'base_rows_kept': 8, 'base_cols_kept': 18}
+config base: {} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}
+config k05: {'k_frac': 0.05} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.05, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}
+config k20: {'k_frac': 0.2} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.2, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}
+config k30: {'k_frac': 0.3} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.3, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}
+config L3: {'gt_layers': 3} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 3, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}
+config d32: {'d': 32, 'hidden': 64} -> kwargs {'d': 32, 'heads': 4, 'hidden': 64, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}
+
+=== tune1a_5G_BG2_k64_n128: training SGT base (71137 parameters) on ['5G_BG2_k64_n128'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718
+  step    500 |    1.4 min | lr 1.0e-03 | loss 0.2287 (bce 0.2089, syn 0.1981) | val BER 6.45e-04 BLER 4.40e-03 | hard-set FER 0.401 0.331 0.273
+  step   1000 |    2.5 min | lr 1.0e-03 | loss 0.2530 (bce 0.2293, syn 0.2375) | val BER 6.33e-04 BLER 4.15e-03 | hard-set FER 0.358 0.319 0.241
+  step   1500 |    3.6 min | lr 1.0e-03 | loss 0.2362 (bce 0.2160, syn 0.2026) | val BER 6.17e-04 BLER 4.15e-03 | hard-set FER 0.373 0.290 0.240
+  step   2000 |    4.7 min | lr 1.0e-03 | loss 0.2034 (bce 0.1852, syn 0.1825) | val BER 6.74e-04 BLER 4.28e-03 | hard-set FER 0.404 0.348 0.280
+  step   2500 |    5.8 min | lr 1.0e-03 | loss 0.2385 (bce 0.2194, syn 0.1905) | val BER 5.18e-04 BLER 3.29e-03 | hard-set FER 0.315 0.250 0.189
+  step   3000 |    6.9 min | lr 1.0e-03 | loss 0.2226 (bce 0.2000, syn 0.2254) | val BER 5.99e-04 BLER 4.15e-03 | hard-set FER 0.367 0.298 0.227
+  step   3500 |    8.0 min | lr 1.0e-03 | loss 0.2167 (bce 0.1963, syn 0.2043) | val BER 6.32e-04 BLER 3.84e-03 | hard-set FER 0.329 0.252 0.201
+  step   4000 |    9.1 min | lr 1.0e-03 | loss 0.2351 (bce 0.2127, syn 0.2237) | val BER 5.60e-04 BLER 3.53e-03 | hard-set FER 0.322 0.244 0.221
+  step   4500 |   10.3 min | lr 1.0e-03 | loss 0.2196 (bce 0.1990, syn 0.2056) | val BER 5.81e-04 BLER 4.15e-03 | hard-set FER 0.346 0.266 0.202
+  step   5000 |   11.4 min | lr 1.0e-03 | loss 0.2102 (bce 0.1905, syn 0.1972) | val BER 6.59e-04 BLER 4.40e-03 | hard-set FER 0.387 0.301 0.228
+  step   5500 |   12.5 min | lr 1.0e-03 | loss 0.2379 (bce 0.2173, syn 0.2060) | val BER 5.04e-04 BLER 3.29e-03 | hard-set FER 0.325 0.231 0.192
+  step   6000 |   13.6 min | lr 1.0e-03 | loss 0.2081 (bce 0.1857, syn 0.2245) | val BER 5.73e-04 BLER 4.09e-03 | hard-set FER 0.357 0.277 0.210
+  step   6500 |   14.7 min | lr 1.0e-03 | loss 0.2358 (bce 0.2143, syn 0.2149) | val BER 5.02e-04 BLER 3.29e-03 | hard-set FER 0.341 0.261 0.206
+  step   7000 |   15.8 min | lr 1.0e-03 | loss 0.2209 (bce 0.2005, syn 0.2038) | val BER 6.44e-04 BLER 4.22e-03 | hard-set FER 0.357 0.278 0.205
+  step   7500 |   16.9 min | lr 1.0e-03 | loss 0.2220 (bce 0.2005, syn 0.2143) | val BER 5.41e-04 BLER 3.47e-03 | hard-set FER 0.361 0.286 0.217
+  step   8000 |   18.0 min | lr 1.0e-03 | loss 0.2232 (bce 0.2014, syn 0.2175) | val BER 5.54e-04 BLER 3.60e-03 | hard-set FER 0.363 0.268 0.205
+  step   8500 |   19.2 min | lr 1.0e-03 | loss 0.2057 (bce 0.1830, syn 0.2277) | val BER 6.51e-04 BLER 4.40e-03 | hard-set FER 0.404 0.274 0.209
+  plateau: lr -> 5.0e-04 (restored best, score 0.2494)
+  step   8876 |   20.0 min | lr 5.0e-04 | loss 0.2049 (bce 0.1858, syn 0.1909) | val BER 6.59e-04 BLER 3.78e-03 | hard-set FER 0.287 0.224 0.170
+
+=== tune1a_5G_BG2_k64_n128: training SGT k05 (71137 parameters) on ['5G_BG2_k64_n128'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718
+  step    500 |    1.4 min | lr 1.0e-03 | loss 0.2430 (bce 0.2203, syn 0.2276) | val BER 7.30e-04 BLER 5.89e-03 | hard-set FER 0.575 0.527 0.497
+  step   1000 |    2.5 min | lr 1.0e-03 | loss 0.2624 (bce 0.2377, syn 0.2471) | val BER 6.42e-04 BLER 5.21e-03 | hard-set FER 0.525 0.457 0.408
+  step   1500 |    3.6 min | lr 1.0e-03 | loss 0.2578 (bce 0.2358, syn 0.2196) | val BER 6.84e-04 BLER 5.58e-03 | hard-set FER 0.472 0.415 0.351
+  step   2000 |    4.7 min | lr 1.0e-03 | loss 0.2150 (bce 0.1945, syn 0.2050) | val BER 7.08e-04 BLER 5.77e-03 | hard-set FER 0.518 0.453 0.409
+  step   2500 |    5.8 min | lr 1.0e-03 | loss 0.2439 (bce 0.2224, syn 0.2153) | val BER 7.55e-04 BLER 5.02e-03 | hard-set FER 0.462 0.379 0.348
+  step   3000 |    6.9 min | lr 1.0e-03 | loss 0.2253 (bce 0.2025, syn 0.2290) | val BER 6.80e-04 BLER 5.21e-03 | hard-set FER 0.491 0.409 0.348
+  step   3500 |    8.0 min | lr 1.0e-03 | loss 0.2387 (bce 0.2156, syn 0.2314) | val BER 7.68e-04 BLER 5.27e-03 | hard-set FER 0.482 0.397 0.350
+  step   4000 |    9.1 min | lr 1.0e-03 | loss 0.2454 (bce 0.2222, syn 0.2318) | val BER 8.00e-04 BLER 5.21e-03 | hard-set FER 0.458 0.393 0.366
+  step   4500 |   10.2 min | lr 1.0e-03 | loss 0.2183 (bce 0.1973, syn 0.2095) | val BER 6.38e-04 BLER 5.15e-03 | hard-set FER 0.452 0.374 0.322
+  step   5000 |   11.3 min | lr 1.0e-03 | loss 0.2191 (bce 0.1983, syn 0.2077) | val BER 6.72e-04 BLER 4.65e-03 | hard-set FER 0.460 0.379 0.337
+  step   5500 |   12.5 min | lr 1.0e-03 | loss 0.2622 (bce 0.2390, syn 0.2312) | val BER 6.83e-04 BLER 5.21e-03 | hard-set FER 0.467 0.370 0.359
+  step   6000 |   13.6 min | lr 1.0e-03 | loss 0.2268 (bce 0.2047, syn 0.2207) | val BER 7.34e-04 BLER 5.21e-03 | hard-set FER 0.448 0.349 0.333
+  step   6500 |   14.7 min | lr 1.0e-03 | loss 0.2482 (bce 0.2243, syn 0.2389) | val BER 8.74e-04 BLER 6.20e-03 | hard-set FER 0.540 0.472 0.389
+  step   7000 |   15.8 min | lr 1.0e-03 | loss 0.2287 (bce 0.2091, syn 0.1953) | val BER 7.68e-04 BLER 5.33e-03 | hard-set FER 0.421 0.334 0.276
+  step   7500 |   16.9 min | lr 1.0e-03 | loss 0.2436 (bce 0.2227, syn 0.2084) | val BER 7.40e-04 BLER 4.90e-03 | hard-set FER 0.392 0.352 0.298
+  step   8000 |   18.0 min | lr 1.0e-03 | loss 0.2298 (bce 0.2064, syn 0.2337) | val BER 7.11e-04 BLER 5.70e-03 | hard-set FER 0.464 0.387 0.330
+  step   8500 |   19.1 min | lr 1.0e-03 | loss 0.2288 (bce 0.2057, syn 0.2316) | val BER 6.96e-04 BLER 5.02e-03 | hard-set FER 0.439 0.374 0.330
+  step   8880 |   20.0 min | lr 1.0e-03 | loss 0.2304 (bce 0.2080, syn 0.2245) | val BER 7.37e-04 BLER 4.71e-03 | hard-set FER 0.417 0.321 0.280
+
+=== tune1a_5G_BG2_k64_n128: training SGT k20 (71137 parameters) on ['5G_BG2_k64_n128'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718
+  step    500 |    1.4 min | lr 1.0e-03 | loss 0.2128 (bce 0.1926, syn 0.2011) | val BER 5.85e-04 BLER 3.16e-03 | hard-set FER 0.290 0.224 0.189
+  step   1000 |    2.5 min | lr 1.0e-03 | loss 0.2426 (bce 0.2213, syn 0.2135) | val BER 6.47e-04 BLER 4.34e-03 | hard-set FER 0.376 0.295 0.223
+  step   1500 |    3.6 min | lr 1.0e-03 | loss 0.2358 (bce 0.2159, syn 0.1990) | val BER 5.45e-04 BLER 3.72e-03 | hard-set FER 0.329 0.261 0.169
+  step   2000 |    4.8 min | lr 1.0e-03 | loss 0.1931 (bce 0.1754, syn 0.1773) | val BER 6.18e-04 BLER 4.28e-03 | hard-set FER 0.357 0.324 0.266
+  step   2500 |    5.9 min | lr 1.0e-03 | loss 0.2381 (bce 0.2154, syn 0.2273) | val BER 6.75e-04 BLER 4.53e-03 | hard-set FER 0.421 0.405 0.370
+  step   3000 |    7.0 min | lr 1.0e-03 | loss 0.2174 (bce 0.1922, syn 0.2518) | val BER 6.07e-04 BLER 3.78e-03 | hard-set FER 0.322 0.224 0.171
+  step   3500 |    8.1 min | lr 1.0e-03 | loss 0.2021 (bce 0.1813, syn 0.2082) | val BER 5.50e-04 BLER 3.72e-03 | hard-set FER 0.307 0.232 0.203
+  plateau: lr -> 5.0e-04 (restored best, score 0.2345)
+  step   4000 |    9.2 min | lr 5.0e-04 | loss 0.2236 (bce 0.2029, syn 0.2065) | val BER 5.84e-04 BLER 3.72e-03 | hard-set FER 0.320 0.240 0.196
+  step   4500 |   10.4 min | lr 5.0e-04 | loss 0.2183 (bce 0.1961, syn 0.2221) | val BER 6.41e-04 BLER 3.72e-03 | hard-set FER 0.356 0.261 0.187
+  step   5000 |   11.5 min | lr 5.0e-04 | loss 0.2124 (bce 0.1922, syn 0.2017) | val BER 6.79e-04 BLER 4.09e-03 | hard-set FER 0.369 0.300 0.245
+  step   5500 |   12.6 min | lr 5.0e-04 | loss 0.2275 (bce 0.2076, syn 0.1994) | val BER 5.95e-04 BLER 3.29e-03 | hard-set FER 0.267 0.212 0.192
+  step   6000 |   13.8 min | lr 5.0e-04 | loss 0.1972 (bce 0.1774, syn 0.1982) | val BER 5.75e-04 BLER 3.47e-03 | hard-set FER 0.312 0.254 0.187
+  step   6500 |   14.9 min | lr 5.0e-04 | loss 0.2132 (bce 0.1941, syn 0.1902) | val BER 4.94e-04 BLER 3.04e-03 | hard-set FER 0.292 0.241 0.180
+  step   7000 |   16.0 min | lr 5.0e-04 | loss 0.2190 (bce 0.1990, syn 0.1999) | val BER 5.05e-04 BLER 2.91e-03 | hard-set FER 0.277 0.229 0.160
+  step   7500 |   17.1 min | lr 5.0e-04 | loss 0.2306 (bce 0.2065, syn 0.2411) | val BER 5.50e-04 BLER 3.41e-03 | hard-set FER 0.320 0.243 0.178
+  step   8000 |   18.3 min | lr 5.0e-04 | loss 0.2046 (bce 0.1842, syn 0.2038) | val BER 5.73e-04 BLER 3.10e-03 | hard-set FER 0.311 0.248 0.184
+  step   8500 |   19.4 min | lr 5.0e-04 | loss 0.2110 (bce 0.1880, syn 0.2300) | val BER 5.61e-04 BLER 3.47e-03 | hard-set FER 0.329 0.267 0.210
+  step   8767 |   20.0 min | lr 5.0e-04 | loss 0.2288 (bce 0.2071, syn 0.2173) | val BER 6.04e-04 BLER 3.41e-03 | hard-set FER 0.304 0.239 0.191
+
+=== tune1a_5G_BG2_k64_n128: training SGT k30 (71137 parameters) on ['5G_BG2_k64_n128'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718
+  step    500 |    1.6 min | lr 1.0e-03 | loss 0.1928 (bce 0.1732, syn 0.1956) | val BER 6.21e-04 BLER 4.22e-03 | hard-set FER 0.332 0.279 0.221
+  step   1000 |    2.9 min | lr 1.0e-03 | loss 0.2149 (bce 0.1923, syn 0.2254) | val BER 6.36e-04 BLER 3.91e-03 | hard-set FER 0.333 0.255 0.219
+  step   1500 |    4.2 min | lr 1.0e-03 | loss 0.2105 (bce 0.1921, syn 0.1843) | val BER 5.44e-04 BLER 3.35e-03 | hard-set FER 0.256 0.219 0.174
+  step   2000 |    5.6 min | lr 1.0e-03 | loss 0.1800 (bce 0.1629, syn 0.1717) | val BER 5.38e-04 BLER 3.53e-03 | hard-set FER 0.281 0.231 0.157
+  step   2500 |    6.9 min | lr 1.0e-03 | loss 0.2148 (bce 0.1909, syn 0.2383) | val BER 6.63e-04 BLER 3.72e-03 | hard-set FER 0.292 0.236 0.178
+  step   3000 |    8.2 min | lr 1.0e-03 | loss 0.1942 (bce 0.1736, syn 0.2064) | val BER 4.94e-04 BLER 3.22e-03 | hard-set FER 0.272 0.214 0.181
+  step   3500 |    9.6 min | lr 1.0e-03 | loss 0.1705 (bce 0.1511, syn 0.1931) | val BER 4.83e-04 BLER 3.10e-03 | hard-set FER 0.258 0.217 0.145
+  step   4000 |   10.9 min | lr 1.0e-03 | loss 0.2035 (bce 0.1816, syn 0.2187) | val BER 4.54e-04 BLER 2.91e-03 | hard-set FER 0.251 0.180 0.134
+  step   4500 |   12.2 min | lr 1.0e-03 | loss 0.1972 (bce 0.1766, syn 0.2064) | val BER 4.38e-04 BLER 2.98e-03 | hard-set FER 0.254 0.179 0.142
+  step   5000 |   13.5 min | lr 1.0e-03 | loss 0.1911 (bce 0.1732, syn 0.1791) | val BER 3.94e-04 BLER 2.29e-03 | hard-set FER 0.219 0.173 0.135
+  step   5500 |   14.9 min | lr 1.0e-03 | loss 0.1890 (bce 0.1696, syn 0.1938) | val BER 4.46e-04 BLER 2.91e-03 | hard-set FER 0.230 0.211 0.135
+  step   6000 |   16.2 min | lr 1.0e-03 | loss 0.1853 (bce 0.1707, syn 0.1456) | val BER 4.36e-04 BLER 2.85e-03 | hard-set FER 0.218 0.178 0.135
+  step   6500 |   17.5 min | lr 1.0e-03 | loss 0.1993 (bce 0.1797, syn 0.1958) | val BER 3.57e-04 BLER 2.29e-03 | hard-set FER 0.215 0.158 0.096
+  step   7000 |   18.9 min | lr 1.0e-03 | loss 0.1740 (bce 0.1578, syn 0.1619) | val BER 4.74e-04 BLER 3.22e-03 | hard-set FER 0.247 0.201 0.155
+  step   7430 |   20.0 min | lr 1.0e-03 | loss 0.2066 (bce 0.1851, syn 0.2143) | val BER 3.75e-04 BLER 2.60e-03 | hard-set FER 0.229 0.153 0.124
+
+=== tune1a_5G_BG2_k64_n128: training SGT L3 (104609 parameters) on ['5G_BG2_k64_n128'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718
+  step    500 |    1.4 min | lr 1.0e-03 | loss 0.2297 (bce 0.2093, syn 0.2041) | val BER 5.79e-04 BLER 3.35e-03 | hard-set FER 0.363 0.268 0.226
+  step   1000 |    2.6 min | lr 1.0e-03 | loss 0.2512 (bce 0.2279, syn 0.2330) | val BER 6.42e-04 BLER 4.40e-03 | hard-set FER 0.394 0.293 0.242
+  step   1500 |    3.8 min | lr 1.0e-03 | loss 0.2382 (bce 0.2197, syn 0.1851) | val BER 6.26e-04 BLER 4.15e-03 | hard-set FER 0.372 0.282 0.210
+  step   2000 |    5.0 min | lr 1.0e-03 | loss 0.2075 (bce 0.1873, syn 0.2013) | val BER 6.13e-04 BLER 3.91e-03 | hard-set FER 0.401 0.292 0.242
+  step   2500 |    6.2 min | lr 1.0e-03 | loss 0.2408 (bce 0.2205, syn 0.2028) | val BER 6.31e-04 BLER 4.34e-03 | hard-set FER 0.391 0.312 0.267
+  step   3000 |    7.4 min | lr 1.0e-03 | loss 0.2273 (bce 0.2045, syn 0.2279) | val BER 6.88e-04 BLER 4.65e-03 | hard-set FER 0.438 0.342 0.267
+  step   3500 |    8.6 min | lr 1.0e-03 | loss 0.2306 (bce 0.2038, syn 0.2678) | val BER 7.81e-04 BLER 5.21e-03 | hard-set FER 0.412 0.291 0.219
+  plateau: lr -> 5.0e-04 (restored best, score 0.2855)
+  step   4000 |    9.7 min | lr 5.0e-04 | loss 0.2537 (bce 0.2311, syn 0.2266) | val BER 6.21e-04 BLER 4.46e-03 | hard-set FER 0.392 0.323 0.242
+  step   4500 |   10.9 min | lr 5.0e-04 | loss 0.2129 (bce 0.1918, syn 0.2106) | val BER 6.28e-04 BLER 4.22e-03 | hard-set FER 0.362 0.304 0.247
+  step   5000 |   12.1 min | lr 5.0e-04 | loss 0.2157 (bce 0.1970, syn 0.1872) | val BER 5.84e-04 BLER 3.91e-03 | hard-set FER 0.335 0.278 0.216
+  step   5500 |   13.3 min | lr 5.0e-04 | loss 0.2445 (bce 0.2214, syn 0.2310) | val BER 7.60e-04 BLER 4.59e-03 | hard-set FER 0.427 0.329 0.299
+  step   6000 |   14.5 min | lr 5.0e-04 | loss 0.2233 (bce 0.2011, syn 0.2218) | val BER 6.38e-04 BLER 3.72e-03 | hard-set FER 0.373 0.283 0.238
+  step   6500 |   15.7 min | lr 5.0e-04 | loss 0.2444 (bce 0.2217, syn 0.2271) | val BER 5.90e-04 BLER 4.22e-03 | hard-set FER 0.373 0.274 0.210
+  step   7000 |   16.9 min | lr 5.0e-04 | loss 0.2286 (bce 0.2062, syn 0.2237) | val BER 6.27e-04 BLER 3.97e-03 | hard-set FER 0.389 0.304 0.230
+  step   7500 |   18.0 min | lr 5.0e-04 | loss 0.2342 (bce 0.2113, syn 0.2286) | val BER 5.73e-04 BLER 4.22e-03 | hard-set FER 0.359 0.283 0.231
+  step   8000 |   19.2 min | lr 5.0e-04 | loss 0.2130 (bce 0.1914, syn 0.2167) | val BER 7.29e-04 BLER 4.65e-03 | hard-set FER 0.412 0.342 0.304
+  plateau: lr -> 2.5e-04 (restored best, score 0.2763)
+  step   8330 |   20.0 min | lr 2.5e-04 | loss 0.2280 (bce 0.2084, syn 0.1964) | val BER 5.56e-04 BLER 3.84e-03 | hard-set FER 0.345 0.277 0.214
+
+=== tune1a_5G_BG2_k64_n128: training SGT d32 (19201 parameters) on ['5G_BG2_k64_n128'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718
+  step    500 |    1.4 min | lr 1.0e-03 | loss 0.2367 (bce 0.2149, syn 0.2171) | val BER 5.98e-04 BLER 4.71e-03 | hard-set FER 0.438 0.379 0.319
+  step   1000 |    2.5 min | lr 1.0e-03 | loss 0.2518 (bce 0.2279, syn 0.2383) | val BER 6.78e-04 BLER 4.65e-03 | hard-set FER 0.405 0.320 0.260
+  step   1500 |    3.6 min | lr 1.0e-03 | loss 0.2404 (bce 0.2208, syn 0.1959) | val BER 4.78e-04 BLER 3.53e-03 | hard-set FER 0.327 0.262 0.187
+  step   2000 |    4.7 min | lr 1.0e-03 | loss 0.2010 (bce 0.1829, syn 0.1818) | val BER 5.69e-04 BLER 3.66e-03 | hard-set FER 0.345 0.260 0.214
+  step   2500 |    5.8 min | lr 1.0e-03 | loss 0.2352 (bce 0.2147, syn 0.2050) | val BER 5.53e-04 BLER 3.72e-03 | hard-set FER 0.346 0.246 0.195
+  step   3000 |    6.9 min | lr 1.0e-03 | loss 0.2213 (bce 0.2000, syn 0.2129) | val BER 4.81e-04 BLER 3.35e-03 | hard-set FER 0.349 0.260 0.202
+  step   3500 |    8.0 min | lr 1.0e-03 | loss 0.2169 (bce 0.1954, syn 0.2147) | val BER 5.17e-04 BLER 3.84e-03 | hard-set FER 0.327 0.225 0.188
+  step   4000 |    9.1 min | lr 1.0e-03 | loss 0.2505 (bce 0.2283, syn 0.2221) | val BER 6.51e-04 BLER 3.78e-03 | hard-set FER 0.352 0.258 0.208
+  step   4500 |   10.2 min | lr 1.0e-03 | loss 0.2145 (bce 0.1943, syn 0.2015) | val BER 5.26e-04 BLER 3.91e-03 | hard-set FER 0.341 0.270 0.214
+  step   5000 |   11.3 min | lr 1.0e-03 | loss 0.2188 (bce 0.1987, syn 0.2012) | val BER 5.90e-04 BLER 3.91e-03 | hard-set FER 0.336 0.249 0.191
+  step   5500 |   12.4 min | lr 1.0e-03 | loss 0.2375 (bce 0.2182, syn 0.1927) | val BER 6.09e-04 BLER 4.28e-03 | hard-set FER 0.350 0.275 0.224
+  step   6000 |   13.5 min | lr 1.0e-03 | loss 0.2231 (bce 0.2005, syn 0.2254) | val BER 6.07e-04 BLER 4.65e-03 | hard-set FER 0.430 0.341 0.295
+  step   6500 |   14.6 min | lr 1.0e-03 | loss 0.2483 (bce 0.2254, syn 0.2292) | val BER 6.53e-04 BLER 4.28e-03 | hard-set FER 0.377 0.279 0.228
+  plateau: lr -> 5.0e-04 (restored best, score 0.2467)
+  step   7000 |   15.7 min | lr 5.0e-04 | loss 0.2371 (bce 0.2166, syn 0.2043) | val BER 5.67e-04 BLER 3.35e-03 | hard-set FER 0.319 0.230 0.177
+  step   7500 |   16.8 min | lr 5.0e-04 | loss 0.2279 (bce 0.2070, syn 0.2091) | val BER 5.36e-04 BLER 3.60e-03 | hard-set FER 0.325 0.242 0.192
+  step   8000 |   17.9 min | lr 5.0e-04 | loss 0.2088 (bce 0.1894, syn 0.1944) | val BER 5.65e-04 BLER 3.84e-03 | hard-set FER 0.362 0.252 0.187
+  step   8500 |   19.0 min | lr 5.0e-04 | loss 0.2135 (bce 0.1930, syn 0.2053) | val BER 5.40e-04 BLER 3.66e-03 | hard-set FER 0.350 0.246 0.208
+  step   8977 |   20.0 min | lr 5.0e-04 | loss 0.2404 (bce 0.2164, syn 0.2399) | val BER 5.23e-04 BLER 3.78e-03 | hard-set FER 0.361 0.281 0.199
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune1a_5G_BG2_k64_n128: evaluating on 5G_BG2_k64_n128 {'name': '5G_BG2_k64_n128', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [88, 152], 'edges': 463, 'rank': 88, 'bg': 'bg2', 'Z': 11, 'i_ls': 5, 'k_ldpc': 110, 'fillers': 46, 'punctured': 24, 'base_rows_kept': 8, 'base_cols_kept': 18} ---
+  SGT base                           3.50dB:6.3e-03 4.00dB:1.2e-03 4.50dB:2.5e-04
+  SGT k05                            3.50dB:8.7e-03 4.00dB:2.0e-03 4.50dB:3.6e-04
+  SGT k20                            3.50dB:6.2e-03 4.00dB:1.2e-03 4.50dB:2.4e-04
+  SGT k30                            3.50dB:4.8e-03 4.00dB:9.4e-04 4.50dB:1.6e-04
+  SGT L3                             3.50dB:7.1e-03 4.00dB:1.6e-03 4.50dB:3.2e-04
+  SGT d32                            3.50dB:6.8e-03 4.00dB:1.4e-03 4.50dB:2.5e-04
+  BP (50 it)                         3.50dB:3.4e-03 4.00dB:5.0e-04 4.50dB:6.5e-05
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   1.939  k30        hard-set FER 0.15636675951717735  {'k_frac': 0.3}
+   2.663  k20        hard-set FER 0.2220557103064067  {'k_frac': 0.2}
+   2.694  base       hard-set FER 0.22697214484679665  {}
+   2.854  d32        hard-set FER 0.24196007428040855  {'d': 32, 'hidden': 64}
+   3.377  L3         hard-set FER 0.27629247910863514  {'gt_layers': 3}
+   4.040  k05        hard-set FER 0.33931476323119775  {'k_frac': 0.05}
+done

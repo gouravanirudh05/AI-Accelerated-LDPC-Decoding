@@ -1,0 +1,145 @@
+[{"stream_name":"stdout","time":1.468546369,"data":"Tue Nov  3 14:22:51 2026       \n"}
+,{"stream_name":"stdout","time":1.468586336,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.468592292,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":1.4685961299999999,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.4686040390000001,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":1.46860686,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":1.468609223,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":1.468611649,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":1.538445675,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.5384698399999999,"data":"| N/A   49C    P8             12W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.5384733590000002,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.538475845,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.5384783340000001,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.538480668,"data":"| N/A   45C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.5384829899999999,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.5384854140000002,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.539201252,"data":"\n"}
+,{"stream_name":"stdout","time":1.539213564,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.539216256,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":1.539218731,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":1.539221245,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":1.539223712,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":1.5407181589999999,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":1.540734074,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":15.969451645,"data":"[queue 0] SparseGT_BP/tuning/run_tuning.py ['--code', 'mackay_408_204', '--configs', 'base,k05,k20', '--minutes', '20', '--tag', 'tune1e']\n"}
+,{"stream_name":"stdout","time":15.970305509,"data":"[queue 1] SparseGT_BP/tuning/run_tuning.py ['--code', 'mackay_408_204', '--configs', 'local,L3,unsat', '--minutes', '20', '--tag', 'tune1f']\n"}
+,{"stream_name":"stdout","time":18.816895971,"data":"device: cuda | torch 2.11.0+cu130 | Tesla T4\n"}
+,{"stream_name":"stdout","time":18.872386067,"data":"device: cuda | torch 2.11.0+cu130 | Tesla T4\n"}
+,{"stream_name":"stdout","time":19.254618541,"data":"mackay_408_204: {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204}\n"}
+,{"stream_name":"stdout","time":19.254641286000002,"data":"mackay_408_204: {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204}\n"}
+,{"stream_name":"stdout","time":19.254649453,"data":"config base: {} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":19.254655215,"data":"config local: {'attn': 'local'} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'local', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":19.254659692,"data":"config k05: {'k_frac': 0.05} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.05, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":19.254664251,"data":"config L3: {'gt_layers': 3} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 3, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":19.254668447,"data":"config k20: {'k_frac': 0.2} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.2, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":19.254672769,"data":"config unsat: {'select': 'unsat'} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'unsat', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":19.323251825,"data":"\n"}
+,{"stream_name":"stdout","time":19.323270127,"data":"=== tune1e_mackay_408_204: training SGT base (68065 parameters) on ['mackay_408_204'] ===\n"}
+,{"stream_name":"stdout","time":19.323274683,"data":"\n"}
+,{"stream_name":"stdout","time":19.323278175,"data":"=== tune1f_mackay_408_204: training SGT local (68065 parameters) on ['mackay_408_204'] ===\n"}
+,{"stream_name":"stdout","time":28.644730465,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":28.645118959,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":70.315256652,"data":"  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495\n"}
+,{"stream_name":"stdout","time":70.642760493,"data":"  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495\n"}
+,{"stream_name":"stdout","time":213.137352705,"data":"  step    500 |    3.1 min | lr 1.0e-03 | loss 0.1286 (bce 0.1121, syn 0.1646) | val BER 9.09e-05 BLER 2.42e-03 | hard-set FER 0.319 0.295 0.293\n"}
+,{"stream_name":"stdout","time":215.455200666,"data":"  step    500 |    3.1 min | lr 1.0e-03 | loss 0.1287 (bce 0.1127, syn 0.1598) | val BER 7.96e-05 BLER 2.42e-03 | hard-set FER 0.272 0.242 0.224\n"}
+,{"stream_name":"stdout","time":353.752346002,"data":"  step   1000 |    5.4 min | lr 1.0e-03 | loss 0.1316 (bce 0.1137, syn 0.1785) | val BER 8.75e-05 BLER 1.98e-03 | hard-set FER 0.253 0.234 0.253\n"}
+,{"stream_name":"stdout","time":357.139879283,"data":"  step   1000 |    5.5 min | lr 1.0e-03 | loss 0.1312 (bce 0.1154, syn 0.1579) | val BER 7.57e-05 BLER 2.54e-03 | hard-set FER 0.354 0.347 0.335\n"}
+,{"stream_name":"stdout","time":494.328503492,"data":"  step   1500 |    7.8 min | lr 1.0e-03 | loss 0.1302 (bce 0.1144, syn 0.1582) | val BER 8.02e-05 BLER 1.98e-03 | hard-set FER 0.308 0.286 0.279\n"}
+,{"stream_name":"stdout","time":498.935859915,"data":"  step   1500 |    7.8 min | lr 1.0e-03 | loss 0.1331 (bce 0.1172, syn 0.1595) | val BER 7.29e-05 BLER 2.29e-03 | hard-set FER 0.251 0.201 0.194\n"}
+,{"stream_name":"stdout","time":634.91258504,"data":"  step   2000 |   10.1 min | lr 1.0e-03 | loss 0.1234 (bce 0.1091, syn 0.1426) | val BER 8.02e-05 BLER 2.17e-03 | hard-set FER 0.291 0.231 0.210\n"}
+,{"stream_name":"stdout","time":640.681388734,"data":"  step   2000 |   10.2 min | lr 1.0e-03 | loss 0.1236 (bce 0.1086, syn 0.1497) | val BER 7.57e-05 BLER 1.98e-03 | hard-set FER 0.249 0.195 0.226\n"}
+,{"stream_name":"stdout","time":775.276032429,"data":"  step   2500 |   12.5 min | lr 1.0e-03 | loss 0.1297 (bce 0.1144, syn 0.1530) | val BER 9.91e-05 BLER 2.48e-03 | hard-set FER 0.331 0.307 0.335\n"}
+,{"stream_name":"stdout","time":782.413716557,"data":"  step   2500 |   12.6 min | lr 1.0e-03 | loss 0.1306 (bce 0.1146, syn 0.1597) | val BER 1.05e-04 BLER 1.80e-03 | hard-set FER 0.237 0.183 0.176\n"}
+,{"stream_name":"stdout","time":915.722197513,"data":"  step   3000 |   14.8 min | lr 1.0e-03 | loss 0.1198 (bce 0.1054, syn 0.1442) | val BER 9.09e-05 BLER 2.48e-03 | hard-set FER 0.337 0.298 0.269\n"}
+,{"stream_name":"stdout","time":924.077410223,"data":"  step   3000 |   14.9 min | lr 1.0e-03 | loss 0.1214 (bce 0.1068, syn 0.1463) | val BER 7.69e-05 BLER 2.36e-03 | hard-set FER 0.303 0.252 0.222\n"}
+,{"stream_name":"stdout","time":1056.218034801,"data":"  step   3500 |   17.1 min | lr 1.0e-03 | loss 0.1234 (bce 0.1096, syn 0.1381) | val BER 1.10e-04 BLER 3.47e-03 | hard-set FER 0.543 0.559 0.517\n"}
+,{"stream_name":"stdout","time":1065.651973023,"data":"  step   3500 |   17.3 min | lr 1.0e-03 | loss 0.1210 (bce 0.1072, syn 0.1381) | val BER 8.88e-05 BLER 2.17e-03 | hard-set FER 0.270 0.236 0.224\n"}
+,{"stream_name":"stdout","time":1196.413383737,"data":"  step   4000 |   19.5 min | lr 1.0e-03 | loss 0.1202 (bce 0.1070, syn 0.1325) | val BER 5.74e-05 BLER 1.36e-03 | hard-set FER 0.199 0.157 0.170\n"}
+,{"stream_name":"stdout","time":1207.332236168,"data":"  step   4000 |   19.7 min | lr 1.0e-03 | loss 0.1222 (bce 0.1088, syn 0.1344) | val BER 7.60e-05 BLER 1.98e-03 | hard-set FER 0.277 0.215 0.174\n"}
+,{"stream_name":"stdout","time":1228.966406613,"data":"  step   4070 |   20.0 min | lr 1.0e-03 | loss 0.1320 (bce 0.1166, syn 0.1549) | val BER 6.93e-05 BLER 1.55e-03 | hard-set FER 0.156 0.133 0.109\n"}
+,{"stream_name":"stdout","time":1229.021393139,"data":"\n"}
+,{"stream_name":"stdout","time":1229.021416034,"data":"=== tune1e_mackay_408_204: training SGT k05 (68065 parameters) on ['mackay_408_204'] ===\n"}
+,{"stream_name":"stdout","time":1229.320094972,"data":"  step   4110 |   20.0 min | lr 1.0e-03 | loss 0.1424 (bce 0.1249, syn 0.1756) | val BER 1.30e-04 BLER 5.27e-03 | hard-set FER 0.810 0.808 0.745\n"}
+,{"stream_name":"stdout","time":1229.33172462,"data":"\n"}
+,{"stream_name":"stdout","time":1229.33173896,"data":"=== tune1f_mackay_408_204: training SGT L3 (101537 parameters) on ['mackay_408_204'] ===\n"}
+,{"stream_name":"stdout","time":1230.753425706,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":1231.050245432,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":1273.850244306,"data":"  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495\n"}
+,{"stream_name":"stdout","time":1273.99005218,"data":"  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495\n"}
+,{"stream_name":"stdout","time":1396.039130972,"data":"  step    500 |    2.7 min | lr 1.0e-03 | loss 0.1288 (bce 0.1137, syn 0.1512) | val BER 7.84e-05 BLER 2.29e-03 | hard-set FER 0.245 0.191 0.238\n"}
+,{"stream_name":"stdout","time":1424.890633806,"data":"  step    500 |    3.2 min | lr 1.0e-03 | loss 0.1278 (bce 0.1122, syn 0.1561) | val BER 6.47e-05 BLER 1.67e-03 | hard-set FER 0.193 0.159 0.182\n"}
+,{"stream_name":"stdout","time":1517.778248792,"data":"  step   1000 |    4.8 min | lr 1.0e-03 | loss 0.1310 (bce 0.1165, syn 0.1455) | val BER 8.30e-05 BLER 2.17e-03 | hard-set FER 0.263 0.196 0.216\n"}
+,{"stream_name":"stdout","time":1575.588918318,"data":"  step   1000 |    5.7 min | lr 1.0e-03 | loss 0.1294 (bce 0.1147, syn 0.1469) | val BER 5.93e-05 BLER 1.61e-03 | hard-set FER 0.170 0.157 0.149\n"}
+,{"stream_name":"stdout","time":1639.74847598,"data":"  step   1500 |    6.8 min | lr 1.0e-03 | loss 0.1348 (bce 0.1177, syn 0.1706) | val BER 9.85e-05 BLER 3.29e-03 | hard-set FER 0.545 0.514 0.491\n"}
+,{"stream_name":"stdout","time":1726.706865365,"data":"  step   1500 |    8.3 min | lr 1.0e-03 | loss 0.1323 (bce 0.1187, syn 0.1353) | val BER 9.12e-05 BLER 2.11e-03 | hard-set FER 0.287 0.233 0.198\n"}
+,{"stream_name":"stdout","time":1762.114885957,"data":"  step   2000 |    8.8 min | lr 1.0e-03 | loss 0.1235 (bce 0.1085, syn 0.1495) | val BER 8.66e-05 BLER 2.36e-03 | hard-set FER 0.238 0.159 0.194\n"}
+,{"stream_name":"stdout","time":1877.740812799,"data":"  step   2000 |   10.8 min | lr 1.0e-03 | loss 0.1168 (bce 0.1039, syn 0.1286) | val BER 6.63e-05 BLER 1.18e-03 | hard-set FER 0.127 0.092 0.087\n"}
+,{"stream_name":"stdout","time":1884.478916092,"data":"  step   2500 |   10.9 min | lr 1.0e-03 | loss 0.1357 (bce 0.1211, syn 0.1456) | val BER 7.17e-05 BLER 2.54e-03 | hard-set FER 0.316 0.297 0.293\n"}
+,{"stream_name":"stdout","time":2006.437838415,"data":"  step   3000 |   12.9 min | lr 1.0e-03 | loss 0.1223 (bce 0.1084, syn 0.1387) | val BER 6.72e-05 BLER 1.92e-03 | hard-set FER 0.201 0.149 0.160\n"}
+,{"stream_name":"stdout","time":2028.426546503,"data":"  step   2500 |   13.3 min | lr 1.0e-03 | loss 0.1292 (bce 0.1145, syn 0.1467) | val BER 8.97e-05 BLER 1.98e-03 | hard-set FER 0.263 0.220 0.190\n"}
+,{"stream_name":"stdout","time":2128.644240125,"data":"  step   3500 |   15.0 min | lr 1.0e-03 | loss 0.1229 (bce 0.1085, syn 0.1436) | val BER 8.69e-05 BLER 2.48e-03 | hard-set FER 0.291 0.220 0.222\n"}
+,{"stream_name":"stdout","time":2179.007453245,"data":"  step   3000 |   15.8 min | lr 1.0e-03 | loss 0.1140 (bce 0.0999, syn 0.1410) | val BER 8.45e-05 BLER 1.43e-03 | hard-set FER 0.201 0.172 0.141\n"}
+,{"stream_name":"stdout","time":2250.37026722,"data":"  step   4000 |   17.0 min | lr 1.0e-03 | loss 0.1263 (bce 0.1119, syn 0.1443) | val BER 7.39e-05 BLER 1.61e-03 | hard-set FER 0.181 0.139 0.145\n"}
+,{"stream_name":"stdout","time":2329.574877862,"data":"  step   3500 |   18.3 min | lr 1.0e-03 | loss 0.1171 (bce 0.1036, syn 0.1352) | val BER 5.77e-05 BLER 1.67e-03 | hard-set FER 0.226 0.190 0.174\n"}
+,{"stream_name":"stdout","time":2372.096313132,"data":"  step   4500 |   19.0 min | lr 1.0e-03 | loss 0.1209 (bce 0.1072, syn 0.1366) | val BER 7.08e-05 BLER 2.29e-03 | hard-set FER 0.256 0.201 0.222\n"}
+,{"stream_name":"stdout","time":2431.677220222,"data":"  step   4740 |   20.0 min | lr 1.0e-03 | loss 0.1206 (bce 0.1067, syn 0.1393) | val BER 7.05e-05 BLER 1.86e-03 | hard-set FER 0.212 0.161 0.145\n"}
+,{"stream_name":"stdout","time":2431.686794348,"data":"\n"}
+,{"stream_name":"stdout","time":2431.686814755,"data":"=== tune1e_mackay_408_204: training SGT k20 (68065 parameters) on ['mackay_408_204'] ===\n"}
+,{"stream_name":"stdout","time":2432.594225048,"data":"  step   3840 |   20.0 min | lr 1.0e-03 | loss 0.1217 (bce 0.1091, syn 0.1252) | val BER 6.26e-05 BLER 1.43e-03 | hard-set FER 0.149 0.118 0.087\n"}
+,{"stream_name":"stdout","time":2432.60580675,"data":"\n"}
+,{"stream_name":"stdout","time":2432.605822494,"data":"=== tune1f_mackay_408_204: training SGT unsat (68065 parameters) on ['mackay_408_204'] ===\n"}
+,{"stream_name":"stdout","time":2433.419027347,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":2434.32721951,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":2476.503903504,"data":"  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495\n"}
+,{"stream_name":"stdout","time":2477.064954906,"data":"  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495\n"}
+,{"stream_name":"stdout","time":2617.190252516,"data":"  step    500 |    3.0 min | lr 1.0e-03 | loss 0.1263 (bce 0.1122, syn 0.1414) | val BER 6.44e-05 BLER 1.67e-03 | hard-set FER 0.239 0.203 0.232\n"}
+,{"stream_name":"stdout","time":2691.838822636,"data":"  step    500 |    4.3 min | lr 1.0e-03 | loss 0.1267 (bce 0.1122, syn 0.1454) | val BER 6.50e-05 BLER 1.67e-03 | hard-set FER 0.218 0.166 0.170\n"}
+,{"stream_name":"stdout","time":2757.245064153,"data":"  step   1000 |    5.4 min | lr 1.0e-03 | loss 0.1285 (bce 0.1144, syn 0.1407) | val BER 6.93e-05 BLER 1.86e-03 | hard-set FER 0.203 0.173 0.178\n"}
+,{"stream_name":"stdout","time":2897.264488233,"data":"  step   1500 |    7.7 min | lr 1.0e-03 | loss 0.1307 (bce 0.1162, syn 0.1451) | val BER 7.81e-05 BLER 1.55e-03 | hard-set FER 0.181 0.140 0.131\n"}
+,{"stream_name":"stdout","time":2906.869694383,"data":"  step   1000 |    7.9 min | lr 1.0e-03 | loss 0.1302 (bce 0.1149, syn 0.1525) | val BER 5.62e-05 BLER 9.30e-04 | hard-set FER 0.107 0.096 0.115\n"}
+,{"stream_name":"stdout","time":3037.283843077,"data":"  step   2000 |   10.0 min | lr 1.0e-03 | loss 0.1216 (bce 0.1084, syn 0.1324) | val BER 7.08e-05 BLER 1.49e-03 | hard-set FER 0.178 0.159 0.149\n"}
+,{"stream_name":"stdout","time":3121.877812863,"data":"  step   1500 |   11.5 min | lr 1.0e-03 | loss 0.1241 (bce 0.1124, syn 0.1178) | val BER 5.14e-05 BLER 8.68e-04 | hard-set FER 0.125 0.091 0.105\n"}
+,{"stream_name":"stdout","time":3176.900393085,"data":"  step   2500 |   12.4 min | lr 1.0e-03 | loss 0.1286 (bce 0.1139, syn 0.1473) | val BER 6.78e-05 BLER 1.49e-03 | hard-set FER 0.152 0.115 0.125\n"}
+,{"stream_name":"stdout","time":3317.041867682,"data":"  step   3000 |   14.7 min | lr 1.0e-03 | loss 0.1216 (bce 0.1074, syn 0.1419) | val BER 7.75e-05 BLER 2.48e-03 | hard-set FER 0.347 0.355 0.343\n"}
+,{"stream_name":"stdout","time":3336.076924168,"data":"  step   2000 |   15.0 min | lr 1.0e-03 | loss 0.1175 (bce 0.1065, syn 0.1097) | val BER 5.50e-05 BLER 1.30e-03 | hard-set FER 0.169 0.115 0.119\n"}
+,{"stream_name":"stdout","time":3457.225072224,"data":"  step   3500 |   17.0 min | lr 1.0e-03 | loss 0.1189 (bce 0.1060, syn 0.1292) | val BER 9.48e-05 BLER 2.11e-03 | hard-set FER 0.329 0.349 0.360\n"}
+,{"stream_name":"stdout","time":3549.912188042,"data":"  step   2500 |   18.6 min | lr 1.0e-03 | loss 0.1294 (bce 0.1181, syn 0.1128) | val BER 6.41e-05 BLER 1.24e-03 | hard-set FER 0.173 0.169 0.143\n"}
+,{"stream_name":"stdout","time":3597.190111555,"data":"  step   4000 |   19.4 min | lr 1.0e-03 | loss 0.1229 (bce 0.1085, syn 0.1439) | val BER 5.53e-05 BLER 1.43e-03 | hard-set FER 0.201 0.167 0.158\n"}
+,{"stream_name":"stdout","time":3634.10395888,"data":"  step   2695 |   20.0 min | lr 1.0e-03 | loss 0.1204 (bce 0.1039, syn 0.1650) | val BER 9.60e-05 BLER 1.80e-03 | hard-set FER 0.252 0.218 0.188\n"}
+,{"stream_name":"stdout","time":3634.113898785,"data":"GPU: Tesla T4 | NVML: True | energy counter: True\n"}
+,{"stream_name":"stdout","time":3634.113930265,"data":"\n"}
+,{"stream_name":"stdout","time":3634.113936488,"data":"--- tune1e_mackay_408_204: evaluating on mackay_408_204 {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204} ---\n"}
+,{"stream_name":"stdout","time":3635.038175303,"data":"  step   4130 |   20.0 min | lr 1.0e-03 | loss 0.1154 (bce 0.1025, syn 0.1284) | val BER 6.08e-05 BLER 1.43e-03 | hard-set FER 0.182 0.157 0.145\n"}
+,{"stream_name":"stdout","time":3635.04724487,"data":"GPU: Tesla T4 | NVML: True | energy counter: True\n"}
+,{"stream_name":"stdout","time":3635.047368495,"data":"\n"}
+,{"stream_name":"stdout","time":3635.04738044,"data":"--- tune1f_mackay_408_204: evaluating on mackay_408_204 {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204} ---\n"}
+,{"stream_name":"stdout","time":3644.176755743,"data":"  SGT local                          3.00dB:4.7e-03 3.25dB:1.5e-03 3.50dB:4.0e-04\n"}
+,{"stream_name":"stdout","time":3644.931418035,"data":"  SGT base                           3.00dB:4.2e-03 3.25dB:1.5e-03 3.50dB:3.1e-04\n"}
+,{"stream_name":"stdout","time":3654.590973362,"data":"  SGT k05                            3.00dB:4.2e-03 3.25dB:1.4e-03 3.50dB:4.0e-04\n"}
+,{"stream_name":"stdout","time":3657.018478359,"data":"  SGT L3                             3.00dB:3.4e-03 3.25dB:1.0e-03 3.50dB:2.7e-04\n"}
+,{"stream_name":"stdout","time":3667.441813279,"data":"  SGT unsat                          3.00dB:3.8e-03 3.25dB:1.2e-03 3.50dB:3.5e-04\n"}
+,{"stream_name":"stdout","time":3669.705434633,"data":"  SGT k20                            3.00dB:2.4e-03 3.25dB:7.4e-04 3.50dB:2.3e-04\n"}
+,{"stream_name":"stdout","time":3682.542505815,"data":"  BP (50 it)                         3.00dB:2.0e-03 3.25dB:4.7e-04 3.50dB:1.6e-04\n"}
+,{"stream_name":"stdout","time":3683.573530011,"data":"\n"}
+,{"stream_name":"stdout","time":3683.573557598,"data":"ranking (mean BLER / BLER of BP(50); lower is better):\n"}
+,{"stream_name":"stdout","time":3683.573564184,"data":"   1.857  L3         hard-set FER 0.10195622895622895  {'gt_layers': 3}\n"}
+,{"stream_name":"stdout","time":3683.573568534,"data":"   2.209  unsat      hard-set FER 0.13075084175084176  {'select': 'unsat'}\n"}
+,{"stream_name":"stdout","time":3683.5735731,"data":"   2.684  local      hard-set FER 0.17523232323232327  {'attn': 'local'}\n"}
+,{"stream_name":"stdout","time":3683.573951578,"data":"done\n"}
+,{"stream_name":"stdout","time":3685.488643528,"data":"  BP (50 it)                         3.00dB:2.0e-03 3.25dB:4.7e-04 3.50dB:1.6e-04\n"}
+,{"stream_name":"stdout","time":3686.380790266,"data":"\n"}
+,{"stream_name":"stdout","time":3686.380836075,"data":"ranking (mean BLER / BLER of BP(50); lower is better):\n"}
+,{"stream_name":"stdout","time":3686.380843004,"data":"   1.436  k20        hard-set FER 0.10605050505050506  {'k_frac': 0.2}\n"}
+,{"stream_name":"stdout","time":3686.380848534,"data":"   2.406  base       hard-set FER 0.1326969696969697  {}\n"}
+,{"stream_name":"stdout","time":3686.380853755,"data":"   2.571  k05        hard-set FER 0.15515151515151515  {'k_frac': 0.05}\n"}
+,{"stream_name":"stdout","time":3686.381173274,"data":"done\n"}
+,{"stream_name":"stdout","time":3689.35338914,"data":"exit codes [0, 0]\n"}
+,{"stream_name":"stderr","time":3692.442141053,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3692.442195608,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3692.907859207,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3692.907884202,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3693.97189625,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3695.327617747,"data":"[NbConvertApp] Writing 376130 bytes to __results__.html\n"}
+]

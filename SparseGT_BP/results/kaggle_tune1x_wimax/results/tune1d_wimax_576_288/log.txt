@@ -1,0 +1,48 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+wimax_576_288: {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288}
+config plateau: {'schedule': 'plateau'} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}
+config hard50: {'hard_frac': 0.5} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}
+config syn0: {'lam_syn': 0.0} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}
+
+=== tune1d_wimax_576_288: training SGT plateau (68257 parameters) on ['wimax_576_288'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354
+  step    500 |    5.1 min | lr 1.0e-03 | loss 0.1010 (bce 0.0895, syn 0.1154) | val BER 1.77e-05 BLER 5.51e-04 | hard-set FER 0.191 0.268 0.345
+  step   1000 |    8.6 min | lr 1.0e-03 | loss 0.0915 (bce 0.0795, syn 0.1202) | val BER 1.51e-05 BLER 3.06e-04 | hard-set FER 0.053 0.077 0.105
+  step   1500 |   12.1 min | lr 1.0e-03 | loss 0.0901 (bce 0.0799, syn 0.1026) | val BER 1.21e-05 BLER 3.06e-04 | hard-set FER 0.053 0.088 0.102
+  step   2000 |   15.6 min | lr 1.0e-03 | loss 0.0822 (bce 0.0725, syn 0.0973) | val BER 1.11e-05 BLER 2.45e-04 | hard-set FER 0.039 0.068 0.093
+  step   2500 |   19.0 min | lr 1.0e-03 | loss 0.0904 (bce 0.0803, syn 0.1006) | val BER 1.49e-05 BLER 2.45e-04 | hard-set FER 0.045 0.066 0.102
+  step   2637 |   20.0 min | lr 1.0e-03 | loss 0.0836 (bce 0.0739, syn 0.0970) | val BER 1.34e-05 BLER 2.45e-04 | hard-set FER 0.044 0.067 0.102
+
+=== tune1d_wimax_576_288: training SGT hard50 (68257 parameters) on ['wimax_576_288'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354
+  step    500 |    5.1 min | lr 1.0e-03 | loss 0.0964 (bce 0.0863, syn 0.1004) | val BER 1.45e-05 BLER 3.06e-04 | hard-set FER 0.100 0.141 0.161
+  step   1000 |    8.6 min | lr 1.0e-03 | loss 0.0930 (bce 0.0815, syn 0.1146) | val BER 1.66e-05 BLER 4.29e-04 | hard-set FER 0.055 0.093 0.102
+  step   1500 |   12.1 min | lr 1.0e-03 | loss 0.0860 (bce 0.0763, syn 0.0974) | val BER 9.79e-06 BLER 2.45e-04 | hard-set FER 0.060 0.097 0.113
+  step   2000 |   15.6 min | lr 1.0e-03 | loss 0.0845 (bce 0.0741, syn 0.1040) | val BER 1.60e-05 BLER 3.06e-04 | hard-set FER 0.059 0.080 0.105
+  step   2500 |   19.1 min | lr 1.0e-03 | loss 0.0860 (bce 0.0767, syn 0.0932) | val BER 8.94e-06 BLER 1.84e-04 | hard-set FER 0.034 0.058 0.071
+  step   2636 |   20.0 min | lr 1.0e-03 | loss 0.0746 (bce 0.0661, syn 0.0854) | val BER 1.45e-05 BLER 2.45e-04 | hard-set FER 0.055 0.085 0.116
+
+=== tune1d_wimax_576_288: training SGT syn0 (68257 parameters) on ['wimax_576_288'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354
+  step    500 |    5.1 min | lr 1.0e-03 | loss 0.0890 (bce 0.0890, syn 0.0000) | val BER 2.06e-05 BLER 4.90e-04 | hard-set FER 0.070 0.096 0.090
+  step   1000 |    8.5 min | lr 1.0e-03 | loss 0.0807 (bce 0.0807, syn 0.0000) | val BER 1.81e-05 BLER 3.68e-04 | hard-set FER 0.061 0.098 0.102
+  step   1500 |   12.0 min | lr 1.0e-03 | loss 0.0800 (bce 0.0800, syn 0.0000) | val BER 1.81e-05 BLER 3.68e-04 | hard-set FER 0.055 0.084 0.093
+  step   2000 |   15.5 min | lr 1.0e-03 | loss 0.0726 (bce 0.0726, syn 0.0000) | val BER 1.66e-05 BLER 3.68e-04 | hard-set FER 0.057 0.082 0.093
+  step   2500 |   19.0 min | lr 1.0e-03 | loss 0.0824 (bce 0.0824, syn 0.0000) | val BER 1.28e-05 BLER 3.06e-04 | hard-set FER 0.053 0.060 0.113
+  step   2642 |   20.0 min | lr 1.0e-03 | loss 0.0780 (bce 0.0780, syn 0.0000) | val BER 1.77e-05 BLER 3.06e-04 | hard-set FER 0.070 0.082 0.130
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune1d_wimax_576_288: evaluating on wimax_576_288 {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288} ---
+  SGT plateau                        2.50dB:3.9e-03 2.75dB:9.0e-04 3.00dB:2.4e-04
+  SGT hard50                         2.50dB:3.2e-03 2.75dB:7.8e-04 3.00dB:2.0e-04
+  SGT syn0                           2.50dB:5.0e-03 2.75dB:1.0e-03 3.00dB:2.9e-04
+  BP (50 it)                         2.50dB:1.3e-03 2.75dB:3.3e-04 3.00dB:6.7e-05
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   2.599  hard50     hard-set FER 0.05420715630885123  {'hard_frac': 0.5}
+   3.095  plateau    hard-set FER 0.06674011299435029  {'schedule': 'plateau'}
+   3.767  syn0       hard-set FER 0.07533145009416196  {'lam_syn': 0.0}
+done

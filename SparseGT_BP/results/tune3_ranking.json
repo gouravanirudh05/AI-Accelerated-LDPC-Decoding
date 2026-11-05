@@ -1,0 +1,236 @@
+{
+ "overall": [
+  [
+   1.1340110715763283,
+   "r3_k50"
+  ],
+  [
+   1.2025357737628795,
+   "r3_w20m50"
+  ],
+  [
+   1.2355371029468385,
+   "r3_w50m50"
+  ],
+  [
+   2.1647023128773553,
+   "r3_w50m50lr"
+  ]
+ ],
+ "table": {
+  "r3_k50": {
+   "5G_BG2_k64_n128": {
+    "config": "r3_k50",
+    "score": 1.018,
+    "hard": 0.08272516248839369,
+    "overrides": "{'k_frac': 0.5}"
+   },
+   "5G_BG1_k528_n704": {
+    "config": "r3_k50",
+    "score": 1.787,
+    "hard": 0.025723004694835683,
+    "overrides": "{'k_frac': 0.5}"
+   },
+   "mackay_204_102": {
+    "config": "r3_k50",
+    "score": 0.511,
+    "hard": 0.07456518747850018,
+    "overrides": "{'k_frac': 0.5}"
+   },
+   "wimax_576_288": {
+    "config": "r3_k50",
+    "score": 1.779,
+    "hard": 0.049540489642184556,
+    "overrides": "{'k_frac': 0.5}"
+   }
+  },
+  "r3_w50m50": {
+   "5G_BG2_k64_n128": {
+    "config": "r3_w50m50",
+    "score": 1.163,
+    "hard": 0.6344444444444445,
+    "overrides": "{'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}"
+   },
+   "5G_BG1_k528_n704": {
+    "config": "r3_w50m50",
+    "score": 1.402,
+    "hard": 0.8627257799671592,
+    "overrides": "{'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}"
+   },
+   "mackay_204_102": {
+    "config": "r3_w50m50",
+    "score": 1.199,
+    "hard": 0.6840383020098709,
+    "overrides": "{'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}"
+   },
+   "wimax_576_288": {
+    "config": "r3_w50m50",
+    "score": 1.192,
+    "hard": 0.42037037037037034,
+    "overrides": "{'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}"
+   }
+  },
+  "r3_w20m50": {
+   "5G_BG2_k64_n128": {
+    "config": "r3_w20m50",
+    "score": 1.072,
+    "hard": 0.6404310868245294,
+    "overrides": "{'warm': True, 'k_frac': 0.2, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}"
+   },
+   "5G_BG1_k528_n704": {
+    "config": "r3_w20m50",
+    "score": 1.492,
+    "hard": 0.7053360351232691,
+    "overrides": "{'warm': True, 'k_frac': 0.2, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}"
+   },
+   "mackay_204_102": {
+    "config": "r3_w20m50",
+    "score": 1.132,
+    "hard": 0.6398812785388128,
+    "overrides": "{'warm': True, 'k_frac': 0.2, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}"
+   },
+   "wimax_576_288": {
+    "config": "r3_w20m50",
+    "score": 1.155,
+    "hard": 0.3795518207282913,
+    "overrides": "{'warm': True, 'k_frac': 0.2, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}"
+   }
+  },
+  "r3_w50m50lr": {
+   "5G_BG2_k64_n128": {
+    "config": "r3_w50m50lr",
+    "score": 2.552,
+    "hard": 0.6724272976680384,
+    "overrides": "{'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000, 'lr': 0.003}"
+   },
+   "5G_BG1_k528_n704": {
+    "config": "r3_w50m50lr",
+    "score": 4.408,
+    "hard": 0.9530516431924884,
+    "overrides": "{'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000, 'lr': 0.003}"
+   },
+   "mackay_204_102": {
+    "config": "r3_w50m50lr",
+    "score": 1.318,
+    "hard": 0.7520920451814468,
+    "overrides": "{'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000, 'lr': 0.003}"
+   },
+   "wimax_576_288": {
+    "config": "r3_w50m50lr",
+    "score": 1.481,
+    "hard": 0.862962962962963,
+    "overrides": "{'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000, 'lr': 0.003}"
+   }
+  }
+ },
+ "bler": {
+  "5G_BG2_k64_n128": {
+   "r3_k50": {
+    "3.5": 0.0031,
+    "4.0": 0.00049,
+    "4.5": 7.3e-05
+   },
+   "r3_w50m50": {
+    "3.5": 0.0036,
+    "4.0": 0.00057,
+    "4.5": 8.1e-05
+   },
+   "BP (50 it)": {
+    "3.5": 0.0034,
+    "4.0": 0.0005,
+    "4.5": 6.4e-05
+   },
+   "r3_w20m50": {
+    "3.5": 0.0032,
+    "4.0": 0.00052,
+    "4.5": 7.6e-05
+   },
+   "r3_w50m50lr": {
+    "3.5": 0.0072,
+    "4.0": 0.0013,
+    "4.5": 0.00018
+   }
+  },
+  "5G_BG1_k528_n704": {
+   "r3_k50": {
+    "3.25": 0.0077,
+    "3.5": 0.0018,
+    "3.75": 0.00031
+   },
+   "r3_w50m50": {
+    "3.25": 0.0062,
+    "3.5": 0.0015,
+    "3.75": 0.00023
+   },
+   "BP (50 it)": {
+    "3.25": 0.0039,
+    "3.5": 0.0012,
+    "3.75": 0.00016
+   },
+   "r3_w20m50": {
+    "3.25": 0.0071,
+    "3.5": 0.0014,
+    "3.75": 0.00024
+   },
+   "r3_w50m50lr": {
+    "3.25": 0.02,
+    "3.5": 0.0041,
+    "3.75": 0.00077
+   }
+  },
+  "mackay_204_102": {
+   "r3_k50": {
+    "3.5": 0.0016,
+    "4.0": 0.00018,
+    "4.5": 1.9e-05
+   },
+   "r3_w50m50": {
+    "3.5": 0.0025,
+    "4.0": 0.00055,
+    "4.5": 6.2e-05
+   },
+   "BP (50 it)": {
+    "3.5": 0.0022,
+    "4.0": 0.00038,
+    "4.5": 6e-05
+   },
+   "r3_w20m50": {
+    "3.5": 0.003,
+    "4.0": 0.00041,
+    "4.5": 5.4e-05
+   },
+   "r3_w50m50lr": {
+    "3.5": 0.0031,
+    "4.0": 0.00052,
+    "4.5": 6.7e-05
+   }
+  },
+  "wimax_576_288": {
+   "r3_k50": {
+    "2.5": 0.0021,
+    "2.75": 0.0006,
+    "3.0": 0.00013
+   },
+   "r3_w50m50": {
+    "2.5": 0.0016,
+    "2.75": 0.00036,
+    "3.0": 8.2e-05
+   },
+   "BP (50 it)": {
+    "2.5": 0.0013,
+    "2.75": 0.00034,
+    "3.0": 6.8e-05
+   },
+   "r3_w20m50": {
+    "2.5": 0.0015,
+    "2.75": 0.00038,
+    "3.0": 7.6e-05
+   },
+   "r3_w50m50lr": {
+    "2.5": 0.0019,
+    "2.75": 0.0005,
+    "3.0": 9.6e-05
+   }
+  }
+ }
+}

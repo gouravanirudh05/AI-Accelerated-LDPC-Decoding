@@ -1,0 +1,42 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+5G_BG1_k528_n704: {'name': '5G_BG1_k528_n704', 'n': 704, 'k': 528, 'rate': 0.75, 'H_shape': [240, 768], 'edges': 2928, 'rank': 240, 'bg': 'bg1', 'Z': 24, 'i_ls': 1, 'k_ldpc': 528, 'fillers': 0, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 32}
+config base: {} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 68, 'num_cn_types': 46, 'num_edge_types': 316}
+config k05: {'k_frac': 0.05} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.05, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 68, 'num_cn_types': 46, 'num_edge_types': 316}
+config k20: {'k_frac': 0.2} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.2, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 68, 'num_cn_types': 46, 'num_edge_types': 316}
+
+=== tune1e_5G_BG1_k528_n704: training SGT base (72161 parameters) on ['5G_BG1_k528_n704'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.88-4.17 dB: 1000, 4.17-4.46 dB: 1000, 4.46-4.75 dB: 497
+  step    500 |    7.8 min | lr 1.0e-03 | loss 0.0932 (bce 0.0770, syn 0.1610) | val BER 1.22e-05 BLER 3.68e-04 | hard-set FER 0.091 0.056 0.078
+  step   1000 |   12.5 min | lr 1.0e-03 | loss 0.0911 (bce 0.0753, syn 0.1578) | val BER 1.16e-05 BLER 3.06e-04 | hard-set FER 0.061 0.037 0.054
+  step   1500 |   17.3 min | lr 1.0e-03 | loss 0.0919 (bce 0.0768, syn 0.1514) | val BER 1.21e-05 BLER 3.68e-04 | hard-set FER 0.053 0.045 0.056
+  step   1790 |   20.0 min | lr 1.0e-03 | loss 0.1110 (bce 0.0925, syn 0.1845) | val BER 1.24e-05 BLER 3.06e-04 | hard-set FER 0.056 0.033 0.050
+
+=== tune1e_5G_BG1_k528_n704: training SGT k05 (72161 parameters) on ['5G_BG1_k528_n704'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.88-4.17 dB: 1000, 4.17-4.46 dB: 1000, 4.46-4.75 dB: 497
+  step    500 |    7.2 min | lr 1.0e-03 | loss 0.0960 (bce 0.0797, syn 0.1622) | val BER 1.24e-05 BLER 5.51e-04 | hard-set FER 0.124 0.090 0.105
+  step   1000 |   11.4 min | lr 1.0e-03 | loss 0.0955 (bce 0.0800, syn 0.1553) | val BER 1.17e-05 BLER 4.90e-04 | hard-set FER 0.100 0.081 0.101
+  step   1500 |   15.6 min | lr 1.0e-03 | loss 0.0933 (bce 0.0771, syn 0.1617) | val BER 6.38e-06 BLER 2.45e-04 | hard-set FER 0.069 0.057 0.066
+  step   2000 |   19.8 min | lr 1.0e-03 | loss 0.1001 (bce 0.0833, syn 0.1676) | val BER 1.16e-05 BLER 3.68e-04 | hard-set FER 0.051 0.047 0.060
+  step   2020 |   20.1 min | lr 1.0e-03 | loss 0.0890 (bce 0.0718, syn 0.1717) | val BER 9.75e-06 BLER 3.06e-04 | hard-set FER 0.064 0.043 0.054
+
+=== tune1e_5G_BG1_k528_n704: training SGT k20 (72161 parameters) on ['5G_BG1_k528_n704'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.88-4.17 dB: 1000, 4.17-4.46 dB: 1000, 4.46-4.75 dB: 497
+  step    500 |    9.5 min | lr 1.0e-03 | loss 0.0879 (bce 0.0736, syn 0.1433) | val BER 7.78e-06 BLER 3.06e-04 | hard-set FER 0.052 0.031 0.042
+  step   1000 |   16.1 min | lr 1.0e-03 | loss 0.0897 (bce 0.0750, syn 0.1471) | val BER 9.40e-06 BLER 2.45e-04 | hard-set FER 0.043 0.023 0.032
+  step   1299 |   20.0 min | lr 1.0e-03 | loss 0.0808 (bce 0.0684, syn 0.1233) | val BER 1.07e-05 BLER 2.45e-04 | hard-set FER 0.035 0.021 0.028
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune1e_5G_BG1_k528_n704: evaluating on 5G_BG1_k528_n704 {'name': '5G_BG1_k528_n704', 'n': 704, 'k': 528, 'rate': 0.75, 'H_shape': [240, 768], 'edges': 2928, 'rank': 240, 'bg': 'bg1', 'Z': 24, 'i_ls': 1, 'k_ldpc': 528, 'fillers': 0, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 32} ---
+  SGT base                           3.25dB:1.4e-02 3.50dB:2.9e-03 3.75dB:6.2e-04
+  SGT k05                            3.25dB:1.6e-02 3.50dB:3.3e-03 3.75dB:6.6e-04
+  SGT k20                            3.25dB:1.1e-02 3.50dB:1.9e-03 3.75dB:4.2e-04
+  BP (50 it)                         3.25dB:3.9e-03 3.50dB:1.2e-03 3.75dB:1.6e-04
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   2.342  k20        hard-set FER 0.02805633802816902  {'k_frac': 0.2}
+   3.311  base       hard-set FER 0.046433936955063725  {}
+   3.661  k05        hard-set FER 0.05278739101274312  {'k_frac': 0.05}
+done

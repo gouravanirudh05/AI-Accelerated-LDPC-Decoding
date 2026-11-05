@@ -1,0 +1,42 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+5G_BG1_k528_n704: {'name': '5G_BG1_k528_n704', 'n': 704, 'k': 528, 'rate': 0.75, 'H_shape': [240, 768], 'edges': 2928, 'rank': 240, 'bg': 'bg1', 'Z': 24, 'i_ls': 1, 'k_ldpc': 528, 'fillers': 0, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 32}
+config local: {'attn': 'local'} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'local', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 68, 'num_cn_types': 46, 'num_edge_types': 316}
+config L3: {'gt_layers': 3} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 3, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 68, 'num_cn_types': 46, 'num_edge_types': 316}
+config unsat: {'select': 'unsat'} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'unsat', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 68, 'num_cn_types': 46, 'num_edge_types': 316}
+
+=== tune1f_5G_BG1_k528_n704: training SGT local (72161 parameters) on ['5G_BG1_k528_n704'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.88-4.17 dB: 1000, 4.17-4.46 dB: 1000, 4.46-4.75 dB: 497
+  step    500 |    7.8 min | lr 1.0e-03 | loss 0.0912 (bce 0.0756, syn 0.1566) | val BER 1.11e-05 BLER 3.68e-04 | hard-set FER 0.061 0.049 0.062
+  step   1000 |   12.6 min | lr 1.0e-03 | loss 0.0899 (bce 0.0742, syn 0.1571) | val BER 1.16e-05 BLER 3.06e-04 | hard-set FER 0.058 0.044 0.060
+  step   1500 |   17.3 min | lr 1.0e-03 | loss 0.0912 (bce 0.0764, syn 0.1478) | val BER 1.13e-05 BLER 3.06e-04 | hard-set FER 0.050 0.042 0.060
+  step   1780 |   20.0 min | lr 1.0e-03 | loss 0.0791 (bce 0.0660, syn 0.1313) | val BER 1.14e-05 BLER 3.06e-04 | hard-set FER 0.064 0.046 0.066
+
+=== tune1f_5G_BG1_k528_n704: training SGT L3 (105633 parameters) on ['5G_BG1_k528_n704'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.88-4.17 dB: 1000, 4.17-4.46 dB: 1000, 4.46-4.75 dB: 497
+  step    500 |    7.9 min | lr 1.0e-03 | loss 0.0950 (bce 0.0809, syn 0.1411) | val BER 1.18e-05 BLER 3.68e-04 | hard-set FER 0.068 0.038 0.048
+  step   1000 |   12.9 min | lr 1.0e-03 | loss 0.0924 (bce 0.0766, syn 0.1578) | val BER 1.09e-05 BLER 3.06e-04 | hard-set FER 0.060 0.041 0.052
+  step   1500 |   17.9 min | lr 1.0e-03 | loss 0.0899 (bce 0.0762, syn 0.1371) | val BER 1.17e-05 BLER 3.68e-04 | hard-set FER 0.056 0.036 0.042
+  step   1710 |   20.0 min | lr 1.0e-03 | loss 0.0859 (bce 0.0697, syn 0.1620) | val BER 9.98e-06 BLER 1.84e-04 | hard-set FER 0.072 0.061 0.068
+
+=== tune1f_5G_BG1_k528_n704: training SGT unsat (72161 parameters) on ['5G_BG1_k528_n704'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.88-4.17 dB: 1000, 4.17-4.46 dB: 1000, 4.46-4.75 dB: 497
+  step    500 |    7.7 min | lr 1.0e-03 | loss 0.0934 (bce 0.0787, syn 0.1468) | val BER 1.20e-05 BLER 4.29e-04 | hard-set FER 0.090 0.056 0.072
+  step   1000 |   12.5 min | lr 1.0e-03 | loss 0.0929 (bce 0.0783, syn 0.1459) | val BER 1.23e-05 BLER 4.29e-04 | hard-set FER 0.084 0.064 0.060
+  step   1500 |   17.3 min | lr 1.0e-03 | loss 0.0943 (bce 0.0801, syn 0.1423) | val BER 1.24e-05 BLER 3.68e-04 | hard-set FER 0.056 0.038 0.048
+  step   1790 |   20.0 min | lr 1.0e-03 | loss 0.1127 (bce 0.0957, syn 0.1705) | val BER 8.70e-06 BLER 3.06e-04 | hard-set FER 0.054 0.034 0.052
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune1f_5G_BG1_k528_n704: evaluating on 5G_BG1_k528_n704 {'name': '5G_BG1_k528_n704', 'n': 704, 'k': 528, 'rate': 0.75, 'H_shape': [240, 768], 'edges': 2928, 'rank': 240, 'bg': 'bg1', 'Z': 24, 'i_ls': 1, 'k_ldpc': 528, 'fillers': 0, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 32} ---
+  SGT local                          3.25dB:1.4e-02 3.50dB:2.7e-03 3.75dB:6.5e-04
+  SGT L3                             3.25dB:1.5e-02 3.50dB:2.7e-03 3.75dB:6.8e-04
+  SGT unsat                          3.25dB:1.4e-02 3.50dB:3.0e-03 3.75dB:6.4e-04
+  BP (50 it)                         3.25dB:3.9e-03 3.50dB:1.2e-03 3.75dB:1.6e-04
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   3.239  local      hard-set FER 0.05078739101274313  {'attn': 'local'}
+   3.359  unsat      hard-set FER 0.04677129443326627  {'select': 'unsat'}
+   3.387  L3         hard-set FER 0.044751173708920185  {'gt_layers': 3}
+done

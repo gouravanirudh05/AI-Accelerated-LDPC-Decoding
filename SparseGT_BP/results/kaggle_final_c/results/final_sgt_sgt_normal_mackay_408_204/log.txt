@@ -1,0 +1,42 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+config: {'_note': 'Round-2 winner among BP-restart configs (results/tune2_RANKING.md, r2_k50: overall 1.315 vs 1.507 for k_frac 0.3; MacKay(204,102) 0.62 x BP(50)). Restarting BP at every stage, as the BP-GNN does.', 'name': 'SGT', 'overrides': {'k_frac': 0.5}}
+
+=== final_sgt_sgt_normal_mackay_408_204_mackay_408_204: training SGT (5x10 BP it) (68097 parameters) on ['mackay_408_204'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495
+  step    500 |    9.2 min | lr 1.0e-03 | loss 0.1139 (bce 0.1019, syn 0.1205) | val BER 3.89e-05 BLER 9.92e-04 | hard-set FER 0.105 0.082 0.073
+  step   1000 |   17.6 min | lr 1.0e-03 | loss 0.1087 (bce 0.0977, syn 0.1095) | val BER 3.13e-05 BLER 8.06e-04 | hard-set FER 0.101 0.078 0.081
+  step   1500 |   26.0 min | lr 1.0e-03 | loss 0.1065 (bce 0.0941, syn 0.1238) | val BER 2.89e-05 BLER 8.68e-04 | hard-set FER 0.106 0.080 0.077
+  step   2000 |   34.5 min | lr 1.0e-03 | loss 0.1002 (bce 0.0891, syn 0.1119) | val BER 2.89e-05 BLER 8.06e-04 | hard-set FER 0.088 0.079 0.085
+  step   2500 |   42.9 min | lr 1.0e-03 | loss 0.1097 (bce 0.0980, syn 0.1170) | val BER 2.86e-05 BLER 7.44e-04 | hard-set FER 0.079 0.060 0.059
+  step   3000 |   51.3 min | lr 1.0e-03 | loss 0.0972 (bce 0.0855, syn 0.1168) | val BER 1.91e-05 BLER 4.34e-04 | hard-set FER 0.051 0.042 0.042
+  step   3500 |   59.7 min | lr 1.0e-03 | loss 0.0941 (bce 0.0833, syn 0.1081) | val BER 1.91e-05 BLER 5.58e-04 | hard-set FER 0.062 0.055 0.042
+  step   4000 |   68.1 min | lr 1.0e-03 | loss 0.1004 (bce 0.0881, syn 0.1230) | val BER 2.61e-05 BLER 7.44e-04 | hard-set FER 0.052 0.048 0.046
+  step   4500 |   76.5 min | lr 1.0e-03 | loss 0.0925 (bce 0.0809, syn 0.1157) | val BER 2.01e-05 BLER 5.58e-04 | hard-set FER 0.041 0.028 0.026
+  step   4707 |   80.0 min | lr 1.0e-03 | loss 0.1054 (bce 0.0956, syn 0.0982) | val BER 1.88e-05 BLER 5.58e-04 | hard-set FER 0.051 0.039 0.034
+GPU: Tesla T4 | NVML: True | energy counter: True
+  memory SGT (5x10 BP it)                   train step B=256:   3816.4 MB | inference B=4096:   2761.1 MB | max train batch 512
+  memory SGT (5x40 BP it)                   train step B=256:   4932.1 MB | inference B=4096:   2761.1 MB | max train batch 512
+
+--- final_sgt_sgt_normal_mackay_408_204_mackay_408_204: evaluating on mackay_408_204 {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204} ---
+  SGT (5x10 BP it)                   1.00dB:7.2e-01 1.50dB:3.8e-01 2.00dB:1.2e-01 2.50dB:1.7e-02 3.00dB:1.5e-03 3.50dB:8.6e-05 4.00dB:8.0e-06 4.50dB:0.0e+00
+  SGT (5x10 BP it) + OSD-2           1.00dB:4.6e-01 1.50dB:1.7e-01 2.00dB:3.9e-02 2.50dB:4.2e-03 3.00dB:2.7e-04 3.50dB:1.2e-05 4.00dB:5.0e-07 4.50dB:0.0e+00
+  SGT (5x40 BP it)                   1.00dB:6.2e-01 1.50dB:2.7e-01 2.00dB:8.2e-02 2.50dB:1.0e-02 3.00dB:7.5e-04 3.50dB:3.3e-05 4.00dB:3.0e-06 4.50dB:0.0e+00
+  SGT (5x40 BP it) + OSD-2           1.00dB:4.7e-01 1.50dB:1.8e-01 2.00dB:4.1e-02 2.50dB:3.9e-03 3.00dB:2.5e-04 3.50dB:1.2e-05 4.00dB:1.0e-06 4.50dB:0.0e+00
+  BP (50 it)                         1.00dB:6.7e-01 1.50dB:3.2e-01 2.00dB:1.0e-01 2.50dB:1.6e-02 3.00dB:1.8e-03 3.50dB:1.6e-04 4.00dB:1.2e-05 4.50dB:5.0e-07
+  profiling at Eb/N0 = 2.75 dB (idle GPU 32.6 W)
+    SGT (5x10 BP it) [fixed]     | B=1  34.188 ms | B=2048       1117 cw/s |   65.0 W | 58206.71 uJ/cw
+    SGT (5x10 BP it) [fixed, CUDA graph] | B=1   6.742 ms | B=2048       1003 cw/s |   64.6 W | 62003.42 uJ/cw
+    SGT (5x10 BP it) [early-stop] | B=1  16.632 ms | B=2048      27589 cw/s |   60.0 W |  3711.30 uJ/cw
+    SGT (5x10 BP it) + OSD-2 [early-stop] | B=1   2.717 ms | B=2048       7555 cw/s |   38.7 W |  9868.36 uJ/cw
+    SGT (5x40 BP it) [fixed]     | B=1 107.306 ms | B=2048        896 cw/s |   63.9 W | 72872.27 uJ/cw
+    SGT (5x40 BP it) [fixed, CUDA graph] | B=1  19.851 ms | B=2048        892 cw/s |   65.2 W | 72848.80 uJ/cw
+    SGT (5x40 BP it) [early-stop] | B=1   3.196 ms | B=2048       7266 cw/s |   34.8 W |  9639.16 uJ/cw
+    SGT (5x40 BP it) + OSD-2 [early-stop] | B=1   8.864 ms | B=2048       5765 cw/s |   34.6 W | 11366.41 uJ/cw
+    BP (50 it) [fixed]           | B=1  21.982 ms | B=2048      16943 cw/s |   66.5 W |  4004.25 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.321 ms | B=2048      16667 cw/s |   65.7 W |  4014.39 uJ/cw
+    BP (50 it) [early-stop]      | B=1   2.816 ms | B=2048      42053 cw/s |   47.8 W |  1988.98 uJ/cw
+    [cpu] SGT (5x10 BP it) [fixed] | B=1 27.67 ms | B=64 863.05 ms
+    [cpu] SGT (5x40 BP it) [fixed] | B=1 69.75 ms | B=64 1107.78 ms
+    [cpu] BP (50 it) [fixed]     | B=1 12.70 ms | B=64 83.95 ms
+done

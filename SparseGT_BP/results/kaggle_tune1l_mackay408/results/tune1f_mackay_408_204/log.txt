@@ -1,0 +1,56 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+mackay_408_204: {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204}
+config local: {'attn': 'local'} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'local', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}
+config L3: {'gt_layers': 3} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 3, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}
+config unsat: {'select': 'unsat'} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'unsat', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}
+
+=== tune1f_mackay_408_204: training SGT local (68065 parameters) on ['mackay_408_204'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495
+  step    500 |    3.1 min | lr 1.0e-03 | loss 0.1286 (bce 0.1121, syn 0.1646) | val BER 9.09e-05 BLER 2.42e-03 | hard-set FER 0.319 0.295 0.293
+  step   1000 |    5.4 min | lr 1.0e-03 | loss 0.1316 (bce 0.1137, syn 0.1785) | val BER 8.75e-05 BLER 1.98e-03 | hard-set FER 0.253 0.234 0.253
+  step   1500 |    7.8 min | lr 1.0e-03 | loss 0.1302 (bce 0.1144, syn 0.1582) | val BER 8.02e-05 BLER 1.98e-03 | hard-set FER 0.308 0.286 0.279
+  step   2000 |   10.1 min | lr 1.0e-03 | loss 0.1234 (bce 0.1091, syn 0.1426) | val BER 8.02e-05 BLER 2.17e-03 | hard-set FER 0.291 0.231 0.210
+  step   2500 |   12.5 min | lr 1.0e-03 | loss 0.1297 (bce 0.1144, syn 0.1530) | val BER 9.91e-05 BLER 2.48e-03 | hard-set FER 0.331 0.307 0.335
+  step   3000 |   14.8 min | lr 1.0e-03 | loss 0.1198 (bce 0.1054, syn 0.1442) | val BER 9.09e-05 BLER 2.48e-03 | hard-set FER 0.337 0.298 0.269
+  step   3500 |   17.1 min | lr 1.0e-03 | loss 0.1234 (bce 0.1096, syn 0.1381) | val BER 1.10e-04 BLER 3.47e-03 | hard-set FER 0.543 0.559 0.517
+  step   4000 |   19.5 min | lr 1.0e-03 | loss 0.1202 (bce 0.1070, syn 0.1325) | val BER 5.74e-05 BLER 1.36e-03 | hard-set FER 0.199 0.157 0.170
+  step   4110 |   20.0 min | lr 1.0e-03 | loss 0.1424 (bce 0.1249, syn 0.1756) | val BER 1.30e-04 BLER 5.27e-03 | hard-set FER 0.810 0.808 0.745
+
+=== tune1f_mackay_408_204: training SGT L3 (101537 parameters) on ['mackay_408_204'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495
+  step    500 |    3.2 min | lr 1.0e-03 | loss 0.1278 (bce 0.1122, syn 0.1561) | val BER 6.47e-05 BLER 1.67e-03 | hard-set FER 0.193 0.159 0.182
+  step   1000 |    5.7 min | lr 1.0e-03 | loss 0.1294 (bce 0.1147, syn 0.1469) | val BER 5.93e-05 BLER 1.61e-03 | hard-set FER 0.170 0.157 0.149
+  step   1500 |    8.3 min | lr 1.0e-03 | loss 0.1323 (bce 0.1187, syn 0.1353) | val BER 9.12e-05 BLER 2.11e-03 | hard-set FER 0.287 0.233 0.198
+  step   2000 |   10.8 min | lr 1.0e-03 | loss 0.1168 (bce 0.1039, syn 0.1286) | val BER 6.63e-05 BLER 1.18e-03 | hard-set FER 0.127 0.092 0.087
+  step   2500 |   13.3 min | lr 1.0e-03 | loss 0.1292 (bce 0.1145, syn 0.1467) | val BER 8.97e-05 BLER 1.98e-03 | hard-set FER 0.263 0.220 0.190
+  step   3000 |   15.8 min | lr 1.0e-03 | loss 0.1140 (bce 0.0999, syn 0.1410) | val BER 8.45e-05 BLER 1.43e-03 | hard-set FER 0.201 0.172 0.141
+  step   3500 |   18.3 min | lr 1.0e-03 | loss 0.1171 (bce 0.1036, syn 0.1352) | val BER 5.77e-05 BLER 1.67e-03 | hard-set FER 0.226 0.190 0.174
+  step   3840 |   20.0 min | lr 1.0e-03 | loss 0.1217 (bce 0.1091, syn 0.1252) | val BER 6.26e-05 BLER 1.43e-03 | hard-set FER 0.149 0.118 0.087
+
+=== tune1f_mackay_408_204: training SGT unsat (68065 parameters) on ['mackay_408_204'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495
+  step    500 |    3.0 min | lr 1.0e-03 | loss 0.1263 (bce 0.1122, syn 0.1414) | val BER 6.44e-05 BLER 1.67e-03 | hard-set FER 0.239 0.203 0.232
+  step   1000 |    5.4 min | lr 1.0e-03 | loss 0.1285 (bce 0.1144, syn 0.1407) | val BER 6.93e-05 BLER 1.86e-03 | hard-set FER 0.203 0.173 0.178
+  step   1500 |    7.7 min | lr 1.0e-03 | loss 0.1307 (bce 0.1162, syn 0.1451) | val BER 7.81e-05 BLER 1.55e-03 | hard-set FER 0.181 0.140 0.131
+  step   2000 |   10.0 min | lr 1.0e-03 | loss 0.1216 (bce 0.1084, syn 0.1324) | val BER 7.08e-05 BLER 1.49e-03 | hard-set FER 0.178 0.159 0.149
+  step   2500 |   12.4 min | lr 1.0e-03 | loss 0.1286 (bce 0.1139, syn 0.1473) | val BER 6.78e-05 BLER 1.49e-03 | hard-set FER 0.152 0.115 0.125
+  step   3000 |   14.7 min | lr 1.0e-03 | loss 0.1216 (bce 0.1074, syn 0.1419) | val BER 7.75e-05 BLER 2.48e-03 | hard-set FER 0.347 0.355 0.343
+  step   3500 |   17.0 min | lr 1.0e-03 | loss 0.1189 (bce 0.1060, syn 0.1292) | val BER 9.48e-05 BLER 2.11e-03 | hard-set FER 0.329 0.349 0.360
+  step   4000 |   19.4 min | lr 1.0e-03 | loss 0.1229 (bce 0.1085, syn 0.1439) | val BER 5.53e-05 BLER 1.43e-03 | hard-set FER 0.201 0.167 0.158
+  step   4130 |   20.0 min | lr 1.0e-03 | loss 0.1154 (bce 0.1025, syn 0.1284) | val BER 6.08e-05 BLER 1.43e-03 | hard-set FER 0.182 0.157 0.145
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune1f_mackay_408_204: evaluating on mackay_408_204 {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204} ---
+  SGT local                          3.00dB:4.7e-03 3.25dB:1.5e-03 3.50dB:4.0e-04
+  SGT L3                             3.00dB:3.4e-03 3.25dB:1.0e-03 3.50dB:2.7e-04
+  SGT unsat                          3.00dB:3.8e-03 3.25dB:1.2e-03 3.50dB:3.5e-04
+  BP (50 it)                         3.00dB:2.0e-03 3.25dB:4.7e-04 3.50dB:1.6e-04
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   1.857  L3         hard-set FER 0.10195622895622895  {'gt_layers': 3}
+   2.209  unsat      hard-set FER 0.13075084175084176  {'select': 'unsat'}
+   2.684  local      hard-set FER 0.17523232323232327  {'attn': 'local'}
+done

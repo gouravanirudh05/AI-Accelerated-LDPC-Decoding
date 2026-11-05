@@ -235,3 +235,7 @@ __marimo__/
 # sparse_gt: code provenance must be tracked despite the *.json rule above; run outputs are not.
 !codes/manifest.json
 results/
+
+# SparseGT_BP: track tuning/final results (small; largest file < 500 KB)
+!SparseGT_BP/results/
+!SparseGT_BP/results/**

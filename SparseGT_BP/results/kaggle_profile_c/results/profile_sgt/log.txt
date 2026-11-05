@@ -1,0 +1,36 @@
+device: cuda | GPU Tesla T4 | NVML True | visible devices 0
+
+--- mackay_408_204: /kaggle/input/notebooks/gourasri/sgt-ldpc-final-c/results/final_sgt_sgt_normal_mackay_408_204/final_sgt_sgt_normal_mackay_408_204_mackay_408_204_sgt.pt | profiling at Eb/N0 = 2.75 dB
+  idle GPU 29.5 W
+    SGT (5x10 BP it) [fixed]     | B=1  34.225 ms | B=2048       1120 cw/s |   64.0 W | 57874.84 uJ/cw
+    SGT (5x10 BP it) [fixed, CUDA graph] | B=1   6.680 ms | B=2048       1030 cw/s |   64.5 W | 60458.98 uJ/cw
+    SGT (5x10 BP it) [early-stop] | B=1  15.627 ms | B=2048      28306 cw/s |   60.5 W |  3446.11 uJ/cw
+    SGT (5x10 BP it) + OSD-2 [early-stop] | B=1   2.631 ms | B=2048       7720 cw/s |   39.8 W |  9523.02 uJ/cw
+    SGT (5x40 BP it) [fixed]     | B=1 103.432 ms | B=2048        838 cw/s |   64.1 W | 73878.32 uJ/cw
+    SGT (5x40 BP it) [fixed, CUDA graph] | B=1  19.741 ms | B=2048        898 cw/s |   64.2 W | 72378.58 uJ/cw
+    SGT (5x40 BP it) [early-stop] | B=1   3.223 ms | B=2048      12207 cw/s |   37.8 W |  5902.74 uJ/cw
+    SGT (5x40 BP it) + OSD-2 [early-stop] | B=1   4.774 ms | B=2048       5906 cw/s |   35.4 W | 11552.93 uJ/cw
+    BP (50 it) [fixed]           | B=1  22.299 ms | B=2048      16729 cw/s |   64.2 W |  3917.60 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.295 ms | B=2048      16525 cw/s |   65.5 W |  4018.01 uJ/cw
+    BP (50 it) [early-stop]      | B=1   2.763 ms | B=2048      43086 cw/s |   48.7 W |  1948.72 uJ/cw
+    [cpu] SGT (5x10 BP it) [fixed] | B=1 29.00 ms | B=64 883.11 ms
+    [cpu] SGT (5x40 BP it) [fixed] | B=1 72.22 ms | B=64 1160.10 ms
+    [cpu] BP (50 it) [fixed]     | B=1 13.83 ms | B=64 87.09 ms
+
+--- 5G_BG2_k256_n512: /kaggle/input/notebooks/gourasri/sgt-ldpc-final-c/results/final_sgt_sgt_5g_5G_BG2_k256_n512/final_sgt_sgt_5g_5G_BG2_k256_n512_5G_BG2_k256_n512_sgt.pt | profiling at Eb/N0 = 2.0 dB
+  idle GPU 32.3 W
+    SGT (5x10 BP it) [fixed]     | B=1  34.933 ms | B=1024        556 cw/s |   62.1 W | 114855.47 uJ/cw
+    SGT (5x10 BP it) [fixed, CUDA graph] | B=1   7.372 ms | B=1024        568 cw/s |   64.0 W | 110113.77 uJ/cw
+    SGT (5x10 BP it) [early-stop] | B=1   5.657 ms | B=1024       5869 cw/s |   64.3 W | 11403.77 uJ/cw
+    SGT (5x10 BP it) + OSD-2 [early-stop] | B=1   4.502 ms | B=1024       2308 cw/s |   57.3 W | 24391.19 uJ/cw
+    SGT (5x40 BP it) [fixed]     | B=1 102.215 ms | B=1024        467 cw/s |   64.3 W | 133188.15 uJ/cw
+    SGT (5x40 BP it) [fixed, CUDA graph] | B=1  20.759 ms | B=1024        505 cw/s |   64.9 W | 131140.87 uJ/cw
+    SGT (5x40 BP it) [early-stop] | B=1   7.567 ms | B=1024       6031 cw/s |   54.4 W |  9193.09 uJ/cw
+    SGT (5x40 BP it) + OSD-2 [early-stop] | B=1   5.272 ms | B=1024       2400 cw/s |   39.0 W | 16850.34 uJ/cw
+    BP (50 it) [fixed]           | B=1  22.208 ms | B=1024      10989 cw/s |   65.7 W |  6008.93 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.425 ms | B=1024      10903 cw/s |   64.6 W |  5953.56 uJ/cw
+    BP (50 it) [early-stop]      | B=1   5.258 ms | B=1024      20460 cw/s |   61.8 W |  3084.94 uJ/cw
+    [cpu] SGT (5x10 BP it) [fixed] | B=1 35.14 ms | B=64 1584.08 ms
+    [cpu] SGT (5x40 BP it) [fixed] | B=1 81.73 ms | B=64 1982.92 ms
+    [cpu] BP (50 it) [fixed]     | B=1 15.15 ms | B=64 124.82 ms
+done

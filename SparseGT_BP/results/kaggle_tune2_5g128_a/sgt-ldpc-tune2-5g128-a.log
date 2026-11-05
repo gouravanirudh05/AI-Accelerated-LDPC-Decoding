@@ -1,0 +1,186 @@
+[{"stream_name":"stdout","time":1.6668092190000001,"data":"Tue Nov  3 20:08:56 2026       \n"}
+,{"stream_name":"stdout","time":1.6668630549999999,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.666867474,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":1.666870157,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.6668726980000002,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":1.666875221,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":1.666877751,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":1.6668802120000001,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":1.7448457899999998,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.744868332,"data":"| N/A   52C    P8             11W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.744908738,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.744914419,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.744919965,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.7449255350000001,"data":"| N/A   49C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.744931127,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.744936772,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.7456181320000002,"data":"\n"}
+,{"stream_name":"stdout","time":1.74563281,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.745639063,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":1.7456447800000001,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":1.7456503209999998,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":1.745656066,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":1.74740031,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":1.747415186,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":18.80966829,"data":"[queue 0] SparseGT_BP/tuning/run_tuning.py ['--code', '5G_BG2_k64_n128', '--configs', 'r2_k30,r2_k50,r2_k30c', '--minutes', '20', '--tag', 'tune2a', '--grid', 'round2.json']\n"}
+,{"stream_name":"stdout","time":18.810637891,"data":"[queue 1] SparseGT_BP/tuning/run_tuning.py ['--code', '5G_BG2_k64_n128', '--configs', 'r2_w10,r2_w30,r2_w50', '--minutes', '20', '--tag', 'tune2b', '--grid', 'round2.json']\n"}
+,{"stream_name":"stdout","time":22.008495032,"data":"device: cuda | torch 2.11.0+cu130 | Tesla T4\n"}
+,{"stream_name":"stdout","time":22.042056346,"data":"device: cuda | torch 2.11.0+cu130 | Tesla T4\n"}
+,{"stream_name":"stdout","time":22.513049601,"data":"5G_BG2_k64_n128: {'name': '5G_BG2_k64_n128', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [88, 152], 'edges': 463, 'rank': 88, 'bg': 'bg2', 'Z': 11, 'i_ls': 5, 'k_ldpc': 110, 'fillers': 46, 'punctured': 24, 'base_rows_kept': 8, 'base_cols_kept': 18}\n"}
+,{"stream_name":"stdout","time":22.513078772,"data":"5G_BG2_k64_n128: {'name': '5G_BG2_k64_n128', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [88, 152], 'edges': 463, 'rank': 88, 'bg': 'bg2', 'Z': 11, 'i_ls': 5, 'k_ldpc': 110, 'fillers': 46, 'punctured': 24, 'base_rows_kept': 8, 'base_cols_kept': 18}\n"}
+,{"stream_name":"stdout","time":22.513302174,"data":"config r2_k30: {'k_frac': 0.3} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.3, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': False, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}\n"}
+,{"stream_name":"stdout","time":22.513313582,"data":"config r2_w10: {'warm': True, 'k_frac': 0.1} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}\n"}
+,{"stream_name":"stdout","time":22.51356567,"data":"config r2_k50: {'k_frac': 0.5} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.5, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': False, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}\n"}
+,{"stream_name":"stdout","time":22.513581641000002,"data":"config r2_w30: {'warm': True, 'k_frac': 0.3} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.3, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}\n"}
+,{"stream_name":"stdout","time":22.51376713,"data":"config r2_w50: {'warm': True, 'k_frac': 0.5} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.5, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}\n"}
+,{"stream_name":"stdout","time":22.513776866,"data":"config r2_k30c: {'k_frac': 0.3, 'base': 'llr', 'hard_frac': 0.5, 'heads': 8} -\u003e kwargs {'d': 64, 'heads': 8, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.3, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'llr', 'struct_bias': True, 'warm': False, 'num_vn_types': 52, 'num_cn_types': 42, 'num_edge_types': 197}\n"}
+,{"stream_name":"stdout","time":22.594753419,"data":"\n"}
+,{"stream_name":"stdout","time":22.594775933,"data":"=== tune2b_5G_BG2_k64_n128: training SGT r2_w10 (71169 parameters) on ['5G_BG2_k64_n128'] ===\n"}
+,{"stream_name":"stdout","time":22.594781085,"data":"\n"}
+,{"stream_name":"stdout","time":22.594784954,"data":"=== tune2a_5G_BG2_k64_n128: training SGT r2_k30 (71169 parameters) on ['5G_BG2_k64_n128'] ===\n"}
+,{"stream_name":"stdout","time":31.950165921,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":31.950192445,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":48.968857334,"data":"  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718\n"}
+,{"stream_name":"stdout","time":49.118433169,"data":"  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718\n"}
+,{"stream_name":"stdout","time":124.707267843,"data":"  step    500 |    1.5 min | lr 1.0e-03 | loss 0.1966 (bce 0.1758, syn 0.2079) | val BER 5.76e-04 BLER 3.84e-03 | hard-set FER 0.336 0.243 0.178\n"}
+,{"stream_name":"stdout","time":125.230308568,"data":"  step    500 |    1.5 min | lr 1.0e-03 | loss 0.1878 (bce 0.1682, syn 0.1958) | val BER 3.78e-04 BLER 1.80e-03 | hard-set FER 0.132 0.092 0.054\n"}
+,{"stream_name":"stdout","time":197.673277571,"data":"  step   1000 |    2.8 min | lr 1.0e-03 | loss 0.2129 (bce 0.1930, syn 0.1994) | val BER 6.36e-04 BLER 3.72e-03 | hard-set FER 0.306 0.245 0.194\n"}
+,{"stream_name":"stdout","time":198.388627908,"data":"  step   1000 |    2.8 min | lr 1.0e-03 | loss 0.2530 (bce 0.2273, syn 0.2570) | val BER 4.24e-04 BLER 2.05e-03 | hard-set FER 0.183 0.096 0.054\n"}
+,{"stream_name":"stdout","time":270.824257621,"data":"  step   1500 |    4.0 min | lr 1.0e-03 | loss 0.2685 (bce 0.2420, syn 0.2646) | val BER 4.96e-04 BLER 2.42e-03 | hard-set FER 0.209 0.116 0.063\n"}
+,{"stream_name":"stdout","time":270.932989835,"data":"  step   1500 |    4.0 min | lr 1.0e-03 | loss 0.2267 (bce 0.2074, syn 0.1925) | val BER 5.72e-04 BLER 3.84e-03 | hard-set FER 0.396 0.326 0.270\n"}
+,{"stream_name":"stdout","time":343.920128998,"data":"  step   2000 |    5.2 min | lr 1.0e-03 | loss 0.2459 (bce 0.2188, syn 0.2710) | val BER 4.73e-04 BLER 2.36e-03 | hard-set FER 0.207 0.118 0.074\n"}
+,{"stream_name":"stdout","time":344.412479864,"data":"  step   2000 |    5.2 min | lr 1.0e-03 | loss 0.1940 (bce 0.1760, syn 0.1807) | val BER 5.38e-04 BLER 4.03e-03 | hard-set FER 0.330 0.266 0.187\n"}
+,{"stream_name":"stdout","time":416.47585373,"data":"  step   2500 |    6.4 min | lr 1.0e-03 | loss 0.2312 (bce 0.2142, syn 0.1692) | val BER 4.59e-04 BLER 2.23e-03 | hard-set FER 0.188 0.116 0.077\n"}
+,{"stream_name":"stdout","time":417.82604778,"data":"  step   2500 |    6.4 min | lr 1.0e-03 | loss 0.2008 (bce 0.1816, syn 0.1922) | val BER 4.54e-04 BLER 2.60e-03 | hard-set FER 0.263 0.208 0.169\n"}
+,{"stream_name":"stdout","time":489.866977312,"data":"  step   3000 |    7.6 min | lr 1.0e-03 | loss 0.2135 (bce 0.1955, syn 0.1806) | val BER 3.58e-04 BLER 1.67e-03 | hard-set FER 0.140 0.103 0.056\n"}
+,{"stream_name":"stdout","time":491.405799005,"data":"  step   3000 |    7.6 min | lr 1.0e-03 | loss 0.1944 (bce 0.1737, syn 0.2072) | val BER 4.75e-04 BLER 2.79e-03 | hard-set FER 0.254 0.194 0.153\n"}
+,{"stream_name":"stdout","time":563.03298777,"data":"  step   3500 |    8.8 min | lr 1.0e-03 | loss 0.4231 (bce 0.3929, syn 0.3022) | val BER 8.50e-04 BLER 3.78e-03 | hard-set FER 0.307 0.225 0.130\n"}
+,{"stream_name":"stdout","time":563.03424959,"data":"  plateau: lr -\u003e 5.0e-04 (restored best, score 0.09277)\n"}
+,{"stream_name":"stdout","time":564.400447312,"data":"  step   3500 |    8.9 min | lr 1.0e-03 | loss 0.1780 (bce 0.1592, syn 0.1880) | val BER 4.19e-04 BLER 3.10e-03 | hard-set FER 0.285 0.208 0.153\n"}
+,{"stream_name":"stdout","time":634.889692859,"data":"  step   4000 |   10.0 min | lr 5.0e-04 | loss 0.2554 (bce 0.2299, syn 0.2554) | val BER 4.26e-04 BLER 2.29e-03 | hard-set FER 0.176 0.101 0.065\n"}
+,{"stream_name":"stdout","time":637.280467854,"data":"  step   4000 |   10.1 min | lr 1.0e-03 | loss 0.1980 (bce 0.1774, syn 0.2060) | val BER 3.68e-04 BLER 2.42e-03 | hard-set FER 0.221 0.173 0.120\n"}
+,{"stream_name":"stdout","time":707.360109545,"data":"  step   4500 |   11.3 min | lr 5.0e-04 | loss 0.3065 (bce 0.2746, syn 0.3188) | val BER 4.21e-04 BLER 2.36e-03 | hard-set FER 0.222 0.132 0.074\n"}
+,{"stream_name":"stdout","time":710.376028152,"data":"  step   4500 |   11.3 min | lr 1.0e-03 | loss 0.1933 (bce 0.1708, syn 0.2246) | val BER 5.64e-04 BLER 3.16e-03 | hard-set FER 0.259 0.199 0.152\n"}
+,{"stream_name":"stdout","time":781.069653697,"data":"  step   5000 |   12.5 min | lr 5.0e-04 | loss 0.2512 (bce 0.2249, syn 0.2632) | val BER 6.19e-04 BLER 2.91e-03 | hard-set FER 0.210 0.115 0.084\n"}
+,{"stream_name":"stdout","time":784.281504135,"data":"  step   5000 |   12.5 min | lr 1.0e-03 | loss 0.1918 (bce 0.1745, syn 0.1722) | val BER 3.17e-04 BLER 2.23e-03 | hard-set FER 0.221 0.162 0.130\n"}
+,{"stream_name":"stdout","time":854.379092175,"data":"  step   5500 |   13.7 min | lr 5.0e-04 | loss 0.2987 (bce 0.2691, syn 0.2957) | val BER 5.31e-04 BLER 2.73e-03 | hard-set FER 0.221 0.122 0.068\n"}
+,{"stream_name":"stdout","time":857.430634378,"data":"  step   5500 |   13.8 min | lr 1.0e-03 | loss 0.1936 (bce 0.1718, syn 0.2177) | val BER 4.12e-04 BLER 2.91e-03 | hard-set FER 0.291 0.226 0.182\n"}
+,{"stream_name":"stdout","time":927.529083884,"data":"  step   6000 |   14.9 min | lr 5.0e-04 | loss 0.2209 (bce 0.2002, syn 0.2069) | val BER 4.50e-04 BLER 2.23e-03 | hard-set FER 0.187 0.110 0.074\n"}
+,{"stream_name":"stdout","time":930.373528449,"data":"  step   6000 |   15.0 min | lr 1.0e-03 | loss 0.1672 (bce 0.1513, syn 0.1588) | val BER 3.74e-04 BLER 2.23e-03 | hard-set FER 0.199 0.140 0.111\n"}
+,{"stream_name":"stdout","time":1000.475425132,"data":"  step   6500 |   16.1 min | lr 5.0e-04 | loss 0.2792 (bce 0.2533, syn 0.2591) | val BER 4.91e-04 BLER 2.60e-03 | hard-set FER 0.214 0.129 0.075\n"}
+,{"stream_name":"stdout","time":1000.476473566,"data":"  plateau: lr -\u003e 2.5e-04 (restored best, score 0.09277)\n"}
+,{"stream_name":"stdout","time":1003.743414358,"data":"  step   6500 |   16.2 min | lr 1.0e-03 | loss 0.2003 (bce 0.1814, syn 0.1885) | val BER 4.35e-04 BLER 2.79e-03 | hard-set FER 0.236 0.189 0.152\n"}
+,{"stream_name":"stdout","time":1073.098556817,"data":"  step   7000 |   17.3 min | lr 2.5e-04 | loss 0.1607 (bce 0.1426, syn 0.1812) | val BER 3.46e-04 BLER 1.74e-03 | hard-set FER 0.133 0.080 0.043\n"}
+,{"stream_name":"stdout","time":1076.939947856,"data":"  step   7000 |   17.4 min | lr 1.0e-03 | loss 0.1633 (bce 0.1470, syn 0.1633) | val BER 3.65e-04 BLER 2.29e-03 | hard-set FER 0.207 0.148 0.107\n"}
+,{"stream_name":"stdout","time":1146.809618402,"data":"  step   7500 |   18.6 min | lr 2.5e-04 | loss 0.2199 (bce 0.1974, syn 0.2247) | val BER 3.05e-04 BLER 1.74e-03 | hard-set FER 0.164 0.094 0.058\n"}
+,{"stream_name":"stdout","time":1150.253536504,"data":"  step   7500 |   18.6 min | lr 1.0e-03 | loss 0.1949 (bce 0.1736, syn 0.2130) | val BER 3.73e-04 BLER 2.54e-03 | hard-set FER 0.250 0.197 0.134\n"}
+,{"stream_name":"stdout","time":1218.637505786,"data":"  step   8000 |   19.8 min | lr 2.5e-04 | loss 0.1902 (bce 0.1691, syn 0.2104) | val BER 3.91e-04 BLER 2.11e-03 | hard-set FER 0.138 0.086 0.056\n"}
+,{"stream_name":"stdout","time":1223.038627554,"data":"  step   8000 |   19.8 min | lr 1.0e-03 | loss 0.1818 (bce 0.1621, syn 0.1971) | val BER 4.05e-04 BLER 2.60e-03 | hard-set FER 0.199 0.148 0.107\n"}
+,{"stream_name":"stdout","time":1232.434916503,"data":"  step   8083 |   20.0 min | lr 2.5e-04 | loss 0.1916 (bce 0.1720, syn 0.1960) | val BER 3.57e-04 BLER 1.80e-03 | hard-set FER 0.147 0.091 0.053\n"}
+,{"stream_name":"stdout","time":1232.487543395,"data":"\n"}
+,{"stream_name":"stdout","time":1232.487575035,"data":"=== tune2b_5G_BG2_k64_n128: training SGT r2_w30 (71169 parameters) on ['5G_BG2_k64_n128'] ===\n"}
+,{"stream_name":"stdout","time":1232.717745808,"data":"  step   8050 |   20.0 min | lr 1.0e-03 | loss 0.1727 (bce 0.1566, syn 0.1613) | val BER 4.21e-04 BLER 2.54e-03 | hard-set FER 0.231 0.190 0.130\n"}
+,{"stream_name":"stdout","time":1232.729468916,"data":"\n"}
+,{"stream_name":"stdout","time":1232.729498836,"data":"=== tune2a_5G_BG2_k64_n128: training SGT r2_k50 (71169 parameters) on ['5G_BG2_k64_n128'] ===\n"}
+,{"stream_name":"stdout","time":1233.29690023,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":1233.526572657,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":1250.548553513,"data":"  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718\n"}
+,{"stream_name":"stdout","time":1250.893606446,"data":"  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718\n"}
+,{"stream_name":"stdout","time":1325.087579249,"data":"  step    500 |    1.5 min | lr 1.0e-03 | loss 0.3102 (bce 0.2841, syn 0.2613) | val BER 5.16e-04 BLER 2.11e-03 | hard-set FER 0.207 0.140 0.092\n"}
+,{"stream_name":"stdout","time":1362.277032749,"data":"  step    500 |    2.1 min | lr 1.0e-03 | loss 0.1784 (bce 0.1592, syn 0.1923) | val BER 6.23e-04 BLER 3.29e-03 | hard-set FER 0.268 0.196 0.145\n"}
+,{"stream_name":"stdout","time":1398.552609936,"data":"  step   1000 |    2.7 min | lr 1.0e-03 | loss 0.2920 (bce 0.2653, syn 0.2668) | val BER 5.46e-04 BLER 2.29e-03 | hard-set FER 0.195 0.126 0.093\n"}
+,{"stream_name":"stdout","time":1472.167177579,"data":"  step   1500 |    3.9 min | lr 1.0e-03 | loss 0.3368 (bce 0.3038, syn 0.3308) | val BER 7.73e-04 BLER 3.29e-03 | hard-set FER 0.287 0.169 0.084\n"}
+,{"stream_name":"stdout","time":1473.110867979,"data":"  step   1000 |    4.0 min | lr 1.0e-03 | loss 0.1903 (bce 0.1723, syn 0.1805) | val BER 4.11e-04 BLER 2.60e-03 | hard-set FER 0.220 0.160 0.117\n"}
+,{"stream_name":"stdout","time":1545.272096356,"data":"  step   2000 |    5.2 min | lr 1.0e-03 | loss 0.2102 (bce 0.1867, syn 0.2352) | val BER 4.59e-04 BLER 2.54e-03 | hard-set FER 0.173 0.112 0.063\n"}
+,{"stream_name":"stdout","time":1583.404534699,"data":"  step   1500 |    5.8 min | lr 1.0e-03 | loss 0.1910 (bce 0.1708, syn 0.2020) | val BER 3.48e-04 BLER 2.29e-03 | hard-set FER 0.204 0.147 0.104\n"}
+,{"stream_name":"stdout","time":1618.669455483,"data":"  step   2500 |    6.4 min | lr 1.0e-03 | loss 0.4050 (bce 0.3769, syn 0.2814) | val BER 7.58e-04 BLER 3.22e-03 | hard-set FER 0.265 0.189 0.110\n"}
+,{"stream_name":"stdout","time":1692.353299695,"data":"  step   3000 |    7.6 min | lr 1.0e-03 | loss 0.4711 (bce 0.4342, syn 0.3688) | val BER 9.10e-04 BLER 3.78e-03 | hard-set FER 0.309 0.241 0.157\n"}
+,{"stream_name":"stdout","time":1693.569113916,"data":"  step   2000 |    7.6 min | lr 1.0e-03 | loss 0.1586 (bce 0.1418, syn 0.1679) | val BER 3.41e-04 BLER 2.17e-03 | hard-set FER 0.207 0.137 0.093\n"}
+,{"stream_name":"stdout","time":1765.966566205,"data":"  step   3500 |    8.8 min | lr 1.0e-03 | loss 0.5332 (bce 0.4858, syn 0.4738) | val BER 1.06e-03 BLER 4.15e-03 | hard-set FER 0.326 0.262 0.162\n"}
+,{"stream_name":"stdout","time":1803.70465207,"data":"  step   2500 |    9.5 min | lr 1.0e-03 | loss 0.1672 (bce 0.1508, syn 0.1645) | val BER 3.58e-04 BLER 2.17e-03 | hard-set FER 0.212 0.149 0.111\n"}
+,{"stream_name":"stdout","time":1838.628561808,"data":"  step   4000 |   10.1 min | lr 1.0e-03 | loss 0.2406 (bce 0.2212, syn 0.1948) | val BER 3.31e-04 BLER 1.55e-03 | hard-set FER 0.128 0.095 0.046\n"}
+,{"stream_name":"stdout","time":1911.479888221,"data":"  step   4500 |   11.3 min | lr 1.0e-03 | loss 0.2547 (bce 0.2349, syn 0.1987) | val BER 3.47e-04 BLER 1.61e-03 | hard-set FER 0.149 0.105 0.071\n"}
+,{"stream_name":"stdout","time":1913.669724974,"data":"  step   3000 |   11.3 min | lr 1.0e-03 | loss 0.1654 (bce 0.1459, syn 0.1949) | val BER 3.43e-04 BLER 2.05e-03 | hard-set FER 0.179 0.118 0.081\n"}
+,{"stream_name":"stdout","time":1984.842501688,"data":"  step   5000 |   12.5 min | lr 1.0e-03 | loss 0.2443 (bce 0.2257, syn 0.1861) | val BER 3.90e-04 BLER 1.80e-03 | hard-set FER 0.130 0.093 0.052\n"}
+,{"stream_name":"stdout","time":2023.740914053,"data":"  step   3500 |   13.1 min | lr 1.0e-03 | loss 0.1583 (bce 0.1402, syn 0.1811) | val BER 3.41e-04 BLER 2.29e-03 | hard-set FER 0.187 0.113 0.074\n"}
+,{"stream_name":"stdout","time":2058.022299365,"data":"  step   5500 |   13.7 min | lr 1.0e-03 | loss 0.2071 (bce 0.1889, syn 0.1821) | val BER 3.07e-04 BLER 1.43e-03 | hard-set FER 0.129 0.095 0.043\n"}
+,{"stream_name":"stdout","time":2131.192848901,"data":"  step   6000 |   14.9 min | lr 1.0e-03 | loss 0.2007 (bce 0.1811, syn 0.1965) | val BER 2.45e-04 BLER 1.36e-03 | hard-set FER 0.133 0.098 0.042\n"}
+,{"stream_name":"stdout","time":2133.597858563,"data":"  step   4000 |   15.0 min | lr 1.0e-03 | loss 0.1746 (bce 0.1546, syn 0.2009) | val BER 3.47e-04 BLER 2.17e-03 | hard-set FER 0.166 0.107 0.067\n"}
+,{"stream_name":"stdout","time":2205.05981559,"data":"  step   6500 |   16.2 min | lr 1.0e-03 | loss 0.9003 (bce 0.8470, syn 0.5332) | val BER 3.23e-03 BLER 1.04e-02 | hard-set FER 0.928 0.785 0.564\n"}
+,{"stream_name":"stdout","time":2243.469204707,"data":"  step   4500 |   16.8 min | lr 1.0e-03 | loss 0.1566 (bce 0.1403, syn 0.1629) | val BER 3.32e-04 BLER 1.98e-03 | hard-set FER 0.162 0.119 0.086\n"}
+,{"stream_name":"stdout","time":2278.202480238,"data":"  step   7000 |   17.4 min | lr 1.0e-03 | loss 1.0135 (bce 0.9515, syn 0.6196) | val BER 3.39e-03 BLER 1.02e-02 | hard-set FER 0.923 0.754 0.543\n"}
+,{"stream_name":"stdout","time":2350.712518417,"data":"  step   7500 |   18.6 min | lr 1.0e-03 | loss 0.4675 (bce 0.4439, syn 0.2363) | val BER 6.13e-04 BLER 2.67e-03 | hard-set FER 0.215 0.165 0.089\n"}
+,{"stream_name":"stdout","time":2353.48555246,"data":"  step   5000 |   18.6 min | lr 1.0e-03 | loss 0.1657 (bce 0.1489, syn 0.1679) | val BER 2.37e-04 BLER 1.61e-03 | hard-set FER 0.163 0.092 0.061\n"}
+,{"stream_name":"stdout","time":2423.606509004,"data":"  step   8000 |   19.8 min | lr 1.0e-03 | loss 0.4123 (bce 0.3901, syn 0.2213) | val BER 6.72e-04 BLER 3.04e-03 | hard-set FER 0.219 0.180 0.107\n"}
+,{"stream_name":"stdout","time":2435.277843359,"data":"  step   8064 |   20.0 min | lr 1.0e-03 | loss 0.8250 (bce 0.7900, syn 0.3500) | val BER 1.17e-03 BLER 4.77e-03 | hard-set FER 0.347 0.274 0.177\n"}
+,{"stream_name":"stdout","time":2435.278819474,"data":"  plateau: lr -\u003e 5.0e-04 (restored best, score 0.08906)\n"}
+,{"stream_name":"stdout","time":2435.288633916,"data":"\n"}
+,{"stream_name":"stdout","time":2435.28865166,"data":"=== tune2b_5G_BG2_k64_n128: training SGT r2_w50 (71169 parameters) on ['5G_BG2_k64_n128'] ===\n"}
+,{"stream_name":"stdout","time":2435.310862213,"data":"  step   5370 |   20.0 min | lr 1.0e-03 | loss 0.1605 (bce 0.1404, syn 0.2005) | val BER 2.83e-04 BLER 1.80e-03 | hard-set FER 0.162 0.100 0.060\n"}
+,{"stream_name":"stdout","time":2435.320319907,"data":"\n"}
+,{"stream_name":"stdout","time":2435.320333388,"data":"=== tune2a_5G_BG2_k64_n128: training SGT r2_k30c (71233 parameters) on ['5G_BG2_k64_n128'] ===\n"}
+,{"stream_name":"stdout","time":2436.079460488,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":2436.11199992,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":2453.26489922,"data":"  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718\n"}
+,{"stream_name":"stdout","time":2453.337167648,"data":"  hard validation set: 3.75-4.33 dB: 1000, 4.33-4.92 dB: 1000, 4.92-5.50 dB: 718\n"}
+,{"stream_name":"stdout","time":2533.340928434,"data":"  step    500 |    1.6 min | lr 1.0e-03 | loss 0.1574 (bce 0.1399, syn 0.1752) | val BER 3.53e-04 BLER 2.42e-03 | hard-set FER 0.226 0.158 0.100\n"}
+,{"stream_name":"stdout","time":2563.155652359,"data":"  step    500 |    2.1 min | lr 1.0e-03 | loss 0.2203 (bce 0.1917, syn 0.2865) | val BER 3.83e-04 BLER 1.98e-03 | hard-set FER 0.179 0.106 0.052\n"}
+,{"stream_name":"stdout","time":2613.661465652,"data":"  step   1000 |    2.9 min | lr 1.0e-03 | loss 0.1749 (bce 0.1562, syn 0.1866) | val BER 4.82e-04 BLER 3.22e-03 | hard-set FER 0.243 0.167 0.106\n"}
+,{"stream_name":"stdout","time":2673.098026966,"data":"  step   1000 |    3.9 min | lr 1.0e-03 | loss 0.2018 (bce 0.1775, syn 0.2432) | val BER 3.46e-04 BLER 1.92e-03 | hard-set FER 0.141 0.086 0.056\n"}
+,{"stream_name":"stdout","time":2693.522612494,"data":"  step   1500 |    4.3 min | lr 1.0e-03 | loss 0.1872 (bce 0.1707, syn 0.1654) | val BER 3.73e-04 BLER 2.05e-03 | hard-set FER 0.166 0.117 0.088\n"}
+,{"stream_name":"stdout","time":2773.503246674,"data":"  step   2000 |    5.6 min | lr 1.0e-03 | loss 0.1461 (bce 0.1312, syn 0.1496) | val BER 3.92e-04 BLER 2.23e-03 | hard-set FER 0.205 0.146 0.097\n"}
+,{"stream_name":"stdout","time":2783.182875356,"data":"  step   1500 |    5.8 min | lr 1.0e-03 | loss 0.3513 (bce 0.3192, syn 0.3203) | val BER 9.58e-04 BLER 3.78e-03 | hard-set FER 0.281 0.184 0.110\n"}
+,{"stream_name":"stdout","time":2853.507110473,"data":"  step   2500 |    6.9 min | lr 1.0e-03 | loss 0.1579 (bce 0.1423, syn 0.1560) | val BER 3.75e-04 BLER 2.42e-03 | hard-set FER 0.191 0.128 0.093\n"}
+,{"stream_name":"stdout","time":2893.054385184,"data":"  step   2000 |    7.6 min | lr 1.0e-03 | loss 0.2960 (bce 0.2693, syn 0.2665) | val BER 5.38e-04 BLER 2.73e-03 | hard-set FER 0.224 0.151 0.084\n"}
+,{"stream_name":"stdout","time":2933.232553686,"data":"  step   3000 |    8.3 min | lr 1.0e-03 | loss 0.1465 (bce 0.1304, syn 0.1610) | val BER 3.04e-04 BLER 1.80e-03 | hard-set FER 0.178 0.128 0.074\n"}
+,{"stream_name":"stdout","time":3002.96606551,"data":"  step   2500 |    9.4 min | lr 1.0e-03 | loss 0.1867 (bce 0.1659, syn 0.2083) | val BER 2.60e-04 BLER 1.49e-03 | hard-set FER 0.161 0.115 0.067\n"}
+,{"stream_name":"stdout","time":3013.124037346,"data":"  step   3500 |    9.6 min | lr 1.0e-03 | loss 0.1408 (bce 0.1263, syn 0.1459) | val BER 3.88e-04 BLER 2.17e-03 | hard-set FER 0.172 0.121 0.074\n"}
+,{"stream_name":"stdout","time":3093.082139469,"data":"  step   4000 |   10.9 min | lr 1.0e-03 | loss 0.1729 (bce 0.1566, syn 0.1636) | val BER 3.26e-04 BLER 2.11e-03 | hard-set FER 0.182 0.114 0.070\n"}
+,{"stream_name":"stdout","time":3113.038130455,"data":"  step   3000 |   11.2 min | lr 1.0e-03 | loss 0.2671 (bce 0.2392, syn 0.2791) | val BER 6.65e-04 BLER 2.73e-03 | hard-set FER 0.222 0.156 0.088\n"}
+,{"stream_name":"stdout","time":3173.063333985,"data":"  step   4500 |   12.3 min | lr 1.0e-03 | loss 0.1684 (bce 0.1544, syn 0.1401) | val BER 4.12e-04 BLER 2.29e-03 | hard-set FER 0.167 0.114 0.070\n"}
+,{"stream_name":"stdout","time":3223.434024353,"data":"  step   3500 |   13.1 min | lr 1.0e-03 | loss 1.0490 (bce 0.9690, syn 0.8000) | val BER 2.39e-03 BLER 8.06e-03 | hard-set FER 0.639 0.482 0.334\n"}
+,{"stream_name":"stdout","time":3253.044238124,"data":"  step   5000 |   13.6 min | lr 1.0e-03 | loss 0.1613 (bce 0.1428, syn 0.1845) | val BER 4.30e-04 BLER 2.67e-03 | hard-set FER 0.183 0.137 0.068\n"}
+,{"stream_name":"stdout","time":3333.190489539,"data":"  step   5500 |   14.9 min | lr 1.0e-03 | loss 0.1749 (bce 0.1593, syn 0.1562) | val BER 3.82e-04 BLER 2.36e-03 | hard-set FER 0.211 0.130 0.077\n"}
+,{"stream_name":"stdout","time":3333.560035648,"data":"  step   4000 |   14.9 min | lr 1.0e-03 | loss 0.4176 (bce 0.3768, syn 0.4077) | val BER 1.08e-03 BLER 4.03e-03 | hard-set FER 0.333 0.211 0.117\n"}
+,{"stream_name":"stdout","time":3333.561062929,"data":"  plateau: lr -\u003e 5.0e-04 (restored best, score 0.09424)\n"}
+,{"stream_name":"stdout","time":3413.169859271,"data":"  step   6000 |   16.3 min | lr 1.0e-03 | loss 0.1485 (bce 0.1336, syn 0.1492) | val BER 3.71e-04 BLER 2.11e-03 | hard-set FER 0.176 0.115 0.075\n"}
+,{"stream_name":"stdout","time":3443.393131844,"data":"  step   4500 |   16.8 min | lr 5.0e-04 | loss 0.1875 (bce 0.1679, syn 0.1957) | val BER 2.62e-04 BLER 1.43e-03 | hard-set FER 0.131 0.084 0.046\n"}
+,{"stream_name":"stdout","time":3493.539431372,"data":"  step   6500 |   17.6 min | lr 1.0e-03 | loss 0.1675 (bce 0.1517, syn 0.1572) | val BER 4.19e-04 BLER 2.54e-03 | hard-set FER 0.167 0.110 0.084\n"}
+,{"stream_name":"stdout","time":3553.260291777,"data":"  step   5000 |   18.6 min | lr 5.0e-04 | loss 0.2888 (bce 0.2733, syn 0.1549) | val BER 3.41e-04 BLER 1.49e-03 | hard-set FER 0.136 0.094 0.061\n"}
+,{"stream_name":"stdout","time":3573.458983439,"data":"  step   7000 |   18.9 min | lr 1.0e-03 | loss 0.1452 (bce 0.1300, syn 0.1514) | val BER 4.01e-04 BLER 2.23e-03 | hard-set FER 0.165 0.101 0.071\n"}
+,{"stream_name":"stdout","time":3637.977156357,"data":"  step   5384 |   20.0 min | lr 5.0e-04 | loss 0.3833 (bce 0.3646, syn 0.1864) | val BER 3.79e-04 BLER 1.86e-03 | hard-set FER 0.191 0.139 0.081\n"}
+,{"stream_name":"stdout","time":3637.987577786,"data":"GPU: Tesla T4 | NVML: True | energy counter: True\n"}
+,{"stream_name":"stdout","time":3637.988501274,"data":"\n"}
+,{"stream_name":"stdout","time":3637.988520629,"data":"--- tune2b_5G_BG2_k64_n128: evaluating on 5G_BG2_k64_n128 {'name': '5G_BG2_k64_n128', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [88, 152], 'edges': 463, 'rank': 88, 'bg': 'bg2', 'Z': 11, 'i_ls': 5, 'k_ldpc': 110, 'fillers': 46, 'punctured': 24, 'base_rows_kept': 8, 'base_cols_kept': 18} ---\n"}
+,{"stream_name":"stdout","time":3638.016252896,"data":"  step   7400 |   20.0 min | lr 1.0e-03 | loss 0.1569 (bce 0.1390, syn 0.1788) | val BER 4.32e-04 BLER 2.29e-03 | hard-set FER 0.205 0.127 0.071\n"}
+,{"stream_name":"stdout","time":3638.025970651,"data":"GPU: Tesla T4 | NVML: True | energy counter: True\n"}
+,{"stream_name":"stdout","time":3638.026004716,"data":"\n"}
+,{"stream_name":"stdout","time":3638.02603265,"data":"--- tune2a_5G_BG2_k64_n128: evaluating on 5G_BG2_k64_n128 {'name': '5G_BG2_k64_n128', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [88, 152], 'edges': 463, 'rank': 88, 'bg': 'bg2', 'Z': 11, 'i_ls': 5, 'k_ldpc': 110, 'fillers': 46, 'punctured': 24, 'base_rows_kept': 8, 'base_cols_kept': 18} ---\n"}
+,{"stream_name":"stdout","time":3647.885138505,"data":"  SGT r2_k30                         3.50dB:4.6e-03 4.00dB:8.5e-04 4.50dB:1.5e-04\n"}
+,{"stream_name":"stdout","time":3655.014634108,"data":"  SGT r2_w10                         3.50dB:3.3e-03 4.00dB:5.8e-04 4.50dB:8.1e-05\n"}
+,{"stream_name":"stdout","time":3664.329004812,"data":"  SGT r2_k50                         3.50dB:4.1e-03 4.00dB:7.1e-04 4.50dB:7.6e-05\n"}
+,{"stream_name":"stdout","time":3673.636385402,"data":"  SGT r2_w30                         3.50dB:3.6e-03 4.00dB:4.7e-04 4.50dB:7.2e-05\n"}
+,{"stream_name":"stdout","time":3678.528516439,"data":"  SGT r2_k30c                        3.50dB:4.1e-03 4.00dB:7.3e-04 4.50dB:9.4e-05\n"}
+,{"stream_name":"stdout","time":3692.261857355,"data":"  BP (50 it)                         3.50dB:3.4e-03 4.00dB:5.0e-04 4.50dB:6.7e-05\n"}
+,{"stream_name":"stdout","time":3692.875681543,"data":"  SGT r2_w50                         3.50dB:3.4e-03 4.00dB:5.6e-04 4.50dB:6.9e-05\n"}
+,{"stream_name":"stdout","time":3693.376097182,"data":"\n"}
+,{"stream_name":"stdout","time":3693.376129167,"data":"ranking (mean BLER / BLER of BP(50); lower is better):\n"}
+,{"stream_name":"stdout","time":3693.376135767,"data":"   1.262  r2_k50     hard-set FER 0.10542711234911793  {'k_frac': 0.5}\n"}
+,{"stream_name":"stdout","time":3693.376140934,"data":"   1.367  r2_k30c    hard-set FER 0.11234354688950789  {'k_frac': 0.3, 'base': 'llr', 'hard_frac': 0.5, 'heads': 8}\n"}
+,{"stream_name":"stdout","time":3693.37614632,"data":"   1.794  r2_k30     hard-set FER 0.15014020427112348  {'k_frac': 0.3}\n"}
+,{"stream_name":"stdout","time":3693.376709302,"data":"done\n"}
+,{"stream_name":"stdout","time":3706.945792915,"data":"  BP (50 it)                         3.50dB:3.4e-03 4.00dB:5.0e-04 4.50dB:6.6e-05\n"}
+,{"stream_name":"stdout","time":3707.883100936,"data":"\n"}
+,{"stream_name":"stdout","time":3707.883127178,"data":"ranking (mean BLER / BLER of BP(50); lower is better):\n"}
+,{"stream_name":"stdout","time":3707.883132871,"data":"   1.033  r2_w30     hard-set FER 0.08905849582172702  {'warm': True, 'k_frac': 0.3}\n"}
+,{"stream_name":"stdout","time":3707.883138108,"data":"   1.063  r2_w50     hard-set FER 0.0869870009285051  {'warm': True, 'k_frac': 0.5}\n"}
+,{"stream_name":"stdout","time":3707.88314318,"data":"   1.117  r2_w10     hard-set FER 0.08539182915506034  {'warm': True, 'k_frac': 0.1}\n"}
+,{"stream_name":"stdout","time":3707.883451045,"data":"done\n"}
+,{"stream_name":"stdout","time":3708.812095425,"data":"exit codes [0, 0]\n"}
+,{"stream_name":"stderr","time":3712.077870925,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3712.077911285,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3712.59351383,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3712.593540161,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3713.770506477,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3715.289060619,"data":"[NbConvertApp] Writing 378302 bytes to __results__.html\n"}
+]

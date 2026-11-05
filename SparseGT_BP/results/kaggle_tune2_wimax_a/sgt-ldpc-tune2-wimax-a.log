@@ -1,0 +1,113 @@
+[{"stream_name":"stdout","time":0.895608173,"data":"Tue Nov  3 20:09:10 2026       \n"}
+,{"stream_name":"stdout","time":0.895652542,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":0.895672542,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":0.895677181,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.895681178,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":0.89568542,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":0.895689718,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":0.895693287,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":0.95557132,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":0.9555934,"data":"| N/A   38C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":0.955597841,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":0.955601558,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.955605318,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":0.955609272,"data":"| N/A   52C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":0.955613304,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":0.955617416,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.956915395,"data":"\n"}
+,{"stream_name":"stdout","time":0.956937663,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":0.956942973,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":0.956947106,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":0.956952172,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":0.956956566,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":0.958871048,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":0.976778737,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":9.085798813,"data":"[queue 0] SparseGT_BP/tuning/run_tuning.py ['--code', 'wimax_576_288', '--configs', 'r2_k30,r2_k50,r2_k30c', '--minutes', '20', '--tag', 'tune2a', '--grid', 'round2.json']\n"}
+,{"stream_name":"stdout","time":9.086685873,"data":"[queue 1] SparseGT_BP/tuning/run_tuning.py ['--code', 'wimax_576_288', '--configs', 'r2_w10,r2_w30,r2_w50', '--minutes', '20', '--tag', 'tune2b', '--grid', 'round2.json']\n"}
+,{"stream_name":"stdout","time":11.863758933,"data":"device: cuda | torch 2.11.0+cu130 | Tesla T4\n"}
+,{"stream_name":"stdout","time":11.933195318,"data":"device: cuda | torch 2.11.0+cu130 | Tesla T4\n"}
+,{"stream_name":"stdout","time":12.271294132,"data":"wimax_576_288: {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288}\n"}
+,{"stream_name":"stdout","time":12.271343529,"data":"wimax_576_288: {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288}\n"}
+,{"stream_name":"stdout","time":12.271349807,"data":"config r2_k30: {'k_frac': 0.3} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.3, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': False, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":12.271355288,"data":"config r2_w10: {'warm': True, 'k_frac': 0.1} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":12.271359368,"data":"config r2_w30: {'warm': True, 'k_frac': 0.3} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.3, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":12.27136344,"data":"config r2_k50: {'k_frac': 0.5} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.5, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': False, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":12.27137113,"data":"config r2_k30c: {'k_frac': 0.3, 'base': 'llr', 'hard_frac': 0.5, 'heads': 8} -\u003e kwargs {'d': 64, 'heads': 8, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.3, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'llr', 'struct_bias': True, 'warm': False, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":12.271661663,"data":"config r2_w50: {'warm': True, 'k_frac': 0.5} -\u003e kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.5, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}\n"}
+,{"stream_name":"stdout","time":12.316296707,"data":"\n"}
+,{"stream_name":"stdout","time":12.316314443,"data":"=== tune2a_wimax_576_288: training SGT r2_k30 (68289 parameters) on ['wimax_576_288'] ===\n"}
+,{"stream_name":"stdout","time":12.316319342,"data":"\n"}
+,{"stream_name":"stdout","time":12.316323019,"data":"=== tune2b_wimax_576_288: training SGT r2_w10 (68289 parameters) on ['wimax_576_288'] ===\n"}
+,{"stream_name":"stdout","time":21.072745698,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":21.077372041,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":109.785132183,"data":"  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354\n"}
+,{"stream_name":"stdout","time":112.464668952,"data":"  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354\n"}
+,{"stream_name":"stdout","time":309.577244694,"data":"  step    500 |    4.8 min | lr 1.0e-03 | loss 0.0816 (bce 0.0712, syn 0.1039) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.008 0.023 0.023\n"}
+,{"stream_name":"stdout","time":494.353781707,"data":"  step    500 |    7.9 min | lr 1.0e-03 | loss 0.0932 (bce 0.0827, syn 0.1045) | val BER 1.17e-05 BLER 2.45e-04 | hard-set FER 0.055 0.072 0.127\n"}
+,{"stream_name":"stdout","time":506.564543489,"data":"  step   1000 |    8.1 min | lr 1.0e-03 | loss 0.0708 (bce 0.0615, syn 0.0925) | val BER 4.47e-06 BLER 6.13e-05 | hard-set FER 0.008 0.023 0.034\n"}
+,{"stream_name":"stdout","time":703.424665013,"data":"  step   1500 |   11.4 min | lr 1.0e-03 | loss 0.0701 (bce 0.0604, syn 0.0967) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.008 0.023 0.025\n"}
+,{"stream_name":"stdout","time":878.710538928,"data":"  step   1000 |   14.3 min | lr 1.0e-03 | loss 0.0845 (bce 0.0732, syn 0.1137) | val BER 1.09e-05 BLER 2.45e-04 | hard-set FER 0.042 0.063 0.102\n"}
+,{"stream_name":"stdout","time":900.468375688,"data":"  step   2000 |   14.7 min | lr 1.0e-03 | loss 0.0682 (bce 0.0591, syn 0.0918) | val BER 4.26e-06 BLER 6.13e-05 | hard-set FER 0.008 0.020 0.025\n"}
+,{"stream_name":"stdout","time":1097.437747102,"data":"  step   2500 |   18.0 min | lr 1.0e-03 | loss 0.0767 (bce 0.0673, syn 0.0940) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.007 0.023 0.023\n"}
+,{"stream_name":"stdout","time":1220.143834093,"data":"  step   2810 |   20.0 min | lr 1.0e-03 | loss 0.0808 (bce 0.0702, syn 0.1059) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.010 0.020 0.028\n"}
+,{"stream_name":"stdout","time":1220.173438494,"data":"\n"}
+,{"stream_name":"stdout","time":1220.17346053,"data":"=== tune2b_wimax_576_288: training SGT r2_w30 (68289 parameters) on ['wimax_576_288'] ===\n"}
+,{"stream_name":"stdout","time":1220.534554741,"data":"  step   1446 |   20.0 min | lr 1.0e-03 | loss 0.0847 (bce 0.0760, syn 0.0875) | val BER 7.45e-06 BLER 2.45e-04 | hard-set FER 0.057 0.080 0.107\n"}
+,{"stream_name":"stdout","time":1220.546040789,"data":"\n"}
+,{"stream_name":"stdout","time":1220.546060599,"data":"=== tune2a_wimax_576_288: training SGT r2_k50 (68289 parameters) on ['wimax_576_288'] ===\n"}
+,{"stream_name":"stdout","time":1222.706783549,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":1222.993284222,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":1312.534469734,"data":"  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354\n"}
+,{"stream_name":"stdout","time":1315.091894098,"data":"  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354\n"}
+,{"stream_name":"stdout","time":1720.761468715,"data":"  step    500 |    8.3 min | lr 1.0e-03 | loss 0.0801 (bce 0.0698, syn 0.1032) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.007 0.020 0.020\n"}
+,{"stream_name":"stdout","time":2031.360289147,"data":"  step    500 |   13.5 min | lr 1.0e-03 | loss 0.0862 (bce 0.0753, syn 0.1096) | val BER 1.09e-05 BLER 1.84e-04 | hard-set FER 0.059 0.067 0.110\n"}
+,{"stream_name":"stdout","time":2126.183596116,"data":"  step   1000 |   15.1 min | lr 1.0e-03 | loss 0.0694 (bce 0.0604, syn 0.0896) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.007 0.019 0.025\n"}
+,{"stream_name":"stdout","time":2422.356956056,"data":"  step   1366 |   20.0 min | lr 1.0e-03 | loss 0.0789 (bce 0.0707, syn 0.0819) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.010 0.023 0.023\n"}
+,{"stream_name":"stdout","time":2422.36681036,"data":"\n"}
+,{"stream_name":"stdout","time":2422.366833652,"data":"=== tune2b_wimax_576_288: training SGT r2_w50 (68289 parameters) on ['wimax_576_288'] ===\n"}
+,{"stream_name":"stdout","time":2424.575176235,"data":"  step    773 |   20.0 min | lr 1.0e-03 | loss 0.0854 (bce 0.0780, syn 0.0736) | val BER 1.30e-05 BLER 2.45e-04 | hard-set FER 0.040 0.051 0.085\n"}
+,{"stream_name":"stdout","time":2424.586323539,"data":"\n"}
+,{"stream_name":"stdout","time":2424.58634009,"data":"=== tune2a_wimax_576_288: training SGT r2_k30c (68353 parameters) on ['wimax_576_288'] ===\n"}
+,{"stream_name":"stdout","time":2424.891321435,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":2427.036224861,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":2516.620819277,"data":"  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354\n"}
+,{"stream_name":"stdout","time":2517.299719404,"data":"  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354\n"}
+,{"stream_name":"stdout","time":2981.314105925,"data":"  step    500 |    9.2 min | lr 1.0e-03 | loss 0.0930 (bce 0.0834, syn 0.0964) | val BER 1.47e-05 BLER 3.68e-04 | hard-set FER 0.051 0.074 0.105\n"}
+,{"stream_name":"stdout","time":3279.856767683,"data":"  step    500 |   14.2 min | lr 1.0e-03 | loss 0.0809 (bce 0.0707, syn 0.1014) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.010 0.023 0.028\n"}
+,{"stream_name":"stdout","time":3446.30723709,"data":"  step   1000 |   17.0 min | lr 1.0e-03 | loss 0.0869 (bce 0.0760, syn 0.1092) | val BER 9.36e-06 BLER 1.84e-04 | hard-set FER 0.041 0.052 0.085\n"}
+,{"stream_name":"stdout","time":3625.909649889,"data":"  step    727 |   20.0 min | lr 1.0e-03 | loss 0.0765 (bce 0.0667, syn 0.0982) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.008 0.023 0.025\n"}
+,{"stream_name":"stdout","time":3625.92271342,"data":"GPU: Tesla T4 | NVML: True | energy counter: True\n"}
+,{"stream_name":"stdout","time":3625.922767985,"data":"\n"}
+,{"stream_name":"stdout","time":3625.922806929,"data":"--- tune2b_wimax_576_288: evaluating on wimax_576_288 {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288} ---\n"}
+,{"stream_name":"stdout","time":3627.197251664,"data":"  step   1194 |   20.0 min | lr 1.0e-03 | loss 0.0860 (bce 0.0749, syn 0.1105) | val BER 1.47e-05 BLER 2.45e-04 | hard-set FER 0.032 0.049 0.073\n"}
+,{"stream_name":"stdout","time":3627.208379478,"data":"GPU: Tesla T4 | NVML: True | energy counter: True\n"}
+,{"stream_name":"stdout","time":3627.208402125,"data":"\n"}
+,{"stream_name":"stdout","time":3627.208407935,"data":"--- tune2a_wimax_576_288: evaluating on wimax_576_288 {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288} ---\n"}
+,{"stream_name":"stdout","time":3657.306586116,"data":"  SGT r2_k30                         2.50dB:3.2e-03 2.75dB:6.8e-04 3.00dB:1.8e-04\n"}
+,{"stream_name":"stdout","time":3688.108884756,"data":"  SGT r2_w10                         2.50dB:1.3e-03 2.75dB:3.2e-04 3.00dB:6.5e-05\n"}
+,{"stream_name":"stdout","time":3692.244314258,"data":"  SGT r2_k50                         2.50dB:2.3e-03 2.75dB:5.8e-04 3.00dB:1.6e-04\n"}
+,{"stream_name":"stdout","time":3720.619888228,"data":"  SGT r2_k30c                        2.50dB:3.3e-03 2.75dB:7.0e-04 3.00dB:1.9e-04\n"}
+,{"stream_name":"stdout","time":3747.002461167,"data":"  SGT r2_w30                         2.50dB:1.3e-03 2.75dB:3.3e-04 3.00dB:7.0e-05\n"}
+,{"stream_name":"stdout","time":3766.484677066,"data":"  BP (50 it)                         2.50dB:1.3e-03 2.75dB:3.3e-04 3.00dB:6.7e-05\n"}
+,{"stream_name":"stdout","time":3767.443746395,"data":"\n"}
+,{"stream_name":"stdout","time":3767.443773554,"data":"ranking (mean BLER / BLER of BP(50); lower is better):\n"}
+,{"stream_name":"stdout","time":3767.443779671,"data":"   1.986  r2_k50     hard-set FER 0.0585819209039548  {'k_frac': 0.5}\n"}
+,{"stream_name":"stdout","time":3767.443794748,"data":"   2.407  r2_k30     hard-set FER 0.06889830508474577  {'k_frac': 0.3}\n"}
+,{"stream_name":"stdout","time":3767.443799414,"data":"   2.490  r2_k30c    hard-set FER 0.05148210922787194  {'k_frac': 0.3, 'base': 'llr', 'hard_frac': 0.5, 'heads': 8}\n"}
+,{"stream_name":"stdout","time":3767.444131787,"data":"done\n"}
+,{"stream_name":"stdout","time":3808.686798448,"data":"  SGT r2_w50                         2.50dB:1.3e-03 2.75dB:3.3e-04 3.00dB:6.7e-05\n"}
+,{"stream_name":"stdout","time":3853.11225322,"data":"  BP (50 it)                         2.50dB:1.3e-03 2.75dB:3.4e-04 3.00dB:6.8e-05\n"}
+,{"stream_name":"stdout","time":3854.039729023,"data":"\n"}
+,{"stream_name":"stdout","time":3854.03977557,"data":"ranking (mean BLER / BLER of BP(50); lower is better):\n"}
+,{"stream_name":"stdout","time":3854.039783442,"data":"   0.965  r2_w10     hard-set FER 0.01753295668549906  {'warm': True, 'k_frac': 0.1}\n"}
+,{"stream_name":"stdout","time":3854.039788699,"data":"   0.990  r2_w50     hard-set FER 0.018807909604519776  {'warm': True, 'k_frac': 0.5}\n"}
+,{"stream_name":"stdout","time":3854.039793948,"data":"   1.024  r2_w30     hard-set FER 0.015591337099811677  {'warm': True, 'k_frac': 0.3}\n"}
+,{"stream_name":"stdout","time":3854.04016577,"data":"done\n"}
+,{"stream_name":"stdout","time":3854.978437249,"data":"exit codes [0, 0]\n"}
+,{"stream_name":"stderr","time":3857.694012016,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":3857.69404344,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":3857.992783479,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":3857.992810922,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":3858.935221281,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":3859.988432844,"data":"[NbConvertApp] Writing 378298 bytes to __results__.html\n"}
+]

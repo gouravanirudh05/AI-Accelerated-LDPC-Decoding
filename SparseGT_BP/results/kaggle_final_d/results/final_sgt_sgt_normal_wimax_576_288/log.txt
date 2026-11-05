@@ -1,0 +1,39 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+config: {'_note': 'Round-2 winner among BP-restart configs (results/tune2_RANKING.md, r2_k50: overall 1.315 vs 1.507 for k_frac 0.3; MacKay(204,102) 0.62 x BP(50)). Restarting BP at every stage, as the BP-GNN does.', 'name': 'SGT', 'overrides': {'k_frac': 0.5}}
+
+=== final_sgt_sgt_normal_wimax_576_288_wimax_576_288: training SGT (5x10 BP it) (68289 parameters) on ['wimax_576_288'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354
+  step    500 |   13.4 min | lr 1.0e-03 | loss 0.0860 (bce 0.0754, syn 0.1057) | val BER 1.45e-05 BLER 2.45e-04 | hard-set FER 0.052 0.073 0.113
+  step   1000 |   25.4 min | lr 1.0e-03 | loss 0.0822 (bce 0.0712, syn 0.1100) | val BER 1.30e-05 BLER 2.45e-04 | hard-set FER 0.027 0.034 0.073
+  step   1500 |   37.4 min | lr 1.0e-03 | loss 0.0775 (bce 0.0679, syn 0.0960) | val BER 1.06e-05 BLER 1.84e-04 | hard-set FER 0.032 0.044 0.073
+  step   2000 |   49.3 min | lr 1.0e-03 | loss 0.0756 (bce 0.0650, syn 0.1062) | val BER 1.02e-05 BLER 2.45e-04 | hard-set FER 0.039 0.055 0.065
+  step   2500 |   61.3 min | lr 1.0e-03 | loss 0.0806 (bce 0.0713, syn 0.0937) | val BER 8.30e-06 BLER 2.45e-04 | hard-set FER 0.025 0.039 0.054
+  step   3000 |   73.3 min | lr 1.0e-03 | loss 0.0848 (bce 0.0750, syn 0.0980) | val BER 1.15e-05 BLER 3.06e-04 | hard-set FER 0.033 0.053 0.071
+  step   3282 |   80.0 min | lr 1.0e-03 | loss 0.0827 (bce 0.0723, syn 0.1042) | val BER 7.02e-06 BLER 3.06e-04 | hard-set FER 0.042 0.051 0.065
+GPU: Tesla T4 | NVML: True | energy counter: True
+  memory SGT (5x10 BP it)                   train step B=256:   6659.8 MB | inference B=4096:   2720.7 MB | max train batch 512
+  memory SGT (5x40 BP it)                   train step B=256:   8265.0 MB | inference B=4096:   2720.7 MB | max train batch 256
+
+--- final_sgt_sgt_normal_wimax_576_288_wimax_576_288: evaluating on wimax_576_288 {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288} ---
+  SGT (5x10 BP it)                   1.00dB:6.2e-01 1.25dB:4.1e-01 1.50dB:2.4e-01 1.75dB:9.4e-02 2.00dB:3.8e-02 2.25dB:1.0e-02 2.50dB:2.6e-03 2.75dB:6.4e-04 3.00dB:1.2e-04 3.25dB:4.9e-05 3.50dB:1.2e-05 3.75dB:3.0e-06 4.00dB:1.0e-06
+  SGT (5x10 BP it) + OSD-2           1.00dB:4.1e-01 1.25dB:2.4e-01 1.50dB:1.2e-01 1.75dB:4.2e-02 2.00dB:1.4e-02 2.25dB:3.7e-03 2.50dB:8.8e-04 2.75dB:1.5e-04 3.00dB:4.6e-05 3.25dB:1.3e-05 3.50dB:3.0e-06 3.75dB:0.0e+00
+  SGT (5x40 BP it)                   1.00dB:4.4e-01 1.25dB:2.5e-01 1.50dB:1.3e-01 1.75dB:3.8e-02 2.00dB:1.1e-02 2.25dB:2.9e-03 2.50dB:5.8e-04 2.75dB:8.9e-05 3.00dB:2.8e-05 3.25dB:1.2e-05 3.50dB:0.0e+00
+  SGT (5x40 BP it) + OSD-2           1.00dB:3.7e-01 1.25dB:2.1e-01 1.50dB:8.8e-02 1.75dB:3.3e-02 2.00dB:8.5e-03 2.25dB:2.2e-03 2.50dB:4.0e-04 2.75dB:6.4e-05 3.00dB:1.8e-05 3.25dB:8.0e-06 3.50dB:0.0e+00
+  BP (50 it)                         1.00dB:4.8e-01 1.25dB:2.8e-01 1.50dB:1.5e-01 1.75dB:5.3e-02 2.00dB:2.0e-02 2.25dB:4.6e-03 2.50dB:1.4e-03 2.75dB:3.5e-04 3.00dB:6.1e-05 3.25dB:1.9e-05 3.50dB:8.0e-06 3.75dB:0.0e+00
+  profiling at Eb/N0 = 2.5 dB (idle GPU 29.0 W)
+    SGT (5x10 BP it) [fixed]     | B=1  34.584 ms | B=1024        644 cw/s |   65.8 W | 102827.64 uJ/cw
+    SGT (5x10 BP it) [fixed, CUDA graph] | B=1   7.379 ms | B=1024        639 cw/s |   65.5 W | 102801.27 uJ/cw
+    SGT (5x10 BP it) [early-stop] | B=1   4.679 ms | B=1024      13714 cw/s |   60.5 W |  4308.14 uJ/cw
+    SGT (5x10 BP it) + OSD-2 [early-stop] | B=1   3.401 ms | B=1024       3125 cw/s |   36.3 W | 12696.85 uJ/cw
+    SGT (5x40 BP it) [fixed]     | B=1 105.308 ms | B=1024        545 cw/s |   66.7 W | 122664.71 uJ/cw
+    SGT (5x40 BP it) [fixed, CUDA graph] | B=1  20.756 ms | B=1024        543 cw/s |   65.7 W | 121523.93 uJ/cw
+    SGT (5x40 BP it) [early-stop] | B=1   4.442 ms | B=1024       6386 cw/s |   33.1 W |  5683.29 uJ/cw
+    SGT (5x40 BP it) + OSD-2 [early-stop] | B=1   6.121 ms | B=1024       2462 cw/s |   35.0 W |  3248.69 uJ/cw
+    BP (50 it) [fixed]           | B=1  21.649 ms | B=1024      11815 cw/s |   69.6 W |  5892.45 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.431 ms | B=1024      11844 cw/s |   68.8 W |  5808.17 uJ/cw
+    BP (50 it) [early-stop]      | B=1   6.496 ms | B=1024      24056 cw/s |   51.4 W |  2290.40 uJ/cw
+    [cpu] SGT (5x10 BP it) [fixed] | B=1 43.19 ms | B=64 2259.66 ms
+    [cpu] SGT (5x40 BP it) [fixed] | B=1 98.98 ms | B=64 2863.58 ms
+    [cpu] BP (50 it) [fixed]     | B=1 15.39 ms | B=64 162.70 ms
+done

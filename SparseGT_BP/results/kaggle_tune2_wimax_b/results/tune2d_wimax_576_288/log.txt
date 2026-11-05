@@ -1,0 +1,28 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+wimax_576_288: {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288}
+config r2_w30cos: {'warm': True, 'k_frac': 0.3, 'schedule': 'cosine'} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.3, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}
+config r2_w50c: {'warm': True, 'k_frac': 0.5, 'hard_frac': 0.5, 'heads': 8} -> kwargs {'d': 64, 'heads': 8, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.5, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 7, 'num_cn_types': 8, 'num_edge_types': 1}
+
+=== tune2d_wimax_576_288: training SGT r2_w30cos (68289 parameters) on ['wimax_576_288'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354
+  step    500 |    8.4 min | lr 6.3e-04 | loss 0.0806 (bce 0.0700, syn 0.1060) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.008 0.020 0.025
+  step   1000 |   15.2 min | lr 1.5e-04 | loss 0.0693 (bce 0.0604, syn 0.0891) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.009 0.022 0.028
+  step   1351 |   20.0 min | lr 1.0e-05 | loss 0.0753 (bce 0.0664, syn 0.0887) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.008 0.019 0.025
+
+=== tune2d_wimax_576_288: training SGT r2_w50c (68353 parameters) on ['wimax_576_288'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 354
+  step    500 |   10.9 min | lr 1.0e-03 | loss 0.0795 (bce 0.0691, syn 0.1042) | val BER 4.47e-06 BLER 6.13e-05 | hard-set FER 0.010 0.019 0.025
+  step    990 |   20.0 min | lr 1.0e-03 | loss 0.0700 (bce 0.0602, syn 0.0984) | val BER 1.28e-06 BLER 6.13e-05 | hard-set FER 0.006 0.023 0.023
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune2d_wimax_576_288: evaluating on wimax_576_288 {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288} ---
+  SGT r2_w30cos                      2.50dB:1.2e-03 2.75dB:3.3e-04 3.00dB:6.6e-05
+  SGT r2_w50c                        2.50dB:1.3e-03 2.75dB:3.3e-04 3.00dB:6.6e-05
+  BP (50 it)                         2.50dB:1.3e-03 2.75dB:3.3e-04 3.00dB:6.7e-05
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   0.971  r2_w30cos  hard-set FER 0.01747457627118644  {'warm': True, 'k_frac': 0.3, 'schedule': 'cosine'}
+   0.996  r2_w50c    hard-set FER 0.017199623352165724  {'warm': True, 'k_frac': 0.5, 'hard_frac': 0.5, 'heads': 8}
+done

@@ -1,0 +1,32 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+5G_BG1_k528_n704: {'name': '5G_BG1_k528_n704', 'n': 704, 'k': 528, 'rate': 0.75, 'H_shape': [240, 768], 'edges': 2928, 'rank': 240, 'bg': 'bg1', 'Z': 24, 'i_ls': 1, 'k_ldpc': 528, 'fillers': 0, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 32}
+config r3_w20m50: {'warm': True, 'k_frac': 0.2, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.2, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 68, 'num_cn_types': 46, 'num_edge_types': 316}
+config r3_w50m50lr: {'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000, 'lr': 0.003} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.5, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'warm': True, 'num_vn_types': 68, 'num_cn_types': 46, 'num_edge_types': 316}
+
+=== tune3b_5G_BG1_k528_n704: training SGT r3_w20m50 (72193 parameters) on ['5G_BG1_k528_n704'] ===
+  hard pools (per band): [[1024, 1024, 1024, 473]]
+  hard validation set: 3.88-4.17 dB: 141, 4.17-4.46 dB: 21, 4.46-4.75 dB: 2
+  step    500 |    8.5 min | lr 1.0e-03 | loss 0.2065 (bce 0.1730, syn 0.3350) | val BER 6.96e-07 BLER 1.23e-04 | hard-set FER 0.716 0.857 1.000
+  step   1000 |   13.1 min | lr 1.0e-03 | loss 0.2742 (bce 0.2476, syn 0.2664) | val BER 5.69e-06 BLER 1.84e-04 | hard-set FER 0.766 0.810 1.000
+  step   1500 |   17.7 min | lr 1.0e-03 | loss 0.2756 (bce 0.2461, syn 0.2951) | val BER 6.03e-06 BLER 1.84e-04 | hard-set FER 0.709 0.857 1.000
+  step   2000 |   22.3 min | lr 1.0e-03 | loss 0.3810 (bce 0.3388, syn 0.4224) | val BER 1.18e-05 BLER 2.45e-04 | hard-set FER 0.794 0.952 1.000
+  step   2500 |   26.9 min | lr 1.0e-03 | loss 0.2072 (bce 0.1641, syn 0.4312) | val BER 1.16e-07 BLER 1.23e-04 | hard-set FER 0.759 0.857 0.500
+  step   2850 |   30.1 min | lr 1.0e-03 | loss 0.1831 (bce 0.1439, syn 0.3914) | val BER 6.96e-07 BLER 1.23e-04 | hard-set FER 0.787 0.762 1.000
+
+=== tune3b_5G_BG1_k528_n704: training SGT r3_w50m50lr (72193 parameters) on ['5G_BG1_k528_n704'] ===
+  hard pools (per band): [[1024, 1024, 1024, 472]]
+  hard validation set: 3.88-4.17 dB: 142, 4.17-4.46 dB: 21, 4.46-4.75 dB: 2
+  step    500 |   16.6 min | lr 3.0e-03 | loss 0.8180 (bce 0.7668, syn 0.5125) | val BER 1.08e-05 BLER 2.45e-04 | hard-set FER 0.859 1.000 1.000
+  step   1000 |   29.3 min | lr 3.0e-03 | loss 0.9763 (bce 0.8785, syn 0.9778) | val BER 9.62e-05 BLER 8.58e-04 | hard-set FER 0.923 1.000 1.000
+  step   1033 |   30.0 min | lr 3.0e-03 | loss 0.7578 (bce 0.6690, syn 0.8880) | val BER 2.62e-05 BLER 3.06e-04 | hard-set FER 0.873 1.000 1.000
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune3b_5G_BG1_k528_n704: evaluating on 5G_BG1_k528_n704 {'name': '5G_BG1_k528_n704', 'n': 704, 'k': 528, 'rate': 0.75, 'H_shape': [240, 768], 'edges': 2928, 'rank': 240, 'bg': 'bg1', 'Z': 24, 'i_ls': 1, 'k_ldpc': 528, 'fillers': 0, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 32} ---
+  SGT r3_w20m50                      3.25dB:7.1e-03 3.50dB:1.4e-03 3.75dB:2.4e-04
+  SGT r3_w50m50lr                    3.25dB:2.0e-02 3.50dB:4.1e-03 3.75dB:7.7e-04
+  BP (50 it)                         3.25dB:3.9e-03 3.50dB:1.2e-03 3.75dB:1.6e-04
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   1.492  r3_w20m50  hard-set FER 0.7053360351232691  {'warm': True, 'k_frac': 0.2, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000}
+   4.408  r3_w50m50lr hard-set FER 0.9530516431924884  {'warm': True, 'k_frac': 0.5, 'mining_bp_iters': 50, 'pool_refresh_every': 50, 'val_hard_max_frames': 4000000, 'lr': 0.003}
+done

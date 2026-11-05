@@ -1,0 +1,55 @@
+device: cuda | torch 2.11.0+cu130 | Tesla T4
+mackay_408_204: {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204}
+config base: {} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.1, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}
+config k05: {'k_frac': 0.05} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.05, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}
+config k20: {'k_frac': 0.2} -> kwargs {'d': 64, 'heads': 4, 'hidden': 128, 'gt_layers': 2, 'k_frac': 0.2, 'k_min': 8, 'stages': 4, 'bp_iters': 10, 'attn': 'global', 'select': 'llr', 'fix': 'residual', 'base': 'prior', 'struct_bias': True, 'num_vn_types': 4, 'num_cn_types': 7, 'num_edge_types': 1}
+
+=== tune1e_mackay_408_204: training SGT base (68065 parameters) on ['mackay_408_204'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495
+  step    500 |    3.1 min | lr 1.0e-03 | loss 0.1287 (bce 0.1127, syn 0.1598) | val BER 7.96e-05 BLER 2.42e-03 | hard-set FER 0.272 0.242 0.224
+  step   1000 |    5.5 min | lr 1.0e-03 | loss 0.1312 (bce 0.1154, syn 0.1579) | val BER 7.57e-05 BLER 2.54e-03 | hard-set FER 0.354 0.347 0.335
+  step   1500 |    7.8 min | lr 1.0e-03 | loss 0.1331 (bce 0.1172, syn 0.1595) | val BER 7.29e-05 BLER 2.29e-03 | hard-set FER 0.251 0.201 0.194
+  step   2000 |   10.2 min | lr 1.0e-03 | loss 0.1236 (bce 0.1086, syn 0.1497) | val BER 7.57e-05 BLER 1.98e-03 | hard-set FER 0.249 0.195 0.226
+  step   2500 |   12.6 min | lr 1.0e-03 | loss 0.1306 (bce 0.1146, syn 0.1597) | val BER 1.05e-04 BLER 1.80e-03 | hard-set FER 0.237 0.183 0.176
+  step   3000 |   14.9 min | lr 1.0e-03 | loss 0.1214 (bce 0.1068, syn 0.1463) | val BER 7.69e-05 BLER 2.36e-03 | hard-set FER 0.303 0.252 0.222
+  step   3500 |   17.3 min | lr 1.0e-03 | loss 0.1210 (bce 0.1072, syn 0.1381) | val BER 8.88e-05 BLER 2.17e-03 | hard-set FER 0.270 0.236 0.224
+  step   4000 |   19.7 min | lr 1.0e-03 | loss 0.1222 (bce 0.1088, syn 0.1344) | val BER 7.60e-05 BLER 1.98e-03 | hard-set FER 0.277 0.215 0.174
+  step   4070 |   20.0 min | lr 1.0e-03 | loss 0.1320 (bce 0.1166, syn 0.1549) | val BER 6.93e-05 BLER 1.55e-03 | hard-set FER 0.156 0.133 0.109
+
+=== tune1e_mackay_408_204: training SGT k05 (68065 parameters) on ['mackay_408_204'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495
+  step    500 |    2.7 min | lr 1.0e-03 | loss 0.1288 (bce 0.1137, syn 0.1512) | val BER 7.84e-05 BLER 2.29e-03 | hard-set FER 0.245 0.191 0.238
+  step   1000 |    4.8 min | lr 1.0e-03 | loss 0.1310 (bce 0.1165, syn 0.1455) | val BER 8.30e-05 BLER 2.17e-03 | hard-set FER 0.263 0.196 0.216
+  step   1500 |    6.8 min | lr 1.0e-03 | loss 0.1348 (bce 0.1177, syn 0.1706) | val BER 9.85e-05 BLER 3.29e-03 | hard-set FER 0.545 0.514 0.491
+  step   2000 |    8.8 min | lr 1.0e-03 | loss 0.1235 (bce 0.1085, syn 0.1495) | val BER 8.66e-05 BLER 2.36e-03 | hard-set FER 0.238 0.159 0.194
+  step   2500 |   10.9 min | lr 1.0e-03 | loss 0.1357 (bce 0.1211, syn 0.1456) | val BER 7.17e-05 BLER 2.54e-03 | hard-set FER 0.316 0.297 0.293
+  step   3000 |   12.9 min | lr 1.0e-03 | loss 0.1223 (bce 0.1084, syn 0.1387) | val BER 6.72e-05 BLER 1.92e-03 | hard-set FER 0.201 0.149 0.160
+  step   3500 |   15.0 min | lr 1.0e-03 | loss 0.1229 (bce 0.1085, syn 0.1436) | val BER 8.69e-05 BLER 2.48e-03 | hard-set FER 0.291 0.220 0.222
+  step   4000 |   17.0 min | lr 1.0e-03 | loss 0.1263 (bce 0.1119, syn 0.1443) | val BER 7.39e-05 BLER 1.61e-03 | hard-set FER 0.181 0.139 0.145
+  step   4500 |   19.0 min | lr 1.0e-03 | loss 0.1209 (bce 0.1072, syn 0.1366) | val BER 7.08e-05 BLER 2.29e-03 | hard-set FER 0.256 0.201 0.222
+  step   4740 |   20.0 min | lr 1.0e-03 | loss 0.1206 (bce 0.1067, syn 0.1393) | val BER 7.05e-05 BLER 1.86e-03 | hard-set FER 0.212 0.161 0.145
+
+=== tune1e_mackay_408_204: training SGT k20 (68065 parameters) on ['mackay_408_204'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.25-3.67 dB: 1000, 3.67-4.08 dB: 1000, 4.08-4.50 dB: 495
+  step    500 |    4.3 min | lr 1.0e-03 | loss 0.1267 (bce 0.1122, syn 0.1454) | val BER 6.50e-05 BLER 1.67e-03 | hard-set FER 0.218 0.166 0.170
+  step   1000 |    7.9 min | lr 1.0e-03 | loss 0.1302 (bce 0.1149, syn 0.1525) | val BER 5.62e-05 BLER 9.30e-04 | hard-set FER 0.107 0.096 0.115
+  step   1500 |   11.5 min | lr 1.0e-03 | loss 0.1241 (bce 0.1124, syn 0.1178) | val BER 5.14e-05 BLER 8.68e-04 | hard-set FER 0.125 0.091 0.105
+  step   2000 |   15.0 min | lr 1.0e-03 | loss 0.1175 (bce 0.1065, syn 0.1097) | val BER 5.50e-05 BLER 1.30e-03 | hard-set FER 0.169 0.115 0.119
+  step   2500 |   18.6 min | lr 1.0e-03 | loss 0.1294 (bce 0.1181, syn 0.1128) | val BER 6.41e-05 BLER 1.24e-03 | hard-set FER 0.173 0.169 0.143
+  step   2695 |   20.0 min | lr 1.0e-03 | loss 0.1204 (bce 0.1039, syn 0.1650) | val BER 9.60e-05 BLER 1.80e-03 | hard-set FER 0.252 0.218 0.188
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- tune1e_mackay_408_204: evaluating on mackay_408_204 {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204} ---
+  SGT base                           3.00dB:4.2e-03 3.25dB:1.5e-03 3.50dB:3.1e-04
+  SGT k05                            3.00dB:4.2e-03 3.25dB:1.4e-03 3.50dB:4.0e-04
+  SGT k20                            3.00dB:2.4e-03 3.25dB:7.4e-04 3.50dB:2.3e-04
+  BP (50 it)                         3.00dB:2.0e-03 3.25dB:4.7e-04 3.50dB:1.6e-04
+
+ranking (mean BLER / BLER of BP(50); lower is better):
+   1.436  k20        hard-set FER 0.10605050505050506  {'k_frac': 0.2}
+   2.406  base       hard-set FER 0.1326969696969697  {}
+   2.571  k05        hard-set FER 0.15515151515151515  {'k_frac': 0.05}
+done

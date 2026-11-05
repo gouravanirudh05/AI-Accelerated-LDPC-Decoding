@@ -1,0 +1,86 @@
+[{"stream_name":"stdout","time":1.086030482,"data":"Wed Nov  4 05:28:35 2026       \n"}
+,{"stream_name":"stdout","time":1.086075712,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.086080093,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":1.086082519,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.086084862,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":1.086087193,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":1.086089448,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":1.08609183,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":1.139196143,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.139223154,"data":"| N/A   44C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.1392272669999999,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.139229744,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.1392321189999999,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.139234477,"data":"| N/A   47C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.139236744,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.13923903,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.139917333,"data":"\n"}
+,{"stream_name":"stdout","time":1.139928464,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.139932269,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":1.13993739,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":1.139957868,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":1.13996032,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":1.141491425,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":1.1415074920000001,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":10.194021158,"data":"[queue 0] SparseGT_BP/final/profile_sgt.py ['--codes', 'mackay_204_102,5G_BG2_k64_n128,5G_BG2_k128_n256']\n"}
+,{"stream_name":"stdout","time":13.159218681,"data":"device: cuda | GPU Tesla T4 | NVML True | visible devices 0\n"}
+,{"stream_name":"stdout","time":13.626855979,"data":"\n"}
+,{"stream_name":"stdout","time":13.626910154,"data":"--- mackay_204_102: /kaggle/input/notebooks/gouravanirudh1105/sgt-ldpc-final-b/results/final_sgt_sgt_normal_mackay_204_102/final_sgt_sgt_normal_mackay_204_102_mackay_204_102_sgt.pt | profiling at Eb/N0 = 3.0 dB\n"}
+,{"stream_name":"stdout","time":28.645889629,"data":"  idle GPU 27.5 W\n"}
+,{"stream_name":"stdout","time":56.137575107,"data":"    SGT (5x10 BP it) [fixed]     | B=1  33.597 ms | B=4096       3803 cw/s |   66.6 W | 17250.29 uJ/cw\n"}
+,{"stream_name":"stdout","time":85.791310991,"data":"    SGT (5x10 BP it) [fixed, CUDA graph] | B=1   5.809 ms | B=4096       3697 cw/s |   66.4 W | 17694.92 uJ/cw\n"}
+,{"stream_name":"stdout","time":97.214780445,"data":"    SGT (5x10 BP it) [early-stop] | B=1   2.496 ms | B=4096      56072 cw/s |   43.1 W |  2298.84 uJ/cw\n"}
+,{"stream_name":"stdout","time":114.879065705,"data":"    SGT (5x10 BP it) + OSD-2 [early-stop] | B=1  22.184 ms | B=4096      23785 cw/s |   35.8 W |  5183.28 uJ/cw\n"}
+,{"stream_name":"stdout","time":149.794002412,"data":"    SGT (5x40 BP it) [fixed]     | B=1 101.192 ms | B=4096       2689 cw/s |   65.0 W | 22580.99 uJ/cw\n"}
+,{"stream_name":"stdout","time":188.32072265,"data":"    SGT (5x40 BP it) [fixed, CUDA graph] | B=1  19.130 ms | B=4096       2618 cw/s |   64.0 W | 23097.66 uJ/cw\n"}
+,{"stream_name":"stdout","time":205.8710107,"data":"    SGT (5x40 BP it) [early-stop] | B=1   3.139 ms | B=4096      24138 cw/s |   34.6 W |  5079.88 uJ/cw\n"}
+,{"stream_name":"stdout","time":224.622037638,"data":"    SGT (5x40 BP it) + OSD-2 [early-stop] | B=1   3.340 ms | B=4096      15638 cw/s |   34.1 W |  8244.23 uJ/cw\n"}
+,{"stream_name":"stdout","time":236.173975066,"data":"    BP (50 it) [fixed]           | B=1  21.437 ms | B=4096      34489 cw/s |   67.1 W |  1493.01 uJ/cw\n"}
+,{"stream_name":"stdout","time":247.243792324,"data":"    BP (50 it) [fixed, CUDA graph] | B=1   3.278 ms | B=4096      34383 cw/s |   66.3 W |  1483.09 uJ/cw\n"}
+,{"stream_name":"stdout","time":255.999071904,"data":"    BP (50 it) [early-stop]      | B=1   3.330 ms | B=4096      84514 cw/s |   37.6 W |  1466.80 uJ/cw\n"}
+,{"stream_name":"stdout","time":261.185299303,"data":"    [cpu] SGT (5x10 BP it) [fixed] | B=1 21.99 ms | B=64 215.23 ms\n"}
+,{"stream_name":"stdout","time":267.389294845,"data":"    [cpu] SGT (5x40 BP it) [fixed] | B=1 61.66 ms | B=64 371.83 ms\n"}
+,{"stream_name":"stdout","time":268.776113591,"data":"    [cpu] BP (50 it) [fixed]     | B=1 12.28 ms | B=64 49.23 ms\n"}
+,{"stream_name":"stdout","time":268.917761901,"data":"\n"}
+,{"stream_name":"stdout","time":268.917777733,"data":"--- 5G_BG2_k64_n128: /kaggle/input/notebooks/gouravanirudh1105/sgt-ldpc-final-b/results/final_sgt_sgt_5g_5G_BG2_k64_n128/final_sgt_sgt_5g_5G_BG2_k64_n128_5G_BG2_k64_n128_sgt.pt | profiling at Eb/N0 = 3.0 dB\n"}
+,{"stream_name":"stdout","time":283.953250355,"data":"  idle GPU 32.0 W\n"}
+,{"stream_name":"stdout","time":307.251581261,"data":"    SGT (5x10 BP it) [fixed]     | B=1  34.115 ms | B=4096       5162 cw/s |   66.0 W | 12463.90 uJ/cw\n"}
+,{"stream_name":"stdout","time":333.787516496,"data":"    SGT (5x10 BP it) [fixed, CUDA graph] | B=1   5.405 ms | B=4096       5032 cw/s |   65.5 W | 12294.71 uJ/cw\n"}
+,{"stream_name":"stdout","time":343.651883167,"data":"    SGT (5x10 BP it) [early-stop] | B=1   3.759 ms | B=4096      57689 cw/s |   45.5 W |  2391.11 uJ/cw\n"}
+,{"stream_name":"stdout","time":361.891306329,"data":"    SGT (5x10 BP it) + OSD-2 [early-stop] | B=1   3.228 ms | B=4096      29567 cw/s |   38.4 W |  4845.05 uJ/cw\n"}
+,{"stream_name":"stdout","time":391.444741114,"data":"    SGT (5x40 BP it) [fixed]     | B=1 100.529 ms | B=4096       3820 cw/s |   64.4 W | 15659.97 uJ/cw\n"}
+,{"stream_name":"stdout","time":422.34377784,"data":"    SGT (5x40 BP it) [fixed, CUDA graph] | B=1  19.018 ms | B=4096       3740 cw/s |   65.6 W | 15894.93 uJ/cw\n"}
+,{"stream_name":"stdout","time":441.577977361,"data":"    SGT (5x40 BP it) [early-stop] | B=1   5.060 ms | B=4096      24180 cw/s |   33.6 W |  4897.35 uJ/cw\n"}
+,{"stream_name":"stdout","time":459.708518157,"data":"    SGT (5x40 BP it) + OSD-2 [early-stop] | B=1   4.486 ms | B=4096      17050 cw/s |   33.3 W |  7119.10 uJ/cw\n"}
+,{"stream_name":"stdout","time":470.181097353,"data":"    BP (50 it) [fixed]           | B=1  21.028 ms | B=4096      45527 cw/s |   67.7 W |  1415.27 uJ/cw\n"}
+,{"stream_name":"stdout","time":479.904210687,"data":"    BP (50 it) [fixed, CUDA graph] | B=1   3.274 ms | B=4096      45276 cw/s |   66.6 W |  1091.04 uJ/cw\n"}
+,{"stream_name":"stdout","time":489.424442304,"data":"    BP (50 it) [early-stop]      | B=1   3.927 ms | B=4096      81264 cw/s |   37.1 W |  1427.70 uJ/cw\n"}
+,{"stream_name":"stdout","time":493.280544199,"data":"    [cpu] SGT (5x10 BP it) [fixed] | B=1 23.98 ms | B=64 148.89 ms\n"}
+,{"stream_name":"stdout","time":499.441302044,"data":"    [cpu] SGT (5x40 BP it) [fixed] | B=1 59.11 ms | B=64 321.16 ms\n"}
+,{"stream_name":"stdout","time":500.972677925,"data":"    [cpu] BP (50 it) [fixed]     | B=1 12.25 ms | B=64 56.37 ms\n"}
+,{"stream_name":"stdout","time":501.126370866,"data":"\n"}
+,{"stream_name":"stdout","time":501.126391385,"data":"--- 5G_BG2_k128_n256: /kaggle/input/notebooks/gouravanirudh1105/sgt-ldpc-final-b/results/final_sgt_sgt_5g_5G_BG2_k128_n256/final_sgt_sgt_5g_5G_BG2_k128_n256_5G_BG2_k128_n256_sgt.pt | profiling at Eb/N0 = 2.5 dB\n"}
+,{"stream_name":"stdout","time":516.155773204,"data":"  idle GPU 33.0 W\n"}
+,{"stream_name":"stdout","time":544.520867605,"data":"    SGT (5x10 BP it) [fixed]     | B=1  35.509 ms | B=2048       1739 cw/s |   63.9 W | 36731.66 uJ/cw\n"}
+,{"stream_name":"stdout","time":580.026720863,"data":"    SGT (5x10 BP it) [fixed, CUDA graph] | B=1   6.562 ms | B=2048       1832 cw/s |   64.8 W | 35425.70 uJ/cw\n"}
+,{"stream_name":"stdout","time":591.868365917,"data":"    SGT (5x10 BP it) [early-stop] | B=1   3.708 ms | B=2048      22179 cw/s |   63.9 W |  4199.92 uJ/cw\n"}
+,{"stream_name":"stdout","time":610.417488806,"data":"    SGT (5x10 BP it) + OSD-2 [early-stop] | B=1   5.860 ms | B=2048       8867 cw/s |   47.0 W |  9465.04 uJ/cw\n"}
+,{"stream_name":"stdout","time":646.598069452,"data":"    SGT (5x40 BP it) [fixed]     | B=1 101.297 ms | B=2048       1398 cw/s |   64.2 W | 45642.30 uJ/cw\n"}
+,{"stream_name":"stdout","time":688.785533279,"data":"    SGT (5x40 BP it) [fixed, CUDA graph] | B=1  19.851 ms | B=2048       1444 cw/s |   65.9 W | 44718.38 uJ/cw\n"}
+,{"stream_name":"stdout","time":706.159311025,"data":"    SGT (5x40 BP it) [early-stop] | B=1   4.997 ms | B=2048      12482 cw/s |   36.6 W |  5570.43 uJ/cw\n"}
+,{"stream_name":"stdout","time":726.689765224,"data":"    SGT (5x40 BP it) + OSD-2 [early-stop] | B=1   3.943 ms | B=2048       6677 cw/s |   35.1 W | 10038.63 uJ/cw\n"}
+,{"stream_name":"stdout","time":738.009508938,"data":"    BP (50 it) [fixed]           | B=1  21.288 ms | B=2048      22675 cw/s |   68.3 W |  2907.89 uJ/cw\n"}
+,{"stream_name":"stdout","time":748.935233032,"data":"    BP (50 it) [fixed, CUDA graph] | B=1   3.409 ms | B=2048      22561 cw/s |   67.3 W |  2877.80 uJ/cw\n"}
+,{"stream_name":"stdout","time":758.799557509,"data":"    BP (50 it) [early-stop]      | B=1  11.336 ms | B=2048      42260 cw/s |   48.4 W |  1925.07 uJ/cw\n"}
+,{"stream_name":"stdout","time":764.643834993,"data":"    [cpu] SGT (5x10 BP it) [fixed] | B=1 27.02 ms | B=64 434.63 ms\n"}
+,{"stream_name":"stdout","time":771.542654597,"data":"    [cpu] SGT (5x40 BP it) [fixed] | B=1 67.52 ms | B=64 676.70 ms\n"}
+,{"stream_name":"stdout","time":773.432080313,"data":"    [cpu] BP (50 it) [fixed]     | B=1 13.32 ms | B=64 72.24 ms\n"}
+,{"stream_name":"stdout","time":773.433492996,"data":"done\n"}
+,{"stream_name":"stdout","time":776.852367779,"data":"exit codes [0]\n"}
+,{"stream_name":"stderr","time":779.413462736,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":779.413508181,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":779.739400345,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":779.73944097,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":780.609238706,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":781.716807035,"data":"[NbConvertApp] Writing 380108 bytes to __results__.html\n"}
+]
