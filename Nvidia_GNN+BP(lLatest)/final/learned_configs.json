@@ -1,0 +1,220 @@
+{
+ "_note": "Winners of tuning/run_tuning.py (results/tuning_*). band_shift moves the BP(10) waterfall band of final/code_bands.json down by [lo, hi] dB. 5G: BP-GNN = round-1 winner (BP(10)-failure mining beat BP(50)-failure mining in round 2); GNN-only uses random readout init + punctured-bit hint curriculum (tuning/diag_gnn_5g.py).",
+ "normal": [
+  {
+   "kind": "bpgnn",
+   "tag": "bpgnn",
+   "label": "BP-GNN (5x10 BP it)",
+   "kwargs": {
+    "d": 16,
+    "d_e": 8,
+    "hidden": 48,
+    "stages": 4,
+    "bp_iters": 10,
+    "gnn_layers": 2
+   },
+   "inference_variants": [
+    {
+     "label": "BP-GNN (5x40 BP it)",
+     "bp_iters": 40
+    }
+   ],
+   "train": {
+    "steps": 10000000,
+    "batch": 384,
+    "lr": 0.001,
+    "lr_min": 1e-05,
+    "lam_syn": 0.1,
+    "eval_every": 500,
+    "val_frames": 16384,
+    "grad_clip": 1.0,
+    "max_minutes": 80,
+    "schedule": "plateau",
+    "patience": 6,
+    "band_shift": [
+     -1.5,
+     -1.0
+    ],
+    "hard_frac": 0.75,
+    "mining_bp_iters": 10,
+    "pool_bins": 4,
+    "pool_new": 64,
+    "pool_init": 1024,
+    "pool_size": 20000,
+    "pool_refresh_every": 10,
+    "mining_chunk": 32768,
+    "mining_max_frames": 262144,
+    "val_mode": "hard",
+    "val_hard_bins": 3,
+    "val_hard_frames": 1000,
+    "val_hard_max_frames": 8000000
+   }
+  },
+  {
+   "kind": "nbp",
+   "tag": "nbp50",
+   "label": "NBP per-edge (50 it)",
+   "kwargs": {
+    "iters": 50,
+    "per_edge": true
+   },
+   "train": {
+    "steps": 10000000,
+    "batch": 1024,
+    "lr": 0.003,
+    "lr_min": 1e-05,
+    "lam_syn": 0.1,
+    "eval_every": 500,
+    "val_frames": 16384,
+    "grad_clip": 1.0,
+    "max_minutes": 20,
+    "schedule": "plateau",
+    "patience": 6,
+    "band_shift": [
+     -1.5,
+     -1.0
+    ]
+   }
+  },
+  {
+   "kind": "gnn",
+   "tag": "gnn",
+   "label": "GNN only (10 it)",
+   "osd": false,
+   "kwargs": {
+    "d": 16,
+    "d_e": 8,
+    "hidden": 48,
+    "iters": 10,
+    "use_soft_syndrome": true
+   },
+   "train": {
+    "steps": 10000000,
+    "batch": 384,
+    "lr": 0.002,
+    "lr_min": 1e-05,
+    "lam_syn": 0.1,
+    "eval_every": 500,
+    "val_frames": 16384,
+    "grad_clip": 1.0,
+    "max_minutes": 45,
+    "schedule": "plateau",
+    "patience": 6,
+    "band_shift": [
+     -1.5,
+     -1.0
+    ]
+   }
+  }
+ ],
+ "5g": [
+  {
+   "kind": "bpgnn",
+   "tag": "bpgnn",
+   "label": "BP-GNN (5x10 BP it)",
+   "kwargs": {
+    "d": 16,
+    "d_e": 8,
+    "hidden": 48,
+    "stages": 4,
+    "bp_iters": 10,
+    "gnn_layers": 2
+   },
+   "inference_variants": [
+    {
+     "label": "BP-GNN (5x40 BP it)",
+     "bp_iters": 40
+    }
+   ],
+   "train": {
+    "steps": 10000000,
+    "batch": 384,
+    "lr": 0.001,
+    "lr_min": 1e-05,
+    "lam_syn": 0.1,
+    "eval_every": 500,
+    "val_frames": 16384,
+    "grad_clip": 1.0,
+    "max_minutes": 80,
+    "schedule": "plateau",
+    "patience": 6,
+    "band_shift": [
+     -1.5,
+     -1.0
+    ],
+    "hard_frac": 0.75,
+    "mining_bp_iters": 10,
+    "pool_bins": 4,
+    "pool_new": 64,
+    "pool_init": 1024,
+    "pool_size": 20000,
+    "pool_refresh_every": 10,
+    "mining_chunk": 32768,
+    "mining_max_frames": 262144,
+    "val_mode": "hard",
+    "val_hard_bins": 3,
+    "val_hard_frames": 1000,
+    "val_hard_max_frames": 8000000
+   }
+  },
+  {
+   "kind": "nbp",
+   "tag": "nbp50",
+   "label": "NBP per-edge (50 it)",
+   "kwargs": {
+    "iters": 50,
+    "per_edge": true
+   },
+   "train": {
+    "steps": 10000000,
+    "batch": 1024,
+    "lr": 0.003,
+    "lr_min": 1e-05,
+    "lam_syn": 0.1,
+    "eval_every": 500,
+    "val_frames": 16384,
+    "grad_clip": 1.0,
+    "max_minutes": 20,
+    "schedule": "plateau",
+    "patience": 6,
+    "band_shift": [
+     -1.5,
+     -1.0
+    ]
+   }
+  },
+  {
+   "kind": "gnn",
+   "tag": "gnn",
+   "label": "GNN only (10 it)",
+   "osd": false,
+   "kwargs": {
+    "d": 16,
+    "d_e": 8,
+    "hidden": 48,
+    "iters": 10,
+    "use_soft_syndrome": true,
+    "readout_init": "default"
+   },
+   "train": {
+    "steps": 10000000,
+    "batch": 384,
+    "lr": 0.002,
+    "lr_min": 1e-05,
+    "lam_syn": 0.1,
+    "eval_every": 500,
+    "val_frames": 16384,
+    "grad_clip": 1.0,
+    "max_minutes": 45,
+    "schedule": "plateau",
+    "patience": 6,
+    "band_shift": [
+     -1.5,
+     -1.0
+    ],
+    "punct_hint": 1.0,
+    "punct_hint_frac": 0.4
+   }
+  }
+ ]
+}

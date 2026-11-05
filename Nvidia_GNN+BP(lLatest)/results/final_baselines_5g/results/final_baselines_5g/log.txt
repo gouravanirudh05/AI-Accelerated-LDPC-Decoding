@@ -1,0 +1,132 @@
+device: cuda | torch 2.11.0+cu128 | Tesla T4
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- final_baselines_5g_5G_BG2_k64_n128: evaluating on 5G_BG2_k64_n128 {'name': '5G_BG2_k64_n128', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [88, 152], 'edges': 463, 'rank': 88, 'bg': 'bg2', 'Z': 11, 'i_ls': 5, 'k_ldpc': 110, 'fillers': 46, 'punctured': 24, 'base_rows_kept': 8, 'base_cols_kept': 18} ---
+  BP (10 it)                         0.50dB:8.3e-01 1.00dB:6.6e-01 1.50dB:4.5e-01 2.00dB:2.8e-01 2.50dB:1.2e-01 3.00dB:5.6e-02 3.50dB:1.7e-02 4.00dB:4.6e-03 4.50dB:1.0e-03 5.00dB:1.8e-04 5.50dB:2.5e-05
+  BP (50 it)                         0.50dB:6.7e-01 1.00dB:4.7e-01 1.50dB:2.7e-01 2.00dB:1.4e-01 2.50dB:4.2e-02 3.00dB:1.5e-02 3.50dB:2.8e-03 4.00dB:5.3e-04 4.50dB:6.2e-05 5.00dB:1.0e-05 5.50dB:1.3e-06
+  BP (50 it) + OSD-0                 0.50dB:5.7e-01 1.00dB:3.9e-01 1.50dB:2.2e-01 2.00dB:1.1e-01 2.50dB:3.2e-02 3.00dB:1.2e-02 3.50dB:2.4e-03 4.00dB:4.3e-04 4.50dB:4.9e-05 5.00dB:7.0e-06 5.50dB:1.7e-06
+  BP (50 it) + OSD-2                 0.50dB:4.6e-01 1.00dB:3.0e-01 1.50dB:1.7e-01 2.00dB:8.1e-02 2.50dB:2.4e-02 3.00dB:9.6e-03 3.50dB:1.9e-03 4.00dB:3.4e-04 4.50dB:4.0e-05 5.00dB:4.7e-06 5.50dB:1.0e-06
+  BP (200 it)                        0.50dB:6.7e-01 1.00dB:4.6e-01 1.50dB:2.6e-01 2.00dB:1.2e-01 2.50dB:3.2e-02 3.00dB:9.6e-03 3.50dB:1.4e-03 4.00dB:1.8e-04 4.50dB:1.8e-05 5.00dB:2.3e-06 5.50dB:1.3e-06
+  BP + perturb. (5x10 BP it)         0.50dB:7.9e-01 1.00dB:6.1e-01 1.50dB:4.0e-01 2.00dB:2.1e-01 2.50dB:8.7e-02 3.00dB:3.3e-02 3.50dB:9.3e-03 4.00dB:2.1e-03 4.50dB:3.4e-04 5.00dB:5.5e-05 5.50dB:9.3e-06
+  profiling at Eb/N0 = 3.0 dB (idle GPU 31.2 W)
+    BP (10 it) [fixed]           | B=1   4.304 ms | B=4096     225164 cw/s |   68.0 W |   286.78 uJ/cw
+    BP (10 it) [fixed, CUDA graph] | B=1   0.709 ms | B=4096     225087 cw/s |   66.9 W |   222.57 uJ/cw
+    BP (10 it) [early-stop]      | B=1   3.263 ms | B=4096     284223 cw/s |   52.8 W |   434.51 uJ/cw
+    BP (50 it) [fixed]           | B=1  20.950 ms | B=4096      45071 cw/s |   66.1 W |  1346.33 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.319 ms | B=4096      45100 cw/s |   65.9 W |  1085.94 uJ/cw
+    BP (50 it) [early-stop]      | B=1   2.716 ms | B=4096      82652 cw/s |   36.6 W |  1404.44 uJ/cw
+    BP (50 it) + OSD-0 [early-stop] | B=1   4.717 ms | B=4096      35375 cw/s |   33.1 W |  3283.36 uJ/cw
+    BP (50 it) + OSD-2 [early-stop] | B=1   4.097 ms | B=4096      34769 cw/s |   33.9 W |  3444.44 uJ/cw
+    BP (200 it) [fixed]          | B=1  82.925 ms | B=4096      11379 cw/s |   68.3 W |  5624.90 uJ/cw
+    BP (200 it) [fixed, CUDA graph] | B=1  15.524 ms | B=4096      11279 cw/s |   65.9 W |  4360.62 uJ/cw
+    BP (200 it) [early-stop]     | B=1   4.027 ms | B=4096      28159 cw/s |   32.9 W |  4281.51 uJ/cw
+    BP + perturb. (5x10 BP it) [fixed] | B=1  25.090 ms | B=4096      40212 cw/s |   67.6 W |  1642.19 uJ/cw
+    BP + perturb. (5x10 BP it) [early-stop] | B=1   3.697 ms | B=4096      79467 cw/s |   37.8 W |  1573.80 uJ/cw
+    [cpu] BP (10 it) [fixed]     | B=1 2.29 ms | B=64 10.63 ms
+    [cpu] BP (50 it) [fixed]     | B=1 11.56 ms | B=64 53.42 ms
+    [cpu] BP (200 it) [fixed]    | B=1 46.23 ms | B=64 214.61 ms
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- final_baselines_5g_5G_BG2_k128_n256: evaluating on 5G_BG2_k128_n256 {'name': '5G_BG2_k128_n256', 'n': 256, 'k': 128, 'rate': 0.5, 'H_shape': [176, 304], 'edges': 926, 'rank': 176, 'bg': 'bg2', 'Z': 22, 'i_ls': 5, 'k_ldpc': 220, 'fillers': 92, 'punctured': 48, 'base_rows_kept': 8, 'base_cols_kept': 18} ---
+  BP (10 it)                         0.50dB:9.4e-01 1.00dB:8.0e-01 1.50dB:5.4e-01 2.00dB:2.6e-01 2.50dB:9.5e-02 3.00dB:2.5e-02 3.50dB:5.1e-03 4.00dB:4.5e-04 4.50dB:3.4e-05 5.00dB:5.0e-06
+  BP (50 it)                         0.50dB:7.0e-01 1.00dB:4.5e-01 1.50dB:1.8e-01 2.00dB:5.2e-02 2.50dB:1.1e-02 3.00dB:1.2e-03 3.50dB:1.1e-04 4.00dB:5.0e-06 4.50dB:1.0e-06 5.00dB:0.0e+00
+  BP (50 it) + OSD-0                 0.50dB:6.5e-01 1.00dB:4.1e-01 1.50dB:1.6e-01 2.00dB:4.6e-02 2.50dB:8.9e-03 3.00dB:9.3e-04 3.50dB:7.9e-05 4.00dB:3.5e-06 4.50dB:5.0e-07 5.00dB:0.0e+00
+  BP (50 it) + OSD-2                 0.50dB:5.8e-01 1.00dB:3.5e-01 1.50dB:1.3e-01 2.00dB:3.9e-02 2.50dB:7.5e-03 3.00dB:7.9e-04 3.50dB:6.9e-05 4.00dB:3.5e-06 4.50dB:0.0e+00
+  BP (200 it)                        0.50dB:6.9e-01 1.00dB:4.3e-01 1.50dB:1.5e-01 2.00dB:4.1e-02 2.50dB:6.7e-03 3.00dB:5.4e-04 3.50dB:4.1e-05 4.00dB:2.5e-06 4.50dB:5.0e-07 5.00dB:0.0e+00
+  BP + perturb. (5x10 BP it)         0.50dB:9.2e-01 1.00dB:7.5e-01 1.50dB:4.6e-01 2.00dB:2.0e-01 2.50dB:7.0e-02 3.00dB:1.3e-02 3.50dB:1.8e-03 4.00dB:1.7e-04 4.50dB:1.2e-05 5.00dB:5.0e-07
+  profiling at Eb/N0 = 2.5 dB (idle GPU 31.3 W)
+    BP (10 it) [fixed]           | B=1   4.315 ms | B=4096     114294 cw/s |   67.6 W |   579.21 uJ/cw
+    BP (10 it) [fixed, CUDA graph] | B=1   0.753 ms | B=4096     114197 cw/s |   67.3 W |   576.64 uJ/cw
+    BP (10 it) [early-stop]      | B=1   4.517 ms | B=4096     136709 cw/s |   66.8 W |   650.48 uJ/cw
+    BP (50 it) [fixed]           | B=1  21.211 ms | B=4096      22680 cw/s |   66.3 W |  2863.98 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.457 ms | B=4096      22748 cw/s |   67.7 W |  2888.07 uJ/cw
+    BP (50 it) [early-stop]      | B=1   4.464 ms | B=4096      66411 cw/s |   47.8 W |  1848.04 uJ/cw
+    BP (50 it) + OSD-0 [early-stop] | B=1   5.256 ms | B=4096      20616 cw/s |   35.5 W |  6377.83 uJ/cw
+    BP (50 it) + OSD-2 [early-stop] | B=1   4.113 ms | B=4096      20434 cw/s |   34.8 W |  6554.61 uJ/cw
+    BP (200 it) [fixed]          | B=1  89.589 ms | B=4096       5725 cw/s |   66.1 W | 11316.07 uJ/cw
+    BP (200 it) [fixed, CUDA graph] | B=1  16.119 ms | B=4096       5720 cw/s |   67.4 W | 11437.94 uJ/cw
+    BP (200 it) [early-stop]     | B=1   4.548 ms | B=4096      25502 cw/s |   36.2 W |  4752.62 uJ/cw
+    BP + perturb. (5x10 BP it) [fixed] | B=1  25.083 ms | B=4096      20306 cw/s |   67.0 W |  3265.80 uJ/cw
+    BP + perturb. (5x10 BP it) [early-stop] | B=1   4.906 ms | B=4096      61810 cw/s |   51.2 W |  2207.53 uJ/cw
+    [cpu] BP (10 it) [fixed]     | B=1 2.69 ms | B=64 15.35 ms
+    [cpu] BP (50 it) [fixed]     | B=1 13.13 ms | B=64 74.07 ms
+    [cpu] BP (200 it) [fixed]    | B=1 52.09 ms | B=64 295.53 ms
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- final_baselines_5g_5G_BG2_k256_n512: evaluating on 5G_BG2_k256_n512 {'name': '5G_BG2_k256_n512', 'n': 512, 'k': 256, 'rate': 0.5, 'H_shape': [320, 576], 'edges': 1888, 'rank': 320, 'bg': 'bg2', 'Z': 32, 'i_ls': 0, 'k_ldpc': 320, 'fillers': 64, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 20} ---
+  BP (10 it)                         0.50dB:9.9e-01 1.00dB:9.1e-01 1.50dB:6.2e-01 2.00dB:2.3e-01 2.50dB:4.8e-02 3.00dB:5.4e-03 3.50dB:3.5e-04 4.00dB:1.2e-05
+  BP (50 it)                         0.50dB:7.2e-01 1.00dB:3.4e-01 1.50dB:8.4e-02 2.00dB:8.5e-03 2.50dB:6.3e-04 3.00dB:2.0e-05 3.50dB:2.0e-06 4.00dB:1.0e-06
+  BP (50 it) + OSD-0                 0.50dB:7.0e-01 1.00dB:3.3e-01 1.50dB:7.8e-02 2.00dB:7.6e-03 2.50dB:5.4e-04 3.00dB:1.8e-05 3.50dB:2.0e-06 4.00dB:1.0e-06
+  BP (50 it) + OSD-2                 0.50dB:6.7e-01 1.00dB:3.1e-01 1.50dB:7.2e-02 2.00dB:7.2e-03 2.50dB:5.0e-04 3.00dB:1.4e-05 3.50dB:2.0e-06 4.00dB:1.0e-06
+  BP (200 it)                        0.50dB:7.0e-01 1.00dB:3.1e-01 1.50dB:6.7e-02 2.00dB:5.4e-03 2.50dB:2.5e-04 3.00dB:1.0e-05 3.50dB:2.0e-06 4.00dB:1.0e-06
+  BP + perturb. (5x10 BP it)         0.50dB:9.9e-01 1.00dB:8.8e-01 1.50dB:5.5e-01 2.00dB:1.9e-01 2.50dB:2.8e-02 3.00dB:2.5e-03 3.50dB:1.3e-04 4.00dB:7.0e-06
+  profiling at Eb/N0 = 2.0 dB (idle GPU 31.4 W)
+    BP (10 it) [fixed]           | B=1   4.457 ms | B=4096      56678 cw/s |   67.3 W |  1218.52 uJ/cw
+    BP (10 it) [fixed, CUDA graph] | B=1   0.744 ms | B=4096      56214 cw/s |   66.5 W |  1210.01 uJ/cw
+    BP (10 it) [early-stop]      | B=1   3.954 ms | B=4096      56352 cw/s |   65.8 W |  1238.83 uJ/cw
+    BP (50 it) [fixed]           | B=1  21.255 ms | B=4096      11231 cw/s |   65.8 W |  5980.61 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.460 ms | B=4096      11367 cw/s |   67.2 W |  6027.94 uJ/cw
+    BP (50 it) [early-stop]      | B=1   4.544 ms | B=4096      38186 cw/s |   61.4 W |  3002.20 uJ/cw
+    BP (50 it) + OSD-0 [early-stop] | B=1   4.186 ms | B=4096      11053 cw/s |   46.6 W | 14265.63 uJ/cw
+    BP (50 it) + OSD-2 [early-stop] | B=1   7.148 ms | B=4096      11141 cw/s |   44.1 W | 12749.48 uJ/cw
+    BP (200 it) [fixed]          | B=1  85.025 ms | B=4096       2816 cw/s |   65.7 W | 23841.80 uJ/cw
+    BP (200 it) [fixed, CUDA graph] | B=1  16.102 ms | B=4096       2868 cw/s |   67.8 W | 24102.78 uJ/cw
+    BP (200 it) [early-stop]     | B=1   7.713 ms | B=4096      20016 cw/s |   44.1 W |  6182.39 uJ/cw
+    BP + perturb. (5x10 BP it) [fixed] | B=1  25.446 ms | B=4096      10003 cw/s |   65.1 W |  6712.24 uJ/cw
+    BP + perturb. (5x10 BP it) [early-stop] | B=1   6.265 ms | B=4096      23927 cw/s |   65.6 W |  3411.59 uJ/cw
+    [cpu] BP (10 it) [fixed]     | B=1 3.21 ms | B=64 26.18 ms
+    [cpu] BP (50 it) [fixed]     | B=1 14.97 ms | B=64 123.75 ms
+    [cpu] BP (200 it) [fixed]    | B=1 61.21 ms | B=64 502.29 ms
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- final_baselines_5g_5G_BG1_k528_n704: evaluating on 5G_BG1_k528_n704 {'name': '5G_BG1_k528_n704', 'n': 704, 'k': 528, 'rate': 0.75, 'H_shape': [240, 768], 'edges': 2928, 'rank': 240, 'bg': 'bg1', 'Z': 24, 'i_ls': 1, 'k_ldpc': 528, 'fillers': 0, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 32} ---
+  BP (10 it)                         2.00dB:9.8e-01 2.25dB:8.9e-01 2.50dB:7.3e-01 2.75dB:4.9e-01 3.00dB:2.6e-01 3.25dB:1.1e-01 3.50dB:4.0e-02 3.75dB:1.3e-02 4.00dB:2.5e-03 4.25dB:6.4e-04 4.50dB:1.2e-04 4.75dB:1.9e-05 5.00dB:6.0e-06
+  BP (50 it)                         2.00dB:6.4e-01 2.25dB:4.0e-01 2.50dB:1.9e-01 2.75dB:6.0e-02 3.00dB:2.0e-02 3.25dB:3.9e-03 3.50dB:8.5e-04 3.75dB:1.7e-04 4.00dB:2.9e-05 4.25dB:7.0e-06 4.50dB:1.0e-06 4.75dB:0.0e+00
+  BP (50 it) + OSD-0                 2.00dB:6.1e-01 2.25dB:3.7e-01 2.50dB:1.8e-01 2.75dB:5.3e-02 3.00dB:1.7e-02 3.25dB:3.3e-03 3.50dB:7.9e-04 3.75dB:1.3e-04 4.00dB:2.6e-05 4.25dB:7.0e-06 4.50dB:1.0e-06 4.75dB:0.0e+00
+  BP (50 it) + OSD-2                 2.00dB:5.6e-01 2.25dB:3.3e-01 2.50dB:1.5e-01 2.75dB:4.6e-02 3.00dB:1.5e-02 3.25dB:3.0e-03 3.50dB:6.8e-04 3.75dB:1.2e-04 4.00dB:2.1e-05 4.25dB:7.0e-06 4.50dB:1.0e-06 4.75dB:0.0e+00
+  BP (200 it)                        2.00dB:6.3e-01 2.25dB:3.7e-01 2.50dB:1.7e-01 2.75dB:4.7e-02 3.00dB:1.3e-02 3.25dB:2.4e-03 3.50dB:4.9e-04 3.75dB:8.4e-05 4.00dB:1.9e-05 4.25dB:5.0e-06 4.50dB:0.0e+00
+  BP + perturb. (5x10 BP it)         2.00dB:9.7e-01 2.25dB:8.8e-01 2.50dB:6.9e-01 2.75dB:4.3e-01 3.00dB:2.3e-01 3.25dB:9.4e-02 3.50dB:3.0e-02 3.75dB:7.4e-03 4.00dB:1.4e-03 4.25dB:3.0e-04 4.50dB:3.9e-05 4.75dB:3.0e-06 5.00dB:1.0e-06
+  profiling at Eb/N0 = 3.5 dB (idle GPU 31.5 W)
+    BP (10 it) [fixed]           | B=1   4.326 ms | B=4096      35496 cw/s |   66.5 W |  1921.07 uJ/cw
+    BP (10 it) [fixed, CUDA graph] | B=1   0.749 ms | B=4096      35043 cw/s |   66.7 W |  1948.14 uJ/cw
+    BP (10 it) [early-stop]      | B=1   4.584 ms | B=4096      43204 cw/s |   66.7 W |  1677.80 uJ/cw
+    BP (50 it) [fixed]           | B=1  21.337 ms | B=4096       7086 cw/s |   65.8 W |  9443.97 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.488 ms | B=4096       7171 cw/s |   67.4 W |  9577.31 uJ/cw
+    BP (50 it) [early-stop]      | B=1   3.347 ms | B=4096      34456 cw/s |   63.4 W |  3243.00 uJ/cw
+    BP (50 it) + OSD-0 [early-stop] | B=1   3.518 ms | B=4096       8906 cw/s |   38.8 W | 13895.16 uJ/cw
+    BP (50 it) + OSD-2 [early-stop] | B=1   4.134 ms | B=4096       9041 cw/s |   40.2 W | 14926.13 uJ/cw
+    BP (200 it) [fixed]          | B=1  84.954 ms | B=4096       1768 cw/s |   66.7 W | 38142.04 uJ/cw
+    BP (200 it) [fixed, CUDA graph] | B=1  16.393 ms | B=4096       1797 cw/s |   67.5 W | 38308.01 uJ/cw
+    BP (200 it) [early-stop]     | B=1   5.218 ms | B=4096      19538 cw/s |   47.4 W |  6577.83 uJ/cw
+    BP + perturb. (5x10 BP it) [fixed] | B=1  25.035 ms | B=4096       6229 cw/s |   65.6 W | 10777.28 uJ/cw
+    BP + perturb. (5x10 BP it) [early-stop] | B=1   3.740 ms | B=4096      31347 cw/s |   62.9 W |  3558.08 uJ/cw
+    [cpu] BP (10 it) [fixed]     | B=1 4.22 ms | B=64 36.37 ms
+    [cpu] BP (50 it) [fixed]     | B=1 17.88 ms | B=64 188.42 ms
+    [cpu] BP (200 it) [fixed]    | B=1 76.37 ms | B=64 760.36 ms
+GPU: Tesla T4 | NVML: True | energy counter: True
+
+--- final_baselines_5g_5G_BG1_k1056_n1408: evaluating on 5G_BG1_k1056_n1408 {'name': '5G_BG1_k1056_n1408', 'n': 1408, 'k': 1056, 'rate': 0.75, 'H_shape': [480, 1536], 'edges': 5856, 'rank': 480, 'bg': 'bg1', 'Z': 48, 'i_ls': 1, 'k_ldpc': 1056, 'fillers': 0, 'punctured': 128, 'base_rows_kept': 10, 'base_cols_kept': 32} ---
+  BP (10 it)                         2.00dB:1.0e+00 2.25dB:9.8e-01 2.50dB:8.7e-01 2.75dB:5.8e-01 3.00dB:2.7e-01 3.25dB:8.6e-02 3.50dB:1.4e-02 3.75dB:2.8e-03 4.00dB:2.2e-04 4.25dB:1.2e-05 4.50dB:0.0e+00
+  BP (50 it)                         2.00dB:6.1e-01 2.25dB:2.5e-01 2.50dB:6.9e-02 2.75dB:1.0e-02 3.00dB:1.0e-03 3.25dB:6.6e-05 3.50dB:4.0e-06 3.75dB:0.0e+00
+  BP (50 it) + OSD-0                 2.00dB:5.9e-01 2.25dB:2.4e-01 2.50dB:6.3e-02 2.75dB:9.0e-03 3.00dB:8.4e-04 3.25dB:4.2e-05 3.50dB:4.0e-06 3.75dB:0.0e+00
+  BP (50 it) + OSD-2                 2.00dB:5.7e-01 2.25dB:2.3e-01 2.50dB:5.8e-02 2.75dB:7.1e-03 3.00dB:6.8e-04 3.25dB:4.2e-05 3.50dB:4.0e-06 3.75dB:0.0e+00
+  BP (200 it)                        2.00dB:5.8e-01 2.25dB:2.2e-01 2.50dB:5.3e-02 2.75dB:5.6e-03 3.00dB:4.8e-04 3.25dB:1.8e-05 3.50dB:4.0e-06 3.75dB:0.0e+00
+  BP + perturb. (5x10 BP it)         2.00dB:1.0e+00 2.25dB:9.7e-01 2.50dB:8.3e-01 2.75dB:5.3e-01 3.00dB:2.2e-01 3.25dB:5.8e-02 3.50dB:9.6e-03 3.75dB:1.0e-03 4.00dB:1.1e-04 4.25dB:9.9e-06 4.50dB:2.0e-06
+  profiling at Eb/N0 = 3.25 dB (idle GPU 31.5 W)
+    BP (10 it) [fixed]           | B=1   4.372 ms | B=4096      17437 cw/s |   66.5 W |  3864.33 uJ/cw
+    BP (10 it) [fixed, CUDA graph] | B=1   0.886 ms | B=4096      17141 cw/s |   66.0 W |  3885.29 uJ/cw
+    BP (10 it) [early-stop]      | B=1   5.137 ms | B=4096      18193 cw/s |   66.2 W |  3711.40 uJ/cw
+    BP (50 it) [fixed]           | B=1  21.394 ms | B=4096       3524 cw/s |   65.8 W | 18762.75 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.526 ms | B=4096       3532 cw/s |   66.3 W | 18907.28 uJ/cw
+    BP (50 it) [early-stop]      | B=1   5.199 ms | B=4096      17090 cw/s |   65.8 W |  4017.30 uJ/cw
+    BP (50 it) + OSD-0 [early-stop] | B=1   5.963 ms | B=4096      17216 cw/s |   49.4 W | 21170.17 uJ/cw
+    BP (50 it) + OSD-2 [early-stop] | B=1   5.255 ms | B=4096      17334 cw/s |   66.3 W |  4096.86 uJ/cw
+    BP (200 it) [fixed]          | B=1  84.901 ms | B=4096        883 cw/s |   66.5 W | 75732.62 uJ/cw
+    BP (200 it) [fixed, CUDA graph] | B=1  16.505 ms | B=4096        885 cw/s |   67.1 W | 76360.19 uJ/cw
+    BP (200 it) [early-stop]     | B=1   5.127 ms | B=4096      15555 cw/s |   65.5 W |  4034.01 uJ/cw
+    BP + perturb. (5x10 BP it) [fixed] | B=1  24.583 ms | B=4096       3097 cw/s |   65.8 W | 21375.43 uJ/cw
+    BP + perturb. (5x10 BP it) [early-stop] | B=1   5.030 ms | B=4096      12325 cw/s |   64.8 W |  5772.12 uJ/cw
+    [cpu] BP (10 it) [fixed]     | B=1 6.73 ms | B=64 76.88 ms
+    [cpu] BP (50 it) [fixed]     | B=1 22.24 ms | B=64 350.69 ms
+    [cpu] BP (200 it) [fixed]    | B=1 89.76 ms | B=64 1367.50 ms
+done

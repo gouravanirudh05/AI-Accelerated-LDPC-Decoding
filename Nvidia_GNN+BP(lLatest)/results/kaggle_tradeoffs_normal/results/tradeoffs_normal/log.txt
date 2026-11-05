@@ -1,0 +1,309 @@
+device: cuda | torch 2.11.0+cu128 | Tesla T4
+mackay_204_102: {'name': 'mackay_204_102', 'n': 204, 'k': 102, 'rate': 0.5, 'H_shape': [102, 204], 'edges': 612, 'rank': 102}
+mackay_96_48: {'name': 'mackay_96_48', 'n': 96, 'k': 48, 'rate': 0.5, 'H_shape': [48, 96], 'edges': 288, 'rank': 48}
+mackay_408_204: {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204}
+
+=== tradeoffs_mackay: training BP-GNN (5x10 BP it) (22561 parameters) on ['mackay_204_102'] ===
+  step   1000 |    3.6 min | loss 0.1385 (bce 0.1224, syn 0.1608) | val BER 1.04e-03 BLER 1.54e-02
+  step   2000 |    7.2 min | loss 0.1338 (bce 0.1192, syn 0.1465) | val BER 7.67e-04 BLER 1.15e-02
+  step   3000 |   10.8 min | loss 0.1260 (bce 0.1118, syn 0.1412) | val BER 6.95e-04 BLER 1.04e-02
+  step   4000 |   14.5 min | loss 0.1244 (bce 0.1088, syn 0.1558) | val BER 7.06e-04 BLER 1.03e-02
+  step   4147 |   15.0 min | loss 0.1328 (bce 0.1165, syn 0.1634) | val BER 6.98e-04 BLER 1.02e-02
+
+=== tradeoffs_mackay: training BP-GNN detached-BP (5x10 BP it) (22561 parameters) on ['mackay_204_102'] ===
+  step   1000 |    3.2 min | loss 0.1347 (bce 0.1172, syn 0.1753) | val BER 1.27e-03 BLER 1.18e-02
+  step   2000 |    6.4 min | loss 0.1300 (bce 0.1139, syn 0.1608) | val BER 1.37e-03 BLER 1.26e-02
+  step   3000 |    9.5 min | loss 0.1277 (bce 0.1122, syn 0.1548) | val BER 1.41e-03 BLER 1.29e-02
+  step   4000 |   12.7 min | loss 0.1300 (bce 0.1131, syn 0.1686) | val BER 1.35e-03 BLER 1.29e-02
+  step   4714 |   15.0 min | loss 0.1295 (bce 0.1134, syn 0.1608) | val BER 1.33e-03 BLER 1.28e-02
+
+=== tradeoffs_mackay: training GNN (10 it) (11593 parameters) on ['mackay_204_102'] ===
+  step   1000 |    3.3 min | loss 0.0870 (bce 0.0809, syn 0.0608) | val BER 4.75e-03 BLER 1.62e-01
+  step   2000 |    6.6 min | loss 0.0677 (bce 0.0629, syn 0.0477) | val BER 3.07e-03 BLER 8.89e-02
+  step   3000 |    9.9 min | loss 0.0564 (bce 0.0528, syn 0.0356) | val BER 2.48e-03 BLER 6.82e-02
+  step   4000 |   13.2 min | loss 0.0613 (bce 0.0575, syn 0.0381) | val BER 2.18e-03 BLER 6.15e-02
+  step   4531 |   15.0 min | loss 0.0659 (bce 0.0615, syn 0.0439) | val BER 2.27e-03 BLER 6.35e-02
+
+=== tradeoffs_mackay: training NBP per-edge (10 it) (6120 parameters) on ['mackay_204_102'] ===
+  step   1000 |    0.4 min | loss 0.0529 (bce 0.0484, syn 0.0447) | val BER 1.49e-03 BLER 3.39e-02
+  step   2000 |    0.8 min | loss 0.0577 (bce 0.0527, syn 0.0499) | val BER 1.52e-03 BLER 3.31e-02
+  step   3000 |    1.1 min | loss 0.0587 (bce 0.0535, syn 0.0514) | val BER 1.55e-03 BLER 3.41e-02
+  step   4000 |    1.5 min | loss 0.0578 (bce 0.0525, syn 0.0530) | val BER 1.51e-03 BLER 3.38e-02
+  step   5000 |    1.9 min | loss 0.0526 (bce 0.0481, syn 0.0451) | val BER 1.52e-03 BLER 3.31e-02
+  step   6000 |    2.3 min | loss 0.0544 (bce 0.0496, syn 0.0473) | val BER 1.52e-03 BLER 3.37e-02
+  step   7000 |    2.7 min | loss 0.0560 (bce 0.0513, syn 0.0470) | val BER 1.50e-03 BLER 3.30e-02
+  step   8000 |    3.1 min | loss 0.0601 (bce 0.0549, syn 0.0516) | val BER 1.52e-03 BLER 3.34e-02
+  step   9000 |    3.4 min | loss 0.0573 (bce 0.0523, syn 0.0503) | val BER 1.52e-03 BLER 3.38e-02
+  step  10000 |    3.8 min | loss 0.0565 (bce 0.0515, syn 0.0504) | val BER 1.51e-03 BLER 3.33e-02
+  step  11000 |    4.2 min | loss 0.0545 (bce 0.0500, syn 0.0454) | val BER 1.54e-03 BLER 3.37e-02
+  step  12000 |    4.6 min | loss 0.0547 (bce 0.0501, syn 0.0454) | val BER 1.54e-03 BLER 3.43e-02
+  step  13000 |    5.0 min | loss 0.0608 (bce 0.0552, syn 0.0560) | val BER 1.48e-03 BLER 3.30e-02
+  step  14000 |    5.3 min | loss 0.0574 (bce 0.0522, syn 0.0518) | val BER 1.50e-03 BLER 3.42e-02
+  step  15000 |    5.7 min | loss 0.0553 (bce 0.0505, syn 0.0482) | val BER 1.52e-03 BLER 3.37e-02
+  step  16000 |    6.1 min | loss 0.0542 (bce 0.0496, syn 0.0463) | val BER 1.51e-03 BLER 3.28e-02
+  step  17000 |    6.5 min | loss 0.0546 (bce 0.0501, syn 0.0456) | val BER 1.51e-03 BLER 3.31e-02
+  step  18000 |    6.9 min | loss 0.0576 (bce 0.0523, syn 0.0532) | val BER 1.52e-03 BLER 3.30e-02
+  step  19000 |    7.3 min | loss 0.0527 (bce 0.0482, syn 0.0451) | val BER 1.52e-03 BLER 3.32e-02
+  step  20000 |    7.6 min | loss 0.0558 (bce 0.0509, syn 0.0493) | val BER 1.51e-03 BLER 3.32e-02
+  step  21000 |    8.0 min | loss 0.0589 (bce 0.0535, syn 0.0545) | val BER 1.53e-03 BLER 3.41e-02
+  step  22000 |    8.4 min | loss 0.0593 (bce 0.0538, syn 0.0547) | val BER 1.50e-03 BLER 3.27e-02
+  step  23000 |    8.8 min | loss 0.0514 (bce 0.0472, syn 0.0424) | val BER 1.51e-03 BLER 3.31e-02
+  step  24000 |    9.2 min | loss 0.0571 (bce 0.0521, syn 0.0496) | val BER 1.49e-03 BLER 3.31e-02
+  step  25000 |    9.5 min | loss 0.0532 (bce 0.0490, syn 0.0419) | val BER 1.51e-03 BLER 3.34e-02
+  step  26000 |    9.9 min | loss 0.0555 (bce 0.0507, syn 0.0484) | val BER 1.53e-03 BLER 3.33e-02
+  step  27000 |   10.3 min | loss 0.0558 (bce 0.0511, syn 0.0463) | val BER 1.50e-03 BLER 3.27e-02
+  step  28000 |   10.7 min | loss 0.0584 (bce 0.0531, syn 0.0535) | val BER 1.52e-03 BLER 3.32e-02
+  step  29000 |   11.1 min | loss 0.0515 (bce 0.0472, syn 0.0435) | val BER 1.50e-03 BLER 3.31e-02
+  step  30000 |   11.5 min | loss 0.0581 (bce 0.0529, syn 0.0518) | val BER 1.52e-03 BLER 3.31e-02
+  step  31000 |   11.8 min | loss 0.0593 (bce 0.0543, syn 0.0503) | val BER 1.52e-03 BLER 3.32e-02
+  step  32000 |   12.2 min | loss 0.0591 (bce 0.0537, syn 0.0543) | val BER 1.49e-03 BLER 3.32e-02
+  step  33000 |   12.6 min | loss 0.0532 (bce 0.0487, syn 0.0452) | val BER 1.50e-03 BLER 3.30e-02
+  step  34000 |   13.0 min | loss 0.0569 (bce 0.0520, syn 0.0490) | val BER 1.51e-03 BLER 3.33e-02
+  step  35000 |   13.4 min | loss 0.0574 (bce 0.0523, syn 0.0506) | val BER 1.51e-03 BLER 3.33e-02
+  step  36000 |   13.7 min | loss 0.0551 (bce 0.0502, syn 0.0499) | val BER 1.51e-03 BLER 3.32e-02
+  step  37000 |   14.1 min | loss 0.0543 (bce 0.0497, syn 0.0457) | val BER 1.51e-03 BLER 3.33e-02
+  step  38000 |   14.5 min | loss 0.0568 (bce 0.0517, syn 0.0510) | val BER 1.51e-03 BLER 3.32e-02
+  step  39000 |   14.9 min | loss 0.0530 (bce 0.0484, syn 0.0456) | val BER 1.51e-03 BLER 3.31e-02
+  step  39276 |   15.0 min | loss 0.0567 (bce 0.0517, syn 0.0492) | val BER 1.51e-03 BLER 3.31e-02
+
+=== tradeoffs_mackay: training NBP shared (10 it) (10 parameters) on ['mackay_204_102'] ===
+  step   1000 |    0.4 min | loss 0.0528 (bce 0.0483, syn 0.0446) | val BER 1.50e-03 BLER 3.34e-02
+  step   2000 |    0.8 min | loss 0.0576 (bce 0.0526, syn 0.0498) | val BER 1.50e-03 BLER 3.36e-02
+  step   3000 |    1.2 min | loss 0.0585 (bce 0.0534, syn 0.0508) | val BER 1.52e-03 BLER 3.36e-02
+  step   4000 |    1.6 min | loss 0.0578 (bce 0.0525, syn 0.0528) | val BER 1.54e-03 BLER 3.41e-02
+  step   5000 |    2.0 min | loss 0.0525 (bce 0.0480, syn 0.0450) | val BER 1.53e-03 BLER 3.43e-02
+  step   6000 |    2.4 min | loss 0.0543 (bce 0.0495, syn 0.0472) | val BER 1.54e-03 BLER 3.41e-02
+  step   7000 |    2.8 min | loss 0.0561 (bce 0.0513, syn 0.0472) | val BER 1.50e-03 BLER 3.32e-02
+  step   8000 |    3.2 min | loss 0.0599 (bce 0.0547, syn 0.0516) | val BER 1.52e-03 BLER 3.36e-02
+  step   9000 |    3.5 min | loss 0.0572 (bce 0.0521, syn 0.0501) | val BER 1.53e-03 BLER 3.44e-02
+  step  10000 |    3.9 min | loss 0.0564 (bce 0.0514, syn 0.0500) | val BER 1.50e-03 BLER 3.31e-02
+  step  11000 |    4.3 min | loss 0.0544 (bce 0.0499, syn 0.0450) | val BER 1.52e-03 BLER 3.36e-02
+  step  12000 |    4.7 min | loss 0.0547 (bce 0.0501, syn 0.0454) | val BER 1.54e-03 BLER 3.41e-02
+  step  13000 |    5.1 min | loss 0.0608 (bce 0.0552, syn 0.0561) | val BER 1.53e-03 BLER 3.41e-02
+  step  14000 |    5.5 min | loss 0.0573 (bce 0.0522, syn 0.0514) | val BER 1.51e-03 BLER 3.34e-02
+  step  15000 |    5.9 min | loss 0.0552 (bce 0.0504, syn 0.0481) | val BER 1.51e-03 BLER 3.37e-02
+  step  16000 |    6.3 min | loss 0.0542 (bce 0.0496, syn 0.0460) | val BER 1.52e-03 BLER 3.37e-02
+  step  17000 |    6.7 min | loss 0.0546 (bce 0.0501, syn 0.0456) | val BER 1.53e-03 BLER 3.43e-02
+  step  18000 |    7.1 min | loss 0.0576 (bce 0.0523, syn 0.0530) | val BER 1.54e-03 BLER 3.41e-02
+  step  19000 |    7.5 min | loss 0.0527 (bce 0.0482, syn 0.0447) | val BER 1.54e-03 BLER 3.41e-02
+  step  20000 |    7.9 min | loss 0.0558 (bce 0.0509, syn 0.0493) | val BER 1.52e-03 BLER 3.37e-02
+  step  21000 |    8.3 min | loss 0.0589 (bce 0.0535, syn 0.0545) | val BER 1.54e-03 BLER 3.41e-02
+  step  22000 |    8.7 min | loss 0.0593 (bce 0.0538, syn 0.0547) | val BER 1.52e-03 BLER 3.37e-02
+  step  23000 |    9.1 min | loss 0.0514 (bce 0.0472, syn 0.0424) | val BER 1.52e-03 BLER 3.37e-02
+  step  24000 |    9.5 min | loss 0.0571 (bce 0.0522, syn 0.0492) | val BER 1.53e-03 BLER 3.41e-02
+  step  25000 |    9.9 min | loss 0.0533 (bce 0.0491, syn 0.0422) | val BER 1.51e-03 BLER 3.37e-02
+  step  26000 |   10.3 min | loss 0.0556 (bce 0.0507, syn 0.0484) | val BER 1.52e-03 BLER 3.37e-02
+  step  27000 |   10.7 min | loss 0.0559 (bce 0.0512, syn 0.0466) | val BER 1.52e-03 BLER 3.37e-02
+  step  28000 |   11.0 min | loss 0.0584 (bce 0.0531, syn 0.0530) | val BER 1.53e-03 BLER 3.37e-02
+  step  29000 |   11.4 min | loss 0.0515 (bce 0.0472, syn 0.0435) | val BER 1.52e-03 BLER 3.36e-02
+  step  30000 |   11.8 min | loss 0.0582 (bce 0.0530, syn 0.0516) | val BER 1.53e-03 BLER 3.37e-02
+  step  31000 |   12.2 min | loss 0.0595 (bce 0.0545, syn 0.0500) | val BER 1.54e-03 BLER 3.42e-02
+  step  32000 |   12.6 min | loss 0.0592 (bce 0.0537, syn 0.0544) | val BER 1.52e-03 BLER 3.37e-02
+  step  33000 |   13.0 min | loss 0.0533 (bce 0.0487, syn 0.0452) | val BER 1.52e-03 BLER 3.37e-02
+  step  34000 |   13.4 min | loss 0.0569 (bce 0.0520, syn 0.0489) | val BER 1.53e-03 BLER 3.37e-02
+  step  35000 |   13.8 min | loss 0.0574 (bce 0.0524, syn 0.0507) | val BER 1.53e-03 BLER 3.37e-02
+  step  36000 |   14.2 min | loss 0.0552 (bce 0.0502, syn 0.0500) | val BER 1.53e-03 BLER 3.37e-02
+  step  37000 |   14.6 min | loss 0.0542 (bce 0.0497, syn 0.0456) | val BER 1.52e-03 BLER 3.37e-02
+  step  38000 |   15.0 min | loss 0.0568 (bce 0.0517, syn 0.0508) | val BER 1.52e-03 BLER 3.37e-02
+  step  38006 |   15.0 min | loss 0.0570 (bce 0.0522, syn 0.0486) | val BER 1.52e-03 BLER 3.37e-02
+GPU: Tesla T4 | NVML: True | energy counter: True
+  memory BP-GNN (5x10 BP it)                train step B=256:   1826.1 MB | inference B=4096:   1747.8 MB | max train batch 2048
+  memory BP-GNN detached-BP (5x10 BP it)    train step B=256:   1574.0 MB | inference B=4096:   1747.8 MB | max train batch 2048
+  memory GNN (10 it)                        train step B=256:   2035.3 MB | inference B=4096:   1684.3 MB | max train batch 1024
+  memory NBP per-edge (10 it)               train step B=256:     68.4 MB | inference B=4096:    102.4 MB | max train batch 32768
+  memory NBP shared (10 it)                 train step B=256:     68.4 MB | inference B=4096:    102.4 MB | max train batch 32768
+
+--- tradeoffs_mackay: evaluating on mackay_204_102 {'name': 'mackay_204_102', 'n': 204, 'k': 102, 'rate': 0.5, 'H_shape': [102, 204], 'edges': 612, 'rank': 102} ---
+  BP-GNN (5x10 BP it)                1.00dB:6.8e-01 1.50dB:4.2e-01 2.00dB:1.9e-01 2.50dB:5.9e-02 3.00dB:1.3e-02 3.50dB:1.8e-03 4.00dB:2.5e-04 4.50dB:3.1e-05 5.00dB:7.3e-06 5.50dB:1.0e-06
+  BP-GNN detached-BP (5x10 BP it)    1.00dB:6.2e-01 1.50dB:3.8e-01 2.00dB:1.8e-01 2.50dB:5.4e-02 3.00dB:1.3e-02 3.50dB:2.0e-03 4.00dB:3.8e-04 4.50dB:6.9e-05 5.00dB:9.0e-06 5.50dB:5.7e-06
+  GNN (10 it)                        1.00dB:8.7e-01 1.50dB:6.6e-01 2.00dB:4.2e-01 2.50dB:1.9e-01 3.00dB:6.5e-02 3.50dB:1.7e-02 4.00dB:3.3e-03 4.50dB:7.7e-04 5.00dB:1.4e-04 5.50dB:3.0e-05
+  NBP per-edge (10 it)               1.00dB:8.0e-01 1.50dB:5.5e-01 2.00dB:3.0e-01 2.50dB:1.2e-01 3.00dB:3.5e-02 3.50dB:6.4e-03 4.00dB:1.2e-03 4.50dB:1.9e-04 5.00dB:2.7e-05 5.50dB:8.7e-06
+  NBP shared (10 it)                 1.00dB:8.1e-01 1.50dB:5.5e-01 2.00dB:3.1e-01 2.50dB:1.1e-01 3.00dB:3.4e-02 3.50dB:6.4e-03 4.00dB:1.2e-03 4.50dB:1.9e-04 5.00dB:3.0e-05 5.50dB:8.7e-06
+  BP (10 it)                         1.00dB:7.8e-01 1.50dB:5.4e-01 2.00dB:3.0e-01 2.50dB:1.2e-01 3.00dB:4.0e-02 3.50dB:9.4e-03 4.00dB:2.0e-03 4.50dB:3.2e-04 5.00dB:5.2e-05 5.50dB:7.7e-06
+  BP (50 it)                         1.00dB:6.4e-01 1.50dB:3.8e-01 2.00dB:1.8e-01 2.50dB:4.9e-02 3.00dB:1.2e-02 3.50dB:2.0e-03 4.00dB:3.8e-04 4.50dB:6.0e-05 5.00dB:7.0e-06 5.50dB:3.7e-06
+  BP (50 it) + OSD-0                 1.00dB:4.7e-01 1.50dB:2.6e-01 2.00dB:1.1e-01 2.50dB:2.9e-02 3.00dB:6.4e-03 3.50dB:1.1e-03 4.00dB:1.9e-04 4.50dB:1.6e-05 5.00dB:6.0e-06 5.50dB:2.0e-06
+  BP + perturb. (5x10 BP it)         1.00dB:7.3e-01 1.50dB:4.6e-01 2.00dB:2.3e-01 2.50dB:8.7e-02 3.00dB:2.5e-02 3.50dB:5.4e-03 4.00dB:7.7e-04 4.50dB:1.3e-04 5.00dB:1.8e-05 5.50dB:2.0e-06
+  profiling at Eb/N0 = 3.0 dB (idle GPU 32.9 W)
+    BP-GNN (5x10 BP it) [fixed]  | B=1  35.801 ms | B=4096       3949 cw/s |   64.7 W | 15811.46 uJ/cw
+    BP-GNN (5x10 BP it) [fixed, CUDA graph] | B=1   6.127 ms | B=4096       3806 cw/s |   65.5 W | 16143.01 uJ/cw
+    BP-GNN (5x10 BP it) [early-stop] | B=1   2.447 ms | B=4096      57963 cw/s |   47.3 W |  2523.44 uJ/cw
+    BP-GNN (5x10 BP it) + OSD-0 [early-stop] | B=1  26.670 ms | B=4096      24488 cw/s |   39.5 W |  5519.57 uJ/cw
+    BP-GNN detached-BP (5x10 BP it) [fixed] | B=1  35.912 ms | B=4096       3953 cw/s |   65.7 W | 16034.93 uJ/cw
+    BP-GNN detached-BP (5x10 BP it) [fixed, CUDA graph] | B=1   5.365 ms | B=4096       3819 cw/s |   66.2 W | 16199.65 uJ/cw
+    BP-GNN detached-BP (5x10 BP it) [early-stop] | B=1   3.108 ms | B=4096      58794 cw/s |   44.3 W |  2364.97 uJ/cw
+    BP-GNN detached-BP (5x10 BP it) + OSD-0 [early-stop] | B=1   3.281 ms | B=4096      25946 cw/s |   37.2 W |  5236.78 uJ/cw
+    GNN (10 it) [fixed]          | B=1  13.627 ms | B=4096       4013 cw/s |   65.7 W | 16282.84 uJ/cw
+    GNN (10 it) [fixed, CUDA graph] | B=1   1.574 ms | B=4096       3808 cw/s |   65.0 W | 16214.60 uJ/cw
+    GNN (10 it) [early-stop]     | B=1   9.572 ms | B=4096       8412 cw/s |   65.4 W |  7929.57 uJ/cw
+    GNN (10 it) + OSD-0 [early-stop] | B=1   4.126 ms | B=4096       6217 cw/s |   61.0 W | 11968.07 uJ/cw
+    NBP per-edge (10 it) [fixed] | B=1   4.621 ms | B=4096     163162 cw/s |   66.6 W |   320.38 uJ/cw
+    NBP per-edge (10 it) [fixed, CUDA graph] | B=1   0.903 ms | B=4096     162752 cw/s |   66.0 W |   315.59 uJ/cw
+    NBP per-edge (10 it) [early-stop] | B=1   1.564 ms | B=4096     261694 cw/s |   53.6 W |   483.93 uJ/cw
+    NBP per-edge (10 it) + OSD-0 [early-stop] | B=1   1.704 ms | B=4096      38622 cw/s |   38.1 W |  3686.02 uJ/cw
+    NBP shared (10 it) [fixed]   | B=1   4.778 ms | B=4096     163099 cw/s |   65.3 W |   317.39 uJ/cw
+    NBP shared (10 it) [fixed, CUDA graph] | B=1   0.799 ms | B=4096     162460 cw/s |   66.2 W |   319.14 uJ/cw
+    NBP shared (10 it) [early-stop] | B=1   6.299 ms | B=4096     262132 cw/s |   52.6 W |   485.29 uJ/cw
+    NBP shared (10 it) + OSD-0 [early-stop] | B=1   3.023 ms | B=4096      38717 cw/s |   43.7 W |  4295.63 uJ/cw
+    BP (10 it) [fixed]           | B=1   4.342 ms | B=4096     168646 cw/s |   66.5 W |   306.63 uJ/cw
+    BP (10 it) [fixed, CUDA graph] | B=1   0.712 ms | B=4096     168515 cw/s |   65.8 W |   303.06 uJ/cw
+    BP (10 it) [early-stop]      | B=1   1.487 ms | B=4096     267031 cw/s |   53.6 W |   471.93 uJ/cw
+    BP (50 it) [fixed]           | B=1  20.677 ms | B=4096      33958 cw/s |   66.1 W |  1475.38 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.411 ms | B=4096      34266 cw/s |   65.0 W |  1445.55 uJ/cw
+    BP (50 it) [early-stop]      | B=1   2.091 ms | B=4096      83219 cw/s |   36.2 W |  1361.23 uJ/cw
+    BP + perturb. (5x10 BP it) [fixed] | B=1  25.195 ms | B=4096      30490 cw/s |   66.8 W |  1770.26 uJ/cw
+    BP + perturb. (5x10 BP it) [early-stop] | B=1   2.480 ms | B=4096      76762 cw/s |   39.2 W |  1693.91 uJ/cw
+    [cpu] BP-GNN (5x10 BP it) [fixed] | B=1 26.01 ms | B=64 362.03 ms
+    [cpu] BP-GNN detached-BP (5x10 BP it) [fixed] | B=1 24.71 ms | B=64 369.99 ms
+    [cpu] GNN (10 it) [fixed]    | B=1 13.20 ms | B=64 384.19 ms
+    [cpu] NBP per-edge (10 it) [fixed] | B=1 2.74 ms | B=64 10.07 ms
+    [cpu] NBP shared (10 it) [fixed] | B=1 2.66 ms | B=64 10.82 ms
+    [cpu] BP (10 it) [fixed]     | B=1 2.45 ms | B=64 10.22 ms
+    [cpu] BP (50 it) [fixed]     | B=1 12.30 ms | B=64 51.76 ms
+
+--- tradeoffs_mackay: evaluating on mackay_96_48 {'name': 'mackay_96_48', 'n': 96, 'k': 48, 'rate': 0.5, 'H_shape': [48, 96], 'edges': 288, 'rank': 48} ---
+  BP-GNN (5x10 BP it)                1.00dB:5.8e-01 1.50dB:3.9e-01 2.00dB:2.1e-01 2.50dB:9.8e-02 3.00dB:3.6e-02 3.50dB:1.0e-02 4.00dB:3.1e-03 4.50dB:5.8e-04 5.00dB:1.2e-04 5.50dB:1.7e-05 6.00dB:5.3e-06 6.50dB:3.3e-07 7.00dB:3.3e-07
+  BP-GNN detached-BP (5x10 BP it)    1.00dB:5.3e-01 1.50dB:3.6e-01 2.00dB:2.0e-01 2.50dB:9.8e-02 3.00dB:3.9e-02 3.50dB:1.4e-02 4.00dB:3.6e-03 4.50dB:7.8e-04 5.00dB:2.3e-04 5.50dB:4.0e-05 6.00dB:8.3e-06 6.50dB:2.0e-06 7.00dB:1.0e-06
+  GNN (10 it)                        1.00dB:7.0e-01 1.50dB:5.1e-01 2.00dB:3.2e-01 2.50dB:1.8e-01 3.00dB:8.4e-02 3.50dB:3.4e-02 4.00dB:1.1e-02 4.50dB:3.2e-03 5.00dB:6.4e-04 5.50dB:1.9e-04 6.00dB:3.9e-05 6.50dB:8.0e-06 7.00dB:6.7e-07
+  NBP shared (10 it)                 1.00dB:6.7e-01 1.50dB:4.7e-01 2.00dB:2.8e-01 2.50dB:1.5e-01 3.00dB:6.6e-02 3.50dB:2.4e-02 4.00dB:6.7e-03 4.50dB:1.9e-03 5.00dB:4.3e-04 5.50dB:8.2e-05 6.00dB:1.4e-05 6.50dB:4.0e-06 7.00dB:6.7e-07
+  BP (10 it)                         1.00dB:6.5e-01 1.50dB:4.6e-01 2.00dB:2.8e-01 2.50dB:1.6e-01 3.00dB:7.3e-02 3.50dB:2.7e-02 4.00dB:9.8e-03 4.50dB:2.8e-03 5.00dB:6.1e-04 5.50dB:1.5e-04 6.00dB:2.2e-05 6.50dB:5.0e-06 7.00dB:6.7e-07
+  BP (50 it)                         1.00dB:5.8e-01 1.50dB:3.9e-01 2.00dB:2.1e-01 2.50dB:9.9e-02 3.00dB:3.6e-02 3.50dB:1.3e-02 4.00dB:3.3e-03 4.50dB:7.0e-04 5.00dB:1.5e-04 5.50dB:2.6e-05 6.00dB:7.0e-06 6.50dB:1.7e-06 7.00dB:3.3e-07
+  BP (50 it) + OSD-0                 1.00dB:3.7e-01 1.50dB:2.3e-01 2.00dB:1.1e-01 2.50dB:5.2e-02 3.00dB:1.8e-02 3.50dB:6.7e-03 4.00dB:1.6e-03 4.50dB:3.5e-04 5.00dB:7.9e-05 5.50dB:1.2e-05 6.00dB:2.0e-06 6.50dB:0.0e+00
+  BP + perturb. (5x10 BP it)         1.00dB:5.9e-01 1.50dB:4.0e-01 2.00dB:2.2e-01 2.50dB:1.1e-01 3.00dB:4.2e-02 3.50dB:1.8e-02 4.00dB:5.6e-03 4.50dB:1.4e-03 5.00dB:2.6e-04 5.50dB:5.1e-05 6.00dB:9.7e-06 6.50dB:1.0e-06 7.00dB:0.0e+00
+
+--- tradeoffs_mackay: evaluating on mackay_408_204 {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204} ---
+  BP-GNN (5x10 BP it)                1.00dB:7.8e-01 1.50dB:4.4e-01 2.00dB:1.4e-01 2.50dB:3.0e-02 3.00dB:2.0e-03 3.50dB:1.8e-04 4.00dB:1.2e-05 4.50dB:5.0e-07
+  BP-GNN detached-BP (5x10 BP it)    1.00dB:7.1e-01 1.50dB:3.9e-01 2.00dB:1.3e-01 2.50dB:2.4e-02 3.00dB:1.9e-03 3.50dB:1.7e-04 4.00dB:1.9e-05 4.50dB:3.0e-06
+  GNN (10 it)                        1.00dB:9.7e-01 1.50dB:8.3e-01 2.00dB:5.2e-01 2.50dB:2.2e-01 3.00dB:5.7e-02 3.50dB:9.0e-03 4.00dB:1.6e-03 4.50dB:3.1e-04
+  NBP shared (10 it)                 1.00dB:9.2e-01 1.50dB:6.6e-01 2.00dB:3.0e-01 2.50dB:8.3e-02 3.00dB:1.2e-02 3.50dB:1.1e-03 4.00dB:1.2e-04 4.50dB:1.3e-05
+  BP (10 it)                         1.00dB:8.9e-01 1.50dB:6.2e-01 2.00dB:3.0e-01 2.50dB:9.4e-02 3.00dB:1.6e-02 3.50dB:1.9e-03 4.00dB:2.3e-04 4.50dB:2.4e-05
+  BP (50 it)                         1.00dB:6.6e-01 1.50dB:3.2e-01 2.00dB:8.9e-02 2.50dB:1.8e-02 3.00dB:1.4e-03 3.50dB:1.8e-04 4.00dB:1.5e-05 4.50dB:2.5e-06
+  BP (50 it) + OSD-0                 1.00dB:5.6e-01 1.50dB:2.4e-01 2.00dB:5.9e-02 2.50dB:1.2e-02 3.00dB:8.4e-04 3.50dB:6.7e-05 4.00dB:4.0e-06 4.50dB:0.0e+00
+  BP + perturb. (5x10 BP it)         1.00dB:8.6e-01 1.50dB:5.5e-01 2.00dB:2.2e-01 2.50dB:6.1e-02 3.00dB:7.4e-03 3.50dB:8.8e-04 4.00dB:7.2e-05 4.50dB:4.5e-06
+## tradeoffs_mackay
+
+GPU: Tesla T4
+
+* BP-GNN (5x10 BP it): 22561 parameters, trained 15.11 min on mackay_204_102
+* BP-GNN detached-BP (5x10 BP it): 22561 parameters, trained 15.02 min on mackay_204_102
+* GNN (10 it): 11593 parameters, trained 15.02 min on mackay_204_102
+* NBP per-edge (10 it): 6120 parameters, trained 15.0 min on mackay_204_102
+* NBP shared (10 it): 10 parameters, trained 15.0 min on mackay_204_102
+
+### GPU memory (measured on the training code)
+
+decoder | train step peak [MB] (batch) | max train batch | inference peak [MB] (batch)
+---|---|---|---
+BP-GNN (5x10 BP it) | 1826.1 (256) | 2048 | 1747.8 (4096)
+BP-GNN detached-BP (5x10 BP it) | 1574.0 (256) | 2048 | 1747.8 (4096)
+GNN (10 it) | 2035.3 (256) | 1024 | 1684.3 (4096)
+NBP per-edge (10 it) | 68.4 (256) | 32768 | 102.4 (4096)
+NBP shared (10 it) | 68.4 (256) | 32768 | 102.4 (4096)
+
+### mackay_204_102  (n=204, k=102, R=0.5, edges=612)
+
+BLER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB | 5.5 dB
+---|---|---|---|---|---|---|---|---|---|---|
+BP-GNN (5x10 BP it) | 6.81e-01 | 4.17e-01 | 1.89e-01 | 5.86e-02 | 1.34e-02 | 1.78e-03 | 2.54e-04 | 3.10e-05 | 7.33e-06 | 9.99e-07
+BP-GNN detached-BP (5x10 BP it) | 6.22e-01 | 3.83e-01 | 1.82e-01 | 5.42e-02 | 1.29e-02 | 1.95e-03 | 3.79e-04 | 6.88e-05 | 8.99e-06 | 5.66e-06
+GNN (10 it) | 8.68e-01 | 6.57e-01 | 4.19e-01 | 1.86e-01 | 6.49e-02 | 1.71e-02 | 3.27e-03 | 7.71e-04 | 1.41e-04 | 3.03e-05
+NBP per-edge (10 it) | 8.04e-01 | 5.47e-01 | 3.02e-01 | 1.15e-01 | 3.47e-02 | 6.40e-03 | 1.21e-03 | 1.86e-04 | 2.70e-05 | 8.66e-06
+NBP shared (10 it) | 8.06e-01 | 5.50e-01 | 3.05e-01 | 1.15e-01 | 3.44e-02 | 6.40e-03 | 1.25e-03 | 1.89e-04 | 3.00e-05 | 8.66e-06
+BP (10 it) | 7.77e-01 | 5.39e-01 | 3.05e-01 | 1.23e-01 | 4.03e-02 | 9.44e-03 | 1.99e-03 | 3.17e-04 | 5.21e-05 | 7.66e-06
+BP (50 it) | 6.38e-01 | 3.80e-01 | 1.75e-01 | 4.88e-02 | 1.22e-02 | 1.97e-03 | 3.76e-04 | 6.04e-05 | 6.99e-06 | 3.66e-06
+BP (50 it) + OSD-0 | 4.71e-01 | 2.56e-01 | 1.07e-01 | 2.91e-02 | 6.41e-03 | 1.11e-03 | 1.95e-04 | 1.59e-05 | 5.95e-06 | 1.98e-06
+BP + perturb. (5x10 BP it) | 7.28e-01 | 4.62e-01 | 2.30e-01 | 8.67e-02 | 2.47e-02 | 5.42e-03 | 7.71e-04 | 1.28e-04 | 1.80e-05 | 2.00e-06
+
+BER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB | 5.5 dB
+---|---|---|---|---|---|---|---|---|---|---|
+BP-GNN (5x10 BP it) | 6.83e-02 | 3.69e-02 | 1.52e-02 | 4.04e-03 | 8.57e-04 | 9.57e-05 | 1.10e-05 | 1.19e-06 | 3.59e-07 | 2.61e-08
+BP-GNN detached-BP (5x10 BP it) | 8.83e-02 | 4.86e-02 | 2.21e-02 | 6.10e-03 | 1.50e-03 | 1.81e-04 | 3.52e-05 | 3.96e-06 | 4.54e-07 | 1.76e-07
+GNN (10 it) | 7.81e-02 | 4.71e-02 | 2.38e-02 | 8.03e-03 | 2.41e-03 | 4.73e-04 | 8.11e-05 | 1.54e-05 | 2.66e-06 | 4.90e-07
+NBP per-edge (10 it) | 7.29e-02 | 4.18e-02 | 1.96e-02 | 6.10e-03 | 1.74e-03 | 2.71e-04 | 4.40e-05 | 6.94e-06 | 6.92e-07 | 2.22e-07
+NBP shared (10 it) | 7.29e-02 | 4.17e-02 | 1.96e-02 | 6.02e-03 | 1.73e-03 | 2.61e-04 | 4.34e-05 | 7.01e-06 | 7.71e-07 | 2.35e-07
+BP (10 it) | 7.12e-02 | 4.14e-02 | 2.05e-02 | 7.01e-03 | 2.23e-03 | 4.01e-04 | 9.52e-05 | 1.77e-05 | 1.69e-06 | 1.86e-07
+BP (50 it) | 6.67e-02 | 3.57e-02 | 1.55e-02 | 3.97e-03 | 9.73e-04 | 1.39e-04 | 2.34e-05 | 2.59e-06 | 2.51e-07 | 1.04e-07
+BP (50 it) + OSD-0 | 9.26e-02 | 4.76e-02 | 1.97e-02 | 5.17e-03 | 1.10e-03 | 1.88e-04 | 3.27e-05 | 2.49e-06 | 9.34e-07 | 5.06e-07
+BP + perturb. (5x10 BP it) | 8.08e-02 | 4.58e-02 | 2.11e-02 | 7.34e-03 | 1.95e-03 | 4.06e-04 | 6.06e-05 | 8.53e-06 | 1.04e-06 | 1.01e-07
+
+Inference profile at Eb/N0 = 3.0 dB (MACs / codeword: BP-GNN (5x10 BP it) 5,506,368 per GNN call, BP-GNN detached-BP (5x10 BP it) 5,506,368 per GNN call, GNN (10 it) 2,776,032 per GNN call, NBP per-edge (10 it) 612 per GNN call, NBP shared (10 it) 612 per GNN call; idle GPU power 32.9 W)
+
+decoder [mode] | GPU lat. B=1 [ms] | GPU lat. large B [ms] | GPU throughput [cw/s] | avg GPU power [W] | energy/cw [uJ] | dyn. energy/cw [uJ] | CPU lat. B=1 [ms]
+---|---|---|---|---|---|---|---
+BP-GNN (5x10 BP it) [fixed] | 35.801 | 1037.10 (B=4096) | 3949 | 64.7 | 15811.46 | 7763.05 | 26.01
+BP-GNN (5x10 BP it) [fixed, CUDA graph] | 6.127 | 1076.32 (B=4096) | 3806 | 65.5 | 16143.01 | 8026.64 | -
+BP-GNN (5x10 BP it) [early-stop] | 2.447 | 70.67 (B=4096) | 57963 | 47.3 | 2523.44 | 766.04 | -
+BP-GNN (5x10 BP it) + OSD-0 [early-stop] | 26.670 | 167.27 (B=4096) | 24488 | 39.5 | 5519.57 | 924.36 | -
+BP-GNN detached-BP (5x10 BP it) [fixed] | 35.912 | 1036.23 (B=4096) | 3953 | 65.7 | 16034.93 | 8003.69 | 24.71
+BP-GNN detached-BP (5x10 BP it) [fixed, CUDA graph] | 5.365 | 1072.55 (B=4096) | 3819 | 66.2 | 16199.65 | 8141.49 | -
+BP-GNN detached-BP (5x10 BP it) [early-stop] | 3.108 | 69.67 (B=4096) | 58794 | 44.3 | 2364.97 | 607.03 | -
+BP-GNN detached-BP (5x10 BP it) + OSD-0 [early-stop] | 3.281 | 157.87 (B=4096) | 25946 | 37.2 | 5236.78 | 600.77 | -
+GNN (10 it) [fixed] | 13.627 | 1020.68 (B=4096) | 4013 | 65.7 | 16282.84 | 8122.90 | 13.20
+GNN (10 it) [fixed, CUDA graph] | 1.574 | 1075.60 (B=4096) | 3808 | 65.0 | 16214.60 | 8005.15 | -
+GNN (10 it) [early-stop] | 9.572 | 486.92 (B=4096) | 8412 | 65.4 | 7929.57 | 3937.54 | -
+GNN (10 it) + OSD-0 [early-stop] | 4.126 | 658.86 (B=4096) | 6217 | 61.0 | 11968.07 | 5512.79 | -
+NBP per-edge (10 it) [fixed] | 4.621 | 25.10 (B=4096) | 163162 | 66.6 | 320.38 | 162.11 | 2.74
+NBP per-edge (10 it) [fixed, CUDA graph] | 0.903 | 25.17 (B=4096) | 162752 | 66.0 | 315.59 | 158.27 | -
+NBP per-edge (10 it) [early-stop] | 1.564 | 15.65 (B=4096) | 261694 | 53.6 | 483.93 | 186.54 | -
+NBP per-edge (10 it) + OSD-0 [early-stop] | 1.704 | 106.05 (B=4096) | 38622 | 38.1 | 3686.02 | 499.93 | -
+NBP shared (10 it) [fixed] | 4.778 | 25.11 (B=4096) | 163099 | 65.3 | 317.39 | 157.31 | 2.66
+NBP shared (10 it) [fixed, CUDA graph] | 0.799 | 25.21 (B=4096) | 162460 | 66.2 | 319.14 | 160.48 | -
+NBP shared (10 it) [early-stop] | 6.299 | 15.63 (B=4096) | 262132 | 52.6 | 485.29 | 181.51 | -
+NBP shared (10 it) + OSD-0 [early-stop] | 3.023 | 105.79 (B=4096) | 38717 | 43.7 | 4295.63 | 1061.28 | -
+BP (10 it) [fixed] | 4.342 | 24.29 (B=4096) | 168646 | 66.5 | 306.63 | 154.79 | 2.45
+BP (10 it) [fixed, CUDA graph] | 0.712 | 24.31 (B=4096) | 168515 | 65.8 | 303.06 | 151.51 | -
+BP (10 it) [early-stop] | 1.487 | 15.34 (B=4096) | 267031 | 53.6 | 471.93 | 182.11 | -
+BP (50 it) [fixed] | 20.677 | 120.62 (B=4096) | 33958 | 66.1 | 1475.38 | 740.42 | 12.30
+BP (50 it) [fixed, CUDA graph] | 3.411 | 119.53 (B=4096) | 34266 | 65.0 | 1445.55 | 713.50 | -
+BP (50 it) [early-stop] | 2.091 | 49.22 (B=4096) | 83219 | 36.2 | 1361.23 | 123.64 | -
+BP + perturb. (5x10 BP it) [fixed] | 25.195 | 134.34 (B=4096) | 30490 | 66.8 | 1770.26 | 897.49 | -
+BP + perturb. (5x10 BP it) [early-stop] | 2.480 | 53.36 (B=4096) | 76762 | 39.2 | 1693.91 | 269.51 | -
+
+### mackay_96_48  (n=96, k=48, R=0.5, edges=288)
+
+BLER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB | 5.5 dB | 6.0 dB | 6.5 dB | 7.0 dB
+---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+BP-GNN (5x10 BP it) | 5.83e-01 | 3.86e-01 | 2.13e-01 | 9.81e-02 | 3.56e-02 | 1.03e-02 | 3.14e-03 | 5.81e-04 | 1.19e-04 | 1.70e-05 | 5.33e-06 | 3.33e-07 | 3.33e-07
+BP-GNN detached-BP (5x10 BP it) | 5.32e-01 | 3.57e-01 | 2.02e-01 | 9.84e-02 | 3.88e-02 | 1.42e-02 | 3.63e-03 | 7.77e-04 | 2.26e-04 | 3.99e-05 | 8.33e-06 | 2.00e-06 | 9.99e-07
+GNN (10 it) | 6.97e-01 | 5.11e-01 | 3.20e-01 | 1.83e-01 | 8.42e-02 | 3.44e-02 | 1.09e-02 | 3.20e-03 | 6.39e-04 | 1.89e-04 | 3.93e-05 | 7.99e-06 | 6.66e-07
+NBP shared (10 it) | 6.70e-01 | 4.75e-01 | 2.81e-01 | 1.51e-01 | 6.64e-02 | 2.44e-02 | 6.71e-03 | 1.88e-03 | 4.25e-04 | 8.22e-05 | 1.37e-05 | 4.00e-06 | 6.66e-07
+BP (10 it) | 6.50e-01 | 4.62e-01 | 2.77e-01 | 1.56e-01 | 7.28e-02 | 2.71e-02 | 9.77e-03 | 2.77e-03 | 6.10e-04 | 1.45e-04 | 2.20e-05 | 5.00e-06 | 6.66e-07
+BP (50 it) | 5.84e-01 | 3.85e-01 | 2.12e-01 | 9.86e-02 | 3.64e-02 | 1.29e-02 | 3.30e-03 | 7.05e-04 | 1.48e-04 | 2.60e-05 | 6.99e-06 | 1.67e-06 | 3.33e-07
+BP (50 it) + OSD-0 | 3.67e-01 | 2.32e-01 | 1.12e-01 | 5.18e-02 | 1.78e-02 | 6.65e-03 | 1.63e-03 | 3.49e-04 | 7.94e-05 | 1.19e-05 | 1.98e-06 | 0.00e+00 | -
+BP + perturb. (5x10 BP it) | 5.95e-01 | 4.00e-01 | 2.24e-01 | 1.11e-01 | 4.25e-02 | 1.81e-02 | 5.57e-03 | 1.42e-03 | 2.63e-04 | 5.10e-05 | 9.66e-06 | 9.99e-07 | 0.00e+00
+
+BER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB | 5.5 dB | 6.0 dB | 6.5 dB | 7.0 dB
+---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+BP-GNN (5x10 BP it) | 7.11e-02 | 4.46e-02 | 2.26e-02 | 1.00e-02 | 3.58e-03 | 1.00e-03 | 2.77e-04 | 4.65e-05 | 9.48e-06 | 1.51e-06 | 3.89e-07 | 2.78e-08 | 4.86e-08
+BP-GNN detached-BP (5x10 BP it) | 8.99e-02 | 5.61e-02 | 2.92e-02 | 1.38e-02 | 5.31e-03 | 1.98e-03 | 4.00e-04 | 7.46e-05 | 2.07e-05 | 2.98e-06 | 6.31e-07 | 1.04e-07 | 6.25e-08
+GNN (10 it) | 7.83e-02 | 5.18e-02 | 2.84e-02 | 1.49e-02 | 6.14e-03 | 2.22e-03 | 6.71e-04 | 1.53e-04 | 2.83e-05 | 7.89e-06 | 1.60e-06 | 2.84e-07 | 2.08e-08
+NBP shared (10 it) | 7.49e-02 | 4.84e-02 | 2.67e-02 | 1.32e-02 | 5.36e-03 | 1.99e-03 | 4.83e-04 | 1.24e-04 | 2.42e-05 | 4.69e-06 | 8.33e-07 | 1.73e-07 | 4.86e-08
+BP (10 it) | 7.38e-02 | 4.81e-02 | 2.67e-02 | 1.36e-02 | 6.20e-03 | 2.11e-03 | 6.85e-04 | 1.88e-04 | 3.83e-05 | 8.57e-06 | 1.24e-06 | 3.33e-07 | 2.78e-08
+BP (50 it) | 7.06e-02 | 4.43e-02 | 2.31e-02 | 1.07e-02 | 3.79e-03 | 1.24e-03 | 3.15e-04 | 6.32e-05 | 1.12e-05 | 1.87e-06 | 5.13e-07 | 1.04e-07 | 2.78e-08
+BP (50 it) + OSD-0 | 7.93e-02 | 4.95e-02 | 2.30e-02 | 1.07e-02 | 3.55e-03 | 1.33e-03 | 3.01e-04 | 6.49e-05 | 1.25e-05 | 1.86e-06 | 1.24e-07 | 0.00e+00 | -
+BP + perturb. (5x10 BP it) | 8.03e-02 | 5.09e-02 | 2.74e-02 | 1.31e-02 | 4.91e-03 | 2.04e-03 | 5.91e-04 | 1.32e-04 | 2.40e-05 | 3.88e-06 | 6.45e-07 | 4.16e-08 | 0.00e+00
+
+### mackay_408_204  (n=408, k=204, R=0.5, edges=1224)
+
+BLER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB
+---|---|---|---|---|---|---|---|---|
+BP-GNN (5x10 BP it) | 7.78e-01 | 4.37e-01 | 1.38e-01 | 2.95e-02 | 2.03e-03 | 1.81e-04 | 1.20e-05 | 4.99e-07
+BP-GNN detached-BP (5x10 BP it) | 7.09e-01 | 3.87e-01 | 1.25e-01 | 2.44e-02 | 1.90e-03 | 1.74e-04 | 1.90e-05 | 3.00e-06
+GNN (10 it) | 9.69e-01 | 8.34e-01 | 5.21e-01 | 2.19e-01 | 5.69e-02 | 9.03e-03 | 1.63e-03 | 3.12e-04
+NBP shared (10 it) | 9.21e-01 | 6.60e-01 | 2.95e-01 | 8.33e-02 | 1.22e-02 | 1.11e-03 | 1.15e-04 | 1.35e-05
+BP (10 it) | 8.94e-01 | 6.25e-01 | 2.99e-01 | 9.38e-02 | 1.60e-02 | 1.90e-03 | 2.33e-04 | 2.40e-05
+BP (50 it) | 6.59e-01 | 3.19e-01 | 8.86e-02 | 1.84e-02 | 1.38e-03 | 1.77e-04 | 1.50e-05 | 2.50e-06
+BP (50 it) + OSD-0 | 5.60e-01 | 2.40e-01 | 5.91e-02 | 1.23e-02 | 8.42e-04 | 6.75e-05 | 3.97e-06 | 0.00e+00
+BP + perturb. (5x10 BP it) | 8.62e-01 | 5.53e-01 | 2.24e-01 | 6.10e-02 | 7.39e-03 | 8.84e-04 | 7.16e-05 | 4.49e-06
+
+BER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB
+---|---|---|---|---|---|---|---|---|
+BP-GNN (5x10 BP it) | 6.41e-02 | 2.89e-02 | 7.51e-03 | 1.27e-03 | 7.28e-05 | 4.47e-06 | 2.18e-07 | 4.89e-09
+BP-GNN detached-BP (5x10 BP it) | 8.72e-02 | 4.32e-02 | 1.28e-02 | 2.47e-03 | 1.53e-04 | 1.06e-05 | 5.73e-07 | 4.16e-08
+GNN (10 it) | 7.61e-02 | 4.40e-02 | 1.83e-02 | 5.04e-03 | 9.13e-04 | 9.69e-05 | 1.24e-05 | 1.85e-06
+NBP shared (10 it) | 7.01e-02 | 3.57e-02 | 1.17e-02 | 2.50e-03 | 3.17e-04 | 1.79e-05 | 1.72e-06 | 1.25e-07
+BP (10 it) | 6.79e-02 | 3.48e-02 | 1.23e-02 | 3.00e-03 | 4.74e-04 | 4.18e-05 | 4.87e-06 | 2.08e-07
+BP (50 it) | 6.00e-02 | 2.59e-02 | 6.38e-03 | 1.17e-03 | 7.39e-05 | 7.65e-06 | 3.65e-07 | 4.65e-08
+BP (50 it) + OSD-0 | 9.93e-02 | 4.09e-02 | 9.43e-03 | 1.81e-03 | 1.31e-04 | 1.09e-05 | 7.78e-07 | 0.00e+00
+BP + perturb. (5x10 BP it) | 8.17e-02 | 4.23e-02 | 1.44e-02 | 3.42e-03 | 3.59e-04 | 3.66e-05 | 2.51e-06 | 6.85e-08
+
+done

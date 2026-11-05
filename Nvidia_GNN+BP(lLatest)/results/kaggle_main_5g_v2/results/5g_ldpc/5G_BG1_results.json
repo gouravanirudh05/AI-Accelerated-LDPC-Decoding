@@ -1,0 +1,3722 @@
+{
+ "experiment": "5G_BG1",
+ "device": "cuda",
+ "gpu": "Tesla T4",
+ "models": {
+  "BP-GNN (5x10 BP it)": {
+   "kind": "bpgnn",
+   "params": 26649,
+   "kwargs": {
+    "num_vn_types": 68,
+    "num_cn_types": 46,
+    "num_edge_types": 316,
+    "d": 16,
+    "d_e": 8,
+    "hidden": 48,
+    "stages": 4,
+    "bp_iters": 10,
+    "gnn_layers": 2
+   },
+   "train_cfg": {
+    "steps": 60000,
+    "batch": 192,
+    "lr_min": 2e-05,
+    "train_ebno": [
+     2.0,
+     5.0
+    ],
+    "lam_syn": 0.1,
+    "eval_every": 1000,
+    "val_ebno": 3.5,
+    "val_frames": 8192,
+    "grad_clip": 1.0,
+    "lr": 0.001,
+    "max_minutes": 30.0,
+    "hard_frac": 0.75,
+    "mining_factor": 4,
+    "mining_bp_iters": 10
+   },
+   "train_minutes": 30.03,
+   "history": [
+    {
+     "step": 1000,
+     "minutes": 7.89,
+     "loss": 0.058210499584674835,
+     "bce": 0.049739427864551544,
+     "syn": 0.08471071720123291,
+     "val_ber": 3.922220719095719e-05,
+     "val_bler": 0.000496031746031746,
+     "lr": 0.0008422310672185354
+    },
+    {
+     "step": 2000,
+     "minutes": 15.83,
+     "loss": 0.04847782105207443,
+     "bce": 0.038895707577466965,
+     "syn": 0.09582112729549408,
+     "val_ber": 4.1335978835978834e-05,
+     "val_bler": 0.0006200396825396825,
+     "lr": 0.00046761678264908765
+    },
+    {
+     "step": 3000,
+     "minutes": 23.78,
+     "loss": 0.05278636887669563,
+     "bce": 0.04245011880993843,
+     "syn": 0.10336250811815262,
+     "val_ber": 3.757816257816258e-05,
+     "val_bler": 0.000496031746031746,
+     "lr": 0.00012062321915498375
+    },
+    {
+     "step": 3784,
+     "minutes": 30.01,
+     "loss": 0.05790432542562485,
+     "bce": 0.046992361545562744,
+     "syn": 0.10911965370178223,
+     "val_ber": 3.8517616642616645e-05,
+     "val_bler": 0.0006200396825396825,
+     "lr": 2.000000891521688e-05
+    }
+   ],
+   "train_codes": [
+    "5G_BG1_k528_n704"
+   ]
+  },
+  "GNN (10 it)": {
+   "kind": "gnn",
+   "params": 15681,
+   "kwargs": {
+    "num_vn_types": 68,
+    "num_cn_types": 46,
+    "num_edge_types": 316,
+    "d": 16,
+    "d_e": 8,
+    "hidden": 48,
+    "iters": 10,
+    "use_soft_syndrome": true
+   },
+   "train_cfg": {
+    "steps": 60000,
+    "batch": 192,
+    "lr_min": 2e-05,
+    "train_ebno": [
+     2.0,
+     5.0
+    ],
+    "lam_syn": 0.1,
+    "eval_every": 1000,
+    "val_ebno": 3.5,
+    "val_frames": 8192,
+    "grad_clip": 1.0,
+    "lr": 0.002,
+    "max_minutes": 30.0
+   },
+   "train_minutes": 30.15,
+   "history": [
+    {
+     "step": 1000,
+     "minutes": 6.76,
+     "loss": 0.2145438939332962,
+     "bce": 0.14522914588451385,
+     "syn": 0.6931474804878235,
+     "val_ber": 0.07583907339766714,
+     "val_bler": 1.0,
+     "lr": 0.0017628352659373413
+    },
+    {
+     "step": 2000,
+     "minutes": 13.66,
+     "loss": 0.2101411074399948,
+     "bce": 0.1408262997865677,
+     "syn": 0.6931480765342712,
+     "val_ber": 0.07583930826118326,
+     "val_bler": 1.0,
+     "lr": 0.0011496573307818306
+    },
+    {
+     "step": 3000,
+     "minutes": 20.56,
+     "loss": 0.20794862508773804,
+     "bce": 0.13863389194011688,
+     "syn": 0.6931473612785339,
+     "val_ber": 0.07567349461880712,
+     "val_bler": 1.0,
+     "lr": 0.00046634048297056164
+    },
+    {
+     "step": 4000,
+     "minutes": 27.46,
+     "loss": 0.2093261480331421,
+     "bce": 0.14001134037971497,
+     "syn": 0.6931479573249817,
+     "val_ber": 0.07584118716931217,
+     "val_bler": 1.0,
+     "lr": 5.501817419015356e-05
+    },
+    {
+     "step": 4355,
+     "minutes": 30.0,
+     "loss": 0.21257106959819794,
+     "bce": 0.1432562917470932,
+     "syn": 0.6931477785110474,
+     "val_ber": 0.0758400128517316,
+     "val_bler": 1.0,
+     "lr": 2.000013181305729e-05
+    }
+   ],
+   "train_codes": [
+    "5G_BG1_k528_n704"
+   ]
+  }
+ },
+ "codes": {
+  "5G_BG1_k528_n704": {
+   "code": {
+    "name": "5G_BG1_k528_n704",
+    "n": 704,
+    "k": 528,
+    "rate": 0.75,
+    "H_shape": [
+     240,
+     768
+    ],
+    "edges": 2928,
+    "rank": 240,
+    "bg": "bg1",
+    "Z": 24,
+    "i_ls": 1,
+    "k_ldpc": 528,
+    "fillers": 0,
+    "punctured": 64,
+    "base_rows_kept": 10,
+    "base_cols_kept": 32
+   },
+   "ber_bler": {
+    "BP-GNN (5x10 BP it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.04277084812973485,
+      "bler": 0.7197265625,
+      "frames": 2048,
+      "frame_errors": 1474,
+      "bit_errors": 46250,
+      "avg_iters": 42.7314453125,
+      "osd_frac": 0.0,
+      "seconds": 1.94
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.02358453924005682,
+      "bler": 0.44140625,
+      "frames": 2048,
+      "frame_errors": 904,
+      "bit_errors": 25503,
+      "avg_iters": 33.17626953125,
+      "osd_frac": 0.0,
+      "seconds": 1.45
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.012168190696022728,
+      "bler": 0.232421875,
+      "frames": 2048,
+      "frame_errors": 476,
+      "bit_errors": 13158,
+      "avg_iters": 24.2080078125,
+      "osd_frac": 0.0,
+      "seconds": 0.98
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.004498106060606061,
+      "bler": 0.0849609375,
+      "frames": 2048,
+      "frame_errors": 174,
+      "bit_errors": 4864,
+      "avg_iters": 15.982421875,
+      "osd_frac": 0.0,
+      "seconds": 0.55
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.0014426491477272727,
+      "bler": 0.025227864583333332,
+      "frames": 6144,
+      "frame_errors": 155,
+      "bit_errors": 4680,
+      "avg_iters": 11.088541666666666,
+      "osd_frac": 0.0,
+      "seconds": 0.86
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.00033869887843276513,
+      "bler": 0.00634765625,
+      "frames": 24576,
+      "frame_errors": 156,
+      "bit_errors": 4395,
+      "avg_iters": 8.5235595703125,
+      "osd_frac": 0.0,
+      "seconds": 1.95
+     },
+     {
+      "ebno": 3.5,
+      "ber": 7.885974287915924e-05,
+      "bler": 0.0014552696078431373,
+      "frames": 104448,
+      "frame_errors": 152,
+      "bit_errors": 4349,
+      "avg_iters": 7.128350949754902,
+      "osd_frac": 0.0,
+      "seconds": 5.7
+     },
+     {
+      "ebno": 3.75,
+      "ber": 1.6583466900849712e-05,
+      "bler": 0.0002903293918918919,
+      "frames": 151552,
+      "frame_errors": 44,
+      "bit_errors": 1327,
+      "avg_iters": 6.286403346706081,
+      "osd_frac": 0.0,
+      "seconds": 5.96
+     },
+     {
+      "ebno": 4.0,
+      "ber": 3.8240699861793615e-06,
+      "bler": 7.918074324324325e-05,
+      "frames": 151552,
+      "frame_errors": 12,
+      "bit_errors": 306,
+      "avg_iters": 5.699528874577703,
+      "osd_frac": 0.0,
+      "seconds": 4.45
+     },
+     {
+      "ebno": 4.25,
+      "ber": 1.087235584305897e-06,
+      "bler": 1.3196790540540541e-05,
+      "frames": 151552,
+      "frame_errors": 2,
+      "bit_errors": 87,
+      "avg_iters": 5.249458931587838,
+      "osd_frac": 0.0,
+      "seconds": 3.65
+     },
+     {
+      "ebno": 4.5,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 151552,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 4.888751055743243,
+      "osd_frac": 0.0,
+      "seconds": 3.11
+     }
+    ],
+    "BP-GNN (5x10 BP it) + OSD-0": [
+     {
+      "ebno": 2.0,
+      "ber": 0.07046046401515152,
+      "bler": 0.64501953125,
+      "frames": 2048,
+      "frame_errors": 1321,
+      "bit_errors": 76192,
+      "avg_iters": 42.7314453125,
+      "osd_frac": 0.7197265625,
+      "seconds": 8.0
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.03854555072206439,
+      "bler": 0.37109375,
+      "frames": 2048,
+      "frame_errors": 760,
+      "bit_errors": 41681,
+      "avg_iters": 33.17626953125,
+      "osd_frac": 0.44140625,
+      "seconds": 5.2
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.01905499082623106,
+      "bler": 0.197265625,
+      "frames": 2048,
+      "frame_errors": 404,
+      "bit_errors": 20605,
+      "avg_iters": 24.2080078125,
+      "osd_frac": 0.232421875,
+      "seconds": 2.95
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.007120305841619318,
+      "bler": 0.074462890625,
+      "frames": 4096,
+      "frame_errors": 305,
+      "bit_errors": 15399,
+      "avg_iters": 15.8544921875,
+      "osd_frac": 0.08447265625,
+      "seconds": 2.55
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.0019193707090435605,
+      "bler": 0.019287109375,
+      "frames": 8192,
+      "frame_errors": 158,
+      "bit_errors": 8302,
+      "avg_iters": 11.0196533203125,
+      "osd_frac": 0.0233154296875,
+      "seconds": 2.64
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.0005498854986159674,
+      "bler": 0.005671574519230769,
+      "frames": 26624,
+      "frame_errors": 151,
+      "bit_errors": 7730,
+      "avg_iters": 8.54803936298077,
+      "osd_frac": 0.006535456730769231,
+      "seconds": 6.89
+     },
+     {
+      "ebno": 3.5,
+      "ber": 0.00010724308514835858,
+      "bler": 0.001025390625,
+      "frames": 61440,
+      "frame_errors": 63,
+      "bit_errors": 3479,
+      "avg_iters": 7.121761067708333,
+      "osd_frac": 0.0012532552083333334,
+      "seconds": 12.95
+     },
+     {
+      "ebno": 3.75,
+      "ber": 1.8557153566919193e-05,
+      "bler": 0.0001953125,
+      "frames": 61440,
+      "frame_errors": 12,
+      "bit_errors": 602,
+      "avg_iters": 6.285546875,
+      "osd_frac": 0.00026041666666666666,
+      "seconds": 6.82
+     },
+     {
+      "ebno": 4.0,
+      "ber": 2.774325284090909e-07,
+      "bler": 1.6276041666666666e-05,
+      "frames": 61440,
+      "frame_errors": 1,
+      "bit_errors": 9,
+      "avg_iters": 5.698844401041667,
+      "osd_frac": 3.255208333333333e-05,
+      "seconds": 2.19
+     },
+     {
+      "ebno": 4.25,
+      "ber": 6.165167297979798e-08,
+      "bler": 1.6276041666666666e-05,
+      "frames": 61440,
+      "frame_errors": 1,
+      "bit_errors": 2,
+      "avg_iters": 5.247867838541667,
+      "osd_frac": 1.6276041666666666e-05,
+      "seconds": 1.79
+     },
+     {
+      "ebno": 4.5,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 61440,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 4.88896484375,
+      "osd_frac": 0.0,
+      "seconds": 1.26
+     }
+    ],
+    "GNN (10 it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.10159856622869318,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 109863,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.33
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.09650860410748106,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 104359,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.18
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.09224816524621213,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 99752,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.19
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.08792299212831439,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 95075,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.19
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.08347204959753787,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 90262,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.2
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.07934940222537878,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 85804,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.2
+     },
+     {
+      "ebno": 3.5,
+      "ber": 0.07556337298768939,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 81710,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.2
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.07277147697679924,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 78691,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.2
+     },
+     {
+      "ebno": 4.0,
+      "ber": 0.06935165867660985,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 74993,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.21
+     },
+     {
+      "ebno": 4.25,
+      "ber": 0.06648115678267046,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 71889,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 4.5,
+      "ber": 0.06361712831439394,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 68792,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 4.75,
+      "ber": 0.060729055693655304,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 65669,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 5.0,
+      "ber": 0.058697324810606064,
+      "bler": 1.0,
+      "frames": 2048,
+      "frame_errors": 2048,
+      "bit_errors": 63472,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     }
+    ],
+    "GNN (10 it) + OSD-0": [
+     {
+      "ebno": 2.0,
+      "ber": 0.1527127352627841,
+      "bler": 0.9931640625,
+      "frames": 2048,
+      "frame_errors": 2034,
+      "bit_errors": 165135,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.87
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.14771987452651514,
+      "bler": 0.982421875,
+      "frames": 2048,
+      "frame_errors": 2012,
+      "bit_errors": 159736,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.98
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.1444424715909091,
+      "bler": 0.9638671875,
+      "frames": 2048,
+      "frame_errors": 1974,
+      "bit_errors": 156192,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 7.01
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.13523171164772727,
+      "bler": 0.9189453125,
+      "frames": 2048,
+      "frame_errors": 1882,
+      "bit_errors": 146232,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 7.13
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.1207266142874053,
+      "bler": 0.83203125,
+      "frames": 2048,
+      "frame_errors": 1704,
+      "bit_errors": 130547,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.89
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.10885805072206439,
+      "bler": 0.74462890625,
+      "frames": 2048,
+      "frame_errors": 1525,
+      "bit_errors": 117713,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.87
+     },
+     {
+      "ebno": 3.5,
+      "ber": 0.08912057587594698,
+      "bler": 0.6201171875,
+      "frames": 2048,
+      "frame_errors": 1270,
+      "bit_errors": 96370,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 7.07
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.07243115974195076,
+      "bler": 0.50830078125,
+      "frames": 2048,
+      "frame_errors": 1041,
+      "bit_errors": 78323,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.9
+     },
+     {
+      "ebno": 4.0,
+      "ber": 0.052112001361268936,
+      "bler": 0.36572265625,
+      "frames": 2048,
+      "frame_errors": 749,
+      "bit_errors": 56351,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.77
+     },
+     {
+      "ebno": 4.25,
+      "ber": 0.03885812470407197,
+      "bler": 0.2734375,
+      "frames": 2048,
+      "frame_errors": 560,
+      "bit_errors": 42019,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.91
+     },
+     {
+      "ebno": 4.5,
+      "ber": 0.025638464725378788,
+      "bler": 0.181640625,
+      "frames": 2048,
+      "frame_errors": 372,
+      "bit_errors": 27724,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.88
+     },
+     {
+      "ebno": 4.75,
+      "ber": 0.01677911931818182,
+      "bler": 0.1181640625,
+      "frames": 2048,
+      "frame_errors": 242,
+      "bit_errors": 18144,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.66
+     },
+     {
+      "ebno": 5.0,
+      "ber": 0.0106201171875,
+      "bler": 0.07470703125,
+      "frames": 2048,
+      "frame_errors": 153,
+      "bit_errors": 11484,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 6.85
+     }
+    ],
+    "BP (10 it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.05153309215198864,
+      "bler": 0.978515625,
+      "frames": 2048,
+      "frame_errors": 2004,
+      "bit_errors": 55725,
+      "avg_iters": 9.99267578125,
+      "osd_frac": 0.0,
+      "seconds": 0.07
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.03459121241714015,
+      "bler": 0.89453125,
+      "frames": 2048,
+      "frame_errors": 1832,
+      "bit_errors": 37405,
+      "avg_iters": 9.8994140625,
+      "osd_frac": 0.0,
+      "seconds": 0.07
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.021656383167613636,
+      "bler": 0.74658203125,
+      "frames": 2048,
+      "frame_errors": 1529,
+      "bit_errors": 23418,
+      "avg_iters": 9.72900390625,
+      "osd_frac": 0.0,
+      "seconds": 0.07
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.010523940577651516,
+      "bler": 0.5126953125,
+      "frames": 2048,
+      "frame_errors": 1050,
+      "bit_errors": 11380,
+      "avg_iters": 9.28466796875,
+      "osd_frac": 0.0,
+      "seconds": 0.06
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.004459265506628788,
+      "bler": 0.25439453125,
+      "frames": 2048,
+      "frame_errors": 521,
+      "bit_errors": 4822,
+      "avg_iters": 8.49072265625,
+      "osd_frac": 0.0,
+      "seconds": 0.06
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.0016997366240530303,
+      "bler": 0.11474609375,
+      "frames": 2048,
+      "frame_errors": 235,
+      "bit_errors": 1838,
+      "avg_iters": 7.68603515625,
+      "osd_frac": 0.0,
+      "seconds": 0.05
+     },
+     {
+      "ebno": 3.5,
+      "ber": 0.0002996271306818182,
+      "bler": 0.03759765625,
+      "frames": 4096,
+      "frame_errors": 154,
+      "bit_errors": 648,
+      "avg_iters": 6.925048828125,
+      "osd_frac": 0.0,
+      "seconds": 0.1
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.0001198244301271645,
+      "bler": 0.01123046875,
+      "frames": 14336,
+      "frame_errors": 161,
+      "bit_errors": 907,
+      "avg_iters": 6.241280691964286,
+      "osd_frac": 0.0,
+      "seconds": 0.31
+     },
+     {
+      "ebno": 4.0,
+      "ber": 2.382220643939394e-05,
+      "bler": 0.00298828125,
+      "frames": 51200,
+      "frame_errors": 153,
+      "bit_errors": 644,
+      "avg_iters": 5.68591796875,
+      "osd_frac": 0.0,
+      "seconds": 1.06
+     },
+     {
+      "ebno": 4.25,
+      "ber": 4.7238511593980345e-06,
+      "bler": 0.0005938555743243243,
+      "frames": 151552,
+      "frame_errors": 90,
+      "bit_errors": 378,
+      "avg_iters": 5.247525601773648,
+      "osd_frac": 0.0,
+      "seconds": 2.94
+     },
+     {
+      "ebno": 4.5,
+      "ber": 8.747872517403768e-07,
+      "bler": 0.00014516469594594595,
+      "frames": 151552,
+      "frame_errors": 22,
+      "bit_errors": 70,
+      "avg_iters": 4.88744457347973,
+      "osd_frac": 0.0,
+      "seconds": 2.77
+     },
+     {
+      "ebno": 4.75,
+      "ber": 3.249209792178542e-07,
+      "bler": 5.2787162162162165e-05,
+      "frames": 151552,
+      "frame_errors": 8,
+      "bit_errors": 26,
+      "avg_iters": 4.582684491131757,
+      "osd_frac": 0.0,
+      "seconds": 2.57
+     },
+     {
+      "ebno": 5.0,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 151552,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 4.322437183277027,
+      "osd_frac": 0.0,
+      "seconds": 2.41
+     }
+    ],
+    "BP (50 it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.04247861919981061,
+      "bler": 0.64697265625,
+      "frames": 2048,
+      "frame_errors": 1325,
+      "bit_errors": 45934,
+      "avg_iters": 39.0615234375,
+      "osd_frac": 0.0,
+      "seconds": 0.28
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.023916533499053032,
+      "bler": 0.38720703125,
+      "frames": 2048,
+      "frame_errors": 793,
+      "bit_errors": 25862,
+      "avg_iters": 29.3291015625,
+      "osd_frac": 0.0,
+      "seconds": 0.21
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.011642918442234848,
+      "bler": 0.19873046875,
+      "frames": 2048,
+      "frame_errors": 407,
+      "bit_errors": 12590,
+      "avg_iters": 21.28076171875,
+      "osd_frac": 0.0,
+      "seconds": 0.16
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.004170735677083333,
+      "bler": 0.07373046875,
+      "frames": 2048,
+      "frame_errors": 151,
+      "bit_errors": 4510,
+      "avg_iters": 14.5166015625,
+      "osd_frac": 0.0,
+      "seconds": 0.11
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.001230182069720644,
+      "bler": 0.0205078125,
+      "frames": 8192,
+      "frame_errors": 168,
+      "bit_errors": 5321,
+      "avg_iters": 10.41162109375,
+      "osd_frac": 0.0,
+      "seconds": 0.38
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.0002904410314078283,
+      "bler": 0.005110677083333333,
+      "frames": 30720,
+      "frame_errors": 157,
+      "bit_errors": 4711,
+      "avg_iters": 8.327604166666667,
+      "osd_frac": 0.0,
+      "seconds": 1.27
+     },
+     {
+      "ebno": 3.5,
+      "ber": 5.7648479889690825e-05,
+      "bler": 0.0009831608952702703,
+      "frames": 151552,
+      "frame_errors": 149,
+      "bit_errors": 4613,
+      "avg_iters": 7.06517894847973,
+      "osd_frac": 0.0,
+      "seconds": 5.55
+     },
+     {
+      "ebno": 3.75,
+      "ber": 1.114728897932023e-05,
+      "bler": 0.0002243454391891892,
+      "frames": 151552,
+      "frame_errors": 34,
+      "bit_errors": 892,
+      "avg_iters": 6.274612014358108,
+      "osd_frac": 0.0,
+      "seconds": 4.62
+     },
+     {
+      "ebno": 4.0,
+      "ber": 3.086749302569615e-06,
+      "bler": 3.9590371621621624e-05,
+      "frames": 151552,
+      "frame_errors": 6,
+      "bit_errors": 247,
+      "avg_iters": 5.696902713260135,
+      "osd_frac": 0.0,
+      "seconds": 3.66
+     },
+     {
+      "ebno": 4.25,
+      "ber": 5.123753903050778e-07,
+      "bler": 6.598395270270271e-06,
+      "frames": 151552,
+      "frame_errors": 1,
+      "bit_errors": 41,
+      "avg_iters": 5.248258023648648,
+      "osd_frac": 0.0,
+      "seconds": 3.08
+     },
+     {
+      "ebno": 4.5,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 151552,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 4.889767208614865,
+      "osd_frac": 0.0,
+      "seconds": 2.79
+     }
+    ],
+    "BP (50 it) + OSD-0": [
+     {
+      "ebno": 2.0,
+      "ber": 0.07160348603219698,
+      "bler": 0.6181640625,
+      "frames": 2048,
+      "frame_errors": 1266,
+      "bit_errors": 77428,
+      "avg_iters": 39.0615234375,
+      "osd_frac": 0.64697265625,
+      "seconds": 5.9
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.04021107066761364,
+      "bler": 0.36279296875,
+      "frames": 2048,
+      "frame_errors": 743,
+      "bit_errors": 43482,
+      "avg_iters": 29.3291015625,
+      "osd_frac": 0.38720703125,
+      "seconds": 3.73
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.018680456912878788,
+      "bler": 0.17919921875,
+      "frames": 2048,
+      "frame_errors": 367,
+      "bit_errors": 20200,
+      "avg_iters": 21.28076171875,
+      "osd_frac": 0.19873046875,
+      "seconds": 1.88
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.006694909298058712,
+      "bler": 0.0673828125,
+      "frames": 4096,
+      "frame_errors": 276,
+      "bit_errors": 14479,
+      "avg_iters": 14.40673828125,
+      "osd_frac": 0.074462890625,
+      "seconds": 1.55
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.001860647490530303,
+      "bler": 0.01748046875,
+      "frames": 10240,
+      "frame_errors": 179,
+      "bit_errors": 10060,
+      "avg_iters": 10.4369140625,
+      "osd_frac": 0.02001953125,
+      "seconds": 2.35
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.000475823985489082,
+      "bler": 0.004423253676470588,
+      "frames": 34816,
+      "frame_errors": 154,
+      "bit_errors": 8747,
+      "avg_iters": 8.305204503676471,
+      "osd_frac": 0.004968979779411764,
+      "seconds": 7.61
+     },
+     {
+      "ebno": 3.5,
+      "ber": 8.84084990530303e-05,
+      "bler": 0.000830078125,
+      "frames": 61440,
+      "frame_errors": 51,
+      "bit_errors": 2868,
+      "avg_iters": 7.063785807291667,
+      "osd_frac": 0.001025390625,
+      "seconds": 10.51
+     },
+     {
+      "ebno": 3.75,
+      "ber": 2.413662997159091e-05,
+      "bler": 0.00016276041666666666,
+      "frames": 61440,
+      "frame_errors": 10,
+      "bit_errors": 783,
+      "avg_iters": 6.271484375,
+      "osd_frac": 0.00017903645833333332,
+      "seconds": 4.8
+     },
+     {
+      "ebno": 4.0,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 61440,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 5.694287109375,
+      "osd_frac": 0.0,
+      "seconds": 1.42
+     }
+    ],
+    "BP + perturb. (5x10 BP it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.08665327592329546,
+      "bler": 0.97119140625,
+      "frames": 2048,
+      "frame_errors": 1989,
+      "bit_errors": 93702,
+      "avg_iters": 48.98095703125,
+      "osd_frac": 0.0,
+      "seconds": 0.36
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.06839266690340909,
+      "bler": 0.88671875,
+      "frames": 2048,
+      "frame_errors": 1816,
+      "bit_errors": 73956,
+      "avg_iters": 45.763671875,
+      "osd_frac": 0.0,
+      "seconds": 0.34
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.046112060546875,
+      "bler": 0.68603515625,
+      "frames": 2048,
+      "frame_errors": 1405,
+      "bit_errors": 49863,
+      "avg_iters": 37.79931640625,
+      "osd_frac": 0.0,
+      "seconds": 0.28
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.026303378018465908,
+      "bler": 0.458984375,
+      "frames": 2048,
+      "frame_errors": 940,
+      "bit_errors": 28443,
+      "avg_iters": 28.5673828125,
+      "osd_frac": 0.0,
+      "seconds": 0.22
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.012361468690814394,
+      "bler": 0.22998046875,
+      "frames": 2048,
+      "frame_errors": 471,
+      "bit_errors": 13367,
+      "avg_iters": 18.4560546875,
+      "osd_frac": 0.0,
+      "seconds": 0.14
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.005312832919034091,
+      "bler": 0.0986328125,
+      "frames": 2048,
+      "frame_errors": 202,
+      "bit_errors": 5745,
+      "avg_iters": 12.14990234375,
+      "osd_frac": 0.0,
+      "seconds": 0.09
+     },
+     {
+      "ebno": 3.5,
+      "ber": 0.0012922190656565657,
+      "bler": 0.030110677083333332,
+      "frames": 6144,
+      "frame_errors": 185,
+      "bit_errors": 4192,
+      "avg_iters": 8.318033854166666,
+      "osd_frac": 0.0,
+      "seconds": 0.25
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.00030677312004993114,
+      "bler": 0.007102272727272727,
+      "frames": 22528,
+      "frame_errors": 160,
+      "bit_errors": 3649,
+      "avg_iters": 6.591841264204546,
+      "osd_frac": 0.0,
+      "seconds": 0.86
+     },
+     {
+      "ebno": 4.0,
+      "ber": 6.647102936760902e-05,
+      "bler": 0.0017863948170731708,
+      "frames": 83968,
+      "frame_errors": 150,
+      "bit_errors": 2947,
+      "avg_iters": 5.775378715701219,
+      "osd_frac": 0.0,
+      "seconds": 3.07
+     },
+     {
+      "ebno": 4.25,
+      "ber": 8.635399870751433e-06,
+      "bler": 0.00021774704391891892,
+      "frames": 151552,
+      "frame_errors": 33,
+      "bit_errors": 691,
+      "avg_iters": 5.264740815033784,
+      "osd_frac": 0.0,
+      "seconds": 4.33
+     },
+     {
+      "ebno": 4.5,
+      "ber": 1.0122538198710073e-06,
+      "bler": 1.9795185810810812e-05,
+      "frames": 151552,
+      "frame_errors": 3,
+      "bit_errors": 81,
+      "avg_iters": 4.889113967483108,
+      "osd_frac": 0.0,
+      "seconds": 3.31
+     },
+     {
+      "ebno": 4.75,
+      "ber": 5.498662725225225e-07,
+      "bler": 1.9795185810810812e-05,
+      "frames": 151552,
+      "frame_errors": 3,
+      "bit_errors": 44,
+      "avg_iters": 4.581919077280405,
+      "osd_frac": 0.0,
+      "seconds": 2.89
+     },
+     {
+      "ebno": 5.0,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 151552,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 4.322463576858108,
+      "osd_frac": 0.0,
+      "seconds": 2.64
+     }
+    ]
+   },
+   "macs": {
+    "BP-GNN (5x10 BP it)": 22477056,
+    "GNN (10 it)": 11328768
+   },
+   "idle_gpu_w": 32.17984321482755,
+   "profile": {
+    "BP-GNN (5x10 BP it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 38.78151839999191,
+       "median_ms": 38.5291894999682,
+       "p95_ms": 42.159397000432364,
+       "reps": 30,
+       "throughput_cw_s": 25.954348196211743,
+       "info_mbps": 0.0137038958475998
+      },
+      "64": {
+       "mean_ms": 70.42931249992155,
+       "median_ms": 70.40761599910184,
+       "p95_ms": 71.80769200022041,
+       "reps": 30,
+       "throughput_cw_s": 908.9925726332848,
+       "info_mbps": 0.47994807835037434
+      },
+      "1024": {
+       "mean_ms": 1116.4642581999942,
+       "median_ms": 1116.431153999656,
+       "p95_ms": 1118.9296920001652,
+       "reps": 5,
+       "throughput_cw_s": 917.2083709160945,
+       "info_mbps": 0.4842860198436979
+      },
+      "2048": {
+       "mean_ms": 2269.012156399913,
+       "median_ms": 2271.516787001019,
+       "p95_ms": 2273.470090000046,
+       "reps": 5,
+       "throughput_cw_s": 901.600204638541,
+       "info_mbps": 0.4760449080491496
+      }
+     },
+     "cpu": {
+      "1": {
+       "mean_ms": 49.62319699989166,
+       "median_ms": 49.420943999393785,
+       "p95_ms": 52.430956000534934,
+       "reps": 20,
+       "throughput_cw_s": 20.234336276787154
+      },
+      "64": {
+       "mean_ms": 2444.644347999565,
+       "median_ms": 2420.0792579995323,
+       "p95_ms": 2489.4531929985533,
+       "reps": 5,
+       "throughput_cw_s": 26.44541487162003
+      }
+     },
+     "gpu_energy": {
+      "calls": 5,
+      "seconds": 5.6842086399992695,
+      "energy_j": 372.1500000000233,
+      "avg_w": 65.47085505997033,
+      "peak_w": 70.041,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 72685.54687500454,
+      "energy_per_info_bit_nj": 137662.02059659953,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 36959.581477437234
+     }
+    },
+    "BP-GNN (5x10 BP it) [fixed, CUDA graph]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 7.293797466566805,
+       "median_ms": 6.888435500513879,
+       "p95_ms": 8.09749900145107,
+       "reps": 30,
+       "throughput_cw_s": 145.17084466064898,
+       "info_mbps": 0.07665020598082266
+      },
+      "64": {
+       "mean_ms": 69.63206389973493,
+       "median_ms": 69.55726299929665,
+       "p95_ms": 70.56201200066425,
+       "reps": 30,
+       "throughput_cw_s": 920.1052088643446,
+       "info_mbps": 0.48581555028037393
+      },
+      "1024": {
+       "mean_ms": 1128.2725430002756,
+       "median_ms": 1127.9568660011137,
+       "p95_ms": 1132.3760280010902,
+       "reps": 5,
+       "throughput_cw_s": 907.8361335130957,
+       "info_mbps": 0.4793374784949145
+      },
+      "2048": {
+       "mean_ms": 2241.9222533997527,
+       "median_ms": 2240.428934999727,
+       "p95_ms": 2248.6003329995583,
+       "reps": 5,
+       "throughput_cw_s": 914.1106722942094,
+       "info_mbps": 0.4826504349713426
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 8,
+      "seconds": 8.969442899000569,
+      "energy_j": 586.810999999987,
+      "avg_w": 65.42334976739448,
+      "peak_w": 72.295,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 71632.20214843591,
+      "energy_per_info_bit_nj": 135667.04952355285,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 36398.405003149455
+     }
+    },
+    "BP-GNN (5x10 BP it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 6.064157966708687,
+       "median_ms": 5.994448499222926,
+       "p95_ms": 6.550201000209199,
+       "reps": 30,
+       "throughput_cw_s": 166.8210178350239,
+       "info_mbps": 0.08808149741689261
+      },
+      "64": {
+       "mean_ms": 21.230180133534304,
+       "median_ms": 20.990362500924675,
+       "p95_ms": 22.386691000065184,
+       "reps": 30,
+       "throughput_cw_s": 3049.018329110831,
+       "info_mbps": 1.6098816777705187
+      },
+      "1024": {
+       "mean_ms": 78.18992203337984,
+       "median_ms": 77.38441849960509,
+       "p95_ms": 89.40617100051895,
+       "reps": 30,
+       "throughput_cw_s": 13232.638040760437,
+       "info_mbps": 6.986832885521511
+      },
+      "2048": {
+       "mean_ms": 113.16309973335592,
+       "median_ms": 112.92831450009544,
+       "p95_ms": 117.85278199931781,
+       "reps": 30,
+       "throughput_cw_s": 18135.398629351446,
+       "info_mbps": 9.575490476297563
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 62,
+      "seconds": 5.021561122999628,
+      "energy_j": 307.42399999999907,
+      "avg_w": 61.22080215093736,
+      "peak_w": 81.455,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 4842.237903225792,
+      "energy_per_info_bit_nj": 9170.905119745818,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 2296.984475305533
+     }
+    },
+    "BP-GNN (5x10 BP it) + OSD-0 [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 5.555042966564845,
+       "median_ms": 5.494267999893054,
+       "p95_ms": 5.974547000732855,
+       "reps": 30,
+       "throughput_cw_s": 182.00786711159066,
+       "info_mbps": 0.09610015383491986
+      },
+      "64": {
+       "mean_ms": 16.536010933183814,
+       "median_ms": 16.420922499492008,
+       "p95_ms": 17.789461999200284,
+       "reps": 30,
+       "throughput_cw_s": 3897.46678373154,
+       "info_mbps": 2.0578624618102532
+      },
+      "1024": {
+       "mean_ms": 446.51691450053477,
+       "median_ms": 445.56003200068517,
+       "p95_ms": 457.4665029995231,
+       "reps": 12,
+       "throughput_cw_s": 2298.231274026,
+       "info_mbps": 1.2134661126857278
+      },
+      "2048": {
+       "mean_ms": 476.0653579998523,
+       "median_ms": 476.81159199964895,
+       "p95_ms": 491.2833979997231,
+       "reps": 11,
+       "throughput_cw_s": 4295.197588236294,
+       "info_mbps": 2.2678643265887635
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 12,
+      "seconds": 5.368019719999211,
+      "energy_j": 219.49400000006426,
+      "avg_w": 40.8891940508923,
+      "peak_w": 83.199,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 17862.467447921896,
+      "energy_per_info_bit_nj": 33830.43077257935,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 3804.6848174143215
+     }
+    },
+    "GNN (10 it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 14.555511133463975,
+       "median_ms": 14.42405550096737,
+       "p95_ms": 15.290831999664078,
+       "reps": 30,
+       "throughput_cw_s": 69.32862951982773,
+       "info_mbps": 0.03660551638646904
+      },
+      "64": {
+       "mean_ms": 66.00868296670039,
+       "median_ms": 66.07580499985488,
+       "p95_ms": 66.5950940001494,
+       "reps": 30,
+       "throughput_cw_s": 968.584491708282,
+       "info_mbps": 0.5114126116219729
+      },
+      "1024": {
+       "mean_ms": 1077.7444199997262,
+       "median_ms": 1077.8375359986967,
+       "p95_ms": 1080.4776059994765,
+       "reps": 5,
+       "throughput_cw_s": 950.0504165047358,
+       "info_mbps": 0.5016266199145005
+      },
+      "2048": {
+       "mean_ms": 2213.23613200002,
+       "median_ms": 2212.6206060002005,
+       "p95_ms": 2226.2439290007023,
+       "reps": 5,
+       "throughput_cw_s": 925.5992620001002,
+       "info_mbps": 0.48871641033605295
+      }
+     },
+     "cpu": {
+      "1": {
+       "mean_ms": 30.343974249899475,
+       "median_ms": 30.357018999893626,
+       "p95_ms": 32.00312400076655,
+       "reps": 20,
+       "throughput_cw_s": 32.94131087125202
+      },
+      "64": {
+       "mean_ms": 2145.9154535998096,
+       "median_ms": 2147.3748830012482,
+       "p95_ms": 2155.1373669990426,
+       "reps": 5,
+       "throughput_cw_s": 29.80383188172123
+      }
+     },
+     "gpu_energy": {
+      "calls": 7,
+      "seconds": 7.679467531001137,
+      "energy_j": 504.14200000010896,
+      "avg_w": 65.64804108682601,
+      "peak_w": 73.275,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 70332.31026787235,
+      "energy_per_info_bit_nj": 133205.13308309155,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 35856.29727666484
+     }
+    },
+    "GNN (10 it) [fixed, CUDA graph]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 2.5811747336774715,
+       "median_ms": 2.581642499535519,
+       "p95_ms": 2.595498001028318,
+       "reps": 30,
+       "throughput_cw_s": 387.3503012829688,
+       "info_mbps": 0.20452095907740755
+      },
+      "64": {
+       "mean_ms": 67.32733373337396,
+       "median_ms": 67.23398800022551,
+       "p95_ms": 67.94325800001388,
+       "reps": 30,
+       "throughput_cw_s": 951.8995065380524,
+       "info_mbps": 0.5026029394520917
+      },
+      "1024": {
+       "mean_ms": 1086.4562002003368,
+       "median_ms": 1086.7785399987042,
+       "p95_ms": 1087.7354450003622,
+       "reps": 5,
+       "throughput_cw_s": 942.2342844580102,
+       "info_mbps": 0.49749970219382933
+      },
+      "2048": {
+       "mean_ms": 2170.7348920001095,
+       "median_ms": 2171.1060729994642,
+       "p95_ms": 2171.739847999561,
+       "reps": 5,
+       "throughput_cw_s": 943.2979924240235,
+       "info_mbps": 0.49806133999988444
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 8,
+      "seconds": 8.650728102998983,
+      "energy_j": 570.1639999999898,
+      "avg_w": 65.90936545587749,
+      "peak_w": 72.001,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 69600.09765624875,
+      "energy_per_info_bit_nj": 131818.3667731984,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 35618.27709367431
+     }
+    },
+    "GNN (10 it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 16.515500900156137,
+       "median_ms": 16.471258500132535,
+       "p95_ms": 17.45305000076769,
+       "reps": 30,
+       "throughput_cw_s": 60.71181506816577,
+       "info_mbps": 0.032055838355991524
+      },
+      "64": {
+       "mean_ms": 67.67682160001034,
+       "median_ms": 67.65851999989536,
+       "p95_ms": 68.12747299954935,
+       "reps": 30,
+       "throughput_cw_s": 945.9266918652519,
+       "info_mbps": 0.499449293304853
+      },
+      "1024": {
+       "mean_ms": 1088.6218309999094,
+       "median_ms": 1088.4550940008921,
+       "p95_ms": 1089.919435999036,
+       "reps": 5,
+       "throughput_cw_s": 940.782955258199,
+       "info_mbps": 0.49673340037632907
+      },
+      "2048": {
+       "mean_ms": 2203.3857458001876,
+       "median_ms": 2203.1681680000474,
+       "p95_ms": 2209.6148780001386,
+       "reps": 5,
+       "throughput_cw_s": 929.5704384922631,
+       "info_mbps": 0.49081319152391495
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 5,
+      "seconds": 5.431546302999777,
+      "energy_j": 359.2949999999255,
+      "avg_w": 66.14967082237543,
+      "peak_w": 71.805,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 70174.80468748545,
+      "energy_per_info_bit_nj": 132906.82705963153,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 36036.853819397744
+     }
+    },
+    "GNN (10 it) + OSD-0 [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 140.15268643343006,
+       "median_ms": 138.4395944996868,
+       "p95_ms": 147.9158149995783,
+       "reps": 30,
+       "throughput_cw_s": 7.223367011539914,
+       "info_mbps": 0.0038139377820930746
+      },
+      "64": {
+       "mean_ms": 298.00098417624264,
+       "median_ms": 296.7475019995618,
+       "p95_ms": 313.164732999212,
+       "reps": 17,
+       "throughput_cw_s": 215.67157118004823,
+       "info_mbps": 0.11387458958306547
+      },
+      "1024": {
+       "mean_ms": 3151.5753593997943,
+       "median_ms": 3150.1602419994015,
+       "p95_ms": 3158.8058159995853,
+       "reps": 5,
+       "throughput_cw_s": 325.06282897852486,
+       "info_mbps": 0.17163317370066114
+      },
+      "2048": {
+       "mean_ms": 6771.006790800311,
+       "median_ms": 6772.423341999456,
+       "p95_ms": 6773.346998999841,
+       "reps": 5,
+       "throughput_cw_s": 302.4028322770736,
+       "info_mbps": 0.15966869544229487
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 2,
+      "seconds": 6.789749297000526,
+      "energy_j": 448.8780000000261,
+      "avg_w": 66.11113022955423,
+      "peak_w": 74.992,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 219178.71093751275,
+      "energy_per_info_bit_nj": 415111.19495741045,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 112492.6426535955
+     }
+    },
+    "BP (10 it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 4.73267623353119,
+       "median_ms": 4.707719001089572,
+       "p95_ms": 4.990421000911738,
+       "reps": 30,
+       "throughput_cw_s": 212.41709621337984,
+       "info_mbps": 0.11215622680066455
+      },
+      "64": {
+       "mean_ms": 4.824848233329249,
+       "median_ms": 4.8261534993798705,
+       "p95_ms": 5.012259000068298,
+       "reps": 30,
+       "throughput_cw_s": 13261.078415393042,
+       "info_mbps": 7.001849403327526
+      },
+      "1024": {
+       "mean_ms": 29.65572736672281,
+       "median_ms": 29.644773499967414,
+       "p95_ms": 29.765270001007593,
+       "reps": 30,
+       "throughput_cw_s": 34542.34521309888,
+       "info_mbps": 18.23835827251621
+      },
+      "2048": {
+       "mean_ms": 58.42938096642077,
+       "median_ms": 58.38742599917168,
+       "p95_ms": 58.6956850002025,
+       "reps": 30,
+       "throughput_cw_s": 35076.04531203437,
+       "info_mbps": 18.52015192475415
+      }
+     },
+     "cpu": {
+      "1": {
+       "mean_ms": 4.455129450070672,
+       "median_ms": 4.448956001397164,
+       "p95_ms": 4.839249999349704,
+       "reps": 20,
+       "throughput_cw_s": 224.77183404060568
+      },
+      "64": {
+       "mean_ms": 41.20867340016048,
+       "median_ms": 41.04628250024689,
+       "p95_ms": 42.693831001088256,
+       "reps": 20,
+       "throughput_cw_s": 1559.215502636933
+      }
+     },
+     "gpu_energy": {
+      "calls": 172,
+      "seconds": 5.081923593001193,
+      "energy_j": 337.31300000008196,
+      "avg_w": 66.37506326632463,
+      "peak_w": 67.577,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 1915.1582939684886,
+      "energy_per_info_bit_nj": 3627.1937385766832,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 986.6545668353157
+     }
+    },
+    "BP (10 it) [fixed, CUDA graph]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 0.9423710998817114,
+       "median_ms": 0.9389804990860284,
+       "p95_ms": 0.9621139997761929,
+       "reps": 30,
+       "throughput_cw_s": 1064.9848436398474,
+       "info_mbps": 0.5623119974418395
+      },
+      "64": {
+       "mean_ms": 1.7211721335115726,
+       "median_ms": 1.6996434997054166,
+       "p95_ms": 1.8178480004280573,
+       "reps": 30,
+       "throughput_cw_s": 37654.95529567967,
+       "info_mbps": 19.881816396118865
+      },
+      "1024": {
+       "mean_ms": 29.482146566806477,
+       "median_ms": 29.461678500410926,
+       "p95_ms": 29.566506998889963,
+       "reps": 30,
+       "throughput_cw_s": 34757.01494691545,
+       "info_mbps": 18.351703891971358
+      },
+      "2048": {
+       "mean_ms": 58.21652823318194,
+       "median_ms": 58.19963699923392,
+       "p95_ms": 58.55795200113789,
+       "reps": 30,
+       "throughput_cw_s": 35189.22291606317,
+       "info_mbps": 18.57990969968135
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 172,
+      "seconds": 5.062844368998412,
+      "energy_j": 337.6140000000596,
+      "avg_w": 66.6846490615808,
+      "peak_w": 71.609,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 1916.8672783433617,
+      "energy_per_info_bit_nj": 3630.430451407882,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 991.8494616677541
+     }
+    },
+    "BP (10 it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 3.6438315000850707,
+       "median_ms": 3.6243009990357677,
+       "p95_ms": 3.8805989988759393,
+       "reps": 30,
+       "throughput_cw_s": 275.91527311502176,
+       "info_mbps": 0.1456832642047315
+      },
+      "64": {
+       "mean_ms": 8.537314033371027,
+       "median_ms": 8.549037000193493,
+       "p95_ms": 8.828078000078676,
+       "reps": 30,
+       "throughput_cw_s": 7486.223301940495,
+       "info_mbps": 3.952725903424581
+      },
+      "1024": {
+       "mean_ms": 25.57860656676591,
+       "median_ms": 25.552633000188507,
+       "p95_ms": 25.997708000431885,
+       "reps": 30,
+       "throughput_cw_s": 40074.14813152311,
+       "info_mbps": 21.1591502134442
+      },
+      "2048": {
+       "mean_ms": 47.64510523333835,
+       "median_ms": 47.62675249912718,
+       "p95_ms": 48.08541200145555,
+       "reps": 30,
+       "throughput_cw_s": 43001.04232463744,
+       "info_mbps": 22.70455034740857
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 198,
+      "seconds": 5.01485595899976,
+      "energy_j": 338.3839999999618,
+      "avg_w": 67.47631492639208,
+      "peak_w": 69.778,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 1668.9551767674884,
+      "energy_per_info_bit_nj": 3160.899955999031,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 873.020840703943
+     }
+    },
+    "BP (50 it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 23.323462433412107,
+       "median_ms": 23.29823400123132,
+       "p95_ms": 24.579572998845833,
+       "reps": 30,
+       "throughput_cw_s": 42.921708140932466,
+       "info_mbps": 0.02266266189841234
+      },
+      "64": {
+       "mean_ms": 23.779884900068282,
+       "median_ms": 23.709113499535306,
+       "p95_ms": 24.49724300095113,
+       "reps": 30,
+       "throughput_cw_s": 2699.3839310463627,
+       "info_mbps": 1.4252747155924796
+      },
+      "1024": {
+       "mean_ms": 145.89192739992237,
+       "median_ms": 145.9132825002598,
+       "p95_ms": 146.23972099980165,
+       "reps": 30,
+       "throughput_cw_s": 7017.866930642018,
+       "info_mbps": 3.7054337393789853
+      },
+      "2048": {
+       "mean_ms": 288.19056544448864,
+       "median_ms": 288.1620545003898,
+       "p95_ms": 288.6687989994243,
+       "reps": 18,
+       "throughput_cw_s": 7107.112015670438,
+       "info_mbps": 3.752555144273991
+      }
+     },
+     "cpu": {
+      "1": {
+       "mean_ms": 22.315862600316905,
+       "median_ms": 22.16072749979503,
+       "p95_ms": 24.136444000760093,
+       "reps": 20,
+       "throughput_cw_s": 45.124872367536184
+      },
+      "64": {
+       "mean_ms": 210.53194989460616,
+       "median_ms": 207.03296499959833,
+       "p95_ms": 248.88782000016363,
+       "reps": 19,
+       "throughput_cw_s": 309.12951471338954
+      }
+     },
+     "gpu_energy": {
+      "calls": 35,
+      "seconds": 5.110989888999029,
+      "energy_j": 344.68599999998696,
+      "avg_w": 67.44016472071179,
+      "peak_w": 68.46,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 9617.354910713922,
+      "energy_per_info_bit_nj": 18214.68733089758,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 5028.324405676042
+     }
+    },
+    "BP (50 it) [fixed, CUDA graph]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 3.528749000057966,
+       "median_ms": 3.5221070002080523,
+       "p95_ms": 3.5554559999582125,
+       "reps": 30,
+       "throughput_cw_s": 283.9209597950686,
+       "info_mbps": 0.14991026677179622
+      },
+      "64": {
+       "mean_ms": 7.8649913000238785,
+       "median_ms": 7.833211499928439,
+       "p95_ms": 8.056876999035012,
+       "reps": 30,
+       "throughput_cw_s": 8170.339840892166,
+       "info_mbps": 4.313939435991064
+      },
+      "1024": {
+       "mean_ms": 145.69861783317415,
+       "median_ms": 145.71476350010926,
+       "p95_ms": 145.93324799898255,
+       "reps": 30,
+       "throughput_cw_s": 7027.42793800185,
+       "info_mbps": 3.7104819512649767
+      },
+      "2048": {
+       "mean_ms": 288.1307492221418,
+       "median_ms": 288.17393949975667,
+       "p95_ms": 288.5955869987811,
+       "reps": 18,
+       "throughput_cw_s": 7106.8189009566195,
+       "info_mbps": 3.752400379705095
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 36,
+      "seconds": 5.249210318999758,
+      "energy_j": 350.5229999999283,
+      "avg_w": 66.77632990455615,
+      "peak_w": 72.438,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 9508.544921873054,
+      "energy_per_info_bit_nj": 18008.607806577755,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 4926.330157683951
+     }
+    },
+    "BP (50 it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 4.999959199873653,
+       "median_ms": 4.981518000022334,
+       "p95_ms": 5.422286998509662,
+       "reps": 30,
+       "throughput_cw_s": 200.74202281222645,
+       "info_mbps": 0.10599178804485557
+      },
+      "64": {
+       "mean_ms": 10.605983466424126,
+       "median_ms": 10.540541999034758,
+       "p95_ms": 11.39977899947553,
+       "reps": 30,
+       "throughput_cw_s": 6071.794031640949,
+       "info_mbps": 3.205907248706421
+      },
+      "1024": {
+       "mean_ms": 37.72637736656179,
+       "median_ms": 37.556338499598496,
+       "p95_ms": 38.73474600004556,
+       "reps": 30,
+       "throughput_cw_s": 27265.703764251335,
+       "info_mbps": 14.396291587524704
+      },
+      "2048": {
+       "mean_ms": 61.79414136652971,
+       "median_ms": 61.57424499906483,
+       "p95_ms": 63.802447000853135,
+       "reps": 30,
+       "throughput_cw_s": 33260.65955061413,
+       "info_mbps": 17.56162824272426
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 91,
+      "seconds": 5.003280266999354,
+      "energy_j": 314.3719999999739,
+      "avg_w": 62.83317807989078,
+      "peak_w": 82.826,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 3373.6692994502696,
+      "energy_per_info_bit_nj": 6389.5251883527835,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 1645.8536384797194
+     }
+    },
+    "BP + perturb. (5x10 BP it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 26.638190800137334,
+       "median_ms": 26.40160500050115,
+       "p95_ms": 28.422456000043894,
+       "reps": 30,
+       "throughput_cw_s": 37.87648515993699,
+       "info_mbps": 0.01999878416444673
+      },
+      "64": {
+       "mean_ms": 27.58116693348711,
+       "median_ms": 27.062582501457655,
+       "p95_ms": 32.36784699947748,
+       "reps": 30,
+       "throughput_cw_s": 2364.888864414651,
+       "info_mbps": 1.2486613204109356
+      },
+      "1024": {
+       "mean_ms": 165.75550679984494,
+       "median_ms": 165.71007049878972,
+       "p95_ms": 166.49879199940187,
+       "reps": 30,
+       "throughput_cw_s": 6179.467529750878,
+       "info_mbps": 3.2627588557084635
+      },
+      "2048": {
+       "mean_ms": 326.90268156227376,
+       "median_ms": 326.90406599976995,
+       "p95_ms": 327.36368699988816,
+       "reps": 16,
+       "throughput_cw_s": 6264.8348950222025,
+       "info_mbps": 3.3078328245717232
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 31,
+      "seconds": 5.13640557799954,
+      "energy_j": 335.44800000009127,
+      "avg_w": 65.30792689675748,
+      "peak_w": 68.361,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 10567.288306454488,
+      "energy_per_info_bit_nj": 20013.803610709256,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 5360.360188139503
+     }
+    },
+    "BP + perturb. (5x10 BP it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 4.558664199976192,
+       "median_ms": 4.580391499075631,
+       "p95_ms": 4.773689999638009,
+       "reps": 30,
+       "throughput_cw_s": 218.32194916129112,
+       "info_mbps": 0.11527398915716171
+      },
+      "64": {
+       "mean_ms": 30.270498133419704,
+       "median_ms": 35.5681889996049,
+       "p95_ms": 41.0191280006984,
+       "reps": 30,
+       "throughput_cw_s": 1799.3606590628196,
+       "info_mbps": 0.9500624279851687
+      },
+      "1024": {
+       "mean_ms": 59.24408309983846,
+       "median_ms": 59.26370550059801,
+       "p95_ms": 61.14641800013487,
+       "reps": 30,
+       "throughput_cw_s": 17278.703573296934,
+       "info_mbps": 9.12315548670078
+      },
+      "2048": {
+       "mean_ms": 83.348515700042,
+       "median_ms": 83.13881549929647,
+       "p95_ms": 85.1123770007689,
+       "reps": 30,
+       "throughput_cw_s": 24633.49986045123,
+       "info_mbps": 13.006487926318249
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 83,
+      "seconds": 5.0510415059998195,
+      "energy_j": 311.72299999999814,
+      "avg_w": 61.71459878714552,
+      "peak_w": 82.234,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 3667.674604668653,
+      "energy_per_info_bit_nj": 6946.3534179330545,
+      "idle_w": 32.17984321482755,
+      "dynamic_energy_per_cw_uj": 1755.2390373839598
+     }
+    }
+   },
+   "prof_ebno": 3.5
+  },
+  "5G_BG1_k1056_n1408": {
+   "code": {
+    "name": "5G_BG1_k1056_n1408",
+    "n": 1408,
+    "k": 1056,
+    "rate": 0.75,
+    "H_shape": [
+     480,
+     1536
+    ],
+    "edges": 5856,
+    "rank": 480,
+    "bg": "bg1",
+    "Z": 48,
+    "i_ls": 1,
+    "k_ldpc": 1056,
+    "fillers": 0,
+    "punctured": 128,
+    "base_rows_kept": 10,
+    "base_cols_kept": 32
+   },
+   "ber_bler": {
+    "BP-GNN (5x10 BP it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.034763220584753785,
+      "bler": 0.744140625,
+      "frames": 1024,
+      "frame_errors": 762,
+      "bit_errors": 37591,
+      "avg_iters": 44.7822265625,
+      "osd_frac": 0.0,
+      "seconds": 2.02
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.014124090021306818,
+      "bler": 0.3544921875,
+      "frames": 1024,
+      "frame_errors": 363,
+      "bit_errors": 15273,
+      "avg_iters": 33.4765625,
+      "osd_frac": 0.0,
+      "seconds": 1.43
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.0036195697206439395,
+      "bler": 0.09765625,
+      "frames": 2048,
+      "frame_errors": 200,
+      "bit_errors": 7828,
+      "avg_iters": 21.7919921875,
+      "osd_frac": 0.0,
+      "seconds": 1.71
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.0005013205788352272,
+      "bler": 0.01533203125,
+      "frames": 10240,
+      "frame_errors": 157,
+      "bit_errors": 5421,
+      "avg_iters": 14.14677734375,
+      "osd_frac": 0.0,
+      "seconds": 4.61
+     },
+     {
+      "ebno": 3.0,
+      "ber": 6.268094243547766e-05,
+      "bler": 0.0016882944915254238,
+      "frames": 60416,
+      "frame_errors": 102,
+      "bit_errors": 3999,
+      "avg_iters": 10.417124602754237,
+      "osd_frac": 0.0,
+      "seconds": 14.47
+     },
+     {
+      "ebno": 3.25,
+      "ber": 4.2320216197996915e-06,
+      "bler": 0.0001820709745762712,
+      "frames": 60416,
+      "frame_errors": 11,
+      "bit_errors": 270,
+      "avg_iters": 8.48291843220339,
+      "osd_frac": 0.0,
+      "seconds": 7.09
+     },
+     {
+      "ebno": 3.5,
+      "ber": 1.0815166361710324e-06,
+      "bler": 4.9655720338983054e-05,
+      "frames": 60416,
+      "frame_errors": 3,
+      "bit_errors": 69,
+      "avg_iters": 7.358232918432203,
+      "osd_frac": 0.0,
+      "seconds": 4.36
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 60416,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 6.608663268008475,
+      "osd_frac": 0.0,
+      "seconds": 3.41
+     }
+    ],
+    "BP-GNN (5x10 BP it) + OSD-0": [
+     {
+      "ebno": 2.0,
+      "ber": 0.06304099343039772,
+      "bler": 0.6875,
+      "frames": 1024,
+      "frame_errors": 704,
+      "bit_errors": 68169,
+      "avg_iters": 44.7822265625,
+      "osd_frac": 0.744140625,
+      "seconds": 24.35
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.024936560428503788,
+      "bler": 0.30078125,
+      "frames": 1024,
+      "frame_errors": 308,
+      "bit_errors": 26965,
+      "avg_iters": 33.4765625,
+      "osd_frac": 0.353515625,
+      "seconds": 12.21
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.006015199603456439,
+      "bler": 0.080078125,
+      "frames": 2048,
+      "frame_errors": 164,
+      "bit_errors": 13009,
+      "avg_iters": 21.7919921875,
+      "osd_frac": 0.09765625,
+      "seconds": 7.81
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.0008260375692016317,
+      "bler": 0.011868990384615384,
+      "frames": 13312,
+      "frame_errors": 158,
+      "bit_errors": 11612,
+      "avg_iters": 14.094200721153847,
+      "osd_frac": 0.015474759615384616,
+      "seconds": 16.02
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.00010443688908416796,
+      "bler": 0.0014896716101694915,
+      "frames": 60416,
+      "frame_errors": 90,
+      "bit_errors": 6663,
+      "avg_iters": 10.422156382415254,
+      "osd_frac": 0.001754502118644068,
+      "seconds": 48.28
+     },
+     {
+      "ebno": 3.25,
+      "ber": 6.175616734078069e-06,
+      "bler": 0.00013241525423728814,
+      "frames": 60416,
+      "frame_errors": 8,
+      "bit_errors": 394,
+      "avg_iters": 8.484672934322035,
+      "osd_frac": 0.0001820709745762712,
+      "seconds": 13.64
+     },
+     {
+      "ebno": 3.5,
+      "ber": 2.5078646635850024e-06,
+      "bler": 6.620762711864407e-05,
+      "frames": 60416,
+      "frame_errors": 4,
+      "bit_errors": 160,
+      "avg_iters": 7.360616393008475,
+      "osd_frac": 6.620762711864407e-05,
+      "seconds": 6.69
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 60416,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 6.606660487288136,
+      "osd_frac": 0.0,
+      "seconds": 3.44
+     }
+    ],
+    "GNN (10 it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.10125917376893939,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 109496,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.09694602272727272,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 104832,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.09180982185132576,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 99278,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.0880126953125,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 95172,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.0830068877249053,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 89759,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.07985155510179924,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 86347,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 3.5,
+      "ber": 0.07570856267755682,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 81867,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.23
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.07226007634943182,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 78138,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.25
+     },
+     {
+      "ebno": 4.0,
+      "ber": 0.06932853929924243,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 74968,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.25
+     },
+     {
+      "ebno": 4.25,
+      "ber": 0.06611864494554924,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 71497,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.25
+     },
+     {
+      "ebno": 4.5,
+      "ber": 0.06370128284801137,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 68883,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 2.25
+     }
+    ],
+    "GNN (10 it) + OSD-0": [
+     {
+      "ebno": 2.0,
+      "ber": 0.15428115382339014,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 166831,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 15.92
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.15142267400568182,
+      "bler": 1.0,
+      "frames": 1024,
+      "frame_errors": 1024,
+      "bit_errors": 163740,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 16.63
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.14882313121448865,
+      "bler": 0.9970703125,
+      "frames": 1024,
+      "frame_errors": 1021,
+      "bit_errors": 160929,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 15.88
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.14628647312973486,
+      "bler": 0.9951171875,
+      "frames": 1024,
+      "frame_errors": 1019,
+      "bit_errors": 158186,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 15.89
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.13996748490767044,
+      "bler": 0.966796875,
+      "frames": 1024,
+      "frame_errors": 990,
+      "bit_errors": 151353,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 15.64
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.13275978781960227,
+      "bler": 0.9345703125,
+      "frames": 1024,
+      "frame_errors": 957,
+      "bit_errors": 143559,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 16.37
+     },
+     {
+      "ebno": 3.5,
+      "ber": 0.12062858812736743,
+      "bler": 0.849609375,
+      "frames": 1024,
+      "frame_errors": 870,
+      "bit_errors": 130441,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 16.45
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.10711300011837122,
+      "bler": 0.75390625,
+      "frames": 1024,
+      "frame_errors": 772,
+      "bit_errors": 115826,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 16.35
+     },
+     {
+      "ebno": 4.0,
+      "ber": 0.08396957859848485,
+      "bler": 0.5966796875,
+      "frames": 1024,
+      "frame_errors": 611,
+      "bit_errors": 90800,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 16.04
+     },
+     {
+      "ebno": 4.25,
+      "ber": 0.06581716826467802,
+      "bler": 0.47265625,
+      "frames": 1024,
+      "frame_errors": 484,
+      "bit_errors": 71171,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 15.57
+     },
+     {
+      "ebno": 4.5,
+      "ber": 0.04669004498106061,
+      "bler": 0.330078125,
+      "frames": 1024,
+      "frame_errors": 338,
+      "bit_errors": 50488,
+      "avg_iters": 10.0,
+      "osd_frac": 1.0,
+      "seconds": 16.66
+     }
+    ],
+    "BP (10 it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.046699292732007576,
+      "bler": 0.9990234375,
+      "frames": 1024,
+      "frame_errors": 1023,
+      "bit_errors": 50498,
+      "avg_iters": 10.0,
+      "osd_frac": 0.0,
+      "seconds": 0.07
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.029723196318655304,
+      "bler": 0.98046875,
+      "frames": 1024,
+      "frame_errors": 1004,
+      "bit_errors": 32141,
+      "avg_iters": 9.994140625,
+      "osd_frac": 0.0,
+      "seconds": 0.07
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.015969016335227272,
+      "bler": 0.888671875,
+      "frames": 1024,
+      "frame_errors": 910,
+      "bit_errors": 17268,
+      "avg_iters": 9.947265625,
+      "osd_frac": 0.0,
+      "seconds": 0.07
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.005656849254261364,
+      "bler": 0.5908203125,
+      "frames": 1024,
+      "frame_errors": 605,
+      "bit_errors": 6117,
+      "avg_iters": 9.6884765625,
+      "osd_frac": 0.0,
+      "seconds": 0.07
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.0014287775213068182,
+      "bler": 0.2724609375,
+      "frames": 1024,
+      "frame_errors": 279,
+      "bit_errors": 1545,
+      "avg_iters": 9.048828125,
+      "osd_frac": 0.0,
+      "seconds": 0.06
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.0002131606593276515,
+      "bler": 0.0830078125,
+      "frames": 2048,
+      "frame_errors": 170,
+      "bit_errors": 461,
+      "avg_iters": 8.171875,
+      "osd_frac": 0.0,
+      "seconds": 0.12
+     },
+     {
+      "ebno": 3.5,
+      "ber": 2.413662997159091e-05,
+      "bler": 0.016015625,
+      "frames": 10240,
+      "frame_errors": 164,
+      "bit_errors": 261,
+      "avg_iters": 7.3048828125,
+      "osd_frac": 0.0,
+      "seconds": 0.52
+     },
+     {
+      "ebno": 3.75,
+      "ber": 3.463703081955923e-06,
+      "bler": 0.0026988636363636364,
+      "frames": 56320,
+      "frame_errors": 152,
+      "bit_errors": 206,
+      "avg_iters": 6.5990234375,
+      "osd_frac": 0.0,
+      "seconds": 2.64
+     },
+     {
+      "ebno": 4.0,
+      "ber": 1.7241569562146893e-07,
+      "bler": 0.00019862288135593222,
+      "frames": 60416,
+      "frame_errors": 12,
+      "bit_errors": 11,
+      "avg_iters": 6.0317631091101696,
+      "osd_frac": 0.0,
+      "seconds": 2.65
+     },
+     {
+      "ebno": 4.25,
+      "ber": 0.0,
+      "bler": 3.3103813559322034e-05,
+      "frames": 60416,
+      "frame_errors": 2,
+      "bit_errors": 0,
+      "avg_iters": 5.562864141949152,
+      "osd_frac": 0.0,
+      "seconds": 2.44
+     },
+     {
+      "ebno": 4.5,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 60416,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 5.201734639830509,
+      "osd_frac": 0.0,
+      "seconds": 2.28
+     }
+    ],
+    "BP (50 it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.03203698360558712,
+      "bler": 0.61328125,
+      "frames": 1024,
+      "frame_errors": 628,
+      "bit_errors": 34643,
+      "avg_iters": 39.837890625,
+      "osd_frac": 0.0,
+      "seconds": 0.28
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.012081261837121212,
+      "bler": 0.2578125,
+      "frames": 1024,
+      "frame_errors": 264,
+      "bit_errors": 13064,
+      "avg_iters": 27.228515625,
+      "osd_frac": 0.0,
+      "seconds": 0.2
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.002892079979482323,
+      "bler": 0.06510416666666667,
+      "frames": 3072,
+      "frame_errors": 200,
+      "bit_errors": 9382,
+      "avg_iters": 17.700846354166668,
+      "osd_frac": 0.0,
+      "seconds": 0.41
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.0004130441905100108,
+      "bler": 0.010951450892857142,
+      "frames": 14336,
+      "frame_errors": 157,
+      "bit_errors": 6253,
+      "avg_iters": 12.3447265625,
+      "osd_frac": 0.0,
+      "seconds": 1.55
+     },
+     {
+      "ebno": 3.0,
+      "ber": 3.72731385625321e-05,
+      "bler": 0.000943458686440678,
+      "frames": 60416,
+      "frame_errors": 57,
+      "bit_errors": 2378,
+      "avg_iters": 9.80614406779661,
+      "osd_frac": 0.0,
+      "seconds": 5.44
+     },
+     {
+      "ebno": 3.25,
+      "ber": 2.5078646635850027e-07,
+      "bler": 4.9655720338983054e-05,
+      "frames": 60416,
+      "frame_errors": 3,
+      "bit_errors": 16,
+      "avg_iters": 8.339678230932204,
+      "osd_frac": 0.0,
+      "seconds": 4.0
+     },
+     {
+      "ebno": 3.5,
+      "ber": 2.1943815806368772e-07,
+      "bler": 3.3103813559322034e-05,
+      "frames": 60416,
+      "frame_errors": 2,
+      "bit_errors": 14,
+      "avg_iters": 7.335391287076271,
+      "osd_frac": 0.0,
+      "seconds": 3.39
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 60416,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 6.604674258474576,
+      "osd_frac": 0.0,
+      "seconds": 2.94
+     }
+    ],
+    "BP (50 it) + OSD-0": [
+     {
+      "ebno": 2.0,
+      "ber": 0.05866958155776515,
+      "bler": 0.5927734375,
+      "frames": 1024,
+      "frame_errors": 607,
+      "bit_errors": 63442,
+      "avg_iters": 39.837890625,
+      "osd_frac": 0.61328125,
+      "seconds": 18.63
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.021919019294507576,
+      "bler": 0.24609375,
+      "frames": 1024,
+      "frame_errors": 252,
+      "bit_errors": 23702,
+      "avg_iters": 27.228515625,
+      "osd_frac": 0.2578125,
+      "seconds": 8.37
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.004982996468592172,
+      "bler": 0.059244791666666664,
+      "frames": 3072,
+      "frame_errors": 182,
+      "bit_errors": 16165,
+      "avg_iters": 17.700846354166668,
+      "osd_frac": 0.06510416666666667,
+      "seconds": 6.6
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.0007390186040088384,
+      "bler": 0.0099609375,
+      "frames": 15360,
+      "frame_errors": 153,
+      "bit_errors": 11987,
+      "avg_iters": 12.33125,
+      "osd_frac": 0.011002604166666667,
+      "seconds": 12.82
+     },
+     {
+      "ebno": 3.0,
+      "ber": 5.50319552115434e-05,
+      "bler": 0.0007282838983050848,
+      "frames": 60416,
+      "frame_errors": 44,
+      "bit_errors": 3511,
+      "avg_iters": 9.804108183262711,
+      "osd_frac": 0.0008938029661016949,
+      "seconds": 30.45
+     },
+     {
+      "ebno": 3.25,
+      "ber": 6.269661658962507e-08,
+      "bler": 1.6551906779661017e-05,
+      "frames": 60416,
+      "frame_errors": 1,
+      "bit_errors": 4,
+      "avg_iters": 8.340522378177965,
+      "osd_frac": 3.3103813559322034e-05,
+      "seconds": 5.09
+     },
+     {
+      "ebno": 3.5,
+      "ber": 2.1943815806368772e-07,
+      "bler": 1.6551906779661017e-05,
+      "frames": 60416,
+      "frame_errors": 1,
+      "bit_errors": 14,
+      "avg_iters": 7.334116790254237,
+      "osd_frac": 3.3103813559322034e-05,
+      "seconds": 4.15
+     },
+     {
+      "ebno": 3.75,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 60416,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 6.606081170550848,
+      "osd_frac": 0.0,
+      "seconds": 2.97
+     }
+    ],
+    "BP + perturb. (5x10 BP it)": [
+     {
+      "ebno": 2.0,
+      "ber": 0.0854196259469697,
+      "bler": 0.9990234375,
+      "frames": 1024,
+      "frame_errors": 1023,
+      "bit_errors": 92368,
+      "avg_iters": 49.9609375,
+      "osd_frac": 0.0,
+      "seconds": 0.37
+     },
+     {
+      "ebno": 2.25,
+      "ber": 0.06767319187973485,
+      "bler": 0.974609375,
+      "frames": 1024,
+      "frame_errors": 998,
+      "bit_errors": 73178,
+      "avg_iters": 49.234375,
+      "osd_frac": 0.0,
+      "seconds": 0.37
+     },
+     {
+      "ebno": 2.5,
+      "ber": 0.04448353160511364,
+      "bler": 0.8486328125,
+      "frames": 1024,
+      "frame_errors": 869,
+      "bit_errors": 48102,
+      "avg_iters": 44.599609375,
+      "osd_frac": 0.0,
+      "seconds": 0.33
+     },
+     {
+      "ebno": 2.75,
+      "ber": 0.018751664595170456,
+      "bler": 0.537109375,
+      "frames": 1024,
+      "frame_errors": 550,
+      "bit_errors": 20277,
+      "avg_iters": 32.248046875,
+      "osd_frac": 0.0,
+      "seconds": 0.25
+     },
+     {
+      "ebno": 3.0,
+      "ber": 0.005402536103219697,
+      "bler": 0.224609375,
+      "frames": 1024,
+      "frame_errors": 230,
+      "bit_errors": 5842,
+      "avg_iters": 18.927734375,
+      "osd_frac": 0.0,
+      "seconds": 0.15
+     },
+     {
+      "ebno": 3.25,
+      "ber": 0.0010157113123421717,
+      "bler": 0.0537109375,
+      "frames": 3072,
+      "frame_errors": 165,
+      "bit_errors": 3295,
+      "avg_iters": 10.837239583333334,
+      "osd_frac": 0.0,
+      "seconds": 0.28
+     },
+     {
+      "ebno": 3.5,
+      "ber": 9.779496626420455e-05,
+      "bler": 0.00958251953125,
+      "frames": 16384,
+      "frame_errors": 157,
+      "bit_errors": 1692,
+      "avg_iters": 7.8197021484375,
+      "osd_frac": 0.0,
+      "seconds": 1.38
+     },
+     {
+      "ebno": 3.75,
+      "ber": 1.0642750666088855e-05,
+      "bler": 0.0011586334745762711,
+      "frames": 60416,
+      "frame_errors": 70,
+      "bit_errors": 679,
+      "avg_iters": 6.660867981991525,
+      "osd_frac": 0.0,
+      "seconds": 4.42
+     },
+     {
+      "ebno": 4.0,
+      "ber": 2.35112312211094e-07,
+      "bler": 9.931144067796611e-05,
+      "frames": 60416,
+      "frame_errors": 6,
+      "bit_errors": 15,
+      "avg_iters": 6.028618246822034,
+      "osd_frac": 0.0,
+      "seconds": 3.16
+     },
+     {
+      "ebno": 4.25,
+      "ber": 0.0,
+      "bler": 0.0,
+      "frames": 60416,
+      "frame_errors": 0,
+      "bit_errors": 0,
+      "avg_iters": 5.567283501059322,
+      "osd_frac": 0.0,
+      "seconds": 2.65
+     }
+    ]
+   },
+   "macs": {
+    "BP-GNN (5x10 BP it)": 44954112,
+    "GNN (10 it)": 22657536
+   },
+   "idle_gpu_w": 32.17424057431847,
+   "profile": {
+    "BP-GNN (5x10 BP it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 38.98023406654829,
+       "median_ms": 38.78348649959662,
+       "p95_ms": 40.831688998878235,
+       "reps": 30,
+       "throughput_cw_s": 25.784169765407782,
+       "info_mbps": 0.02722808327227062
+      },
+      "64": {
+       "mean_ms": 134.6608689998296,
+       "median_ms": 134.625460499592,
+       "p95_ms": 135.65997899968352,
+       "reps": 30,
+       "throughput_cw_s": 475.3929885364734,
+       "info_mbps": 0.5020149958945159
+      },
+      "1024": {
+       "mean_ms": 2260.0515553996956,
+       "median_ms": 2257.469095999113,
+       "p95_ms": 2270.7516699992993,
+       "reps": 5,
+       "throughput_cw_s": 453.60532368519404,
+       "info_mbps": 0.4790072218115649
+      }
+     },
+     "cpu": {
+      "1": {
+       "mean_ms": 68.46701530002974,
+       "median_ms": 68.26630200066575,
+       "p95_ms": 72.46470700010832,
+       "reps": 20,
+       "throughput_cw_s": 14.648515749252798
+      },
+      "64": {
+       "mean_ms": 4854.287971600206,
+       "median_ms": 4863.976051999998,
+       "p95_ms": 4883.026793999306,
+       "reps": 5,
+       "throughput_cw_s": 13.157959520315504
+      }
+     },
+     "gpu_energy": {
+      "calls": 3,
+      "seconds": 6.825645606000762,
+      "energy_j": 451.780999999959,
+      "avg_w": 66.18875723679179,
+      "peak_w": 74.894,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 147064.12760415333,
+      "energy_per_info_bit_nj": 139265.27235241793,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 75576.50917885767
+     }
+    },
+    "BP-GNN (5x10 BP it) [fixed, CUDA graph]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 7.523155566620214,
+       "median_ms": 7.383020499219128,
+       "p95_ms": 8.146616999511025,
+       "reps": 30,
+       "throughput_cw_s": 135.44591947235767,
+       "info_mbps": 0.14303089096280971
+      },
+      "64": {
+       "mean_ms": 136.88650183345695,
+       "median_ms": 136.97792499988282,
+       "p95_ms": 137.71811399965372,
+       "reps": 30,
+       "throughput_cw_s": 467.22856985937517,
+       "info_mbps": 0.49339336977150017
+      },
+      "1024": {
+       "mean_ms": 2251.7600142007723,
+       "median_ms": 2251.105784000174,
+       "p95_ms": 2254.9154740008817,
+       "reps": 5,
+       "throughput_cw_s": 454.8875522768062,
+       "info_mbps": 0.4803612552043074
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 4,
+      "seconds": 8.96770406199903,
+      "energy_j": 589.0510000000941,
+      "avg_w": 65.68582057655303,
+      "peak_w": 72.001,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 143811.27929689796,
+      "energy_per_info_bit_nj": 136184.92357660792,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 73369.6123315538
+     }
+    },
+    "BP-GNN (5x10 BP it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 6.043172500115664,
+       "median_ms": 6.02586699915264,
+       "p95_ms": 6.414442999812309,
+       "reps": 30,
+       "throughput_cw_s": 165.95122330788587,
+       "info_mbps": 0.17524449181312748
+      },
+      "64": {
+       "mean_ms": 15.282529866514475,
+       "median_ms": 15.181089000179782,
+       "p95_ms": 16.15290100016864,
+       "reps": 30,
+       "throughput_cw_s": 4215.771345470808,
+       "info_mbps": 4.451854540817173
+      },
+      "1024": {
+       "mean_ms": 118.61411943336861,
+       "median_ms": 118.44816449956852,
+       "p95_ms": 120.26159899869526,
+       "reps": 30,
+       "throughput_cw_s": 8645.131854311936,
+       "info_mbps": 9.129259238153404
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 47,
+      "seconds": 5.0691422569998394,
+      "energy_j": 325.69000000006054,
+      "avg_w": 64.24952851743787,
+      "peak_w": 72.143,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 6767.16256649062,
+      "energy_per_info_bit_nj": 6408.297884934299,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 3378.370127948471
+     }
+    },
+    "BP-GNN (5x10 BP it) + OSD-0 [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 6.857860966677738,
+       "median_ms": 6.793706000280508,
+       "p95_ms": 7.200551999630989,
+       "reps": 30,
+       "throughput_cw_s": 147.19506554430095,
+       "info_mbps": 0.15543798921478177
+      },
+      "64": {
+       "mean_ms": 30.949316933341226,
+       "median_ms": 30.74525099964376,
+       "p95_ms": 32.23318200070935,
+       "reps": 30,
+       "throughput_cw_s": 2081.622296748905,
+       "info_mbps": 2.1981931453668433
+      },
+      "1024": {
+       "mean_ms": 105.60420093303644,
+       "median_ms": 105.75187050017121,
+       "p95_ms": 107.18293900026765,
+       "reps": 30,
+       "throughput_cw_s": 9683.043856877615,
+       "info_mbps": 10.225294312862761
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 41,
+      "seconds": 5.110540330000731,
+      "energy_j": 329.7509999999311,
+      "avg_w": 64.52370565675272,
+      "peak_w": 75.332,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 7854.206364327626,
+      "energy_per_info_bit_nj": 7437.695420764798,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 3937.7678629413745
+     }
+    },
+    "GNN (10 it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 15.81237870007802,
+       "median_ms": 15.667448499698367,
+       "p95_ms": 16.694773999915924,
+       "reps": 30,
+       "throughput_cw_s": 63.82660201622825,
+       "info_mbps": 0.06740089172913703
+      },
+      "64": {
+       "mean_ms": 135.5635153997961,
+       "median_ms": 135.58387550074258,
+       "p95_ms": 136.27262099907966,
+       "reps": 30,
+       "throughput_cw_s": 472.0325316239355,
+       "info_mbps": 0.4984663533948759
+      },
+      "1024": {
+       "mean_ms": 2231.692251599816,
+       "median_ms": 2231.396085999222,
+       "p95_ms": 2232.7848139993876,
+       "reps": 5,
+       "throughput_cw_s": 458.90552843801885,
+       "info_mbps": 0.4846042380305479
+      }
+     },
+     "cpu": {
+      "1": {
+       "mean_ms": 46.86195629992653,
+       "median_ms": 46.8071110008168,
+       "p95_ms": 48.657268000170006,
+       "reps": 20,
+       "throughput_cw_s": 21.36427518422467
+      },
+      "64": {
+       "mean_ms": 4862.299144000281,
+       "median_ms": 4866.264076001244,
+       "p95_ms": 4946.7831009988,
+       "reps": 5,
+       "throughput_cw_s": 13.151772900206176
+      }
+     },
+     "gpu_energy": {
+      "calls": 4,
+      "seconds": 8.932160595000823,
+      "energy_j": 583.3650000001071,
+      "avg_w": 65.31062600090357,
+      "peak_w": 74.744,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 142423.09570315114,
+      "energy_per_info_bit_nj": 134870.3557794992,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 72260.62406447828
+     }
+    },
+    "GNN (10 it) [fixed, CUDA graph]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 3.4170522333321665,
+       "median_ms": 3.4484275001887,
+       "p95_ms": 3.4953150006913347,
+       "reps": 30,
+       "throughput_cw_s": 289.98724779490925,
+       "info_mbps": 0.30622653367142416
+      },
+      "64": {
+       "mean_ms": 135.8012349335695,
+       "median_ms": 135.72725050107692,
+       "p95_ms": 136.7517950002366,
+       "reps": 30,
+       "throughput_cw_s": 471.53390173104697,
+       "info_mbps": 0.4979398002279856
+      },
+      "1024": {
+       "mean_ms": 2230.9520508002606,
+       "median_ms": 2231.5854330008733,
+       "p95_ms": 2231.7639009997947,
+       "reps": 5,
+       "throughput_cw_s": 458.8665909254478,
+       "info_mbps": 0.48456312001727286
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 4,
+      "seconds": 8.927019493999978,
+      "energy_j": 582.8410000000149,
+      "avg_w": 65.28954041063241,
+      "peak_w": 74.209,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 142295.16601562864,
+      "energy_per_info_bit_nj": 134749.21024207256,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 72173.07792686252
+     }
+    },
+    "GNN (10 it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 16.75268953331397,
+       "median_ms": 16.618131000541325,
+       "p95_ms": 18.072351000228082,
+       "reps": 30,
+       "throughput_cw_s": 60.17523871772497,
+       "info_mbps": 0.06354505208591757
+      },
+      "64": {
+       "mean_ms": 137.1322507999139,
+       "median_ms": 137.03866899959394,
+       "p95_ms": 138.0941970001004,
+       "reps": 30,
+       "throughput_cw_s": 467.02146530764713,
+       "info_mbps": 0.49317466736487536
+      },
+      "1024": {
+       "mean_ms": 2234.582697199585,
+       "median_ms": 2234.5836240001518,
+       "p95_ms": 2236.9213469992246,
+       "reps": 5,
+       "throughput_cw_s": 458.25091932201974,
+       "info_mbps": 0.4839129708040528
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 3,
+      "seconds": 6.696238516000449,
+      "energy_j": 437.26800000004005,
+      "avg_w": 65.30054133454209,
+      "peak_w": 74.894,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 142339.84375001304,
+      "energy_per_info_bit_nj": 134791.51870266386,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 72207.55567813292
+     }
+    },
+    "GNN (10 it) + OSD-0 [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 248.25680580977945,
+       "median_ms": 248.1959579999966,
+       "p95_ms": 251.04618600016693,
+       "reps": 21,
+       "throughput_cw_s": 4.029074478320125,
+       "info_mbps": 0.004254702649106053
+      },
+      "64": {
+       "mean_ms": 1031.3031458001205,
+       "median_ms": 1032.0405669990578,
+       "p95_ms": 1032.5827010001376,
+       "reps": 5,
+       "throughput_cw_s": 62.013066197676345,
+       "info_mbps": 0.06548579790474622
+      },
+      "1024": {
+       "mean_ms": 16117.01266319942,
+       "median_ms": 16117.534541999703,
+       "p95_ms": 16128.793853999014,
+       "reps": 5,
+       "throughput_cw_s": 63.53329023937381,
+       "info_mbps": 0.06709115449277875
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 1,
+      "seconds": 15.959164277999662,
+      "energy_j": 1058.826000000001,
+      "avg_w": 66.34595531168473,
+      "peak_w": 71.609,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 1034009.7656250009,
+      "energy_per_info_bit_nj": 979175.9144176145,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 532570.3214400101
+     }
+    },
+    "BP (10 it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 4.606033799973375,
+       "median_ms": 4.579784998895775,
+       "p95_ms": 4.926950001390651,
+       "reps": 30,
+       "throughput_cw_s": 218.35086150138238,
+       "info_mbps": 0.2305785097454598
+      },
+      "64": {
+       "mean_ms": 4.632872666600936,
+       "median_ms": 4.622482500053593,
+       "p95_ms": 4.97513000118488,
+       "reps": 30,
+       "throughput_cw_s": 13845.37421164017,
+       "info_mbps": 14.620715167492019
+      },
+      "1024": {
+       "mean_ms": 59.27030879999317,
+       "median_ms": 59.304790000169305,
+       "p95_ms": 59.428791000755155,
+       "reps": 30,
+       "throughput_cw_s": 17266.733429071694,
+       "info_mbps": 18.23367050109971
+      }
+     },
+     "cpu": {
+      "1": {
+       "mean_ms": 5.174446049750259,
+       "median_ms": 5.126899998685985,
+       "p95_ms": 5.553438999413629,
+       "reps": 20,
+       "throughput_cw_s": 195.0496401834048
+      },
+      "64": {
+       "mean_ms": 76.35646470034771,
+       "median_ms": 76.06582700009312,
+       "p95_ms": 81.40244600144797,
+       "reps": 20,
+       "throughput_cw_s": 841.3765093216123
+      }
+     },
+     "gpu_energy": {
+      "calls": 88,
+      "seconds": 5.208256390000315,
+      "energy_j": 348.3489999999292,
+      "avg_w": 66.8839960852826,
+      "peak_w": 67.969,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 3865.7337535503507,
+      "energy_per_info_bit_nj": 3660.732721165105,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 2006.1402025848686
+     }
+    },
+    "BP (10 it) [fixed, CUDA graph]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 0.9435332000672739,
+       "median_ms": 0.9410325001226738,
+       "p95_ms": 0.9618469994165935,
+       "reps": 30,
+       "throughput_cw_s": 1062.6625540240525,
+       "info_mbps": 1.1221716570493994
+      },
+      "64": {
+       "mean_ms": 3.149624233446957,
+       "median_ms": 3.2252974997390993,
+       "p95_ms": 3.2783570004539797,
+       "reps": 30,
+       "throughput_cw_s": 19843.130751559223,
+       "info_mbps": 20.95434607364654
+      },
+      "1024": {
+       "mean_ms": 59.17425399996622,
+       "median_ms": 59.188699499827635,
+       "p95_ms": 59.38580500151147,
+       "reps": 30,
+       "throughput_cw_s": 17300.599753893595,
+       "info_mbps": 18.269433340111636
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 88,
+      "seconds": 5.2019472920001135,
+      "energy_j": 342.05000000004657,
+      "avg_w": 65.75422256316838,
+      "peak_w": 73.621,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 3795.8318536936986,
+      "energy_per_info_bit_nj": 3594.537740240245,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 1938.490948733914
+     }
+    },
+    "BP (10 it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 5.608255033439491,
+       "median_ms": 5.5601519998162985,
+       "p95_ms": 6.170200000269688,
+       "reps": 30,
+       "throughput_cw_s": 179.85119831850622,
+       "info_mbps": 0.18992286542434256
+      },
+      "64": {
+       "mean_ms": 8.404563133323487,
+       "median_ms": 8.29072200031078,
+       "p95_ms": 8.801502999631339,
+       "reps": 30,
+       "throughput_cw_s": 7719.472441314634,
+       "info_mbps": 8.151762898028254
+      },
+      "1024": {
+       "mean_ms": 56.23705316641766,
+       "median_ms": 56.190436499491625,
+       "p95_ms": 56.95072199887363,
+       "reps": 30,
+       "throughput_cw_s": 18223.741686172245,
+       "info_mbps": 19.244271220597888
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 90,
+      "seconds": 5.044137751001472,
+      "energy_j": 337.36999999999534,
+      "avg_w": 66.88358182387333,
+      "peak_w": 68.95,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 3660.6987847221717,
+      "energy_per_info_bit_nj": 3466.5708188656927,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 1899.7254612551246
+     }
+    },
+    "BP (50 it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 22.811748033382173,
+       "median_ms": 22.697079500176187,
+       "p95_ms": 24.18600599958154,
+       "reps": 30,
+       "throughput_cw_s": 44.0585318473347,
+       "info_mbps": 0.046525809630785446
+      },
+      "64": {
+       "mean_ms": 22.757005000130448,
+       "median_ms": 22.547490999386355,
+       "p95_ms": 24.086247000013827,
+       "reps": 30,
+       "throughput_cw_s": 2838.453289625076,
+       "info_mbps": 2.9974066738440803
+      },
+      "1024": {
+       "mean_ms": 291.36340155552415,
+       "median_ms": 291.32587800086185,
+       "p95_ms": 291.86018300060823,
+       "reps": 18,
+       "throughput_cw_s": 3514.964091164502,
+       "info_mbps": 3.711802080269714
+      }
+     },
+     "cpu": {
+      "1": {
+       "mean_ms": 28.301388050294918,
+       "median_ms": 25.931963000402902,
+       "p95_ms": 49.2282699997304,
+       "reps": 20,
+       "throughput_cw_s": 38.562448974050405
+      },
+      "64": {
+       "mean_ms": 366.03371827252636,
+       "median_ms": 366.3070080001489,
+       "p95_ms": 370.8745599997201,
+       "reps": 11,
+       "throughput_cw_s": 174.7168320622847
+      }
+     },
+     "gpu_energy": {
+      "calls": 18,
+      "seconds": 5.243476966999879,
+      "energy_j": 351.7469999999739,
+      "avg_w": 67.08277774723027,
+      "peak_w": 69.931,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 19083.496093748585,
+      "energy_per_info_bit_nj": 18071.492513019493,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 9930.670063900938
+     }
+    },
+    "BP (50 it) [fixed, CUDA graph]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 3.5330749666779107,
+       "median_ms": 3.527639499225188,
+       "p95_ms": 3.5656099989864742,
+       "reps": 30,
+       "throughput_cw_s": 283.4756783451485,
+       "info_mbps": 0.2993503163324768
+      },
+      "64": {
+       "mean_ms": 13.85708090007635,
+       "median_ms": 13.822501499817008,
+       "p95_ms": 14.054015999136027,
+       "reps": 30,
+       "throughput_cw_s": 4630.131528714052,
+       "info_mbps": 4.88941889432204
+      },
+      "1024": {
+       "mean_ms": 290.9265222777119,
+       "median_ms": 290.91367549972347,
+       "p95_ms": 291.6423599999689,
+       "reps": 18,
+       "throughput_cw_s": 3519.944527327569,
+       "info_mbps": 3.7170614208579127
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 20,
+      "seconds": 5.822468578000553,
+      "energy_j": 385.5570000000298,
+      "avg_w": 66.2188202194525,
+      "peak_w": 69.496,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 18826.025390626455,
+      "energy_per_info_bit_nj": 17827.675559305357,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 9678.881603272952
+     }
+    },
+    "BP (50 it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 5.604452433302261,
+       "median_ms": 5.593892999968375,
+       "p95_ms": 6.258376999539905,
+       "reps": 30,
+       "throughput_cw_s": 178.766379694008,
+       "info_mbps": 0.18877729695687245
+      },
+      "64": {
+       "mean_ms": 12.132352366764584,
+       "median_ms": 12.038253000355326,
+       "p95_ms": 12.785528000677004,
+       "reps": 30,
+       "throughput_cw_s": 5316.386023629089,
+       "info_mbps": 5.614103640952318
+      },
+      "1024": {
+       "mean_ms": 66.42849316673771,
+       "median_ms": 66.27408649910649,
+       "p95_ms": 68.44880099924922,
+       "reps": 30,
+       "throughput_cw_s": 15450.98626163343,
+       "info_mbps": 16.316241492284902
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 73,
+      "seconds": 5.036104793998675,
+      "energy_j": 324.93799999996554,
+      "avg_w": 64.52169152381046,
+      "peak_w": 74.6,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 4346.880351026936,
+      "energy_per_info_bit_nj": 4116.363968775508,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 2179.2748394741766
+     }
+    },
+    "BP + perturb. (5x10 BP it) [fixed]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 27.016297200255696,
+       "median_ms": 26.905131499916024,
+       "p95_ms": 28.071914000975084,
+       "reps": 30,
+       "throughput_cw_s": 37.16763101503968,
+       "info_mbps": 0.0392490183518819
+      },
+      "64": {
+       "mean_ms": 27.250610566807154,
+       "median_ms": 27.179262000572635,
+       "p95_ms": 28.563129000758636,
+       "reps": 30,
+       "throughput_cw_s": 2354.7364898521378,
+       "info_mbps": 2.4866017332838575
+      },
+      "1024": {
+       "mean_ms": 330.9128834374633,
+       "median_ms": 330.9393039999122,
+       "p95_ms": 331.57614799893054,
+       "reps": 16,
+       "throughput_cw_s": 3094.2229817473467,
+       "info_mbps": 3.267499468725198
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 16,
+      "seconds": 5.296013467001103,
+      "energy_j": 348.95000000006985,
+      "avg_w": 65.88918290603682,
+      "peak_w": 68.011,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 21298.217773441764,
+      "energy_per_info_bit_nj": 20168.76683091076,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 10898.119423092405
+     }
+    },
+    "BP + perturb. (5x10 BP it) [early-stop]": {
+     "gpu": {
+      "1": {
+       "mean_ms": 5.356034233470079,
+       "median_ms": 5.341186999430647,
+       "p95_ms": 5.643668999255169,
+       "reps": 30,
+       "throughput_cw_s": 187.22430053592893,
+       "info_mbps": 0.19770886136594096
+      },
+      "64": {
+       "mean_ms": 40.03448836671547,
+       "median_ms": 39.87244599920814,
+       "p95_ms": 41.1694409995107,
+       "reps": 30,
+       "throughput_cw_s": 1605.1184821034312,
+       "info_mbps": 1.6950051171012235
+      },
+      "1024": {
+       "mean_ms": 94.03025313331455,
+       "median_ms": 93.06098500019289,
+       "p95_ms": 101.55249200033722,
+       "reps": 30,
+       "throughput_cw_s": 11003.537089123627,
+       "info_mbps": 11.61973516611455
+      }
+     },
+     "cpu": {},
+     "gpu_energy": {
+      "calls": 54,
+      "seconds": 5.058920302000843,
+      "energy_j": 331.0540000000037,
+      "avg_w": 65.43965515113359,
+      "peak_w": 74.404,
+      "method": "nvml_energy_counter",
+      "batch": 1024,
+      "energy_per_cw_uj": 5986.9429976852525,
+      "energy_per_info_bit_nj": 5669.453596292853,
+      "idle_w": 32.17424057431847,
+      "dynamic_energy_per_cw_uj": 3043.386160972309
+     }
+    }
+   },
+   "prof_ebno": 3.25
+  }
+ }
+}

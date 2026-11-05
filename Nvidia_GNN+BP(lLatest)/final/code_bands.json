@@ -1,0 +1,112 @@
+{
+ "5G_BG1_k1056_n1408": {
+  "train_ebno": [
+   3.0,
+   4.0
+  ],
+  "val_hard_ebno": [
+   3.5,
+   4.0
+  ],
+  "val_ebno": 3.5
+ },
+ "5G_BG1_k528_n704": {
+  "train_ebno": [
+   3.0,
+   4.75
+  ],
+  "val_hard_ebno": [
+   3.88,
+   4.75
+  ],
+  "val_ebno": 3.88
+ },
+ "5G_BG2_k128_n256": {
+  "train_ebno": [
+   2.0,
+   5.0
+  ],
+  "val_hard_ebno": [
+   3.5,
+   5.0
+  ],
+  "val_ebno": 3.5
+ },
+ "5G_BG2_k256_n512": {
+  "train_ebno": [
+   2.0,
+   4.0
+  ],
+  "val_hard_ebno": [
+   3.0,
+   4.0
+  ],
+  "val_ebno": 3.0
+ },
+ "5G_BG2_k64_n128": {
+  "train_ebno": [
+   2.0,
+   5.5
+  ],
+  "val_hard_ebno": [
+   3.75,
+   5.5
+  ],
+  "val_ebno": 3.75
+ },
+ "ccsds_128_64": {
+  "train_ebno": [
+   2.5,
+   6.0
+  ],
+  "val_hard_ebno": [
+   4.25,
+   6.0
+  ],
+  "val_ebno": 4.25
+ },
+ "mackay_204_102": {
+  "train_ebno": [
+   2.5,
+   5.0
+  ],
+  "val_hard_ebno": [
+   3.75,
+   5.0
+  ],
+  "val_ebno": 3.75
+ },
+ "mackay_408_204": {
+  "train_ebno": [
+   2.0,
+   4.5
+  ],
+  "val_hard_ebno": [
+   3.25,
+   4.5
+  ],
+  "val_ebno": 3.25
+ },
+ "mackay_96_48": {
+  "train_ebno": [
+   2.0,
+   6.5
+  ],
+  "val_hard_ebno": [
+   4.25,
+   6.5
+  ],
+  "val_ebno": 4.25
+ },
+ "wimax_576_288": {
+  "train_ebno": [
+   2.0,
+   4.0
+  ],
+  "val_hard_ebno": [
+   3.0,
+   4.0
+  ],
+  "val_ebno": 3.0
+ }
+}

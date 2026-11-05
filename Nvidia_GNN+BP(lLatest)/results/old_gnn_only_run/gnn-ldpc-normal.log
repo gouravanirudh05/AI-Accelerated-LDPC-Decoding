@@ -1,0 +1,379 @@
+[{"stream_name":"stdout","time":0.986097603,"data":"Thu Oct 29 17:37:04 2026       \n"}
+,{"stream_name":"stdout","time":0.986944913,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":0.986959297,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":0.986964427,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.986968014,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":0.986971922,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":0.986975321,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":0.986979626,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":1.087647378,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.087675881,"data":"| N/A   46C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.087681303,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.087686,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.087690555,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.087695186,"data":"| N/A   49C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.087699636,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.087704218,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.088588727,"data":"\n"}
+,{"stream_name":"stdout","time":1.088604533,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.08860997,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":1.088614388,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":1.088619064,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":1.0886546,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":1.091955725,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":1.091973458,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":12.363297952,"data":"device: cuda | torch 2.11.0+cu128 | Tesla T4\n"}
+,{"stream_name":"stdout","time":12.712726425,"data":"\n"}
+,{"stream_name":"stdout","time":12.712758504,"data":"##### mackay_96_48: {'name': 'mackay_96_48', 'n': 96, 'k': 48, 'rate': 0.5, 'H_shape': [48, 96], 'edges': 288, 'rank': 48}\n"}
+,{"stream_name":"stdout","time":12.764511638,"data":"\n"}
+,{"stream_name":"stdout","time":12.764540041,"data":"=== mackay_96_48: training GNN (11513 parameters) on ['mackay_96_48'] ===\n"}
+,{"stream_name":"stdout","time":139.425179362,"data":"  step   1000 |    2.0 min | loss 0.0705 (bce 0.0647, syn 0.0578) | val BER 1.42e-03 BLER 3.04e-02\n"}
+,{"stream_name":"stdout","time":261.063647774,"data":"  step   2000 |    4.0 min | loss 0.0652 (bce 0.0592, syn 0.0609) | val BER 1.12e-03 BLER 2.65e-02\n"}
+,{"stream_name":"stdout","time":383.039692623,"data":"  step   3000 |    6.1 min | loss 0.0521 (bce 0.0485, syn 0.0366) | val BER 7.55e-04 BLER 1.45e-02\n"}
+,{"stream_name":"stdout","time":505.377073304,"data":"  step   4000 |    8.1 min | loss 0.0788 (bce 0.0730, syn 0.0578) | val BER 1.40e-03 BLER 2.86e-02\n"}
+,{"stream_name":"stdout","time":627.608166852,"data":"  step   5000 |   10.1 min | loss 0.0681 (bce 0.0627, syn 0.0539) | val BER 7.32e-04 BLER 1.53e-02\n"}
+,{"stream_name":"stdout","time":749.793116726,"data":"  step   6000 |   12.2 min | loss 0.0600 (bce 0.0562, syn 0.0386) | val BER 6.82e-04 BLER 1.12e-02\n"}
+,{"stream_name":"stdout","time":871.995057436,"data":"  step   7000 |   14.2 min | loss 0.0555 (bce 0.0520, syn 0.0348) | val BER 7.78e-04 BLER 1.23e-02\n"}
+,{"stream_name":"stdout","time":994.134923285,"data":"  step   8000 |   16.2 min | loss 0.0674 (bce 0.0629, syn 0.0447) | val BER 6.10e-04 BLER 1.14e-02\n"}
+,{"stream_name":"stdout","time":1116.234553097,"data":"  step   9000 |   18.3 min | loss 0.0705 (bce 0.0656, syn 0.0492) | val BER 5.09e-04 BLER 9.16e-03\n"}
+,{"stream_name":"stdout","time":1238.351113199,"data":"  step  10000 |   20.3 min | loss 0.0493 (bce 0.0462, syn 0.0313) | val BER 5.54e-04 BLER 9.40e-03\n"}
+,{"stream_name":"stdout","time":1339.662858329,"data":"  step  10829 |   22.0 min | loss 0.0519 (bce 0.0489, syn 0.0301) | val BER 5.54e-04 BLER 9.64e-03\n"}
+,{"stream_name":"stdout","time":1342.720774497,"data":"GPU: Tesla T4 | NVML: True | energy counter: True | idle 39.1 W\n"}
+,{"stream_name":"stdout","time":1342.720813562,"data":"\n"}
+,{"stream_name":"stdout","time":1342.720818763,"data":"--- mackay_96_48: evaluating on mackay_96_48 {'name': 'mackay_96_48', 'n': 96, 'k': 48, 'rate': 0.5, 'H_shape': [48, 96], 'edges': 288, 'rank': 48} ---\n"}
+,{"stream_name":"stdout","time":1371.163620816,"data":"  GNN (10 it)              1.0dB:6.9e-01 1.5dB:5.0e-01 2.0dB:3.3e-01 2.5dB:1.7e-01 3.0dB:8.9e-02 3.5dB:3.1e-02 4.0dB:9.2e-03 4.5dB:2.5e-03 5.0dB:5.5e-04 5.5dB:9.6e-05 6.0dB:2.3e-05 6.5dB:3.3e-06\n"}
+,{"stream_name":"stdout","time":1395.664405107,"data":"  GNN (10 it) + OSD-0      1.0dB:3.9e-01 1.5dB:2.1e-01 2.0dB:1.2e-01 2.5dB:5.0e-02 3.0dB:1.6e-02 3.5dB:4.3e-03 4.0dB:1.0e-03 4.5dB:2.2e-04 5.0dB:2.0e-05 5.5dB:2.0e-05 6.0dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":1399.625208692,"data":"  BP (10 it)               1.0dB:6.5e-01 1.5dB:4.5e-01 2.0dB:2.9e-01 2.5dB:1.5e-01 3.0dB:7.9e-02 3.5dB:2.9e-02 4.0dB:1.0e-02 4.5dB:2.8e-03 5.0dB:7.9e-04 5.5dB:1.3e-04 6.0dB:3.0e-05 6.5dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":1411.048228576,"data":"  BP (50 it)               1.0dB:5.8e-01 1.5dB:3.7e-01 2.0dB:2.1e-01 2.5dB:1.0e-01 3.0dB:4.0e-02 3.5dB:1.3e-02 4.0dB:3.4e-03 4.5dB:8.4e-04 5.0dB:1.4e-04 5.5dB:3.0e-05 6.0dB:3.3e-06 6.5dB:3.3e-06\n"}
+,{"stream_name":"stdout","time":1424.091860565,"data":"  BP (50 it) + OSD-0       1.0dB:3.7e-01 1.5dB:2.1e-01 2.0dB:1.2e-01 2.5dB:5.2e-02 3.0dB:2.1e-02 3.5dB:6.8e-03 4.0dB:1.6e-03 4.5dB:4.5e-04 5.0dB:8.0e-05 5.5dB:2.0e-05 6.0dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":1439.109980662,"data":"  profiling at Eb/N0 = 4.0 dB (idle GPU 31.5 W)\n"}
+,{"stream_name":"stdout","time":1457.101071788,"data":"    GNN (10 it, fixed)           | B=1  15.923 ms | B=4096       8705 cw/s |   67.0 W |  7705.54 uJ/cw\n"}
+,{"stream_name":"stdout","time":1477.357810185,"data":"    GNN (10 it, fixed, CUDA graph) | B=1   1.496 ms | B=4096       8335 cw/s |   66.4 W |  7798.16 uJ/cw\n"}
+,{"stream_name":"stdout","time":1489.383890687,"data":"    GNN (10 it, early-stop)      | B=1   4.554 ms | B=4096      31642 cw/s |   64.9 W |  2613.59 uJ/cw\n"}
+,{"stream_name":"stdout","time":1504.675449898,"data":"    GNN (10 it) + OSD-0          | B=1   4.840 ms | B=4096      23088 cw/s |   56.3 W |  5185.35 uJ/cw\n"}
+,{"stream_name":"stdout","time":1510.64430351,"data":"    BP (10 it, fixed)            | B=1   5.208 ms | B=4096     359973 cw/s |   53.2 W |   270.07 uJ/cw\n"}
+,{"stream_name":"stdout","time":1516.346982076,"data":"    BP (10 it, fixed, CUDA graph) | B=1   0.801 ms | B=4096     364212 cw/s |   67.4 W |   131.87 uJ/cw\n"}
+,{"stream_name":"stdout","time":1522.487719902,"data":"    BP (10 it, early-stop)       | B=1   1.048 ms | B=4096     372514 cw/s |   36.2 W |   378.71 uJ/cw\n"}
+,{"stream_name":"stdout","time":1532.164847854,"data":"    BP (50 it, fixed)            | B=1  25.484 ms | B=4096      73418 cw/s |   52.3 W |  1321.53 uJ/cw\n"}
+,{"stream_name":"stdout","time":1540.384888449,"data":"    BP (50 it, fixed, CUDA graph) | B=1   3.984 ms | B=4096      73552 cw/s |   67.2 W |   648.00 uJ/cw\n"}
+,{"stream_name":"stdout","time":1549.787411191,"data":"    BP (50 it, early-stop)       | B=1   1.090 ms | B=4096      89549 cw/s |   33.4 W |  1330.83 uJ/cw\n"}
+,{"stream_name":"stdout","time":1554.779350053,"data":"    [cpu] GNN (10 it, fixed)     | B=1 13.17 ms | B=64 226.88 ms\n"}
+,{"stream_name":"stdout","time":1555.089003374,"data":"    [cpu] BP (10 it, fixed)      | B=1 3.22 ms | B=64 10.58 ms\n"}
+,{"stream_name":"stdout","time":1557.088898526,"data":"## mackay_96_48\n"}
+,{"stream_name":"stdout","time":1557.088933573,"data":"\n"}
+,{"stream_name":"stdout","time":1557.088940883,"data":"GPU: Tesla T4 | GNN parameters: 11513 | iterations: 10 | training: 22.12 min on mackay_96_48 | idle GPU power: 39.1 W\n"}
+,{"stream_name":"stdout","time":1557.08894637,"data":"\n"}
+,{"stream_name":"stdout","time":1557.088951516,"data":"### mackay_96_48  (n=96, k=48, R=0.5, edges=288)\n"}
+,{"stream_name":"stdout","time":1557.088964577,"data":"\n"}
+,{"stream_name":"stdout","time":1557.08896816,"data":"BLER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB | 5.5 dB | 6.0 dB | 6.5 dB\n"}
+,{"stream_name":"stdout","time":1557.088971926,"data":"---|---|---|---|---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":1557.088975452,"data":"GNN (10 it) | 6.87e-01 | 4.97e-01 | 3.33e-01 | 1.75e-01 | 8.94e-02 | 3.11e-02 | 9.16e-03 | 2.53e-03 | 5.47e-04 | 9.63e-05 | 2.33e-05 | 3.32e-06\n"}
+,{"stream_name":"stdout","time":1557.0889793,"data":"GNN (10 it) + OSD-0 | 3.93e-01 | 2.09e-01 | 1.23e-01 | 4.98e-02 | 1.56e-02 | 4.31e-03 | 1.03e-03 | 2.19e-04 | 1.99e-05 | 1.99e-05 | 0.00e+00 | -\n"}
+,{"stream_name":"stdout","time":1557.088983146,"data":"BP (10 it) | 6.50e-01 | 4.47e-01 | 2.88e-01 | 1.54e-01 | 7.86e-02 | 2.88e-02 | 1.03e-02 | 2.82e-03 | 7.88e-04 | 1.33e-04 | 2.99e-05 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":1557.088986762,"data":"BP (50 it) | 5.82e-01 | 3.69e-01 | 2.12e-01 | 1.01e-01 | 4.03e-02 | 1.25e-02 | 3.35e-03 | 8.45e-04 | 1.36e-04 | 2.99e-05 | 3.32e-06 | 3.32e-06\n"}
+,{"stream_name":"stdout","time":1557.088990357,"data":"BP (50 it) + OSD-0 | 3.70e-01 | 2.12e-01 | 1.16e-01 | 5.20e-02 | 2.06e-02 | 6.79e-03 | 1.57e-03 | 4.48e-04 | 7.97e-05 | 1.99e-05 | 0.00e+00 | -\n"}
+,{"stream_name":"stdout","time":1557.088993917,"data":"\n"}
+,{"stream_name":"stdout","time":1557.088997901,"data":"BER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB | 5.5 dB | 6.0 dB | 6.5 dB\n"}
+,{"stream_name":"stdout","time":1557.08902023,"data":"---|---|---|---|---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":1557.089041334,"data":"GNN (10 it) | 7.97e-02 | 4.96e-02 | 3.05e-02 | 1.43e-02 | 6.68e-03 | 2.24e-03 | 5.79e-04 | 1.39e-04 | 2.73e-05 | 5.33e-06 | 1.11e-06 | 2.77e-07\n"}
+,{"stream_name":"stdout","time":1557.089046566,"data":"GNN (10 it) + OSD-0 | 8.31e-02 | 4.22e-02 | 2.50e-02 | 9.58e-03 | 2.86e-03 | 7.71e-04 | 1.57e-04 | 3.11e-05 | 3.53e-06 | 1.45e-06 | 0.00e+00 | -\n"}
+,{"stream_name":"stdout","time":1557.089051003,"data":"BP (10 it) | 7.41e-02 | 4.56e-02 | 2.78e-02 | 1.33e-02 | 7.16e-03 | 2.25e-03 | 7.39e-04 | 1.92e-04 | 4.78e-05 | 7.06e-06 | 1.38e-06 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":1557.089055319,"data":"BP (50 it) | 7.13e-02 | 4.11e-02 | 2.41e-02 | 1.05e-02 | 3.94e-03 | 1.24e-03 | 3.11e-04 | 7.11e-05 | 1.09e-05 | 1.59e-06 | 1.38e-07 | 2.08e-07\n"}
+,{"stream_name":"stdout","time":1557.089059717,"data":"BP (50 it) + OSD-0 | 8.14e-02 | 4.39e-02 | 2.39e-02 | 1.03e-02 | 4.10e-03 | 1.34e-03 | 2.95e-04 | 8.53e-05 | 1.52e-05 | 2.70e-06 | 0.00e+00 | -\n"}
+,{"stream_name":"stdout","time":1557.089063885,"data":"\n"}
+,{"stream_name":"stdout","time":1557.089075194,"data":"Inference profile at Eb/N0 = 4.0 dB (GNN MACs / codeword / iteration: 1,306,368; idle GPU power 31.5 W)\n"}
+,{"stream_name":"stdout","time":1557.089078646,"data":"\n"}
+,{"stream_name":"stdout","time":1557.089081262,"data":"decoder | GPU lat. B=1 [ms] | GPU lat. large B [ms] | GPU throughput [cw/s] | avg GPU power [W] | energy/cw [uJ] | dyn. energy/cw [uJ] | CPU lat. B=1 [ms]\n"}
+,{"stream_name":"stdout","time":1557.089084129,"data":"---|---|---|---|---|---|---|---\n"}
+,{"stream_name":"stdout","time":1557.089086834,"data":"GNN (10 it, fixed) | 15.923 | 470.56 (B=4096) | 8705 | 67.0 | 7705.54 | 4079.94 | 13.17\n"}
+,{"stream_name":"stdout","time":1557.089089568,"data":"GNN (10 it, fixed, CUDA graph) | 1.496 | 491.43 (B=4096) | 8335 | 66.4 | 7798.16 | 4092.92 | -\n"}
+,{"stream_name":"stdout","time":1557.089092407,"data":"GNN (10 it, early-stop) | 4.554 | 129.45 (B=4096) | 31642 | 64.9 | 2613.59 | 1344.50 | -\n"}
+,{"stream_name":"stdout","time":1557.089095118,"data":"GNN (10 it) + OSD-0 | 4.840 | 177.40 (B=4096) | 23088 | 56.3 | 5185.35 | 2283.16 | -\n"}
+,{"stream_name":"stdout","time":1557.089097848,"data":"BP (10 it, fixed) | 5.208 | 11.38 (B=4096) | 359973 | 53.2 | 270.07 | 109.83 | 3.22\n"}
+,{"stream_name":"stdout","time":1557.089100563,"data":"BP (10 it, fixed, CUDA graph) | 0.801 | 11.25 (B=4096) | 364212 | 67.4 | 131.87 | 70.14 | -\n"}
+,{"stream_name":"stdout","time":1557.089104426,"data":"BP (10 it, early-stop) | 1.048 | 11.00 (B=4096) | 372514 | 36.2 | 378.71 | 49.10 | -\n"}
+,{"stream_name":"stdout","time":1557.08912286,"data":"BP (50 it, fixed) | 25.484 | 55.79 (B=4096) | 73418 | 52.3 | 1321.53 | 524.51 | -\n"}
+,{"stream_name":"stdout","time":1557.089150105,"data":"BP (50 it, fixed, CUDA graph) | 3.984 | 55.69 (B=4096) | 73552 | 67.2 | 648.00 | 343.98 | -\n"}
+,{"stream_name":"stdout","time":1557.089155672,"data":"BP (50 it, early-stop) | 1.090 | 45.74 (B=4096) | 89549 | 33.4 | 1330.83 | 74.95 | -\n"}
+,{"stream_name":"stdout","time":1557.089159749,"data":"\n"}
+,{"stream_name":"stdout","time":1557.092106376,"data":"\n"}
+,{"stream_name":"stdout","time":1557.092140368,"data":"##### ccsds_128_64: {'name': 'ccsds_128_64', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [64, 128], 'edges': 512, 'rank': 64}\n"}
+,{"stream_name":"stdout","time":1557.097248642,"data":"\n"}
+,{"stream_name":"stdout","time":1557.097272662,"data":"=== ccsds_128_64: training GNN (11577 parameters) on ['ccsds_128_64'] ===\n"}
+,{"stream_name":"stdout","time":1750.825216624,"data":"  step   1000 |    3.2 min | loss 0.1071 (bce 0.0950, syn 0.1207) | val BER 2.42e-03 BLER 4.97e-02\n"}
+,{"stream_name":"stdout","time":1943.706537088,"data":"  step   2000 |    6.4 min | loss 0.0824 (bce 0.0735, syn 0.0892) | val BER 1.49e-03 BLER 2.83e-02\n"}
+,{"stream_name":"stdout","time":2136.778949251,"data":"  step   3000 |    9.6 min | loss 0.0761 (bce 0.0691, syn 0.0703) | val BER 1.39e-03 BLER 2.53e-02\n"}
+,{"stream_name":"stdout","time":2329.922766398,"data":"  step   4000 |   12.9 min | loss 0.0848 (bce 0.0761, syn 0.0867) | val BER 1.32e-03 BLER 2.21e-02\n"}
+,{"stream_name":"stdout","time":2523.347607732,"data":"  step   5000 |   16.1 min | loss 0.0939 (bce 0.0852, syn 0.0872) | val BER 1.60e-03 BLER 3.21e-02\n"}
+,{"stream_name":"stdout","time":2716.133287862,"data":"  step   6000 |   19.3 min | loss 0.0868 (bce 0.0792, syn 0.0758) | val BER 1.48e-03 BLER 2.75e-02\n"}
+,{"stream_name":"stdout","time":2878.060892027,"data":"  step   6841 |   22.0 min | loss 0.0838 (bce 0.0754, syn 0.0841) | val BER 1.39e-03 BLER 2.32e-02\n"}
+,{"stream_name":"stdout","time":2881.104436964,"data":"GPU: Tesla T4 | NVML: True | energy counter: True | idle 39.6 W\n"}
+,{"stream_name":"stdout","time":2881.104477156,"data":"\n"}
+,{"stream_name":"stdout","time":2881.104484773,"data":"--- ccsds_128_64: evaluating on ccsds_128_64 {'name': 'ccsds_128_64', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [64, 128], 'edges': 512, 'rank': 64} ---\n"}
+,{"stream_name":"stdout","time":2915.447230066,"data":"  GNN (10 it)              1.0dB:9.1e-01 1.5dB:7.6e-01 2.0dB:5.7e-01 2.5dB:3.5e-01 3.0dB:1.7e-01 3.5dB:7.4e-02 4.0dB:2.2e-02 4.5dB:6.1e-03 5.0dB:1.2e-03 5.5dB:3.7e-04 6.0dB:1.9e-04\n"}
+,{"stream_name":"stdout","time":2948.668026232,"data":"  GNN (10 it) + OSD-0      1.0dB:5.7e-01 1.5dB:3.9e-01 2.0dB:2.2e-01 2.5dB:1.1e-01 3.0dB:4.0e-02 3.5dB:1.0e-02 4.0dB:2.0e-03 4.5dB:3.2e-04 5.0dB:2.0e-05 5.5dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":2952.371809466,"data":"  BP (10 it)               1.0dB:8.4e-01 1.5dB:6.5e-01 2.0dB:4.2e-01 2.5dB:2.4e-01 3.0dB:1.0e-01 3.5dB:3.9e-02 4.0dB:1.2e-02 4.5dB:2.7e-03 5.0dB:3.5e-04 5.5dB:3.0e-05 6.0dB:1.0e-05\n"}
+,{"stream_name":"stdout","time":2963.618046491,"data":"  BP (50 it)               1.0dB:7.8e-01 1.5dB:5.6e-01 2.0dB:3.4e-01 2.5dB:1.7e-01 3.0dB:6.1e-02 3.5dB:1.8e-02 4.0dB:3.5e-03 4.5dB:4.3e-04 5.0dB:3.7e-05 5.5dB:1.3e-05 6.0dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":2975.308929751,"data":"  BP (50 it) + OSD-0       1.0dB:5.5e-01 1.5dB:3.5e-01 2.0dB:2.0e-01 2.5dB:9.5e-02 3.0dB:3.2e-02 3.5dB:1.0e-02 4.0dB:1.9e-03 4.5dB:1.6e-04 5.0dB:2.0e-05 5.5dB:1.0e-05 6.0dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":2990.341595736,"data":"  profiling at Eb/N0 = 4.0 dB (idle GPU 31.8 W)\n"}
+,{"stream_name":"stdout","time":3012.374871601,"data":"    GNN (10 it, fixed)           | B=1  15.910 ms | B=4096       5274 cw/s |   65.0 W | 12252.76 uJ/cw\n"}
+,{"stream_name":"stdout","time":3037.913190424,"data":"    GNN (10 it, fixed, CUDA graph) | B=1   1.504 ms | B=4096       5213 cw/s |   65.9 W | 12127.48 uJ/cw\n"}
+,{"stream_name":"stdout","time":3053.168146418,"data":"    GNN (10 it, early-stop)      | B=1   6.186 ms | B=4096      14808 cw/s |   66.2 W |  4676.87 uJ/cw\n"}
+,{"stream_name":"stdout","time":3072.075457681,"data":"    GNN (10 it) + OSD-0          | B=1   6.412 ms | B=4096      12550 cw/s |   61.5 W |  7299.71 uJ/cw\n"}
+,{"stream_name":"stdout","time":3078.324003062,"data":"    BP (10 it, fixed)            | B=1   5.049 ms | B=4096     208130 cw/s |   68.3 W |   344.59 uJ/cw\n"}
+,{"stream_name":"stdout","time":3084.445418786,"data":"    BP (10 it, fixed, CUDA graph) | B=1   0.863 ms | B=4096     208919 cw/s |   66.8 W |   240.39 uJ/cw\n"}
+,{"stream_name":"stdout","time":3090.722526333,"data":"    BP (10 it, early-stop)       | B=1   3.225 ms | B=4096     314267 cw/s |   41.8 W |   428.60 uJ/cw\n"}
+,{"stream_name":"stdout","time":3101.848979483,"data":"    BP (50 it, fixed)            | B=1  24.921 ms | B=4096      41968 cw/s |   68.0 W |  1679.70 uJ/cw\n"}
+,{"stream_name":"stdout","time":3111.944021607,"data":"    BP (50 it, fixed, CUDA graph) | B=1   3.214 ms | B=4096      42085 cw/s |   66.7 W |  1183.08 uJ/cw\n"}
+,{"stream_name":"stdout","time":3120.620544323,"data":"    BP (50 it, early-stop)       | B=1   1.780 ms | B=4096      83655 cw/s |   33.9 W |  1386.30 uJ/cw\n"}
+,{"stream_name":"stdout","time":3125.992041148,"data":"    [cpu] GNN (10 it, fixed)     | B=1 15.71 ms | B=64 382.54 ms\n"}
+,{"stream_name":"stdout","time":3126.396499222,"data":"    [cpu] BP (10 it, fixed)      | B=1 3.21 ms | B=64 15.16 ms\n"}
+,{"stream_name":"stdout","time":3128.015746395,"data":"## ccsds_128_64\n"}
+,{"stream_name":"stdout","time":3128.015799415,"data":"\n"}
+,{"stream_name":"stdout","time":3128.015805675,"data":"GPU: Tesla T4 | GNN parameters: 11577 | iterations: 10 | training: 22.02 min on ccsds_128_64 | idle GPU power: 39.6 W\n"}
+,{"stream_name":"stdout","time":3128.015810674,"data":"\n"}
+,{"stream_name":"stdout","time":3128.015815115,"data":"### ccsds_128_64  (n=128, k=64, R=0.5, edges=512)\n"}
+,{"stream_name":"stdout","time":3128.015819765,"data":"\n"}
+,{"stream_name":"stdout","time":3128.015824158,"data":"BLER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB | 5.5 dB | 6.0 dB\n"}
+,{"stream_name":"stdout","time":3128.015835313,"data":"---|---|---|---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":3128.015839943,"data":"GNN (10 it) | 9.10e-01 | 7.61e-01 | 5.66e-01 | 3.52e-01 | 1.70e-01 | 7.37e-02 | 2.17e-02 | 6.10e-03 | 1.25e-03 | 3.65e-04 | 1.93e-04\n"}
+,{"stream_name":"stdout","time":3128.015845066,"data":"GNN (10 it) + OSD-0 | 5.70e-01 | 3.92e-01 | 2.16e-01 | 1.12e-01 | 3.96e-02 | 1.01e-02 | 1.98e-03 | 3.19e-04 | 1.99e-05 | 0.00e+00 | -\n"}
+,{"stream_name":"stdout","time":3128.015855716,"data":"BP (10 it) | 8.41e-01 | 6.51e-01 | 4.22e-01 | 2.40e-01 | 1.02e-01 | 3.86e-02 | 1.16e-02 | 2.70e-03 | 3.45e-04 | 2.99e-05 | 9.96e-06\n"}
+,{"stream_name":"stdout","time":3128.015861607,"data":"BP (50 it) | 7.78e-01 | 5.64e-01 | 3.43e-01 | 1.72e-01 | 6.13e-02 | 1.77e-02 | 3.53e-03 | 4.25e-04 | 3.65e-05 | 1.33e-05 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":3128.015865238,"data":"BP (50 it) + OSD-0 | 5.45e-01 | 3.50e-01 | 1.96e-01 | 9.52e-02 | 3.16e-02 | 1.03e-02 | 1.93e-03 | 1.59e-04 | 1.99e-05 | 9.96e-06 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":3128.015868628,"data":"\n"}
+,{"stream_name":"stdout","time":3128.015871568,"data":"BER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB | 5.5 dB | 6.0 dB\n"}
+,{"stream_name":"stdout","time":3128.015874747,"data":"---|---|---|---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":3128.015877958,"data":"GNN (10 it) | 1.13e-01 | 8.27e-02 | 5.40e-02 | 2.98e-02 | 1.27e-02 | 5.23e-03 | 1.22e-03 | 3.08e-04 | 4.25e-05 | 8.56e-06 | 2.44e-06\n"}
+,{"stream_name":"stdout","time":3128.015881154,"data":"GNN (10 it) + OSD-0 | 1.45e-01 | 9.82e-02 | 5.46e-02 | 2.78e-02 | 9.90e-03 | 2.53e-03 | 4.73e-04 | 8.07e-05 | 4.52e-06 | 0.00e+00 | -\n"}
+,{"stream_name":"stdout","time":3128.015884315,"data":"BP (10 it) | 1.04e-01 | 7.20e-02 | 4.38e-02 | 2.32e-02 | 9.50e-03 | 3.31e-03 | 9.43e-04 | 2.05e-04 | 2.60e-05 | 1.97e-06 | 3.63e-07\n"}
+,{"stream_name":"stdout","time":3128.015887506,"data":"BP (50 it) | 1.00e-01 | 6.67e-02 | 3.92e-02 | 1.85e-02 | 6.62e-03 | 1.95e-03 | 3.85e-04 | 4.35e-05 | 3.48e-06 | 1.04e-06 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":3128.015890855,"data":"BP (50 it) + OSD-0 | 1.38e-01 | 8.81e-02 | 4.88e-02 | 2.41e-02 | 7.91e-03 | 2.61e-03 | 4.99e-04 | 4.03e-05 | 4.98e-06 | 2.65e-06 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":3128.015894029,"data":"\n"}
+,{"stream_name":"stdout","time":3128.015897137,"data":"Inference profile at Eb/N0 = 4.0 dB (GNN MACs / codeword / iteration: 2,036,736; idle GPU power 31.8 W)\n"}
+,{"stream_name":"stdout","time":3128.01591301,"data":"\n"}
+,{"stream_name":"stdout","time":3128.015916603,"data":"decoder | GPU lat. B=1 [ms] | GPU lat. large B [ms] | GPU throughput [cw/s] | avg GPU power [W] | energy/cw [uJ] | dyn. energy/cw [uJ] | CPU lat. B=1 [ms]\n"}
+,{"stream_name":"stdout","time":3128.015919299,"data":"---|---|---|---|---|---|---|---\n"}
+,{"stream_name":"stdout","time":3128.015921778,"data":"GNN (10 it, fixed) | 15.910 | 776.68 (B=4096) | 5274 | 65.0 | 12252.76 | 6264.02 | 15.71\n"}
+,{"stream_name":"stdout","time":3128.015924292,"data":"GNN (10 it, fixed, CUDA graph) | 1.504 | 785.66 (B=4096) | 5213 | 65.9 | 12127.48 | 6276.62 | -\n"}
+,{"stream_name":"stdout","time":3128.015926821,"data":"GNN (10 it, early-stop) | 6.186 | 276.60 (B=4096) | 14808 | 66.2 | 4676.87 | 2431.56 | -\n"}
+,{"stream_name":"stdout","time":3128.015929378,"data":"GNN (10 it) + OSD-0 | 6.412 | 326.38 (B=4096) | 12550 | 61.5 | 7299.71 | 3529.47 | -\n"}
+,{"stream_name":"stdout","time":3128.015931837,"data":"BP (10 it, fixed) | 5.049 | 19.68 (B=4096) | 208130 | 68.3 | 344.59 | 184.32 | 3.21\n"}
+,{"stream_name":"stdout","time":3128.015934306,"data":"BP (10 it, fixed, CUDA graph) | 0.863 | 19.61 (B=4096) | 208919 | 66.8 | 240.39 | 126.00 | -\n"}
+,{"stream_name":"stdout","time":3128.015936841,"data":"BP (10 it, early-stop) | 3.225 | 13.03 (B=4096) | 314267 | 41.8 | 428.60 | 102.88 | -\n"}
+,{"stream_name":"stdout","time":3128.015939294,"data":"BP (50 it, fixed) | 24.921 | 97.60 (B=4096) | 41968 | 68.0 | 1679.70 | 894.79 | -\n"}
+,{"stream_name":"stdout","time":3128.015941755,"data":"BP (50 it, fixed, CUDA graph) | 3.214 | 97.33 (B=4096) | 42085 | 66.7 | 1183.08 | 619.34 | -\n"}
+,{"stream_name":"stdout","time":3128.015944285,"data":"BP (50 it, early-stop) | 1.780 | 48.96 (B=4096) | 83655 | 33.9 | 1386.30 | 88.20 | -\n"}
+,{"stream_name":"stdout","time":3128.015946799,"data":"\n"}
+,{"stream_name":"stdout","time":3128.020767983,"data":"\n"}
+,{"stream_name":"stdout","time":3128.020784797,"data":"##### mackay_204_102: {'name': 'mackay_204_102', 'n': 204, 'k': 102, 'rate': 0.5, 'H_shape': [102, 204], 'edges': 612, 'rank': 102}\n"}
+,{"stream_name":"stdout","time":3128.024673397,"data":"\n"}
+,{"stream_name":"stdout","time":3128.024692696,"data":"=== mackay_204_102: training GNN (11513 parameters) on ['mackay_204_102'] ===\n"}
+,{"stream_name":"stdout","time":3321.925214174,"data":"  step   1000 |    3.2 min | loss 0.0900 (bce 0.0825, syn 0.0744) | val BER 5.04e-03 BLER 1.87e-01\n"}
+,{"stream_name":"stdout","time":3515.360242436,"data":"  step   2000 |    6.4 min | loss 0.0683 (bce 0.0634, syn 0.0495) | val BER 3.60e-03 BLER 1.08e-01\n"}
+,{"stream_name":"stdout","time":3708.445062929,"data":"  step   3000 |    9.7 min | loss 0.0612 (bce 0.0569, syn 0.0429) | val BER 3.11e-03 BLER 8.79e-02\n"}
+,{"stream_name":"stdout","time":3901.888758302,"data":"  step   4000 |   12.9 min | loss 0.0660 (bce 0.0618, syn 0.0421) | val BER 2.76e-03 BLER 7.39e-02\n"}
+,{"stream_name":"stdout","time":4094.914166595,"data":"  step   5000 |   16.1 min | loss 0.0665 (bce 0.0625, syn 0.0400) | val BER 2.55e-03 BLER 6.82e-02\n"}
+,{"stream_name":"stdout","time":4287.87532935,"data":"  step   6000 |   19.3 min | loss 0.0626 (bce 0.0591, syn 0.0352) | val BER 2.28e-03 BLER 5.99e-02\n"}
+,{"stream_name":"stdout","time":4449.274698561,"data":"  step   6834 |   22.0 min | loss 0.0587 (bce 0.0551, syn 0.0359) | val BER 2.22e-03 BLER 5.83e-02\n"}
+,{"stream_name":"stdout","time":4452.315657944,"data":"GPU: Tesla T4 | NVML: True | energy counter: True | idle 39.6 W\n"}
+,{"stream_name":"stdout","time":4452.315715945,"data":"\n"}
+,{"stream_name":"stdout","time":4452.315742078,"data":"--- mackay_204_102: evaluating on mackay_204_102 {'name': 'mackay_204_102', 'n': 204, 'k': 102, 'rate': 0.5, 'H_shape': [102, 204], 'edges': 612, 'rank': 102} ---\n"}
+,{"stream_name":"stdout","time":4485.17985642,"data":"  GNN (10 it)              1.0dB:8.4e-01 1.5dB:6.4e-01 2.0dB:3.8e-01 2.5dB:1.8e-01 3.0dB:6.2e-02 3.5dB:1.7e-02 4.0dB:2.8e-03 4.5dB:5.6e-04 5.0dB:1.0e-04\n"}
+,{"stream_name":"stdout","time":4537.565766855,"data":"  GNN (10 it) + OSD-0      1.0dB:5.0e-01 1.5dB:2.7e-01 2.0dB:1.0e-01 2.5dB:3.1e-02 3.0dB:6.2e-03 3.5dB:8.3e-04 4.0dB:8.0e-05 4.5dB:1.0e-05 5.0dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":4540.022713369,"data":"  BP (10 it)               1.0dB:7.7e-01 1.5dB:5.3e-01 2.0dB:2.8e-01 2.5dB:1.3e-01 3.0dB:3.8e-02 3.5dB:1.3e-02 4.0dB:2.1e-03 4.5dB:3.2e-04 5.0dB:4.0e-05\n"}
+,{"stream_name":"stdout","time":4547.953157449,"data":"  BP (50 it)               1.0dB:6.3e-01 1.5dB:3.6e-01 2.0dB:1.5e-01 2.5dB:5.5e-02 3.0dB:1.2e-02 3.5dB:2.4e-03 4.0dB:3.6e-04 4.5dB:3.0e-05 5.0dB:1.5e-05\n"}
+,{"stream_name":"stdout","time":4565.235485237,"data":"  BP (50 it) + OSD-0       1.0dB:4.6e-01 1.5dB:2.3e-01 2.0dB:8.6e-02 2.5dB:2.8e-02 3.0dB:6.7e-03 3.5dB:1.2e-03 4.0dB:1.6e-04 4.5dB:2.0e-05 5.0dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":4580.263900038,"data":"  profiling at Eb/N0 = 3.0 dB (idle GPU 32.1 W)\n"}
+,{"stream_name":"stdout","time":4603.771957496,"data":"    GNN (10 it, fixed)           | B=1  16.333 ms | B=4096       3931 cw/s |   65.2 W | 16502.29 uJ/cw\n"}
+,{"stream_name":"stdout","time":4632.266950325,"data":"    GNN (10 it, fixed, CUDA graph) | B=1   1.559 ms | B=4096       4043 cw/s |   67.0 W | 16143.07 uJ/cw\n"}
+,{"stream_name":"stdout","time":4650.499753885,"data":"    GNN (10 it, early-stop)      | B=1   7.991 ms | B=4096       8422 cw/s |   67.3 W |  8214.36 uJ/cw\n"}
+,{"stream_name":"stdout","time":4676.211302931,"data":"    GNN (10 it) + OSD-0          | B=1 120.075 ms | B=4096       5859 cw/s |   58.9 W | 13343.71 uJ/cw\n"}
+,{"stream_name":"stdout","time":4682.642368736,"data":"    BP (10 it, fixed)            | B=1   5.345 ms | B=4096     168856 cw/s |   65.6 W |   340.24 uJ/cw\n"}
+,{"stream_name":"stdout","time":4688.94754935,"data":"    BP (10 it, fixed, CUDA graph) | B=1   0.884 ms | B=4096     168468 cw/s |   66.2 W |   304.78 uJ/cw\n"}
+,{"stream_name":"stdout","time":4695.384650731,"data":"    BP (10 it, early-stop)       | B=1   3.188 ms | B=4096     249588 cw/s |   48.4 W |   507.27 uJ/cw\n"}
+,{"stream_name":"stdout","time":4707.296825189,"data":"    BP (50 it, fixed)            | B=1  25.371 ms | B=4096      34313 cw/s |   67.0 W |  1668.21 uJ/cw\n"}
+,{"stream_name":"stdout","time":4718.410542925,"data":"    BP (50 it, fixed, CUDA graph) | B=1   3.307 ms | B=4096      34552 cw/s |   67.7 W |  1491.16 uJ/cw\n"}
+,{"stream_name":"stdout","time":4727.678900687,"data":"    BP (50 it, early-stop)       | B=1   1.804 ms | B=4096      72597 cw/s |   34.2 W |  1571.44 uJ/cw\n"}
+,{"stream_name":"stdout","time":4733.165482178,"data":"    [cpu] GNN (10 it, fixed)     | B=1 16.54 ms | B=64 460.42 ms\n"}
+,{"stream_name":"stdout","time":4733.541954448,"data":"    [cpu] BP (10 it, fixed)      | B=1 3.31 ms | B=64 13.50 ms\n"}
+,{"stream_name":"stdout","time":4735.533464202,"data":"## mackay_204_102\n"}
+,{"stream_name":"stdout","time":4735.533495398,"data":"\n"}
+,{"stream_name":"stdout","time":4735.533501947,"data":"GPU: Tesla T4 | GNN parameters: 11513 | iterations: 10 | training: 22.02 min on mackay_204_102 | idle GPU power: 39.6 W\n"}
+,{"stream_name":"stdout","time":4735.533508478,"data":"\n"}
+,{"stream_name":"stdout","time":4735.5335138,"data":"### mackay_204_102  (n=204, k=102, R=0.5, edges=612)\n"}
+,{"stream_name":"stdout","time":4735.53351967,"data":"\n"}
+,{"stream_name":"stdout","time":4735.533525206,"data":"BLER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB\n"}
+,{"stream_name":"stdout","time":4735.533545046,"data":"---|---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":4735.533549826,"data":"GNN (10 it) | 8.42e-01 | 6.44e-01 | 3.84e-01 | 1.80e-01 | 6.18e-02 | 1.72e-02 | 2.84e-03 | 5.58e-04 | 9.96e-05\n"}
+,{"stream_name":"stdout","time":4735.533554415,"data":"GNN (10 it) + OSD-0 | 5.02e-01 | 2.72e-01 | 1.02e-01 | 3.06e-02 | 6.16e-03 | 8.27e-04 | 7.97e-05 | 9.96e-06 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":4735.533559198,"data":"BP (10 it) | 7.67e-01 | 5.30e-01 | 2.82e-01 | 1.29e-01 | 3.81e-02 | 1.26e-02 | 2.10e-03 | 3.19e-04 | 3.99e-05\n"}
+,{"stream_name":"stdout","time":4735.533564101,"data":"BP (50 it) | 6.28e-01 | 3.61e-01 | 1.46e-01 | 5.52e-02 | 1.25e-02 | 2.41e-03 | 3.59e-04 | 2.99e-05 | 1.49e-05\n"}
+,{"stream_name":"stdout","time":4735.533569068,"data":"BP (50 it) + OSD-0 | 4.56e-01 | 2.34e-01 | 8.64e-02 | 2.85e-02 | 6.71e-03 | 1.16e-03 | 1.59e-04 | 1.99e-05 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":4735.533573864,"data":"\n"}
+,{"stream_name":"stdout","time":4735.533578119,"data":"BER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB | 5.0 dB\n"}
+,{"stream_name":"stdout","time":4735.533582899,"data":"---|---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":4735.533587398,"data":"GNN (10 it) | 7.52e-02 | 4.56e-02 | 2.18e-02 | 8.41e-03 | 2.26e-03 | 5.25e-04 | 7.77e-05 | 1.39e-05 | 1.66e-06\n"}
+,{"stream_name":"stdout","time":4735.533592209,"data":"GNN (10 it) + OSD-0 | 9.57e-02 | 4.96e-02 | 1.83e-02 | 5.29e-03 | 9.74e-04 | 1.36e-04 | 1.46e-05 | 1.56e-06 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":4735.533596984,"data":"BP (10 it) | 6.89e-02 | 4.02e-02 | 1.80e-02 | 7.23e-03 | 1.91e-03 | 5.62e-04 | 9.12e-05 | 1.33e-05 | 1.27e-06\n"}
+,{"stream_name":"stdout","time":4735.533601725,"data":"BP (50 it) | 6.40e-02 | 3.40e-02 | 1.25e-02 | 4.52e-03 | 9.14e-04 | 1.66e-04 | 1.75e-05 | 1.27e-06 | 4.40e-07\n"}
+,{"stream_name":"stdout","time":4735.533606617,"data":"BP (50 it) + OSD-0 | 8.78e-02 | 4.38e-02 | 1.54e-02 | 5.01e-03 | 1.15e-03 | 1.90e-04 | 2.42e-05 | 4.30e-06 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":4735.533612198,"data":"\n"}
+,{"stream_name":"stdout","time":4735.533616409,"data":"Inference profile at Eb/N0 = 3.0 dB (GNN MACs / codeword / iteration: 2,776,032; idle GPU power 32.1 W)\n"}
+,{"stream_name":"stdout","time":4735.533620945,"data":"\n"}
+,{"stream_name":"stdout","time":4735.533625082,"data":"decoder | GPU lat. B=1 [ms] | GPU lat. large B [ms] | GPU throughput [cw/s] | avg GPU power [W] | energy/cw [uJ] | dyn. energy/cw [uJ] | CPU lat. B=1 [ms]\n"}
+,{"stream_name":"stdout","time":4735.53362962,"data":"---|---|---|---|---|---|---|---\n"}
+,{"stream_name":"stdout","time":4735.533634286,"data":"GNN (10 it, fixed) | 16.333 | 1041.85 (B=4096) | 3931 | 65.2 | 16502.29 | 8390.85 | 16.54\n"}
+,{"stream_name":"stdout","time":4735.533640132,"data":"GNN (10 it, fixed, CUDA graph) | 1.559 | 1013.22 (B=4096) | 4043 | 67.0 | 16143.07 | 8417.43 | -\n"}
+,{"stream_name":"stdout","time":4735.533644751,"data":"GNN (10 it, early-stop) | 7.991 | 486.32 (B=4096) | 8422 | 67.3 | 8214.36 | 4298.87 | -\n"}
+,{"stream_name":"stdout","time":4735.533649305,"data":"GNN (10 it) + OSD-0 | 120.075 | 699.11 (B=4096) | 5859 | 58.9 | 13343.71 | 6078.57 | -\n"}
+,{"stream_name":"stdout","time":4735.533653849,"data":"BP (10 it, fixed) | 5.345 | 24.26 (B=4096) | 168856 | 65.6 | 340.24 | 173.95 | 3.31\n"}
+,{"stream_name":"stdout","time":4735.533658491,"data":"BP (10 it, fixed, CUDA graph) | 0.884 | 24.31 (B=4096) | 168468 | 66.2 | 304.78 | 157.10 | -\n"}
+,{"stream_name":"stdout","time":4735.533663211,"data":"BP (10 it, early-stop) | 3.188 | 16.41 (B=4096) | 249588 | 48.4 | 507.27 | 171.27 | -\n"}
+,{"stream_name":"stdout","time":4735.53367183,"data":"BP (50 it, fixed) | 25.371 | 119.37 (B=4096) | 34313 | 67.0 | 1668.21 | 870.04 | -\n"}
+,{"stream_name":"stdout","time":4735.53367659,"data":"BP (50 it, fixed, CUDA graph) | 3.307 | 118.54 (B=4096) | 34552 | 67.7 | 1491.16 | 784.84 | -\n"}
+,{"stream_name":"stdout","time":4735.533681186,"data":"BP (50 it, early-stop) | 1.804 | 56.42 (B=4096) | 72597 | 34.2 | 1571.44 | 98.35 | -\n"}
+,{"stream_name":"stdout","time":4735.533685939,"data":"\n"}
+,{"stream_name":"stdout","time":4735.548053934,"data":"\n"}
+,{"stream_name":"stdout","time":4735.548095646,"data":"##### mackay_408_204: {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204}\n"}
+,{"stream_name":"stdout","time":4735.552951557,"data":"\n"}
+,{"stream_name":"stdout","time":4735.552975847,"data":"=== mackay_408_204: training GNN (11513 parameters) on ['mackay_408_204'] ===\n"}
+,{"stream_name":"stdout","time":4995.580242497,"data":"  step   1000 |    4.3 min | loss 0.0943 (bce 0.0859, syn 0.0832) | val BER 5.98e-03 BLER 3.73e-01\n"}
+,{"stream_name":"stdout","time":5255.136329738,"data":"  step   2000 |    8.6 min | loss 0.0769 (bce 0.0695, syn 0.0738) | val BER 4.94e-03 BLER 2.90e-01\n"}
+,{"stream_name":"stdout","time":5513.985340891,"data":"  step   3000 |   12.9 min | loss 0.0669 (bce 0.0628, syn 0.0410) | val BER 3.20e-03 BLER 1.84e-01\n"}
+,{"stream_name":"stdout","time":5772.915896391,"data":"  step   4000 |   17.2 min | loss 0.0741 (bce 0.0691, syn 0.0491) | val BER 2.52e-03 BLER 1.43e-01\n"}
+,{"stream_name":"stdout","time":6031.678038951,"data":"  step   5000 |   21.6 min | loss 0.0745 (bce 0.0697, syn 0.0481) | val BER 2.35e-03 BLER 1.31e-01\n"}
+,{"stream_name":"stdout","time":6058.541087096,"data":"  step   5094 |   22.0 min | loss 0.0733 (bce 0.0685, syn 0.0485) | val BER 2.33e-03 BLER 1.24e-01\n"}
+,{"stream_name":"stdout","time":6061.58262426,"data":"GPU: Tesla T4 | NVML: True | energy counter: True | idle 39.9 W\n"}
+,{"stream_name":"stdout","time":6061.582810379,"data":"\n"}
+,{"stream_name":"stdout","time":6061.582842165,"data":"--- mackay_408_204: evaluating on mackay_408_204 {'name': 'mackay_408_204', 'n': 408, 'k': 204, 'rate': 0.5, 'H_shape': [204, 408], 'edges': 1224, 'rank': 204} ---\n"}
+,{"stream_name":"stdout","time":6105.425061802,"data":"  GNN (10 it)              1.0dB:9.6e-01 1.5dB:8.3e-01 2.0dB:5.3e-01 2.5dB:2.2e-01 3.0dB:6.3e-02 3.5dB:1.3e-02 4.0dB:2.4e-03 4.5dB:3.8e-04\n"}
+,{"stream_name":"stdout","time":6226.674618217,"data":"  GNN (10 it) + OSD-0      1.0dB:6.9e-01 1.5dB:3.6e-01 2.0dB:1.2e-01 2.5dB:2.2e-02 3.0dB:2.0e-03 3.5dB:8.0e-05 4.0dB:1.0e-05 4.5dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":6229.395357177,"data":"  BP (10 it)               1.0dB:8.9e-01 1.5dB:6.3e-01 2.0dB:3.1e-01 2.5dB:8.9e-02 3.0dB:1.9e-02 3.5dB:2.3e-03 4.0dB:2.1e-04 4.5dB:1.3e-05\n"}
+,{"stream_name":"stdout","time":6236.627778979,"data":"  BP (50 it)               1.0dB:6.7e-01 1.5dB:3.2e-01 2.0dB:1.0e-01 2.5dB:1.7e-02 3.0dB:1.9e-03 3.5dB:1.2e-04 4.0dB:6.6e-06 4.5dB:6.6e-06\n"}
+,{"stream_name":"stdout","time":6258.930649614,"data":"  BP (50 it) + OSD-0       1.0dB:5.7e-01 1.5dB:2.4e-01 2.0dB:7.3e-02 2.5dB:1.1e-02 3.0dB:1.1e-03 3.5dB:2.0e-05 4.0dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":6273.966568449,"data":"  profiling at Eb/N0 = 2.75 dB (idle GPU 31.6 W)\n"}
+,{"stream_name":"stdout","time":6311.180499488,"data":"    GNN (10 it, fixed)           | B=1  16.266 ms | B=4096       1907 cw/s |   65.4 W | 33316.49 uJ/cw\n"}
+,{"stream_name":"stdout","time":6356.364639133,"data":"    GNN (10 it, fixed, CUDA graph) | B=1   2.156 ms | B=4096       2021 cw/s |   66.7 W | 32398.60 uJ/cw\n"}
+,{"stream_name":"stdout","time":6383.189533568,"data":"    GNN (10 it, early-stop)      | B=1   9.997 ms | B=4096       3038 cw/s |   65.0 W | 21267.64 uJ/cw\n"}
+,{"stream_name":"stdout","time":6422.685796645,"data":"    GNN (10 it) + OSD-0          | B=1  15.369 ms | B=4096       2174 cw/s |   66.3 W | 36142.36 uJ/cw\n"}
+,{"stream_name":"stdout","time":6430.252857458,"data":"    BP (10 it, fixed)            | B=1   5.359 ms | B=4096      84245 cw/s |   65.9 W |   798.26 uJ/cw\n"}
+,{"stream_name":"stdout","time":6437.835769863,"data":"    BP (10 it, fixed, CUDA graph) | B=1   0.890 ms | B=4096      85168 cw/s |   65.6 W |   789.17 uJ/cw\n"}
+,{"stream_name":"stdout","time":6444.884831651,"data":"    BP (10 it, early-stop)       | B=1   3.193 ms | B=4096     130614 cw/s |   68.6 W |   831.24 uJ/cw\n"}
+,{"stream_name":"stdout","time":6460.30957151,"data":"    BP (50 it, fixed)            | B=1  24.822 ms | B=4096      17327 cw/s |   66.8 W |  3952.93 uJ/cw\n"}
+,{"stream_name":"stdout","time":6475.639905485,"data":"    BP (50 it, fixed, CUDA graph) | B=1   3.327 ms | B=4096      17338 cw/s |   67.0 W |  3948.50 uJ/cw\n"}
+,{"stream_name":"stdout","time":6486.267302099,"data":"    BP (50 it, early-stop)       | B=1   3.251 ms | B=4096      59577 cw/s |   44.5 W |  2046.34 uJ/cw\n"}
+,{"stream_name":"stdout","time":6492.584984352,"data":"    [cpu] GNN (10 it, fixed)     | B=1 20.75 ms | B=64 825.19 ms\n"}
+,{"stream_name":"stdout","time":6493.133025179,"data":"    [cpu] BP (10 it, fixed)      | B=1 3.67 ms | B=64 21.02 ms\n"}
+,{"stream_name":"stdout","time":6494.813642663,"data":"## mackay_408_204\n"}
+,{"stream_name":"stdout","time":6494.813694513,"data":"\n"}
+,{"stream_name":"stdout","time":6494.813701087,"data":"GPU: Tesla T4 | GNN parameters: 11513 | iterations: 10 | training: 22.05 min on mackay_408_204 | idle GPU power: 39.9 W\n"}
+,{"stream_name":"stdout","time":6494.813711285,"data":"\n"}
+,{"stream_name":"stdout","time":6494.813714756,"data":"### mackay_408_204  (n=408, k=204, R=0.5, edges=1224)\n"}
+,{"stream_name":"stdout","time":6494.813718154,"data":"\n"}
+,{"stream_name":"stdout","time":6494.813721371,"data":"BLER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB\n"}
+,{"stream_name":"stdout","time":6494.813725025,"data":"---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":6494.813728401,"data":"GNN (10 it) | 9.63e-01 | 8.26e-01 | 5.30e-01 | 2.21e-01 | 6.30e-02 | 1.29e-02 | 2.41e-03 | 3.83e-04\n"}
+,{"stream_name":"stdout","time":6494.813731956,"data":"GNN (10 it) + OSD-0 | 6.87e-01 | 3.61e-01 | 1.23e-01 | 2.25e-02 | 2.05e-03 | 7.97e-05 | 9.96e-06 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":6494.813735506,"data":"BP (10 it) | 8.87e-01 | 6.29e-01 | 3.10e-01 | 8.94e-02 | 1.86e-02 | 2.33e-03 | 2.11e-04 | 1.32e-05\n"}
+,{"stream_name":"stdout","time":6494.813738955,"data":"BP (50 it) | 6.67e-01 | 3.20e-01 | 1.01e-01 | 1.73e-02 | 1.88e-03 | 1.19e-04 | 6.60e-06 | 6.60e-06\n"}
+,{"stream_name":"stdout","time":6494.813742406,"data":"BP (50 it) + OSD-0 | 5.67e-01 | 2.42e-01 | 7.32e-02 | 1.06e-02 | 1.10e-03 | 1.99e-05 | 0.00e+00 | -\n"}
+,{"stream_name":"stdout","time":6494.813745844,"data":"\n"}
+,{"stream_name":"stdout","time":6494.813749031,"data":"BER | 1.0 dB | 1.5 dB | 2.0 dB | 2.5 dB | 3.0 dB | 3.5 dB | 4.0 dB | 4.5 dB\n"}
+,{"stream_name":"stdout","time":6494.813752354,"data":"---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":6494.813755676,"data":"GNN (10 it) | 7.74e-02 | 4.48e-02 | 1.94e-02 | 5.18e-03 | 9.29e-04 | 1.32e-04 | 1.71e-05 | 2.20e-06\n"}
+,{"stream_name":"stdout","time":6494.813759044,"data":"GNN (10 it) + OSD-0 | 1.17e-01 | 5.83e-02 | 1.87e-02 | 3.31e-03 | 2.92e-04 | 1.31e-05 | 1.12e-06 | 0.00e+00\n"}
+,{"stream_name":"stdout","time":6494.813762485,"data":"BP (10 it) | 6.90e-02 | 3.48e-02 | 1.25e-02 | 2.83e-03 | 4.30e-04 | 4.23e-05 | 4.30e-06 | 6.47e-08\n"}
+,{"stream_name":"stdout","time":6494.813775985,"data":"BP (50 it) | 6.15e-02 | 2.60e-02 | 7.42e-03 | 1.13e-03 | 9.89e-05 | 4.56e-06 | 1.94e-07 | 3.23e-08\n"}
+,{"stream_name":"stdout","time":6494.813778981,"data":"BP (50 it) + OSD-0 | 1.03e-01 | 4.12e-02 | 1.16e-02 | 1.65e-03 | 1.63e-04 | 2.54e-06 | 0.00e+00 | -\n"}
+,{"stream_name":"stdout","time":6494.813782046,"data":"\n"}
+,{"stream_name":"stdout","time":6494.813784501,"data":"Inference profile at Eb/N0 = 2.75 dB (GNN MACs / codeword / iteration: 5,552,064; idle GPU power 31.6 W)\n"}
+,{"stream_name":"stdout","time":6494.813787209,"data":"\n"}
+,{"stream_name":"stdout","time":6494.813789794,"data":"decoder | GPU lat. B=1 [ms] | GPU lat. large B [ms] | GPU throughput [cw/s] | avg GPU power [W] | energy/cw [uJ] | dyn. energy/cw [uJ] | CPU lat. B=1 [ms]\n"}
+,{"stream_name":"stdout","time":6494.813792613,"data":"---|---|---|---|---|---|---|---\n"}
+,{"stream_name":"stdout","time":6494.813795194,"data":"GNN (10 it, fixed) | 16.266 | 2148.22 (B=4096) | 1907 | 65.4 | 33316.49 | 17202.05 | 20.75\n"}
+,{"stream_name":"stdout","time":6494.813797883,"data":"GNN (10 it, fixed, CUDA graph) | 2.156 | 2026.34 (B=4096) | 2021 | 66.7 | 32398.60 | 17040.29 | -\n"}
+,{"stream_name":"stdout","time":6494.813802949,"data":"GNN (10 it, early-stop) | 9.997 | 1348.18 (B=4096) | 3038 | 65.0 | 21267.64 | 10923.54 | -\n"}
+,{"stream_name":"stdout","time":6494.813806957,"data":"GNN (10 it) + OSD-0 | 15.369 | 1884.07 (B=4096) | 2174 | 66.3 | 36142.36 | 18896.25 | -\n"}
+,{"stream_name":"stdout","time":6494.813809846,"data":"BP (10 it, fixed) | 5.359 | 48.62 (B=4096) | 84245 | 65.9 | 798.26 | 415.06 | 3.67\n"}
+,{"stream_name":"stdout","time":6494.813822912,"data":"BP (10 it, fixed, CUDA graph) | 0.890 | 48.09 (B=4096) | 85168 | 65.6 | 789.17 | 408.94 | -\n"}
+,{"stream_name":"stdout","time":6494.813826001,"data":"BP (10 it, early-stop) | 3.193 | 31.36 (B=4096) | 130614 | 68.6 | 831.24 | 447.86 | -\n"}
+,{"stream_name":"stdout","time":6494.813828786,"data":"BP (50 it, fixed) | 24.822 | 236.39 (B=4096) | 17327 | 66.8 | 3952.93 | 2082.27 | -\n"}
+,{"stream_name":"stdout","time":6494.813831466,"data":"BP (50 it, fixed, CUDA graph) | 3.327 | 236.24 (B=4096) | 17338 | 67.0 | 3948.50 | 2084.66 | -\n"}
+,{"stream_name":"stdout","time":6494.813834307,"data":"BP (50 it, early-stop) | 3.251 | 68.75 (B=4096) | 59577 | 44.5 | 2046.34 | 591.59 | -\n"}
+,{"stream_name":"stdout","time":6494.813836999,"data":"\n"}
+,{"stream_name":"stdout","time":6494.828756205,"data":"\n"}
+,{"stream_name":"stdout","time":6494.82878293,"data":"##### wimax_576_288: {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288}\n"}
+,{"stream_name":"stdout","time":6494.833267785,"data":"\n"}
+,{"stream_name":"stdout","time":6494.833292642,"data":"=== wimax_576_288: training GNN (11577 parameters) on ['wimax_576_288'] ===\n"}
+,{"stream_name":"stdout","time":6781.867418136,"data":"  step   1000 |    4.7 min | loss 0.1249 (bce 0.1136, syn 0.1127) | val BER 1.85e-02 BLER 8.25e-01\n"}
+,{"stream_name":"stdout","time":7067.934952356,"data":"  step   2000 |    9.5 min | loss 0.1063 (bce 0.0979, syn 0.0843) | val BER 1.18e-02 BLER 6.62e-01\n"}
+,{"stream_name":"stdout","time":7353.634777636,"data":"  step   3000 |   14.2 min | loss 0.0912 (bce 0.0853, syn 0.0592) | val BER 7.41e-03 BLER 4.82e-01\n"}
+,{"stream_name":"stdout","time":7639.878872609,"data":"  step   4000 |   19.0 min | loss 0.1079 (bce 0.0996, syn 0.0830) | val BER 1.25e-02 BLER 8.18e-01\n"}
+,{"stream_name":"stdout","time":7820.431908897,"data":"  step   4625 |   22.0 min | loss 0.0945 (bce 0.0886, syn 0.0588) | val BER 7.01e-03 BLER 4.74e-01\n"}
+,{"stream_name":"stdout","time":7823.472354027,"data":"GPU: Tesla T4 | NVML: True | energy counter: True | idle 40.0 W\n"}
+,{"stream_name":"stdout","time":7823.472417199,"data":"\n"}
+,{"stream_name":"stdout","time":7823.472423681,"data":"--- wimax_576_288: evaluating on wimax_576_288 {'name': 'wimax_576_288', 'n': 576, 'k': 288, 'rate': 0.5, 'H_shape': [288, 576], 'edges': 1824, 'rank': 288} ---\n"}
+,{"stream_name":"stdout","time":7843.681352787,"data":"  GNN (10 it)              1.0dB:1.0e+00 1.2dB:9.8e-01 1.5dB:9.5e-01 1.8dB:9.0e-01 2.0dB:7.8e-01 2.2dB:6.4e-01 2.5dB:4.7e-01 2.8dB:3.3e-01 3.0dB:2.3e-01 3.2dB:1.5e-01 3.5dB:8.2e-02 3.8dB:4.6e-02 4.0dB:2.4e-02\n"}
+,{"stream_name":"stdout","time":8250.195954765,"data":"  GNN (10 it) + OSD-0      1.0dB:8.1e-01 1.2dB:6.3e-01 1.5dB:4.8e-01 1.8dB:2.9e-01 2.0dB:1.5e-01 2.2dB:6.9e-02 2.5dB:3.0e-02 2.8dB:1.2e-02 3.0dB:3.9e-03 3.2dB:1.3e-03 3.5dB:3.5e-04 3.8dB:9.0e-05 4.0dB:7.0e-05\n"}
+,{"stream_name":"stdout","time":8257.29435866,"data":"  BP (10 it)               1.0dB:8.9e-01 1.2dB:7.5e-01 1.5dB:5.8e-01 1.8dB:3.7e-01 2.0dB:2.0e-01 2.2dB:9.7e-02 2.5dB:4.0e-02 2.8dB:1.4e-02 3.0dB:4.3e-03 3.2dB:9.6e-04 3.5dB:3.2e-04 3.8dB:4.0e-05 4.0dB:6.6e-06\n"}
+,{"stream_name":"stdout","time":8270.93907141,"data":"  BP (50 it)               1.0dB:4.8e-01 1.2dB:2.9e-01 1.5dB:1.5e-01 1.8dB:5.7e-02 2.0dB:1.6e-02 2.2dB:5.7e-03 2.5dB:1.3e-03 2.8dB:3.0e-04 3.0dB:5.3e-05 3.2dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":8318.733719568,"data":"  BP (50 it) + OSD-0       1.0dB:4.3e-01 1.2dB:2.5e-01 1.5dB:1.3e-01 1.8dB:4.6e-02 2.0dB:1.3e-02 2.2dB:4.2e-03 2.5dB:9.8e-04 2.8dB:2.0e-04 3.0dB:5.0e-05 3.2dB:2.0e-05 3.5dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":8333.761909791,"data":"  profiling at Eb/N0 = 2.5 dB (idle GPU 32.2 W)\n"}
+,{"stream_name":"stdout","time":8383.540142286,"data":"    GNN (10 it, fixed)           | B=1  15.673 ms | B=4096       1301 cw/s |   65.5 W | 47187.99 uJ/cw\n"}
+,{"stream_name":"stdout","time":8445.774489609,"data":"    GNN (10 it, fixed, CUDA graph) | B=1   2.296 ms | B=4096       1320 cw/s |   65.6 W | 47859.99 uJ/cw\n"}
+,{"stream_name":"stdout","time":8490.220466836,"data":"    GNN (10 it, early-stop)      | B=1  17.916 ms | B=4096       1496 cw/s |   66.2 W | 43118.65 uJ/cw\n"}
+,{"stream_name":"stdout","time":8611.188816208,"data":"    GNN (10 it) + OSD-0          | B=1 270.022 ms | B=4096        514 cw/s |   66.1 W | 128611.98 uJ/cw\n"}
+,{"stream_name":"stdout","time":8619.741646415,"data":"    BP (10 it, fixed)            | B=1   5.135 ms | B=4096      58354 cw/s |   66.9 W |  1174.97 uJ/cw\n"}
+,{"stream_name":"stdout","time":8628.438775148,"data":"    BP (10 it, fixed, CUDA graph) | B=1   0.916 ms | B=4096      58415 cw/s |   67.2 W |  1171.17 uJ/cw\n"}
+,{"stream_name":"stdout","time":8636.28207695,"data":"    BP (10 it, early-stop)       | B=1   4.549 ms | B=4096      81088 cw/s |   66.4 W |  1037.06 uJ/cw\n"}
+,{"stream_name":"stdout","time":8653.302911485,"data":"    BP (50 it, fixed)            | B=1  24.665 ms | B=4096      11834 cw/s |   67.0 W |  5799.72 uJ/cw\n"}
+,{"stream_name":"stdout","time":8670.912343851,"data":"    BP (50 it, fixed, CUDA graph) | B=1   3.429 ms | B=4096      11851 cw/s |   66.3 W |  5706.46 uJ/cw\n"}
+,{"stream_name":"stdout","time":8681.456880376,"data":"    BP (50 it, early-stop)       | B=1   4.758 ms | B=4096      48809 cw/s |   51.1 W |  2431.71 uJ/cw\n"}
+,{"stream_name":"stdout","time":8691.95135407,"data":"    [cpu] GNN (10 it, fixed)     | B=1 25.29 ms | B=64 1415.73 ms\n"}
+,{"stream_name":"stdout","time":8692.688266273,"data":"    [cpu] BP (10 it, fixed)      | B=1 3.94 ms | B=64 29.24 ms\n"}
+,{"stream_name":"stdout","time":8694.842010998,"data":"## wimax_576_288\n"}
+,{"stream_name":"stdout","time":8694.842045892,"data":"\n"}
+,{"stream_name":"stdout","time":8694.842053049,"data":"GPU: Tesla T4 | GNN parameters: 11577 | iterations: 10 | training: 22.09 min on wimax_576_288 | idle GPU power: 40.0 W\n"}
+,{"stream_name":"stdout","time":8694.842074457,"data":"\n"}
+,{"stream_name":"stdout","time":8694.84207881,"data":"### wimax_576_288  (n=576, k=288, R=0.5, edges=1824)\n"}
+,{"stream_name":"stdout","time":8694.84208308,"data":"\n"}
+,{"stream_name":"stdout","time":8694.842088577,"data":"BLER | 1.0 dB | 1.2 dB | 1.5 dB | 1.8 dB | 2.0 dB | 2.2 dB | 2.5 dB | 2.8 dB | 3.0 dB | 3.2 dB | 3.5 dB | 3.8 dB | 4.0 dB\n"}
+,{"stream_name":"stdout","time":8694.842096955,"data":"---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":8694.842099636,"data":"GNN (10 it) | 9.96e-01 | 9.84e-01 | 9.48e-01 | 8.96e-01 | 7.81e-01 | 6.42e-01 | 4.67e-01 | 3.30e-01 | 2.29e-01 | 1.46e-01 | 8.20e-02 | 4.61e-02 | 2.44e-02\n"}
+,{"stream_name":"stdout","time":8694.842102605,"data":"GNN (10 it) + OSD-0 | 8.14e-01 | 6.34e-01 | 4.76e-01 | 2.86e-01 | 1.51e-01 | 6.91e-02 | 3.04e-02 | 1.19e-02 | 3.86e-03 | 1.26e-03 | 3.49e-04 | 8.97e-05 | 6.98e-05\n"}
+,{"stream_name":"stdout","time":8694.842105412,"data":"BP (10 it) | 8.91e-01 | 7.51e-01 | 5.80e-01 | 3.66e-01 | 2.00e-01 | 9.72e-02 | 4.00e-02 | 1.41e-02 | 4.31e-03 | 9.63e-04 | 3.17e-04 | 3.96e-05 | 6.60e-06\n"}
+,{"stream_name":"stdout","time":8694.842108413,"data":"BP (50 it) | 4.78e-01 | 2.86e-01 | 1.51e-01 | 5.71e-02 | 1.57e-02 | 5.65e-03 | 1.31e-03 | 2.97e-04 | 5.28e-05 | 0.00e+00 | - | - | -\n"}
+,{"stream_name":"stdout","time":8694.842111131,"data":"BP (50 it) + OSD-0 | 4.31e-01 | 2.51e-01 | 1.28e-01 | 4.61e-02 | 1.33e-02 | 4.15e-03 | 9.77e-04 | 1.99e-04 | 4.98e-05 | 1.99e-05 | 0.00e+00 | - | -\n"}
+,{"stream_name":"stdout","time":8694.842113979,"data":"\n"}
+,{"stream_name":"stdout","time":8694.842116532,"data":"BER | 1.0 dB | 1.2 dB | 1.5 dB | 1.8 dB | 2.0 dB | 2.2 dB | 2.5 dB | 2.8 dB | 3.0 dB | 3.2 dB | 3.5 dB | 3.8 dB | 4.0 dB\n"}
+,{"stream_name":"stdout","time":8694.842119262,"data":"---|---|---|---|---|---|---|---|---|---|---|---|---|---|\n"}
+,{"stream_name":"stdout","time":8694.842169762,"data":"GNN (10 it) | 8.55e-02 | 6.83e-02 | 5.16e-02 | 3.57e-02 | 2.21e-02 | 1.33e-02 | 6.99e-03 | 3.91e-03 | 2.06e-03 | 1.01e-03 | 5.09e-04 | 2.45e-04 | 1.06e-04\n"}
+,{"stream_name":"stdout","time":8694.842175364,"data":"GNN (10 it) + OSD-0 | 1.43e-01 | 1.05e-01 | 7.50e-02 | 4.31e-02 | 2.22e-02 | 9.65e-03 | 4.09e-03 | 1.55e-03 | 5.05e-04 | 1.77e-04 | 4.77e-05 | 1.21e-05 | 1.33e-05\n"}
+,{"stream_name":"stdout","time":8694.84217995,"data":"BP (10 it) | 6.52e-02 | 4.42e-02 | 2.77e-02 | 1.35e-02 | 6.14e-03 | 2.22e-03 | 6.98e-04 | 2.32e-04 | 5.56e-05 | 1.41e-05 | 5.66e-06 | 5.50e-07 | 2.29e-08\n"}
+,{"stream_name":"stdout","time":8694.842184484,"data":"BP (50 it) | 4.74e-02 | 2.67e-02 | 1.34e-02 | 4.74e-03 | 1.27e-03 | 4.15e-04 | 9.38e-05 | 1.62e-05 | 2.96e-06 | 0.00e+00 | - | - | -\n"}
+,{"stream_name":"stdout","time":8694.842189917,"data":"BP (50 it) + OSD-0 | 8.07e-02 | 4.54e-02 | 2.26e-02 | 7.86e-03 | 2.22e-03 | 6.38e-04 | 1.53e-04 | 2.79e-05 | 7.16e-06 | 1.56e-06 | 0.00e+00 | - | -\n"}
+,{"stream_name":"stdout","time":8694.842194195,"data":"\n"}
+,{"stream_name":"stdout","time":8694.84220375,"data":"Inference profile at Eb/N0 = 2.5 dB (GNN MACs / codeword / iteration: 8,059,392; idle GPU power 32.2 W)\n"}
+,{"stream_name":"stdout","time":8694.84220683,"data":"\n"}
+,{"stream_name":"stdout","time":8694.842209249,"data":"decoder | GPU lat. B=1 [ms] | GPU lat. large B [ms] | GPU throughput [cw/s] | avg GPU power [W] | energy/cw [uJ] | dyn. energy/cw [uJ] | CPU lat. B=1 [ms]\n"}
+,{"stream_name":"stdout","time":8694.842212132,"data":"---|---|---|---|---|---|---|---\n"}
+,{"stream_name":"stdout","time":8694.842214685,"data":"GNN (10 it, fixed) | 15.673 | 3147.53 (B=4096) | 1301 | 65.5 | 47187.99 | 24014.15 | 25.29\n"}
+,{"stream_name":"stdout","time":8694.842217463,"data":"GNN (10 it, fixed, CUDA graph) | 2.296 | 3102.57 (B=4096) | 1320 | 65.6 | 47859.99 | 24376.30 | -\n"}
+,{"stream_name":"stdout","time":8694.842224808,"data":"GNN (10 it, early-stop) | 17.916 | 2737.87 (B=4096) | 1496 | 66.2 | 43118.65 | 22165.80 | -\n"}
+,{"stream_name":"stdout","time":8694.842227611,"data":"GNN (10 it) + OSD-0 | 270.022 | 7976.20 (B=4096) | 514 | 66.1 | 128611.98 | 66048.88 | -\n"}
+,{"stream_name":"stdout","time":8694.84223028,"data":"BP (10 it, fixed) | 5.135 | 70.19 (B=4096) | 58354 | 66.9 | 1174.97 | 610.37 | 3.94\n"}
+,{"stream_name":"stdout","time":8694.842233,"data":"BP (10 it, fixed, CUDA graph) | 0.916 | 70.12 (B=4096) | 58415 | 67.2 | 1171.17 | 610.24 | -\n"}
+,{"stream_name":"stdout","time":8694.842235688,"data":"BP (10 it, early-stop) | 4.549 | 50.51 (B=4096) | 81088 | 66.4 | 1037.06 | 534.30 | -\n"}
+,{"stream_name":"stdout","time":8694.842238326,"data":"BP (50 it, fixed) | 24.665 | 346.12 (B=4096) | 11834 | 67.0 | 5799.72 | 3016.52 | -\n"}
+,{"stream_name":"stdout","time":8694.842240954,"data":"BP (50 it, fixed, CUDA graph) | 3.429 | 345.62 (B=4096) | 11851 | 66.3 | 5706.46 | 2936.90 | -\n"}
+,{"stream_name":"stdout","time":8694.84224372,"data":"BP (50 it, early-stop) | 4.758 | 83.92 (B=4096) | 48809 | 51.1 | 2431.71 | 899.69 | -\n"}
+,{"stream_name":"stdout","time":8694.842246365,"data":"\n"}
+,{"stream_name":"stdout","time":8694.842248815,"data":"done\n"}
+,{"stream_name":"stderr","time":8702.173031966,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":8702.173071682,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":8702.528972293,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":8702.52900158,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":8703.567774707,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":8704.783976275,"data":"[NbConvertApp] Writing 322691 bytes to __results__.html\n"}
+]

@@ -1,0 +1,73 @@
+device: cuda | torch 2.11.0+cu128 | Tesla T4
+
+=== final_learned_5g_5G_BG1_k1056_n1408_5G_BG1_k1056_n1408: training BP-GNN (5x10 BP it) (26649 parameters) on ['5G_BG1_k1056_n1408'] ===
+  hard pools (per band): [[1024, 1024, 1024, 1024]]
+  hard validation set: 3.50-3.67 dB: 1000, 3.67-3.83 dB: 1000, 3.83-4.00 dB: 1000
+  step    500 |   13.4 min | lr 1.0e-03 | loss 0.0928 (bce 0.0751, syn 0.1775) | val BER 2.90e-07 BLER 6.13e-05 | hard-set FER 0.000 0.003 0.002
+  step   1000 |   24.9 min | lr 1.0e-03 | loss 0.0933 (bce 0.0765, syn 0.1686) | val BER 2.90e-07 BLER 6.13e-05 | hard-set FER 0.000 0.003 0.002
+  step   1500 |   36.4 min | lr 1.0e-03 | loss 0.0908 (bce 0.0737, syn 0.1708) | val BER 2.90e-07 BLER 6.13e-05 | hard-set FER 0.000 0.003 0.002
+  step   2000 |   47.9 min | lr 1.0e-03 | loss 0.0688 (bce 0.0559, syn 0.1287) | val BER 2.90e-07 BLER 6.13e-05 | hard-set FER 0.001 0.003 0.002
+  step   2500 |   59.4 min | lr 1.0e-03 | loss 0.0839 (bce 0.0681, syn 0.1573) | val BER 4.06e-07 BLER 6.13e-05 | hard-set FER 0.000 0.004 0.003
+  step   3000 |   70.9 min | lr 1.0e-03 | loss 0.0894 (bce 0.0717, syn 0.1772) | val BER 4.64e-07 BLER 6.13e-05 | hard-set FER 0.001 0.002 0.002
+  step   3399 |   80.0 min | lr 1.0e-03 | loss 0.1039 (bce 0.0836, syn 0.2033) | val BER 2.90e-07 BLER 6.13e-05 | hard-set FER 0.000 0.003 0.003
+  plateau: lr -> 5.0e-04 (restored best, score 0.001667)
+
+=== final_learned_5g_5G_BG1_k1056_n1408_5G_BG1_k1056_n1408: training NBP per-edge (50 it) (292800 parameters) on ['5G_BG1_k1056_n1408'] ===
+  step    500 |    5.3 min | lr 3.0e-03 | loss 0.0931 (bce 0.0787, syn 0.1442) | val BER 0.00e+00 BLER 0.00e+00
+  step   1000 |   10.7 min | lr 3.0e-03 | loss 0.0897 (bce 0.0761, syn 0.1354) | val BER 0.00e+00 BLER 0.00e+00
+  step   1500 |   16.0 min | lr 3.0e-03 | loss 0.0980 (bce 0.0829, syn 0.1507) | val BER 0.00e+00 BLER 0.00e+00
+  step   1876 |   20.0 min | lr 3.0e-03 | loss 0.0911 (bce 0.0773, syn 0.1377) | val BER 0.00e+00 BLER 0.00e+00
+
+=== final_learned_5g_5G_BG1_k1056_n1408_5G_BG1_k1056_n1408: training GNN only (10 it) (15681 parameters) on ['5G_BG1_k1056_n1408'] ===
+  step    500 |    3.4 min | lr 2.0e-03 | loss 0.1129 (bce 0.0931, syn 0.1981) | val BER 5.81e-02 BLER 1.00e+00
+  step   1000 |    7.4 min | lr 2.0e-03 | loss 0.1144 (bce 0.0979, syn 0.1647) | val BER 3.14e-02 BLER 1.00e+00
+  step   1500 |   11.4 min | lr 2.0e-03 | loss 0.1081 (bce 0.0939, syn 0.1423) | val BER 4.55e-02 BLER 1.00e+00
+  step   2000 |   15.3 min | lr 2.0e-03 | loss 0.0984 (bce 0.0841, syn 0.1428) | val BER 2.30e-02 BLER 9.98e-01
+  step   2500 |   19.3 min | lr 2.0e-03 | loss 0.2435 (bce 0.1920, syn 0.5152) | val BER 2.75e-02 BLER 1.00e+00
+  step   3000 |   23.3 min | lr 2.0e-03 | loss 0.2060 (bce 0.1735, syn 0.3248) | val BER 1.13e-02 BLER 9.98e-01
+  step   3500 |   27.3 min | lr 2.0e-03 | loss 0.2472 (bce 0.1872, syn 0.6003) | val BER 4.09e-02 BLER 1.00e+00
+  step   4000 |   31.3 min | lr 2.0e-03 | loss 0.2053 (bce 0.1716, syn 0.3367) | val BER 1.23e-02 BLER 1.00e+00
+  step   4500 |   35.3 min | lr 2.0e-03 | loss 0.2094 (bce 0.1760, syn 0.3340) | val BER 7.53e-03 BLER 1.00e+00
+  step   5000 |   39.2 min | lr 2.0e-03 | loss 0.2053 (bce 0.1718, syn 0.3349) | val BER 6.45e-03 BLER 1.00e+00
+  step   5500 |   43.2 min | lr 2.0e-03 | loss 0.2032 (bce 0.1696, syn 0.3364) | val BER 9.95e-03 BLER 1.00e+00
+  step   5680 |   45.0 min | lr 2.0e-03 | loss 0.2324 (bce 0.1888, syn 0.4366) | val BER 1.65e-02 BLER 1.00e+00
+GPU: Tesla T4 | NVML: True | energy counter: True
+  memory BP-GNN (5x10 BP it)                train step B=64:   4031.3 MB | inference B=1024:   4087.6 MB | max train batch 128
+  memory BP-GNN (5x40 BP it)                train step B=64:   5747.4 MB | inference B=1024:   4087.6 MB | max train batch 128
+  memory NBP per-edge (50 it)               train step B=64:    821.2 MB | inference B=1024:    230.3 MB | max train batch 1024
+  memory GNN only (10 it)                   train step B=64:   4382.2 MB | inference B=1024:   3884.9 MB | max train batch 128
+
+--- final_learned_5g_5G_BG1_k1056_n1408_5G_BG1_k1056_n1408: evaluating on 5G_BG1_k1056_n1408 {'name': '5G_BG1_k1056_n1408', 'n': 1408, 'k': 1056, 'rate': 0.75, 'H_shape': [480, 1536], 'edges': 5856, 'rank': 480, 'bg': 'bg1', 'Z': 48, 'i_ls': 1, 'k_ldpc': 1056, 'fillers': 0, 'punctured': 128, 'base_rows_kept': 10, 'base_cols_kept': 32} ---
+  BP-GNN (5x10 BP it)                2.00dB:7.2e-01 2.25dB:3.5e-01 2.50dB:1.1e-01 2.75dB:1.7e-02 3.00dB:2.2e-03 3.25dB:2.0e-04 3.50dB:2.0e-05 3.75dB:2.0e-06 4.00dB:0.0e+00
+  BP-GNN (5x10 BP it) + OSD-2        2.00dB:6.1e-01 2.25dB:2.8e-01 2.50dB:7.9e-02 2.75dB:1.2e-02 3.00dB:1.8e-03 3.25dB:1.5e-04 3.50dB:2.0e-05 3.75dB:2.0e-06 4.00dB:0.0e+00
+  BP-GNN (5x40 BP it)                2.00dB:5.6e-01 2.25dB:2.3e-01 2.50dB:4.8e-02 2.75dB:6.2e-03 3.00dB:5.0e-04 3.25dB:2.6e-05 3.50dB:4.0e-06 3.75dB:0.0e+00
+  BP-GNN (5x40 BP it) + OSD-2        2.00dB:5.3e-01 2.25dB:2.1e-01 2.50dB:4.3e-02 2.75dB:5.9e-03 3.00dB:4.2e-04 3.25dB:2.6e-05 3.50dB:4.0e-06 3.75dB:0.0e+00
+  NBP per-edge (50 it)               2.00dB:6.2e-01 2.25dB:2.6e-01 2.50dB:7.1e-02 2.75dB:1.0e-02 3.00dB:9.6e-04 3.25dB:8.4e-05 3.50dB:6.0e-06 3.75dB:0.0e+00
+  NBP per-edge (50 it) + OSD-2       2.00dB:5.9e-01 2.25dB:2.5e-01 2.50dB:6.4e-02 2.75dB:8.4e-03 3.00dB:7.4e-04 3.25dB:4.0e-05 3.50dB:2.0e-06 3.75dB:0.0e+00
+  GNN only (10 it)                   2.00dB:1.0e+00 2.25dB:1.0e+00 2.50dB:1.0e+00 2.75dB:1.0e+00 3.00dB:1.0e+00 3.25dB:1.0e+00 3.50dB:1.0e+00 3.75dB:1.0e+00 4.00dB:1.0e+00 4.25dB:1.0e+00 4.50dB:1.0e+00
+  BP (50 it)                         2.00dB:6.1e-01 2.25dB:2.6e-01 2.50dB:6.6e-02 2.75dB:1.0e-02 3.00dB:9.1e-04 3.25dB:6.8e-05 3.50dB:8.0e-06 3.75dB:0.0e+00
+  profiling at Eb/N0 = 3.25 dB (idle GPU 30.9 W)
+    BP-GNN (5x10 BP it) [fixed]  | B=1  42.540 ms | B=1024        453 cw/s |   64.7 W | 144859.05 uJ/cw
+    BP-GNN (5x10 BP it) [fixed, CUDA graph] | B=1   7.424 ms | B=1024        462 cw/s |   65.7 W | 142721.44 uJ/cw
+    BP-GNN (5x10 BP it) [early-stop] | B=1   6.644 ms | B=1024       8506 cw/s |   64.2 W |  6926.82 uJ/cw
+    BP-GNN (5x10 BP it) + OSD-2 [early-stop] | B=1   7.674 ms | B=1024       9452 cw/s |   64.4 W |  7705.55 uJ/cw
+    BP-GNN (5x40 BP it) [fixed]  | B=1 124.626 ms | B=1024        322 cw/s |   65.8 W | 203692.87 uJ/cw
+    BP-GNN (5x40 BP it) [fixed, CUDA graph] | B=1  21.178 ms | B=1024        324 cw/s |   66.5 W | 205701.17 uJ/cw
+    BP-GNN (5x40 BP it) [early-stop] | B=1   6.791 ms | B=1024      12975 cw/s |   65.9 W |  4355.61 uJ/cw
+    BP-GNN (5x40 BP it) + OSD-2 [early-stop] | B=1   6.059 ms | B=1024      14422 cw/s |   65.0 W |  4625.41 uJ/cw
+    NBP per-edge (50 it) [fixed] | B=1  26.610 ms | B=1024       3400 cw/s |   66.2 W | 19469.40 uJ/cw
+    NBP per-edge (50 it) [fixed, CUDA graph] | B=1   3.698 ms | B=1024       3403 cw/s |   66.4 W | 19501.37 uJ/cw
+    NBP per-edge (50 it) [early-stop] | B=1   6.349 ms | B=1024      15710 cw/s |   65.0 W |  4215.40 uJ/cw
+    NBP per-edge (50 it) + OSD-2 [early-stop] | B=1  10.508 ms | B=1024      14661 cw/s |   66.3 W |  4468.86 uJ/cw
+    GNN only (10 it) [fixed]     | B=1  16.269 ms | B=1024        462 cw/s |   65.1 W | 141273.93 uJ/cw
+    GNN only (10 it) [fixed, CUDA graph] | B=1   3.186 ms | B=1024        460 cw/s |   65.6 W | 142665.04 uJ/cw
+    GNN only (10 it) [early-stop] | B=1  18.369 ms | B=1024        459 cw/s |   65.5 W | 142787.76 uJ/cw
+    BP (50 it) [fixed]           | B=1  25.189 ms | B=1024       3508 cw/s |   67.1 W | 19093.48 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   4.498 ms | B=1024       3519 cw/s |   67.7 W | 19210.94 uJ/cw
+    BP (50 it) [early-stop]      | B=1   4.665 ms | B=1024      16249 cw/s |   65.0 W |  4436.65 uJ/cw
+    [cpu] BP-GNN (5x10 BP it) [fixed] | B=1 80.88 ms | B=64 5335.65 ms
+    [cpu] BP-GNN (5x40 BP it) [fixed] | B=1 170.45 ms | B=64 6666.92 ms
+    [cpu] NBP per-edge (50 it) [fixed] | B=1 31.06 ms | B=64 426.12 ms
+    [cpu] GNN only (10 it) [fixed] | B=1 54.40 ms | B=64 5130.22 ms
+    [cpu] BP (50 it) [fixed]     | B=1 27.81 ms | B=64 419.06 ms
+done

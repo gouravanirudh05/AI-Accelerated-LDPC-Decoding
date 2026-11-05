@@ -1,0 +1,176 @@
+[{"stream_name":"stdout","time":1.032321266,"data":"Fri Oct 30 12:31:20 2026       \n"}
+,{"stream_name":"stdout","time":1.032355109,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.032360326,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":1.032364569,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.0323684850000001,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":1.032372568,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":1.032376261,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":1.032379877,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":1.084336024,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.084353905,"data":"| N/A   52C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.084359789,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.084365071,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.084370463,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":1.084375834,"data":"| N/A   52C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":1.084381246,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":1.084386647,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":1.0851235909999999,"data":"\n"}
+,{"stream_name":"stdout","time":1.085136739,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.085141403,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":1.085146822,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":1.0851522710000001,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":1.085157743,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":1.086671304,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":1.086686004,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":11.738642073,"data":"device: cuda | torch 2.11.0+cu128 | Tesla T4\n"}
+,{"stream_name":"stdout","time":12.222118524,"data":"\n"}
+,{"stream_name":"stdout","time":12.222146749,"data":"=== final_learned_5g_5G_BG2_k256_n512+5G_BG1_k528_n704_5G_BG2_k256_n512: training BP-GNN (5x10 BP it) (25377 parameters) on ['5G_BG2_k256_n512'] ===\n"}
+,{"stream_name":"stdout","time":21.047766284,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":132.960152071,"data":"  hard validation set: 3.00-3.33 dB: 1000, 3.33-3.67 dB: 1000, 3.67-4.00 dB: 355\n"}
+,{"stream_name":"stdout","time":554.393104923,"data":"  step    500 |    8.9 min | lr 1.0e-03 | loss 0.0644 (bce 0.0573, syn 0.0711) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.009 0.012 0.020\n"}
+,{"stream_name":"stdout","time":975.584316476,"data":"  step   1000 |   15.9 min | lr 1.0e-03 | loss 0.0667 (bce 0.0598, syn 0.0691) | val BER 1.21e-06 BLER 6.20e-05 | hard-set FER 0.006 0.011 0.023\n"}
+,{"stream_name":"stdout","time":1396.611519272,"data":"  step   1500 |   23.0 min | lr 1.0e-03 | loss 0.0749 (bce 0.0665, syn 0.0838) | val BER 7.27e-07 BLER 6.20e-05 | hard-set FER 0.007 0.010 0.020\n"}
+,{"stream_name":"stdout","time":1817.970231809,"data":"  step   2000 |   30.0 min | lr 1.0e-03 | loss 0.0685 (bce 0.0612, syn 0.0722) | val BER 9.69e-07 BLER 6.20e-05 | hard-set FER 0.008 0.012 0.023\n"}
+,{"stream_name":"stdout","time":2239.469368855,"data":"  step   2500 |   37.0 min | lr 1.0e-03 | loss 0.0699 (bce 0.0617, syn 0.0820) | val BER 1.94e-06 BLER 1.24e-04 | hard-set FER 0.009 0.019 0.034\n"}
+,{"stream_name":"stdout","time":2661.227542309,"data":"  step   3000 |   44.0 min | lr 1.0e-03 | loss 0.0711 (bce 0.0631, syn 0.0798) | val BER 1.94e-06 BLER 1.24e-04 | hard-set FER 0.006 0.014 0.028\n"}
+,{"stream_name":"stdout","time":3083.297114542,"data":"  step   3500 |   51.1 min | lr 1.0e-03 | loss 0.0685 (bce 0.0610, syn 0.0759) | val BER 2.42e-07 BLER 6.20e-05 | hard-set FER 0.007 0.008 0.023\n"}
+,{"stream_name":"stdout","time":3505.70820291,"data":"  step   4000 |   58.1 min | lr 1.0e-03 | loss 0.0682 (bce 0.0605, syn 0.0772) | val BER 2.42e-06 BLER 1.24e-04 | hard-set FER 0.008 0.014 0.025\n"}
+,{"stream_name":"stdout","time":3927.859672114,"data":"  step   4500 |   65.1 min | lr 1.0e-03 | loss 0.0540 (bce 0.0481, syn 0.0597) | val BER 1.70e-06 BLER 1.24e-04 | hard-set FER 0.008 0.016 0.023\n"}
+,{"stream_name":"stdout","time":3927.861650322,"data":"  plateau: lr -\u003e 5.0e-04 (restored best, score 0.01224)\n"}
+,{"stream_name":"stdout","time":4349.982497752,"data":"  step   5000 |   72.2 min | lr 5.0e-04 | loss 0.0692 (bce 0.0614, syn 0.0774) | val BER 4.84e-07 BLER 6.20e-05 | hard-set FER 0.006 0.013 0.017\n"}
+,{"stream_name":"stdout","time":4772.453688405,"data":"  step   5500 |   79.2 min | lr 5.0e-04 | loss 0.0727 (bce 0.0642, syn 0.0850) | val BER 4.84e-07 BLER 1.24e-04 | hard-set FER 0.008 0.014 0.028\n"}
+,{"stream_name":"stdout","time":4819.914345591,"data":"  step   5556 |   80.0 min | lr 5.0e-04 | loss 0.0766 (bce 0.0686, syn 0.0800) | val BER 9.69e-07 BLER 1.24e-04 | hard-set FER 0.006 0.013 0.025\n"}
+,{"stream_name":"stdout","time":4819.961700562,"data":"\n"}
+,{"stream_name":"stdout","time":4819.961728907,"data":"=== final_learned_5g_5G_BG2_k256_n512+5G_BG1_k528_n704_5G_BG2_k256_n512: training NBP per-edge (50 it) (94400 parameters) on ['5G_BG2_k256_n512'] ===\n"}
+,{"stream_name":"stdout","time":5018.839161997,"data":"  step    500 |    3.3 min | lr 3.0e-03 | loss 0.0819 (bce 0.0760, syn 0.0592) | val BER 1.91e-06 BLER 6.10e-05\n"}
+,{"stream_name":"stdout","time":5217.624869394,"data":"  step   1000 |    6.6 min | lr 3.0e-03 | loss 0.0803 (bce 0.0745, syn 0.0577) | val BER 1.91e-06 BLER 6.10e-05\n"}
+,{"stream_name":"stdout","time":5416.489374854,"data":"  step   1500 |    9.9 min | lr 3.0e-03 | loss 0.0707 (bce 0.0659, syn 0.0478) | val BER 1.91e-06 BLER 1.22e-04\n"}
+,{"stream_name":"stdout","time":5615.384645278,"data":"  step   2000 |   13.2 min | lr 3.0e-03 | loss 0.0743 (bce 0.0691, syn 0.0523) | val BER 1.91e-06 BLER 6.10e-05\n"}
+,{"stream_name":"stdout","time":5814.336369466,"data":"  step   2500 |   16.6 min | lr 3.0e-03 | loss 0.0761 (bce 0.0707, syn 0.0538) | val BER 1.91e-06 BLER 6.10e-05\n"}
+,{"stream_name":"stdout","time":6013.284674493,"data":"  step   3000 |   19.9 min | lr 3.0e-03 | loss 0.0845 (bce 0.0785, syn 0.0604) | val BER 1.91e-06 BLER 6.10e-05\n"}
+,{"stream_name":"stdout","time":6020.846857234,"data":"  step   3018 |   20.0 min | lr 3.0e-03 | loss 0.0817 (bce 0.0758, syn 0.0598) | val BER 7.15e-07 BLER 6.10e-05\n"}
+,{"stream_name":"stdout","time":6020.8536325,"data":"\n"}
+,{"stream_name":"stdout","time":6020.853652625,"data":"=== final_learned_5g_5G_BG2_k256_n512+5G_BG1_k528_n704_5G_BG2_k256_n512: training GNN only (10 it) (14409 parameters) on ['5G_BG2_k256_n512'] ===\n"}
+,{"stream_name":"stdout","time":6310.427232949,"data":"  step    500 |    4.6 min | lr 2.0e-03 | loss 0.1516 (bce 0.1397, syn 0.1193) | val BER 7.13e-02 BLER 1.00e+00\n"}
+,{"stream_name":"stdout","time":6600.069405894,"data":"  step   1000 |    9.5 min | lr 2.0e-03 | loss 0.1274 (bce 0.1195, syn 0.0786) | val BER 2.55e-02 BLER 9.77e-01\n"}
+,{"stream_name":"stdout","time":6889.626104979,"data":"  step   1500 |   14.3 min | lr 2.0e-03 | loss 0.1749 (bce 0.1622, syn 0.1267) | val BER 2.60e-02 BLER 9.90e-01\n"}
+,{"stream_name":"stdout","time":7179.161603544,"data":"  step   2000 |   19.1 min | lr 2.0e-03 | loss 0.2531 (bce 0.2305, syn 0.2268) | val BER 5.56e-03 BLER 7.22e-01\n"}
+,{"stream_name":"stdout","time":7468.434296742,"data":"  step   2500 |   23.9 min | lr 2.0e-03 | loss 0.2705 (bce 0.2417, syn 0.2873) | val BER 5.70e-03 BLER 8.16e-01\n"}
+,{"stream_name":"stdout","time":7757.844285309,"data":"  step   3000 |   28.8 min | lr 2.0e-03 | loss 0.2463 (bce 0.2255, syn 0.2083) | val BER 2.81e-03 BLER 5.51e-01\n"}
+,{"stream_name":"stdout","time":8047.124823944,"data":"  step   3500 |   33.6 min | lr 2.0e-03 | loss 0.2637 (bce 0.2435, syn 0.2024) | val BER 5.92e-03 BLER 7.93e-01\n"}
+,{"stream_name":"stdout","time":8336.498586379,"data":"  step   4000 |   38.4 min | lr 2.0e-03 | loss 0.2502 (bce 0.2311, syn 0.1902) | val BER 7.88e-03 BLER 8.94e-01\n"}
+,{"stream_name":"stdout","time":8625.544242387,"data":"  step   4500 |   43.2 min | lr 2.0e-03 | loss 0.2315 (bce 0.2147, syn 0.1682) | val BER 1.77e-03 BLER 4.85e-01\n"}
+,{"stream_name":"stdout","time":8732.121081884,"data":"  step   4672 |   45.0 min | lr 2.0e-03 | loss 0.2436 (bce 0.2256, syn 0.1806) | val BER 2.35e-03 BLER 3.85e-01\n"}
+,{"stream_name":"stdout","time":8732.136742755,"data":"GPU: Tesla T4 | NVML: True | energy counter: True\n"}
+,{"stream_name":"stdout","time":8737.988118037,"data":"  memory BP-GNN (5x10 BP it)                train step B=256:   5536.1 MB | inference B=4096:   5356.1 MB | max train batch 512\n"}
+,{"stream_name":"stdout","time":8744.49171517,"data":"  memory BP-GNN (5x40 BP it)                train step B=256:   7748.6 MB | inference B=4096:   5356.1 MB | max train batch 256\n"}
+,{"stream_name":"stdout","time":8747.754459534,"data":"  memory NBP per-edge (50 it)               train step B=256:   1067.7 MB | inference B=4096:    304.6 MB | max train batch 2048\n"}
+,{"stream_name":"stdout","time":8753.170722621,"data":"  memory GNN only (10 it)                   train step B=256:   6103.2 MB | inference B=4096:   5163.1 MB | max train batch 512\n"}
+,{"stream_name":"stdout","time":8753.170760184,"data":"\n"}
+,{"stream_name":"stdout","time":8753.170768009,"data":"--- final_learned_5g_5G_BG2_k256_n512+5G_BG1_k528_n704_5G_BG2_k256_n512: evaluating on 5G_BG2_k256_n512 {'name': '5G_BG2_k256_n512', 'n': 512, 'k': 256, 'rate': 0.5, 'H_shape': [320, 576], 'edges': 1888, 'rank': 320, 'bg': 'bg2', 'Z': 32, 'i_ls': 0, 'k_ldpc': 320, 'fillers': 64, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 20} ---\n"}
+,{"stream_name":"stdout","time":8808.95018919,"data":"  BP-GNN (5x10 BP it)                0.50dB:7.8e-01 1.00dB:3.9e-01 1.50dB:9.9e-02 2.00dB:1.0e-02 2.50dB:8.4e-04 3.00dB:4.4e-05 3.50dB:3.0e-06 4.00dB:1.0e-06\n"}
+,{"stream_name":"stdout","time":8904.437889851,"data":"  BP-GNN (5x10 BP it) + OSD-2        0.50dB:6.7e-01 1.00dB:3.0e-01 1.50dB:6.8e-02 2.00dB:6.9e-03 2.50dB:5.4e-04 3.00dB:1.7e-05 3.50dB:3.0e-06 4.00dB:1.0e-06\n"}
+,{"stream_name":"stdout","time":8970.973565879,"data":"  BP-GNN (5x40 BP it)                0.50dB:6.9e-01 1.00dB:2.9e-01 1.50dB:6.0e-02 2.00dB:4.8e-03 2.50dB:2.4e-04 3.00dB:1.1e-05 3.50dB:1.0e-06 4.00dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":9074.311285241,"data":"  BP-GNN (5x40 BP it) + OSD-2        0.50dB:6.4e-01 1.00dB:2.6e-01 1.50dB:5.3e-02 2.00dB:4.3e-03 2.50dB:2.1e-04 3.00dB:1.3e-05 3.50dB:1.0e-06 4.00dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":9118.978083722,"data":"  NBP per-edge (50 it)               0.50dB:7.4e-01 1.00dB:3.6e-01 1.50dB:9.0e-02 2.00dB:8.7e-03 2.50dB:4.6e-04 3.00dB:1.8e-05 3.50dB:2.0e-06 4.00dB:1.0e-06\n"}
+,{"stream_name":"stdout","time":9200.344092131,"data":"  NBP per-edge (50 it) + OSD-2       0.50dB:7.0e-01 1.00dB:3.2e-01 1.50dB:7.5e-02 2.00dB:6.9e-03 2.50dB:3.4e-04 3.00dB:1.4e-05 3.50dB:1.0e-06 4.00dB:1.0e-06\n"}
+,{"stream_name":"stdout","time":9223.909194495,"data":"  GNN only (10 it)                   0.50dB:1.0e+00 1.00dB:1.0e+00 1.50dB:9.9e-01 2.00dB:9.0e-01 2.50dB:6.8e-01 3.00dB:3.8e-01 3.50dB:1.7e-01 4.00dB:6.7e-02\n"}
+,{"stream_name":"stdout","time":9265.727273568,"data":"  BP (50 it)                         0.50dB:7.2e-01 1.00dB:3.4e-01 1.50dB:8.4e-02 2.00dB:8.5e-03 2.50dB:6.3e-04 3.00dB:2.0e-05 3.50dB:2.0e-06 4.00dB:1.0e-06\n"}
+,{"stream_name":"stdout","time":9280.757723026,"data":"  profiling at Eb/N0 = 2.0 dB (idle GPU 29.5 W)\n"}
+,{"stream_name":"stdout","time":9331.361984554,"data":"    BP-GNN (5x10 BP it) [fixed]  | B=1  38.945 ms | B=4096       1293 cw/s |   66.5 W | 49346.19 uJ/cw\n"}
+,{"stream_name":"stdout","time":9394.708144731,"data":"    BP-GNN (5x10 BP it) [fixed, CUDA graph] | B=1   6.977 ms | B=4096       1320 cw/s |   66.9 W | 49426.39 uJ/cw\n"}
+,{"stream_name":"stdout","time":9412.531621067,"data":"    BP-GNN (5x10 BP it) [early-stop] | B=1   4.893 ms | B=4096      12677 cw/s |   64.8 W |  6764.92 uJ/cw\n"}
+,{"stream_name":"stdout","time":9440.452237915,"data":"    BP-GNN (5x10 BP it) + OSD-2 [early-stop] | B=1   6.093 ms | B=4096       6830 cw/s |   55.2 W | 20849.68 uJ/cw\n"}
+,{"stream_name":"stdout","time":9507.941239754,"data":"    BP-GNN (5x40 BP it) [fixed]  | B=1 110.892 ms | B=4096        962 cw/s |   67.9 W | 69659.57 uJ/cw\n"}
+,{"stream_name":"stdout","time":9592.200944015,"data":"    BP-GNN (5x40 BP it) [fixed, CUDA graph] | B=1  19.923 ms | B=4096        960 cw/s |   67.5 W | 69210.94 uJ/cw\n"}
+,{"stream_name":"stdout","time":9612.200798228,"data":"    BP-GNN (5x40 BP it) [early-stop] | B=1   5.106 ms | B=4096      15812 cw/s |   42.4 W |  7634.59 uJ/cw\n"}
+,{"stream_name":"stdout","time":9634.871823941,"data":"    BP-GNN (5x40 BP it) + OSD-2 [early-stop] | B=1   8.553 ms | B=4096       7737 cw/s |   36.9 W | 16274.82 uJ/cw\n"}
+,{"stream_name":"stdout","time":9652.160526491,"data":"    NBP per-edge (50 it) [fixed] | B=1  23.674 ms | B=4096      11032 cw/s |   68.1 W |  6323.40 uJ/cw\n"}
+,{"stream_name":"stdout","time":9670.274737352,"data":"    NBP per-edge (50 it) [fixed, CUDA graph] | B=1   3.463 ms | B=4096      11032 cw/s |   67.5 W |  6223.02 uJ/cw\n"}
+,{"stream_name":"stdout","time":9682.838843005,"data":"    NBP per-edge (50 it) [early-stop] | B=1   7.600 ms | B=4096      36082 cw/s |   61.0 W |  3320.82 uJ/cw\n"}
+,{"stream_name":"stdout","time":9709.059305371,"data":"    NBP per-edge (50 it) + OSD-2 [early-stop] | B=1   6.545 ms | B=4096      10641 cw/s |   42.4 W | 13676.03 uJ/cw\n"}
+,{"stream_name":"stdout","time":9758.466368167,"data":"    GNN only (10 it) [fixed]     | B=1  14.449 ms | B=4096       1289 cw/s |   67.0 W | 49192.87 uJ/cw\n"}
+,{"stream_name":"stdout","time":9821.10810394,"data":"    GNN only (10 it) [fixed, CUDA graph] | B=1   2.316 ms | B=4096       1318 cw/s |   67.4 W | 49243.90 uJ/cw\n"}
+,{"stream_name":"stdout","time":9869.601991804,"data":"    GNN only (10 it) [early-stop] | B=1  15.765 ms | B=4096       1313 cw/s |   68.2 W | 49693.78 uJ/cw\n"}
+,{"stream_name":"stdout","time":9886.664743602,"data":"    BP (50 it) [fixed]           | B=1  21.956 ms | B=4096      11519 cw/s |   69.3 W |  6146.28 uJ/cw\n"}
+,{"stream_name":"stdout","time":9904.385610709,"data":"    BP (50 it) [fixed, CUDA graph] | B=1   4.311 ms | B=4096      11531 cw/s |   68.0 W |  6014.74 uJ/cw\n"}
+,{"stream_name":"stdout","time":9915.704618,"data":"    BP (50 it) [early-stop]      | B=1   4.026 ms | B=4096      38006 cw/s |   60.3 W |  2964.55 uJ/cw\n"}
+,{"stream_name":"stdout","time":9923.999407779,"data":"    [cpu] BP-GNN (5x10 BP it) [fixed] | B=1 34.33 ms | B=64 1050.72 ms\n"}
+,{"stream_name":"stdout","time":9936.042317866,"data":"    [cpu] BP-GNN (5x40 BP it) [fixed] | B=1 82.98 ms | B=64 1474.97 ms\n"}
+,{"stream_name":"stdout","time":9939.138556493,"data":"    [cpu] NBP per-edge (50 it) [fixed] | B=1 15.52 ms | B=64 125.23 ms\n"}
+,{"stream_name":"stdout","time":9948.203521011,"data":"    [cpu] GNN only (10 it) [fixed] | B=1 20.53 ms | B=64 1221.20 ms\n"}
+,{"stream_name":"stdout","time":9951.342052139,"data":"    [cpu] BP (50 it) [fixed]     | B=1 14.24 ms | B=64 125.59 ms\n"}
+,{"stream_name":"stdout","time":9953.398504952,"data":"\n"}
+,{"stream_name":"stdout","time":9953.398536769,"data":"=== final_learned_5g_5G_BG2_k256_n512+5G_BG1_k528_n704_5G_BG1_k528_n704: training BP-GNN (5x10 BP it) (26649 parameters) on ['5G_BG1_k528_n704'] ===\n"}
+,{"stream_name":"stdout","time":9957.234526709,"data":"  hard pools (per band): [[1024, 1024, 1024, 1024]]\n"}
+,{"stream_name":"stdout","time":10134.033558112,"data":"  hard validation set: 3.88-4.17 dB: 1000, 4.17-4.46 dB: 1000, 4.46-4.75 dB: 497\n"}
+,{"stream_name":"stdout","time":10779.696392284,"data":"  step    500 |   13.7 min | lr 1.0e-03 | loss 0.0864 (bce 0.0698, syn 0.1660) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.028 0.012 0.026\n"}
+,{"stream_name":"stdout","time":11425.798432812,"data":"  step   1000 |   24.5 min | lr 1.0e-03 | loss 0.0786 (bce 0.0641, syn 0.1450) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.029 0.013 0.024\n"}
+,{"stream_name":"stdout","time":12071.911273945,"data":"  step   1500 |   35.3 min | lr 1.0e-03 | loss 0.0797 (bce 0.0659, syn 0.1375) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.027 0.012 0.024\n"}
+,{"stream_name":"stdout","time":12717.576644435,"data":"  step   2000 |   46.0 min | lr 1.0e-03 | loss 0.0756 (bce 0.0629, syn 0.1273) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.027 0.014 0.020\n"}
+,{"stream_name":"stdout","time":13363.589573355,"data":"  step   2500 |   56.8 min | lr 1.0e-03 | loss 0.0798 (bce 0.0650, syn 0.1481) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.034 0.019 0.032\n"}
+,{"stream_name":"stdout","time":14009.285575512,"data":"  step   3000 |   67.6 min | lr 1.0e-03 | loss 0.0776 (bce 0.0625, syn 0.1519) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.032 0.015 0.026\n"}
+,{"stream_name":"stdout","time":14655.199888631,"data":"  step   3500 |   78.3 min | lr 1.0e-03 | loss 0.0875 (bce 0.0712, syn 0.1629) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.029 0.011 0.020\n"}
+,{"stream_name":"stdout","time":14760.113165743,"data":"  step   3580 |   80.1 min | lr 1.0e-03 | loss 0.0751 (bce 0.0618, syn 0.1335) | val BER 0.00e+00 BLER 0.00e+00 | hard-set FER 0.031 0.011 0.020\n"}
+,{"stream_name":"stdout","time":14760.128002226,"data":"\n"}
+,{"stream_name":"stdout","time":14760.128020056,"data":"=== final_learned_5g_5G_BG2_k256_n512+5G_BG1_k528_n704_5G_BG1_k528_n704: training NBP per-edge (50 it) (146400 parameters) on ['5G_BG1_k528_n704'] ===\n"}
+,{"stream_name":"stdout","time":15067.071824655,"data":"  step    500 |    5.1 min | lr 3.0e-03 | loss 0.0744 (bce 0.0629, syn 0.1153) | val BER 1.34e-05 BLER 2.44e-04\n"}
+,{"stream_name":"stdout","time":15374.013925636,"data":"  step   1000 |   10.2 min | lr 3.0e-03 | loss 0.0736 (bce 0.0626, syn 0.1095) | val BER 1.24e-05 BLER 2.44e-04\n"}
+,{"stream_name":"stdout","time":15681.002084489,"data":"  step   1500 |   15.3 min | lr 3.0e-03 | loss 0.0773 (bce 0.0654, syn 0.1186) | val BER 8.67e-06 BLER 1.22e-04\n"}
+,{"stream_name":"stdout","time":15961.421134395,"data":"  step   1957 |   20.0 min | lr 3.0e-03 | loss 0.0779 (bce 0.0663, syn 0.1158) | val BER 8.79e-06 BLER 1.83e-04\n"}
+,{"stream_name":"stdout","time":15961.427709148,"data":"\n"}
+,{"stream_name":"stdout","time":15961.427731765,"data":"=== final_learned_5g_5G_BG2_k256_n512+5G_BG1_k528_n704_5G_BG1_k528_n704: training GNN only (10 it) (15681 parameters) on ['5G_BG1_k528_n704'] ===\n"}
+,{"stream_name":"stdout","time":16372.3800346,"data":"  step    500 |    6.6 min | lr 2.0e-03 | loss 0.0859 (bce 0.0712, syn 0.1472) | val BER 3.83e-02 BLER 1.00e+00\n"}
+,{"stream_name":"stdout","time":16783.892149751,"data":"  step   1000 |   13.4 min | lr 2.0e-03 | loss 0.0914 (bce 0.0793, syn 0.1208) | val BER 3.01e-02 BLER 9.98e-01\n"}
+,{"stream_name":"stdout","time":17195.132607772,"data":"  step   1500 |   20.3 min | lr 2.0e-03 | loss 0.2040 (bce 0.1627, syn 0.4132) | val BER 1.13e-02 BLER 9.54e-01\n"}
+,{"stream_name":"stdout","time":17606.05548359,"data":"  step   2000 |   27.1 min | lr 2.0e-03 | loss 0.1909 (bce 0.1585, syn 0.3234) | val BER 4.88e-03 BLER 8.57e-01\n"}
+,{"stream_name":"stdout","time":18016.040315965,"data":"  step   2500 |   34.0 min | lr 2.0e-03 | loss 0.1637 (bce 0.1405, syn 0.2322) | val BER 2.56e-03 BLER 5.34e-01\n"}
+,{"stream_name":"stdout","time":18426.304832589,"data":"  step   3000 |   40.8 min | lr 2.0e-03 | loss 0.1670 (bce 0.1401, syn 0.2690) | val BER 1.93e-03 BLER 5.46e-01\n"}
+,{"stream_name":"stdout","time":18678.369508929,"data":"  step   3299 |   45.0 min | lr 2.0e-03 | loss 0.1708 (bce 0.1436, syn 0.2725) | val BER 3.09e-03 BLER 7.31e-01\n"}
+,{"stream_name":"stdout","time":18678.380340941,"data":"GPU: Tesla T4 | NVML: True | energy counter: True\n"}
+,{"stream_name":"stdout","time":18685.002955253,"data":"  memory BP-GNN (5x10 BP it)                train step B=256:   8070.1 MB | inference B=4096:   8174.5 MB | max train batch 256\n"}
+,{"stream_name":"stdout","time":18694.233115673,"data":"  memory BP-GNN (5x40 BP it)                train step B=256:  11501.4 MB | inference B=4096:   8174.5 MB | max train batch 256\n"}
+,{"stream_name":"stdout","time":18698.733343098,"data":"  memory NBP per-edge (50 it)               train step B=256:   1640.6 MB | inference B=4096:    461.8 MB | max train batch 2048\n"}
+,{"stream_name":"stdout","time":18704.855470029,"data":"  memory GNN only (10 it)                   train step B=256:   8782.0 MB | inference B=4096:   7768.5 MB | max train batch 256\n"}
+,{"stream_name":"stdout","time":18704.855501794,"data":"\n"}
+,{"stream_name":"stdout","time":18704.855508017,"data":"--- final_learned_5g_5G_BG2_k256_n512+5G_BG1_k528_n704_5G_BG1_k528_n704: evaluating on 5G_BG1_k528_n704 {'name': '5G_BG1_k528_n704', 'n': 704, 'k': 528, 'rate': 0.75, 'H_shape': [240, 768], 'edges': 2928, 'rank': 240, 'bg': 'bg1', 'Z': 24, 'i_ls': 1, 'k_ldpc': 528, 'fillers': 0, 'punctured': 64, 'base_rows_kept': 10, 'base_cols_kept': 32} ---\n"}
+,{"stream_name":"stdout","time":18839.963473482,"data":"  BP-GNN (5x10 BP it)                2.00dB:7.0e-01 2.25dB:4.2e-01 2.50dB:2.3e-01 2.75dB:8.1e-02 3.00dB:2.6e-02 3.25dB:5.9e-03 3.50dB:1.4e-03 3.75dB:2.7e-04 4.00dB:6.4e-05 4.25dB:1.2e-05 4.50dB:4.0e-06 4.75dB:1.0e-06 5.00dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":19066.978708379,"data":"  BP-GNN (5x10 BP it) + OSD-2        2.00dB:5.8e-01 2.25dB:3.2e-01 2.50dB:1.7e-01 2.75dB:6.1e-02 3.00dB:2.0e-02 3.25dB:4.9e-03 3.50dB:9.9e-04 3.75dB:2.5e-04 4.00dB:4.5e-05 4.25dB:1.0e-05 4.50dB:3.0e-06 4.75dB:1.0e-06 5.00dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":19226.717806367,"data":"  BP-GNN (5x40 BP it)                2.00dB:6.1e-01 2.25dB:3.5e-01 2.50dB:1.6e-01 2.75dB:6.1e-02 3.00dB:1.3e-02 3.25dB:3.3e-03 3.50dB:5.0e-04 3.75dB:9.8e-05 4.00dB:1.9e-05 4.25dB:3.0e-06 4.50dB:2.0e-06 4.75dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":19466.621841126,"data":"  BP-GNN (5x40 BP it) + OSD-2        2.00dB:5.4e-01 2.25dB:2.9e-01 2.50dB:1.3e-01 2.75dB:5.0e-02 3.00dB:1.0e-02 3.25dB:2.6e-03 3.50dB:4.3e-04 3.75dB:8.6e-05 4.00dB:2.0e-05 4.25dB:3.0e-06 4.50dB:2.0e-06 4.75dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":19587.733160759,"data":"  NBP per-edge (50 it)               2.00dB:6.7e-01 2.25dB:4.0e-01 2.50dB:2.1e-01 2.75dB:7.7e-02 3.00dB:2.1e-02 3.25dB:4.5e-03 3.50dB:1.1e-03 3.75dB:1.9e-04 4.00dB:3.1e-05 4.25dB:4.0e-06 4.50dB:1.0e-06 4.75dB:1.0e-06 5.00dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":19782.040801364,"data":"  NBP per-edge (50 it) + OSD-2       2.00dB:6.2e-01 2.25dB:3.5e-01 2.50dB:1.8e-01 2.75dB:6.3e-02 3.00dB:1.7e-02 3.25dB:3.9e-03 3.50dB:8.1e-04 3.75dB:1.4e-04 4.00dB:2.5e-05 4.25dB:3.0e-06 4.50dB:2.0e-06 4.75dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":19808.32345108,"data":"  GNN only (10 it)                   2.00dB:1.0e+00 2.25dB:1.0e+00 2.50dB:1.0e+00 2.75dB:9.8e-01 3.00dB:9.4e-01 3.25dB:8.7e-01 3.50dB:7.6e-01 3.75dB:6.0e-01 4.00dB:4.8e-01 4.25dB:3.9e-01 4.50dB:3.2e-01 4.75dB:2.7e-01 5.00dB:2.7e-01\n"}
+,{"stream_name":"stdout","time":19923.777853254,"data":"  BP (50 it)                         2.00dB:6.5e-01 2.25dB:3.9e-01 2.50dB:2.0e-01 2.75dB:7.4e-02 3.00dB:2.1e-02 3.25dB:4.8e-03 3.50dB:1.1e-03 3.75dB:2.0e-04 4.00dB:4.1e-05 4.25dB:5.0e-06 4.50dB:3.0e-06 4.75dB:1.0e-06 5.00dB:0.0e+00\n"}
+,{"stream_name":"stdout","time":19938.814364495,"data":"  profiling at Eb/N0 = 3.5 dB (idle GPU 29.4 W)\n"}
+,{"stream_name":"stdout","time":19982.680301043,"data":"    BP-GNN (5x10 BP it) [fixed]  | B=1  41.078 ms | B=2048        915 cw/s |   67.1 W | 73074.61 uJ/cw\n"}
+,{"stream_name":"stdout","time":20041.922106764,"data":"    BP-GNN (5x10 BP it) [fixed, CUDA graph] | B=1   6.866 ms | B=2048        941 cw/s |   67.4 W | 72057.01 uJ/cw\n"}
+,{"stream_name":"stdout","time":20054.803677837,"data":"    BP-GNN (5x10 BP it) [early-stop] | B=1   6.240 ms | B=2048      18296 cw/s |   61.5 W |  5080.03 uJ/cw\n"}
+,{"stream_name":"stdout","time":20076.039695773,"data":"    BP-GNN (5x10 BP it) + OSD-2 [early-stop] | B=1   5.911 ms | B=2048       4225 cw/s |   38.6 W | 17410.51 uJ/cw\n"}
+,{"stream_name":"stdout","time":20139.186661667,"data":"    BP-GNN (5x40 BP it) [fixed]  | B=1 113.640 ms | B=2048        656 cw/s |   67.3 W | 102383.54 uJ/cw\n"}
+,{"stream_name":"stdout","time":20218.008467756,"data":"    BP-GNN (5x40 BP it) [fixed, CUDA graph] | B=1  20.556 ms | B=2048        657 cw/s |   67.9 W | 103679.44 uJ/cw\n"}
+,{"stream_name":"stdout","time":20236.298615327,"data":"    BP-GNN (5x40 BP it) [early-stop] | B=1   6.547 ms | B=2048       9849 cw/s |   38.2 W |  6811.42 uJ/cw\n"}
+,{"stream_name":"stdout","time":20251.783664504,"data":"    BP-GNN (5x40 BP it) + OSD-2 [early-stop] | B=1   5.969 ms | B=2048       3533 cw/s |   59.1 W |  3802.64 uJ/cw\n"}
+,{"stream_name":"stdout","time":20270.645995509,"data":"    NBP per-edge (50 it) [fixed] | B=1  25.032 ms | B=2048       6898 cw/s |   68.0 W | 10024.59 uJ/cw\n"}
+,{"stream_name":"stdout","time":20290.563469999,"data":"    NBP per-edge (50 it) [fixed, CUDA graph] | B=1   3.608 ms | B=2048       6924 cw/s |   67.8 W |  9884.77 uJ/cw\n"}
+,{"stream_name":"stdout","time":20300.337026056,"data":"    NBP per-edge (50 it) [early-stop] | B=1   3.721 ms | B=2048      28010 cw/s |   60.5 W |  3378.72 uJ/cw\n"}
+,{"stream_name":"stdout","time":20321.396837062,"data":"    NBP per-edge (50 it) + OSD-2 [early-stop] | B=1   6.313 ms | B=2048       5396 cw/s |   33.5 W | 14283.28 uJ/cw\n"}
+,{"stream_name":"stdout","time":20364.835845325,"data":"    GNN only (10 it) [fixed]     | B=1  14.895 ms | B=2048        943 cw/s |   66.0 W | 69833.71 uJ/cw\n"}
+,{"stream_name":"stdout","time":20421.765911927,"data":"    GNN only (10 it) [fixed, CUDA graph] | B=1   2.589 ms | B=2048        969 cw/s |   67.5 W | 69344.73 uJ/cw\n"}
+,{"stream_name":"stdout","time":20462.307826892,"data":"    GNN only (10 it) [early-stop] | B=1  15.868 ms | B=2048        974 cw/s |   67.9 W | 69153.52 uJ/cw\n"}
+,{"stream_name":"stdout","time":20480.941771074,"data":"    BP (50 it) [fixed]           | B=1  23.372 ms | B=2048       7197 cw/s |   67.8 W |  9554.96 uJ/cw\n"}
+,{"stream_name":"stdout","time":20500.400243384,"data":"    BP (50 it) [fixed, CUDA graph] | B=1   4.427 ms | B=2048       7202 cw/s |   68.1 W |  9571.56 uJ/cw\n"}
+,{"stream_name":"stdout","time":20510.826020999,"data":"    BP (50 it) [early-stop]      | B=1   5.681 ms | B=2048      26468 cw/s |   62.1 W |  3361.55 uJ/cw\n"}
+,{"stream_name":"stdout","time":20529.707349951,"data":"    [cpu] BP-GNN (5x10 BP it) [fixed] | B=1 55.13 ms | B=64 2529.12 ms\n"}
+,{"stream_name":"stdout","time":20554.785451701,"data":"    [cpu] BP-GNN (5x40 BP it) [fixed] | B=1 120.42 ms | B=64 3181.20 ms\n"}
+,{"stream_name":"stdout","time":20559.723387883,"data":"    [cpu] NBP per-edge (50 it) [fixed] | B=1 22.50 ms | B=64 209.12 ms\n"}
+,{"stream_name":"stdout","time":20576.049569822,"data":"    [cpu] GNN only (10 it) [fixed] | B=1 28.96 ms | B=64 2254.87 ms\n"}
+,{"stream_name":"stdout","time":20581.180799523,"data":"    [cpu] BP (50 it) [fixed]     | B=1 22.35 ms | B=64 205.89 ms\n"}
+,{"stream_name":"stdout","time":20583.500284896,"data":"done\n"}
+,{"stream_name":"stderr","time":20590.055404574,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":20590.05543348,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":20590.393671796,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":20590.393702292,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":20591.384887005,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":20592.499733854,"data":"[NbConvertApp] Writing 360651 bytes to __results__.html\n"}
+]

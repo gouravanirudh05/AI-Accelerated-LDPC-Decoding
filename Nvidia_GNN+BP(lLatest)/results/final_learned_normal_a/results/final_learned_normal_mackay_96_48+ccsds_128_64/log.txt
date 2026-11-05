@@ -1,0 +1,392 @@
+device: cuda | torch 2.11.0+cu128 | Tesla T4
+
+=== final_learned_normal_mackay_96_48+ccsds_128_64_mackay_96_48: training BP-GNN (5x10 BP it) (22481 parameters) on ['mackay_96_48'] ===
+  hard pools (per band): [[1024, 1024, 1024, 394]]
+  hard validation set: 4.25-5.00 dB: 1000, 5.00-5.75 dB: 1000, 5.75-6.50 dB: 152
+  step    500 |    1.2 min | lr 1.0e-03 | loss 0.2086 (bce 0.1880, syn 0.2067) | val BER 1.89e-04 BLER 1.61e-03 | hard-set FER 0.321 0.273 0.211
+  step   1000 |    2.3 min | lr 1.0e-03 | loss 0.2195 (bce 0.1948, syn 0.2475) | val BER 1.89e-04 BLER 1.74e-03 | hard-set FER 0.334 0.297 0.283
+  step   1500 |    3.3 min | lr 1.0e-03 | loss 0.1932 (bce 0.1688, syn 0.2447) | val BER 1.81e-04 BLER 1.55e-03 | hard-set FER 0.321 0.271 0.230
+  step   2000 |    4.4 min | lr 1.0e-03 | loss 0.1743 (bce 0.1495, syn 0.2484) | val BER 1.50e-04 BLER 1.98e-03 | hard-set FER 0.367 0.294 0.276
+  step   2500 |    5.5 min | lr 1.0e-03 | loss 0.1785 (bce 0.1559, syn 0.2265) | val BER 1.43e-04 BLER 2.17e-03 | hard-set FER 0.427 0.370 0.296
+  step   3000 |    6.6 min | lr 1.0e-03 | loss 0.1644 (bce 0.1452, syn 0.1928) | val BER 1.21e-04 BLER 1.49e-03 | hard-set FER 0.334 0.248 0.217
+  step   3500 |    7.7 min | lr 1.0e-03 | loss 0.1734 (bce 0.1526, syn 0.2081) | val BER 1.28e-04 BLER 1.49e-03 | hard-set FER 0.307 0.254 0.191
+  step   4000 |    8.8 min | lr 1.0e-03 | loss 0.1631 (bce 0.1415, syn 0.2157) | val BER 1.15e-04 BLER 1.30e-03 | hard-set FER 0.265 0.183 0.118
+  step   4500 |    9.8 min | lr 1.0e-03 | loss 0.1543 (bce 0.1383, syn 0.1597) | val BER 1.09e-04 BLER 1.18e-03 | hard-set FER 0.239 0.191 0.138
+  step   5000 |   10.9 min | lr 1.0e-03 | loss 0.1546 (bce 0.1360, syn 0.1860) | val BER 9.43e-05 BLER 1.12e-03 | hard-set FER 0.233 0.158 0.092
+  step   5500 |   12.0 min | lr 1.0e-03 | loss 0.1536 (bce 0.1361, syn 0.1750) | val BER 1.09e-04 BLER 1.24e-03 | hard-set FER 0.223 0.172 0.099
+  step   6000 |   13.1 min | lr 1.0e-03 | loss 0.1543 (bce 0.1360, syn 0.1823) | val BER 1.03e-04 BLER 1.12e-03 | hard-set FER 0.215 0.149 0.079
+  step   6500 |   14.2 min | lr 1.0e-03 | loss 0.1535 (bce 0.1351, syn 0.1844) | val BER 9.69e-05 BLER 9.92e-04 | hard-set FER 0.232 0.197 0.178
+  step   7000 |   15.3 min | lr 1.0e-03 | loss 0.1559 (bce 0.1393, syn 0.1664) | val BER 1.05e-04 BLER 1.05e-03 | hard-set FER 0.208 0.144 0.105
+  step   7500 |   16.3 min | lr 1.0e-03 | loss 0.1370 (bce 0.1219, syn 0.1511) | val BER 1.02e-04 BLER 1.18e-03 | hard-set FER 0.226 0.147 0.086
+  step   8000 |   17.4 min | lr 1.0e-03 | loss 0.1576 (bce 0.1425, syn 0.1509) | val BER 1.12e-04 BLER 1.24e-03 | hard-set FER 0.203 0.153 0.099
+  step   8500 |   18.5 min | lr 1.0e-03 | loss 0.1570 (bce 0.1396, syn 0.1746) | val BER 1.15e-04 BLER 1.24e-03 | hard-set FER 0.201 0.143 0.099
+  step   9000 |   19.6 min | lr 1.0e-03 | loss 0.1429 (bce 0.1268, syn 0.1605) | val BER 7.75e-05 BLER 9.30e-04 | hard-set FER 0.192 0.137 0.086
+  step   9500 |   20.7 min | lr 1.0e-03 | loss 0.1472 (bce 0.1300, syn 0.1715) | val BER 1.32e-04 BLER 1.30e-03 | hard-set FER 0.204 0.161 0.079
+  step  10000 |   21.8 min | lr 1.0e-03 | loss 0.1536 (bce 0.1356, syn 0.1806) | val BER 1.11e-04 BLER 1.24e-03 | hard-set FER 0.233 0.183 0.079
+  step  10500 |   22.9 min | lr 1.0e-03 | loss 0.1492 (bce 0.1313, syn 0.1793) | val BER 8.91e-05 BLER 1.12e-03 | hard-set FER 0.188 0.148 0.086
+  step  11000 |   23.9 min | lr 1.0e-03 | loss 0.1575 (bce 0.1430, syn 0.1448) | val BER 1.38e-04 BLER 1.30e-03 | hard-set FER 0.183 0.132 0.086
+  step  11500 |   25.0 min | lr 1.0e-03 | loss 0.1371 (bce 0.1225, syn 0.1460) | val BER 1.29e-04 BLER 1.24e-03 | hard-set FER 0.178 0.136 0.099
+  step  12000 |   26.1 min | lr 1.0e-03 | loss 0.1576 (bce 0.1398, syn 0.1781) | val BER 1.06e-04 BLER 1.18e-03 | hard-set FER 0.231 0.154 0.079
+  step  12500 |   27.2 min | lr 1.0e-03 | loss 0.1423 (bce 0.1259, syn 0.1636) | val BER 1.16e-04 BLER 1.24e-03 | hard-set FER 0.191 0.156 0.079
+  step  13000 |   28.3 min | lr 1.0e-03 | loss 0.1341 (bce 0.1196, syn 0.1455) | val BER 9.43e-05 BLER 9.92e-04 | hard-set FER 0.191 0.141 0.105
+  step  13500 |   29.4 min | lr 1.0e-03 | loss 0.1397 (bce 0.1221, syn 0.1763) | val BER 1.06e-04 BLER 1.12e-03 | hard-set FER 0.174 0.142 0.092
+  step  14000 |   30.4 min | lr 1.0e-03 | loss 0.1386 (bce 0.1208, syn 0.1778) | val BER 1.12e-04 BLER 1.18e-03 | hard-set FER 0.200 0.138 0.079
+  plateau: lr -> 5.0e-04 (restored best, score 0.1335)
+  step  14500 |   31.5 min | lr 5.0e-04 | loss 0.1392 (bce 0.1232, syn 0.1602) | val BER 1.20e-04 BLER 1.18e-03 | hard-set FER 0.178 0.131 0.092
+  step  15000 |   32.6 min | lr 5.0e-04 | loss 0.1464 (bce 0.1311, syn 0.1532) | val BER 1.06e-04 BLER 1.05e-03 | hard-set FER 0.179 0.137 0.092
+  step  15500 |   33.7 min | lr 5.0e-04 | loss 0.1448 (bce 0.1288, syn 0.1599) | val BER 9.17e-05 BLER 9.92e-04 | hard-set FER 0.184 0.129 0.079
+  step  16000 |   34.8 min | lr 5.0e-04 | loss 0.1521 (bce 0.1337, syn 0.1839) | val BER 9.82e-05 BLER 9.92e-04 | hard-set FER 0.205 0.150 0.086
+  step  16500 |   35.9 min | lr 5.0e-04 | loss 0.1441 (bce 0.1268, syn 0.1729) | val BER 9.82e-05 BLER 9.92e-04 | hard-set FER 0.174 0.124 0.066
+  step  17000 |   37.0 min | lr 5.0e-04 | loss 0.1387 (bce 0.1224, syn 0.1633) | val BER 1.01e-04 BLER 1.05e-03 | hard-set FER 0.185 0.134 0.072
+  step  17500 |   38.0 min | lr 5.0e-04 | loss 0.1368 (bce 0.1208, syn 0.1599) | val BER 9.30e-05 BLER 9.92e-04 | hard-set FER 0.180 0.129 0.053
+  step  18000 |   39.1 min | lr 5.0e-04 | loss 0.1514 (bce 0.1348, syn 0.1659) | val BER 1.02e-04 BLER 9.92e-04 | hard-set FER 0.170 0.129 0.072
+  step  18500 |   40.2 min | lr 5.0e-04 | loss 0.1454 (bce 0.1267, syn 0.1868) | val BER 9.69e-05 BLER 9.92e-04 | hard-set FER 0.179 0.143 0.079
+  step  19000 |   41.3 min | lr 5.0e-04 | loss 0.1449 (bce 0.1272, syn 0.1770) | val BER 8.91e-05 BLER 9.30e-04 | hard-set FER 0.179 0.134 0.086
+  step  19500 |   42.4 min | lr 5.0e-04 | loss 0.1503 (bce 0.1326, syn 0.1770) | val BER 9.30e-05 BLER 9.30e-04 | hard-set FER 0.175 0.128 0.072
+  step  20000 |   43.5 min | lr 5.0e-04 | loss 0.1522 (bce 0.1345, syn 0.1768) | val BER 9.56e-05 BLER 9.30e-04 | hard-set FER 0.169 0.115 0.079
+  step  20500 |   44.5 min | lr 5.0e-04 | loss 0.1413 (bce 0.1241, syn 0.1713) | val BER 1.01e-04 BLER 1.05e-03 | hard-set FER 0.169 0.116 0.066
+  step  21000 |   45.6 min | lr 5.0e-04 | loss 0.1386 (bce 0.1235, syn 0.1516) | val BER 8.27e-05 BLER 9.30e-04 | hard-set FER 0.165 0.110 0.059
+  step  21500 |   46.7 min | lr 5.0e-04 | loss 0.1382 (bce 0.1213, syn 0.1691) | val BER 9.56e-05 BLER 9.92e-04 | hard-set FER 0.176 0.123 0.066
+  step  22000 |   47.8 min | lr 5.0e-04 | loss 0.1335 (bce 0.1156, syn 0.1795) | val BER 8.53e-05 BLER 9.30e-04 | hard-set FER 0.171 0.122 0.072
+  step  22500 |   48.9 min | lr 5.0e-04 | loss 0.1424 (bce 0.1255, syn 0.1690) | val BER 8.65e-05 BLER 8.68e-04 | hard-set FER 0.184 0.117 0.072
+  step  23000 |   49.9 min | lr 5.0e-04 | loss 0.1551 (bce 0.1340, syn 0.2111) | val BER 9.82e-05 BLER 1.05e-03 | hard-set FER 0.187 0.137 0.118
+  step  23500 |   51.0 min | lr 5.0e-04 | loss 0.1388 (bce 0.1218, syn 0.1701) | val BER 9.43e-05 BLER 9.30e-04 | hard-set FER 0.182 0.119 0.092
+  step  24000 |   52.1 min | lr 5.0e-04 | loss 0.1420 (bce 0.1250, syn 0.1700) | val BER 8.78e-05 BLER 9.30e-04 | hard-set FER 0.177 0.122 0.072
+  plateau: lr -> 2.5e-04 (restored best, score 0.1114)
+  step  24500 |   53.2 min | lr 2.5e-04 | loss 0.1394 (bce 0.1220, syn 0.1738) | val BER 9.82e-05 BLER 9.30e-04 | hard-set FER 0.169 0.117 0.066
+  step  25000 |   54.3 min | lr 2.5e-04 | loss 0.1413 (bce 0.1251, syn 0.1627) | val BER 1.06e-04 BLER 9.92e-04 | hard-set FER 0.168 0.116 0.079
+  step  25500 |   55.3 min | lr 2.5e-04 | loss 0.1411 (bce 0.1240, syn 0.1703) | val BER 9.95e-05 BLER 9.30e-04 | hard-set FER 0.172 0.112 0.086
+  step  26000 |   56.4 min | lr 2.5e-04 | loss 0.1487 (bce 0.1308, syn 0.1798) | val BER 1.19e-04 BLER 1.12e-03 | hard-set FER 0.177 0.114 0.072
+  step  26500 |   57.5 min | lr 2.5e-04 | loss 0.1371 (bce 0.1216, syn 0.1552) | val BER 8.78e-05 BLER 9.30e-04 | hard-set FER 0.168 0.119 0.066
+  step  27000 |   58.6 min | lr 2.5e-04 | loss 0.1388 (bce 0.1237, syn 0.1512) | val BER 8.91e-05 BLER 8.68e-04 | hard-set FER 0.164 0.111 0.066
+  plateau: lr -> 1.3e-04 (restored best, score 0.1114)
+  step  27500 |   59.7 min | lr 1.3e-04 | loss 0.1566 (bce 0.1394, syn 0.1725) | val BER 1.02e-04 BLER 9.30e-04 | hard-set FER 0.172 0.118 0.072
+  step  28000 |   60.8 min | lr 1.3e-04 | loss 0.1430 (bce 0.1256, syn 0.1740) | val BER 1.01e-04 BLER 1.05e-03 | hard-set FER 0.172 0.121 0.066
+  step  28500 |   61.8 min | lr 1.3e-04 | loss 0.1402 (bce 0.1244, syn 0.1589) | val BER 9.69e-05 BLER 9.30e-04 | hard-set FER 0.174 0.113 0.072
+  step  29000 |   62.9 min | lr 1.3e-04 | loss 0.1413 (bce 0.1244, syn 0.1690) | val BER 9.17e-05 BLER 9.30e-04 | hard-set FER 0.164 0.113 0.079
+  step  29500 |   64.0 min | lr 1.3e-04 | loss 0.1355 (bce 0.1207, syn 0.1472) | val BER 9.17e-05 BLER 9.30e-04 | hard-set FER 0.171 0.116 0.086
+  step  30000 |   65.1 min | lr 1.3e-04 | loss 0.1381 (bce 0.1225, syn 0.1552) | val BER 9.43e-05 BLER 9.30e-04 | hard-set FER 0.169 0.121 0.072
+  plateau: lr -> 6.3e-05 (restored best, score 0.1114)
+  step  30500 |   66.2 min | lr 6.3e-05 | loss 0.1440 (bce 0.1275, syn 0.1652) | val BER 1.06e-04 BLER 9.92e-04 | hard-set FER 0.180 0.116 0.059
+  step  31000 |   67.3 min | lr 6.3e-05 | loss 0.1518 (bce 0.1349, syn 0.1690) | val BER 1.01e-04 BLER 1.05e-03 | hard-set FER 0.167 0.117 0.079
+  step  31500 |   68.3 min | lr 6.3e-05 | loss 0.1436 (bce 0.1272, syn 0.1644) | val BER 9.82e-05 BLER 9.30e-04 | hard-set FER 0.173 0.114 0.066
+  step  32000 |   69.4 min | lr 6.3e-05 | loss 0.1334 (bce 0.1175, syn 0.1593) | val BER 9.56e-05 BLER 9.92e-04 | hard-set FER 0.170 0.114 0.072
+  step  32500 |   70.5 min | lr 6.3e-05 | loss 0.1404 (bce 0.1240, syn 0.1640) | val BER 1.01e-04 BLER 9.92e-04 | hard-set FER 0.167 0.119 0.066
+  step  33000 |   71.6 min | lr 6.3e-05 | loss 0.1506 (bce 0.1327, syn 0.1795) | val BER 9.43e-05 BLER 9.30e-04 | hard-set FER 0.158 0.116 0.072
+  plateau: lr -> 3.1e-05 (restored best, score 0.1114)
+  step  33500 |   72.7 min | lr 3.1e-05 | loss 0.1407 (bce 0.1250, syn 0.1569) | val BER 9.82e-05 BLER 9.30e-04 | hard-set FER 0.165 0.113 0.072
+  step  34000 |   73.7 min | lr 3.1e-05 | loss 0.1480 (bce 0.1311, syn 0.1688) | val BER 9.43e-05 BLER 9.92e-04 | hard-set FER 0.173 0.121 0.066
+  step  34500 |   74.8 min | lr 3.1e-05 | loss 0.1248 (bce 0.1104, syn 0.1445) | val BER 9.30e-05 BLER 9.92e-04 | hard-set FER 0.170 0.117 0.086
+  step  35000 |   75.9 min | lr 3.1e-05 | loss 0.1402 (bce 0.1237, syn 0.1650) | val BER 9.56e-05 BLER 9.92e-04 | hard-set FER 0.168 0.115 0.079
+  step  35500 |   77.0 min | lr 3.1e-05 | loss 0.1465 (bce 0.1283, syn 0.1825) | val BER 9.56e-05 BLER 9.30e-04 | hard-set FER 0.173 0.111 0.079
+  step  36000 |   78.1 min | lr 3.1e-05 | loss 0.1463 (bce 0.1302, syn 0.1611) | val BER 9.69e-05 BLER 9.30e-04 | hard-set FER 0.167 0.119 0.072
+  plateau: lr -> 1.6e-05 (restored best, score 0.1114)
+  step  36500 |   79.2 min | lr 1.6e-05 | loss 0.1364 (bce 0.1207, syn 0.1575) | val BER 9.43e-05 BLER 9.30e-04 | hard-set FER 0.167 0.115 0.066
+  step  36882 |   80.0 min | lr 1.6e-05 | loss 0.1298 (bce 0.1141, syn 0.1569) | val BER 9.82e-05 BLER 9.30e-04 | hard-set FER 0.169 0.116 0.072
+
+=== final_learned_normal_mackay_96_48+ccsds_128_64_mackay_96_48: training NBP per-edge (50 it) (14400 parameters) on ['mackay_96_48'] ===
+  step    500 |    0.6 min | lr 3.0e-03 | loss 0.0749 (bce 0.0679, syn 0.0695) | val BER 9.92e-05 BLER 1.22e-03
+  step   1000 |    1.2 min | lr 3.0e-03 | loss 0.0682 (bce 0.0617, syn 0.0650) | val BER 1.11e-04 BLER 1.28e-03
+  step   1500 |    1.9 min | lr 3.0e-03 | loss 0.0631 (bce 0.0560, syn 0.0706) | val BER 9.03e-05 BLER 1.04e-03
+  step   2000 |    2.5 min | lr 3.0e-03 | loss 0.0601 (bce 0.0537, syn 0.0637) | val BER 1.08e-04 BLER 1.28e-03
+  step   2500 |    3.1 min | lr 3.0e-03 | loss 0.0616 (bce 0.0550, syn 0.0663) | val BER 1.02e-04 BLER 1.10e-03
+  step   3000 |    3.7 min | lr 3.0e-03 | loss 0.0587 (bce 0.0525, syn 0.0624) | val BER 9.92e-05 BLER 1.16e-03
+  step   3500 |    4.3 min | lr 3.0e-03 | loss 0.0668 (bce 0.0598, syn 0.0697) | val BER 1.06e-04 BLER 1.34e-03
+  step   4000 |    5.0 min | lr 3.0e-03 | loss 0.0592 (bce 0.0530, syn 0.0621) | val BER 1.06e-04 BLER 1.34e-03
+  step   4500 |    5.6 min | lr 3.0e-03 | loss 0.0623 (bce 0.0559, syn 0.0641) | val BER 1.20e-04 BLER 1.46e-03
+  plateau: lr -> 1.5e-03 (restored best, score 0.001128)
+  step   5000 |    6.2 min | lr 1.5e-03 | loss 0.0667 (bce 0.0595, syn 0.0719) | val BER 1.03e-04 BLER 1.16e-03
+  step   5500 |    6.8 min | lr 1.5e-03 | loss 0.0622 (bce 0.0556, syn 0.0656) | val BER 9.92e-05 BLER 1.10e-03
+  step   6000 |    7.5 min | lr 1.5e-03 | loss 0.0623 (bce 0.0556, syn 0.0666) | val BER 8.77e-05 BLER 9.77e-04
+  step   6500 |    8.1 min | lr 1.5e-03 | loss 0.0738 (bce 0.0665, syn 0.0736) | val BER 1.04e-04 BLER 1.16e-03
+  step   7000 |    8.7 min | lr 1.5e-03 | loss 0.0592 (bce 0.0527, syn 0.0655) | val BER 1.14e-04 BLER 1.28e-03
+  step   7500 |    9.3 min | lr 1.5e-03 | loss 0.0668 (bce 0.0594, syn 0.0744) | val BER 9.66e-05 BLER 1.10e-03
+  step   8000 |    9.9 min | lr 1.5e-03 | loss 0.0640 (bce 0.0572, syn 0.0684) | val BER 9.28e-05 BLER 1.04e-03
+  step   8500 |   10.6 min | lr 1.5e-03 | loss 0.0642 (bce 0.0573, syn 0.0684) | val BER 1.09e-04 BLER 1.28e-03
+  step   9000 |   11.2 min | lr 1.5e-03 | loss 0.0680 (bce 0.0608, syn 0.0722) | val BER 1.03e-04 BLER 1.22e-03
+  plateau: lr -> 7.5e-04 (restored best, score 0.001064)
+  step   9500 |   11.8 min | lr 7.5e-04 | loss 0.0643 (bce 0.0579, syn 0.0644) | val BER 9.54e-05 BLER 1.16e-03
+  step  10000 |   12.4 min | lr 7.5e-04 | loss 0.0548 (bce 0.0488, syn 0.0602) | val BER 1.04e-04 BLER 1.22e-03
+  step  10500 |   13.0 min | lr 7.5e-04 | loss 0.0691 (bce 0.0622, syn 0.0692) | val BER 9.28e-05 BLER 1.10e-03
+  step  11000 |   13.7 min | lr 7.5e-04 | loss 0.0622 (bce 0.0553, syn 0.0693) | val BER 9.16e-05 BLER 1.10e-03
+  step  11500 |   14.3 min | lr 7.5e-04 | loss 0.0713 (bce 0.0636, syn 0.0762) | val BER 9.16e-05 BLER 1.10e-03
+  step  12000 |   14.9 min | lr 7.5e-04 | loss 0.0558 (bce 0.0495, syn 0.0630) | val BER 9.03e-05 BLER 1.04e-03
+  plateau: lr -> 3.8e-04 (restored best, score 0.001064)
+  step  12500 |   15.5 min | lr 3.8e-04 | loss 0.0673 (bce 0.0607, syn 0.0665) | val BER 8.27e-05 BLER 1.04e-03
+  step  13000 |   16.1 min | lr 3.8e-04 | loss 0.0628 (bce 0.0562, syn 0.0655) | val BER 9.16e-05 BLER 1.10e-03
+  step  13500 |   16.8 min | lr 3.8e-04 | loss 0.0633 (bce 0.0570, syn 0.0626) | val BER 1.06e-04 BLER 1.28e-03
+  step  14000 |   17.4 min | lr 3.8e-04 | loss 0.0702 (bce 0.0632, syn 0.0709) | val BER 1.20e-04 BLER 1.34e-03
+  step  14500 |   18.0 min | lr 3.8e-04 | loss 0.0592 (bce 0.0527, syn 0.0647) | val BER 1.21e-04 BLER 1.40e-03
+  step  15000 |   18.6 min | lr 3.8e-04 | loss 0.0600 (bce 0.0537, syn 0.0635) | val BER 1.27e-04 BLER 1.53e-03
+  plateau: lr -> 1.9e-04 (restored best, score 0.001064)
+  step  15500 |   19.2 min | lr 1.9e-04 | loss 0.0566 (bce 0.0507, syn 0.0587) | val BER 8.27e-05 BLER 9.77e-04
+  step  16000 |   19.9 min | lr 1.9e-04 | loss 0.0702 (bce 0.0633, syn 0.0686) | val BER 8.65e-05 BLER 9.77e-04
+  step  16107 |   20.0 min | lr 1.9e-04 | loss 0.0664 (bce 0.0600, syn 0.0639) | val BER 8.39e-05 BLER 9.77e-04
+
+=== final_learned_normal_mackay_96_48+ccsds_128_64_mackay_96_48: training GNN only (10 it) (11513 parameters) on ['mackay_96_48'] ===
+  step    500 |    0.8 min | lr 2.0e-03 | loss 0.1031 (bce 0.0905, syn 0.1261) | val BER 2.00e-03 BLER 6.94e-02
+  step   1000 |    1.6 min | lr 2.0e-03 | loss 0.1044 (bce 0.0950, syn 0.0944) | val BER 9.62e-04 BLER 2.55e-02
+  step   1500 |    2.4 min | lr 2.0e-03 | loss 0.0932 (bce 0.0851, syn 0.0810) | val BER 6.01e-04 BLER 1.51e-02
+  step   2000 |    3.3 min | lr 2.0e-03 | loss 0.0876 (bce 0.0814, syn 0.0622) | val BER 3.85e-04 BLER 8.43e-03
+  step   2500 |    4.1 min | lr 2.0e-03 | loss 0.0876 (bce 0.0801, syn 0.0751) | val BER 4.12e-04 BLER 8.43e-03
+  step   3000 |    4.9 min | lr 2.0e-03 | loss 0.0794 (bce 0.0736, syn 0.0581) | val BER 3.22e-04 BLER 6.14e-03
+  step   3500 |    5.7 min | lr 2.0e-03 | loss 0.1037 (bce 0.0948, syn 0.0892) | val BER 7.69e-04 BLER 2.17e-02
+  step   4000 |    6.6 min | lr 2.0e-03 | loss 0.0983 (bce 0.0901, syn 0.0817) | val BER 4.55e-04 BLER 9.98e-03
+  step   4500 |    7.4 min | lr 2.0e-03 | loss 0.0900 (bce 0.0832, syn 0.0683) | val BER 6.07e-04 BLER 1.53e-02
+  step   5000 |    8.2 min | lr 2.0e-03 | loss 0.1195 (bce 0.1067, syn 0.1275) | val BER 8.00e-04 BLER 2.22e-02
+  step   5500 |    9.0 min | lr 2.0e-03 | loss 0.0941 (bce 0.0857, syn 0.0841) | val BER 1.00e-03 BLER 2.84e-02
+  step   6000 |    9.9 min | lr 2.0e-03 | loss 0.0936 (bce 0.0868, syn 0.0680) | val BER 3.93e-04 BLER 7.56e-03
+  plateau: lr -> 1.0e-03 (restored best, score 0.00646)
+  step   6500 |   10.7 min | lr 1.0e-03 | loss 0.0890 (bce 0.0830, syn 0.0600) | val BER 3.14e-04 BLER 6.08e-03
+  step   7000 |   11.5 min | lr 1.0e-03 | loss 0.0778 (bce 0.0722, syn 0.0560) | val BER 3.40e-04 BLER 6.57e-03
+  step   7500 |   12.3 min | lr 1.0e-03 | loss 0.1106 (bce 0.1006, syn 0.0993) | val BER 9.71e-04 BLER 4.15e-02
+  step   8000 |   13.2 min | lr 1.0e-03 | loss 0.1034 (bce 0.0950, syn 0.0834) | val BER 3.67e-04 BLER 7.50e-03
+  step   8500 |   14.0 min | lr 1.0e-03 | loss 0.0852 (bce 0.0791, syn 0.0616) | val BER 3.27e-04 BLER 6.14e-03
+  step   9000 |   14.8 min | lr 1.0e-03 | loss 0.0999 (bce 0.0929, syn 0.0708) | val BER 3.58e-04 BLER 7.38e-03
+  step   9500 |   15.6 min | lr 1.0e-03 | loss 0.0819 (bce 0.0757, syn 0.0618) | val BER 3.60e-04 BLER 7.38e-03
+  plateau: lr -> 5.0e-04 (restored best, score 0.00639)
+  step  10000 |   16.4 min | lr 5.0e-04 | loss 0.0788 (bce 0.0731, syn 0.0573) | val BER 2.69e-04 BLER 5.08e-03
+  step  10500 |   17.3 min | lr 5.0e-04 | loss 0.0761 (bce 0.0705, syn 0.0562) | val BER 2.74e-04 BLER 5.27e-03
+  step  11000 |   18.1 min | lr 5.0e-04 | loss 0.0832 (bce 0.0769, syn 0.0622) | val BER 2.56e-04 BLER 4.40e-03
+  step  11500 |   18.9 min | lr 5.0e-04 | loss 0.0939 (bce 0.0872, syn 0.0666) | val BER 2.48e-04 BLER 4.53e-03
+  step  12000 |   19.7 min | lr 5.0e-04 | loss 0.0739 (bce 0.0687, syn 0.0528) | val BER 2.60e-04 BLER 4.71e-03
+  step  12500 |   20.6 min | lr 5.0e-04 | loss 0.0830 (bce 0.0778, syn 0.0524) | val BER 2.36e-04 BLER 3.78e-03
+  step  13000 |   21.4 min | lr 5.0e-04 | loss 0.0832 (bce 0.0772, syn 0.0600) | val BER 2.25e-04 BLER 3.72e-03
+  step  13500 |   22.2 min | lr 5.0e-04 | loss 0.0817 (bce 0.0760, syn 0.0572) | val BER 2.75e-04 BLER 5.02e-03
+  step  14000 |   23.0 min | lr 5.0e-04 | loss 0.0916 (bce 0.0855, syn 0.0607) | val BER 3.20e-04 BLER 6.14e-03
+  step  14500 |   23.8 min | lr 5.0e-04 | loss 0.0809 (bce 0.0757, syn 0.0516) | val BER 2.78e-04 BLER 4.40e-03
+  step  15000 |   24.7 min | lr 5.0e-04 | loss 0.0800 (bce 0.0751, syn 0.0483) | val BER 2.38e-04 BLER 3.84e-03
+  step  15500 |   25.5 min | lr 5.0e-04 | loss 0.0753 (bce 0.0703, syn 0.0502) | val BER 2.43e-04 BLER 3.91e-03
+  step  16000 |   26.3 min | lr 5.0e-04 | loss 0.0861 (bce 0.0791, syn 0.0704) | val BER 2.92e-04 BLER 5.27e-03
+  plateau: lr -> 2.5e-04 (restored best, score 0.003945)
+  step  16500 |   27.1 min | lr 2.5e-04 | loss 0.0957 (bce 0.0896, syn 0.0609) | val BER 2.38e-04 BLER 3.91e-03
+  step  17000 |   27.9 min | lr 2.5e-04 | loss 0.0803 (bce 0.0744, syn 0.0582) | val BER 2.83e-04 BLER 6.20e-03
+  step  17500 |   28.8 min | lr 2.5e-04 | loss 0.0735 (bce 0.0690, syn 0.0452) | val BER 2.53e-04 BLER 4.96e-03
+  step  18000 |   29.6 min | lr 2.5e-04 | loss 0.0816 (bce 0.0764, syn 0.0520) | val BER 2.49e-04 BLER 4.34e-03
+  step  18500 |   30.4 min | lr 2.5e-04 | loss 0.0831 (bce 0.0773, syn 0.0577) | val BER 2.25e-04 BLER 4.46e-03
+  step  19000 |   31.2 min | lr 2.5e-04 | loss 0.0775 (bce 0.0722, syn 0.0535) | val BER 2.18e-04 BLER 3.97e-03
+  plateau: lr -> 1.3e-04 (restored best, score 0.003945)
+  step  19500 |   32.1 min | lr 1.3e-04 | loss 0.0836 (bce 0.0781, syn 0.0554) | val BER 2.43e-04 BLER 4.22e-03
+  step  20000 |   32.9 min | lr 1.3e-04 | loss 0.0783 (bce 0.0733, syn 0.0498) | val BER 2.11e-04 BLER 3.47e-03
+  step  20500 |   33.7 min | lr 1.3e-04 | loss 0.0857 (bce 0.0801, syn 0.0560) | val BER 2.14e-04 BLER 3.53e-03
+  step  21000 |   34.5 min | lr 1.3e-04 | loss 0.0873 (bce 0.0818, syn 0.0552) | val BER 2.23e-04 BLER 3.41e-03
+  step  21500 |   35.3 min | lr 1.3e-04 | loss 0.0624 (bce 0.0588, syn 0.0366) | val BER 2.22e-04 BLER 3.60e-03
+  step  22000 |   36.2 min | lr 1.3e-04 | loss 0.0841 (bce 0.0785, syn 0.0560) | val BER 2.05e-04 BLER 3.47e-03
+  step  22500 |   37.0 min | lr 1.3e-04 | loss 0.0752 (bce 0.0706, syn 0.0461) | val BER 2.58e-04 BLER 5.58e-03
+  step  23000 |   37.8 min | lr 1.3e-04 | loss 0.0828 (bce 0.0772, syn 0.0564) | val BER 2.16e-04 BLER 3.53e-03
+  step  23500 |   38.6 min | lr 1.3e-04 | loss 0.0756 (bce 0.0705, syn 0.0511) | val BER 2.31e-04 BLER 3.66e-03
+  step  24000 |   39.4 min | lr 1.3e-04 | loss 0.0811 (bce 0.0757, syn 0.0541) | val BER 2.30e-04 BLER 3.84e-03
+  plateau: lr -> 6.3e-05 (restored best, score 0.003634)
+  step  24500 |   40.3 min | lr 6.3e-05 | loss 0.0758 (bce 0.0704, syn 0.0541) | val BER 2.17e-04 BLER 3.53e-03
+  step  25000 |   41.1 min | lr 6.3e-05 | loss 0.0753 (bce 0.0704, syn 0.0492) | val BER 2.07e-04 BLER 3.60e-03
+  step  25500 |   41.9 min | lr 6.3e-05 | loss 0.0808 (bce 0.0753, syn 0.0551) | val BER 2.18e-04 BLER 3.47e-03
+  step  26000 |   42.7 min | lr 6.3e-05 | loss 0.0796 (bce 0.0743, syn 0.0528) | val BER 2.16e-04 BLER 3.60e-03
+  step  26500 |   43.5 min | lr 6.3e-05 | loss 0.0895 (bce 0.0830, syn 0.0644) | val BER 1.99e-04 BLER 3.66e-03
+  step  27000 |   44.4 min | lr 6.3e-05 | loss 0.0755 (bce 0.0705, syn 0.0501) | val BER 2.17e-04 BLER 3.53e-03
+  plateau: lr -> 3.1e-05 (restored best, score 0.003634)
+  step  27387 |   45.0 min | lr 3.1e-05 | loss 0.0777 (bce 0.0723, syn 0.0540) | val BER 2.11e-04 BLER 3.35e-03
+GPU: Tesla T4 | NVML: True | energy counter: True
+  memory BP-GNN (5x10 BP it)                train step B=256:    878.4 MB | inference B=4096:    820.3 MB | max train batch 4096
+  memory BP-GNN (5x40 BP it)                train step B=256:   1215.9 MB | inference B=4096:    820.3 MB | max train batch 2048
+  memory NBP per-edge (50 it)               train step B=256:    163.4 MB | inference B=4096:     46.6 MB | max train batch 16384
+  memory GNN only (10 it)                   train step B=256:    974.5 MB | inference B=4096:    789.8 MB | max train batch 2048
+
+--- final_learned_normal_mackay_96_48+ccsds_128_64_mackay_96_48: evaluating on mackay_96_48 {'name': 'mackay_96_48', 'n': 96, 'k': 48, 'rate': 0.5, 'H_shape': [48, 96], 'edges': 288, 'rank': 48} ---
+  BP-GNN (5x10 BP it)                1.00dB:5.6e-01 1.50dB:3.7e-01 2.00dB:2.0e-01 2.50dB:9.2e-02 3.00dB:3.4e-02 3.50dB:9.2e-03 4.00dB:2.3e-03 4.50dB:4.3e-04 5.00dB:5.7e-05 5.50dB:1.2e-05 6.00dB:2.7e-06 6.50dB:0.0e+00
+  BP-GNN (5x10 BP it) + OSD-2        1.00dB:3.2e-01 1.50dB:1.9e-01 2.00dB:8.8e-02 2.50dB:3.8e-02 3.00dB:1.2e-02 3.50dB:3.5e-03 4.00dB:7.7e-04 4.50dB:1.4e-04 5.00dB:2.1e-05 5.50dB:8.0e-06 6.00dB:1.3e-06 6.50dB:6.7e-07
+  BP-GNN (5x40 BP it)                1.00dB:5.3e-01 1.50dB:3.4e-01 2.00dB:1.8e-01 2.50dB:8.1e-02 3.00dB:2.7e-02 3.50dB:7.6e-03 4.00dB:1.7e-03 4.50dB:2.9e-04 5.00dB:3.9e-05 5.50dB:8.7e-06 6.00dB:2.7e-06 6.50dB:3.3e-07
+  BP-GNN (5x40 BP it) + OSD-2        1.00dB:3.2e-01 1.50dB:1.9e-01 2.00dB:8.8e-02 2.50dB:3.5e-02 3.00dB:1.2e-02 3.50dB:3.2e-03 4.00dB:7.2e-04 4.50dB:1.2e-04 5.00dB:1.9e-05 5.50dB:8.0e-06 6.00dB:2.0e-06 6.50dB:6.7e-07
+  NBP per-edge (50 it)               1.00dB:6.0e-01 1.50dB:4.0e-01 2.00dB:2.2e-01 2.50dB:1.1e-01 3.00dB:4.1e-02 3.50dB:1.3e-02 4.00dB:3.3e-03 4.50dB:6.0e-04 5.00dB:1.3e-04 5.50dB:1.7e-05 6.00dB:4.3e-06 6.50dB:1.0e-06
+  NBP per-edge (50 it) + OSD-2       1.00dB:2.9e-01 1.50dB:1.8e-01 2.00dB:8.8e-02 2.50dB:4.0e-02 3.00dB:1.4e-02 3.50dB:4.4e-03 4.00dB:1.1e-03 4.50dB:2.1e-04 5.00dB:3.2e-05 5.50dB:1.0e-05 6.00dB:1.7e-06 6.50dB:6.7e-07
+  GNN only (10 it)                   1.00dB:6.6e-01 1.50dB:4.8e-01 2.00dB:3.0e-01 2.50dB:1.7e-01 3.00dB:7.3e-02 3.50dB:2.7e-02 4.00dB:8.6e-03 4.50dB:2.1e-03 5.00dB:4.5e-04 5.50dB:1.1e-04 6.00dB:1.7e-05 6.50dB:4.3e-06
+  BP (50 it)                         1.00dB:5.8e-01 1.50dB:3.9e-01 2.00dB:2.1e-01 2.50dB:9.9e-02 3.00dB:3.6e-02 3.50dB:1.3e-02 4.00dB:3.3e-03 4.50dB:7.1e-04 5.00dB:1.5e-04 5.50dB:2.6e-05 6.00dB:6.7e-06 6.50dB:1.7e-06
+  profiling at Eb/N0 = 4.0 dB (idle GPU 33.0 W)
+    BP-GNN (5x10 BP it) [fixed]  | B=1  37.231 ms | B=4096       8253 cw/s |   66.0 W |  7850.21 uJ/cw
+    BP-GNN (5x10 BP it) [fixed, CUDA graph] | B=1   5.068 ms | B=4096       7603 cw/s |   63.8 W |  7866.77 uJ/cw
+    BP-GNN (5x10 BP it) [early-stop] | B=1   1.938 ms | B=4096      69063 cw/s |   34.9 W |  1800.12 uJ/cw
+    BP-GNN (5x10 BP it) + OSD-2 [early-stop] | B=1   2.123 ms | B=4096      39269 cw/s |   33.7 W |  1040.37 uJ/cw
+    BP-GNN (5x40 BP it) [fixed]  | B=1 106.961 ms | B=4096       6047 cw/s |   65.2 W | 10087.62 uJ/cw
+    BP-GNN (5x40 BP it) [fixed, CUDA graph] | B=1  17.559 ms | B=4096       5658 cw/s |   63.8 W | 10131.65 uJ/cw
+    BP-GNN (5x40 BP it) [early-stop] | B=1   1.282 ms | B=4096      26232 cw/s |   33.9 W |  1152.86 uJ/cw
+    BP-GNN (5x40 BP it) + OSD-2 [early-stop] | B=1   2.121 ms | B=4096      19898 cw/s |   33.2 W |  6407.64 uJ/cw
+    NBP per-edge (50 it) [fixed] | B=1  23.193 ms | B=4096      69935 cw/s |   60.1 W |  1376.86 uJ/cw
+    NBP per-edge (50 it) [fixed, CUDA graph] | B=1   3.459 ms | B=4096      69738 cw/s |   66.5 W |   691.16 uJ/cw
+    NBP per-edge (50 it) [early-stop] | B=1   0.948 ms | B=4096      95433 cw/s |   35.3 W |  1359.45 uJ/cw
+    NBP per-edge (50 it) + OSD-2 [early-stop] | B=1   1.802 ms | B=4096      47191 cw/s |   34.8 W |  2930.02 uJ/cw
+    GNN only (10 it) [fixed]     | B=1  14.079 ms | B=4096       8075 cw/s |   65.8 W |  8227.22 uJ/cw
+    GNN only (10 it) [fixed, CUDA graph] | B=1   1.504 ms | B=4096       7822 cw/s |   66.0 W |  7954.92 uJ/cw
+    GNN only (10 it) [early-stop] | B=1   2.437 ms | B=4096      33797 cw/s |   64.6 W |  2344.52 uJ/cw
+    BP (50 it) [fixed]           | B=1  21.916 ms | B=4096      72596 cw/s |   60.3 W |  1310.66 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.303 ms | B=4096      73208 cw/s |   66.6 W |   649.75 uJ/cw
+    BP (50 it) [early-stop]      | B=1   1.594 ms | B=4096      98304 cw/s |   34.0 W |  1118.69 uJ/cw
+    [cpu] BP-GNN (5x10 BP it) [fixed] | B=1 22.98 ms | B=64 164.35 ms
+    [cpu] BP-GNN (5x40 BP it) [fixed] | B=1 62.49 ms | B=64 290.89 ms
+    [cpu] NBP per-edge (50 it) [fixed] | B=1 13.06 ms | B=64 42.67 ms
+    [cpu] GNN only (10 it) [fixed] | B=1 10.71 ms | B=64 159.43 ms
+    [cpu] BP (50 it) [fixed]     | B=1 12.98 ms | B=64 41.41 ms
+
+=== final_learned_normal_mackay_96_48+ccsds_128_64_ccsds_128_64: training BP-GNN (5x10 BP it) (22545 parameters) on ['ccsds_128_64'] ===
+  hard pools (per band): [[1024, 1024, 1024, 872]]
+  hard validation set: 4.25-4.83 dB: 1000, 4.83-5.42 dB: 1000, 5.42-6.00 dB: 219
+  step    500 |    1.9 min | lr 1.0e-03 | loss 0.2349 (bce 0.2013, syn 0.3359) | val BER 2.83e-04 BLER 3.04e-03 | hard-set FER 0.423 0.362 0.347
+  step   1000 |    3.6 min | lr 1.0e-03 | loss 0.2225 (bce 0.1888, syn 0.3370) | val BER 2.19e-04 BLER 2.54e-03 | hard-set FER 0.338 0.246 0.260
+  step   1500 |    5.3 min | lr 1.0e-03 | loss 0.2035 (bce 0.1720, syn 0.3157) | val BER 1.94e-04 BLER 1.86e-03 | hard-set FER 0.323 0.246 0.205
+  step   2000 |    7.0 min | lr 1.0e-03 | loss 0.2276 (bce 0.1939, syn 0.3370) | val BER 2.80e-04 BLER 2.85e-03 | hard-set FER 0.428 0.356 0.315
+  step   2500 |    8.7 min | lr 1.0e-03 | loss 0.2244 (bce 0.1961, syn 0.2834) | val BER 2.49e-04 BLER 2.36e-03 | hard-set FER 0.335 0.235 0.233
+  step   3000 |   10.4 min | lr 1.0e-03 | loss 0.2577 (bce 0.2214, syn 0.3628) | val BER 2.72e-04 BLER 2.79e-03 | hard-set FER 0.388 0.306 0.283
+  step   3500 |   12.1 min | lr 1.0e-03 | loss 0.1989 (bce 0.1707, syn 0.2826) | val BER 2.23e-04 BLER 2.11e-03 | hard-set FER 0.279 0.205 0.187
+  step   4000 |   13.8 min | lr 1.0e-03 | loss 0.2042 (bce 0.1742, syn 0.3002) | val BER 2.38e-04 BLER 2.67e-03 | hard-set FER 0.394 0.328 0.329
+  step   4500 |   15.5 min | lr 1.0e-03 | loss 0.1977 (bce 0.1684, syn 0.2926) | val BER 2.25e-04 BLER 2.17e-03 | hard-set FER 0.332 0.253 0.237
+  step   5000 |   17.2 min | lr 1.0e-03 | loss 0.2083 (bce 0.1766, syn 0.3170) | val BER 2.35e-04 BLER 2.60e-03 | hard-set FER 0.334 0.258 0.210
+  step   5500 |   18.9 min | lr 1.0e-03 | loss 0.1997 (bce 0.1712, syn 0.2851) | val BER 1.96e-04 BLER 2.17e-03 | hard-set FER 0.284 0.202 0.132
+  step   6000 |   20.5 min | lr 1.0e-03 | loss 0.1845 (bce 0.1608, syn 0.2375) | val BER 2.04e-04 BLER 2.17e-03 | hard-set FER 0.287 0.205 0.169
+  step   6500 |   22.2 min | lr 1.0e-03 | loss 0.2151 (bce 0.1843, syn 0.3075) | val BER 2.47e-04 BLER 2.17e-03 | hard-set FER 0.317 0.207 0.178
+  step   7000 |   23.9 min | lr 1.0e-03 | loss 0.1764 (bce 0.1526, syn 0.2389) | val BER 1.73e-04 BLER 1.92e-03 | hard-set FER 0.296 0.219 0.224
+  step   7500 |   25.6 min | lr 1.0e-03 | loss 0.2267 (bce 0.1889, syn 0.3785) | val BER 2.87e-04 BLER 3.35e-03 | hard-set FER 0.522 0.467 0.397
+  step   8000 |   27.3 min | lr 1.0e-03 | loss 0.2043 (bce 0.1712, syn 0.3315) | val BER 1.95e-04 BLER 2.05e-03 | hard-set FER 0.277 0.183 0.183
+  step   8500 |   29.0 min | lr 1.0e-03 | loss 0.2001 (bce 0.1744, syn 0.2575) | val BER 1.75e-04 BLER 1.74e-03 | hard-set FER 0.249 0.133 0.082
+  step   9000 |   30.7 min | lr 1.0e-03 | loss 0.1985 (bce 0.1678, syn 0.3068) | val BER 2.02e-04 BLER 1.86e-03 | hard-set FER 0.261 0.154 0.105
+  step   9500 |   32.4 min | lr 1.0e-03 | loss 0.1909 (bce 0.1625, syn 0.2840) | val BER 2.09e-04 BLER 2.05e-03 | hard-set FER 0.273 0.189 0.164
+  step  10000 |   34.1 min | lr 1.0e-03 | loss 0.2021 (bce 0.1737, syn 0.2841) | val BER 1.86e-04 BLER 1.80e-03 | hard-set FER 0.276 0.185 0.151
+  step  10500 |   35.8 min | lr 1.0e-03 | loss 0.2038 (bce 0.1721, syn 0.3170) | val BER 1.74e-04 BLER 1.80e-03 | hard-set FER 0.267 0.174 0.155
+  step  11000 |   37.5 min | lr 1.0e-03 | loss 0.2218 (bce 0.1888, syn 0.3293) | val BER 2.02e-04 BLER 1.86e-03 | hard-set FER 0.325 0.227 0.205
+  step  11500 |   39.2 min | lr 1.0e-03 | loss 0.1981 (bce 0.1731, syn 0.2507) | val BER 2.00e-04 BLER 2.23e-03 | hard-set FER 0.292 0.193 0.137
+  plateau: lr -> 5.0e-04 (restored best, score 0.1547)
+  step  12000 |   40.9 min | lr 5.0e-04 | loss 0.1807 (bce 0.1555, syn 0.2516) | val BER 1.72e-04 BLER 1.80e-03 | hard-set FER 0.250 0.161 0.142
+  step  12500 |   42.6 min | lr 5.0e-04 | loss 0.2048 (bce 0.1757, syn 0.2913) | val BER 1.71e-04 BLER 1.55e-03 | hard-set FER 0.212 0.115 0.059
+  step  13000 |   44.3 min | lr 5.0e-04 | loss 0.1981 (bce 0.1719, syn 0.2625) | val BER 1.83e-04 BLER 1.67e-03 | hard-set FER 0.260 0.186 0.155
+  step  13500 |   46.0 min | lr 5.0e-04 | loss 0.1683 (bce 0.1438, syn 0.2446) | val BER 1.68e-04 BLER 1.43e-03 | hard-set FER 0.212 0.120 0.091
+  step  14000 |   47.7 min | lr 5.0e-04 | loss 0.1925 (bce 0.1666, syn 0.2587) | val BER 1.56e-04 BLER 1.61e-03 | hard-set FER 0.223 0.129 0.119
+  step  14500 |   49.4 min | lr 5.0e-04 | loss 0.1868 (bce 0.1618, syn 0.2501) | val BER 2.01e-04 BLER 1.98e-03 | hard-set FER 0.229 0.156 0.119
+  step  15000 |   51.0 min | lr 5.0e-04 | loss 0.1975 (bce 0.1724, syn 0.2509) | val BER 1.89e-04 BLER 1.61e-03 | hard-set FER 0.216 0.134 0.078
+  step  15500 |   52.7 min | lr 5.0e-04 | loss 0.1770 (bce 0.1518, syn 0.2520) | val BER 1.71e-04 BLER 1.55e-03 | hard-set FER 0.208 0.138 0.078
+  plateau: lr -> 2.5e-04 (restored best, score 0.1288)
+  step  16000 |   54.4 min | lr 2.5e-04 | loss 0.1902 (bce 0.1633, syn 0.2685) | val BER 1.65e-04 BLER 1.49e-03 | hard-set FER 0.210 0.122 0.091
+  step  16500 |   56.1 min | lr 2.5e-04 | loss 0.1967 (bce 0.1694, syn 0.2734) | val BER 1.83e-04 BLER 1.80e-03 | hard-set FER 0.244 0.156 0.096
+  step  17000 |   57.8 min | lr 2.5e-04 | loss 0.1956 (bce 0.1691, syn 0.2656) | val BER 1.78e-04 BLER 1.80e-03 | hard-set FER 0.253 0.149 0.110
+  step  17500 |   59.5 min | lr 2.5e-04 | loss 0.2207 (bce 0.1947, syn 0.2601) | val BER 1.74e-04 BLER 1.55e-03 | hard-set FER 0.239 0.154 0.142
+  step  18000 |   61.2 min | lr 2.5e-04 | loss 0.1969 (bce 0.1715, syn 0.2539) | val BER 1.69e-04 BLER 1.49e-03 | hard-set FER 0.220 0.146 0.119
+  step  18500 |   62.9 min | lr 2.5e-04 | loss 0.1871 (bce 0.1611, syn 0.2600) | val BER 1.67e-04 BLER 1.55e-03 | hard-set FER 0.220 0.137 0.100
+  plateau: lr -> 1.3e-04 (restored best, score 0.1288)
+  step  19000 |   64.6 min | lr 1.3e-04 | loss 0.2044 (bce 0.1760, syn 0.2839) | val BER 1.51e-04 BLER 1.49e-03 | hard-set FER 0.217 0.138 0.100
+  step  19500 |   66.3 min | lr 1.3e-04 | loss 0.1738 (bce 0.1485, syn 0.2534) | val BER 1.96e-04 BLER 1.98e-03 | hard-set FER 0.250 0.159 0.151
+  step  20000 |   68.0 min | lr 1.3e-04 | loss 0.1990 (bce 0.1724, syn 0.2665) | val BER 1.59e-04 BLER 1.49e-03 | hard-set FER 0.219 0.137 0.100
+  step  20500 |   69.7 min | lr 1.3e-04 | loss 0.1854 (bce 0.1569, syn 0.2847) | val BER 1.84e-04 BLER 1.74e-03 | hard-set FER 0.217 0.133 0.082
+  step  21000 |   71.4 min | lr 1.3e-04 | loss 0.1899 (bce 0.1639, syn 0.2597) | val BER 1.85e-04 BLER 1.61e-03 | hard-set FER 0.224 0.143 0.100
+  step  21500 |   73.1 min | lr 1.3e-04 | loss 0.2066 (bce 0.1781, syn 0.2859) | val BER 1.64e-04 BLER 1.67e-03 | hard-set FER 0.218 0.128 0.082
+  plateau: lr -> 6.3e-05 (restored best, score 0.1288)
+  step  22000 |   74.7 min | lr 6.3e-05 | loss 0.2014 (bce 0.1725, syn 0.2887) | val BER 1.68e-04 BLER 1.61e-03 | hard-set FER 0.217 0.134 0.091
+  step  22500 |   76.4 min | lr 6.3e-05 | loss 0.2087 (bce 0.1828, syn 0.2591) | val BER 1.66e-04 BLER 1.74e-03 | hard-set FER 0.215 0.141 0.087
+  step  23000 |   78.1 min | lr 6.3e-05 | loss 0.1908 (bce 0.1639, syn 0.2691) | val BER 1.83e-04 BLER 1.74e-03 | hard-set FER 0.230 0.141 0.087
+  step  23500 |   79.8 min | lr 6.3e-05 | loss 0.1976 (bce 0.1694, syn 0.2814) | val BER 1.85e-04 BLER 1.74e-03 | hard-set FER 0.219 0.137 0.105
+  step  23548 |   80.0 min | lr 6.3e-05 | loss 0.1823 (bce 0.1545, syn 0.2780) | val BER 1.73e-04 BLER 1.67e-03 | hard-set FER 0.228 0.135 0.096
+
+=== final_learned_normal_mackay_96_48+ccsds_128_64_ccsds_128_64: training NBP per-edge (50 it) (25600 parameters) on ['ccsds_128_64'] ===
+  step    500 |    0.8 min | lr 3.0e-03 | loss 0.0745 (bce 0.0648, syn 0.0964) | val BER 1.23e-04 BLER 1.10e-03
+  step   1000 |    1.5 min | lr 3.0e-03 | loss 0.0737 (bce 0.0638, syn 0.0984) | val BER 1.48e-04 BLER 1.28e-03
+  step   1500 |    2.3 min | lr 3.0e-03 | loss 0.0711 (bce 0.0620, syn 0.0913) | val BER 1.70e-04 BLER 1.34e-03
+  step   2000 |    3.1 min | lr 3.0e-03 | loss 0.0662 (bce 0.0573, syn 0.0894) | val BER 1.39e-04 BLER 1.22e-03
+  step   2500 |    3.8 min | lr 3.0e-03 | loss 0.0724 (bce 0.0630, syn 0.0939) | val BER 1.46e-04 BLER 1.16e-03
+  step   3000 |    4.6 min | lr 3.0e-03 | loss 0.0699 (bce 0.0611, syn 0.0882) | val BER 1.18e-04 BLER 9.77e-04
+  step   3500 |    5.4 min | lr 3.0e-03 | loss 0.0741 (bce 0.0646, syn 0.0952) | val BER 1.46e-04 BLER 1.22e-03
+  step   4000 |    6.1 min | lr 3.0e-03 | loss 0.0675 (bce 0.0589, syn 0.0863) | val BER 1.43e-04 BLER 1.16e-03
+  step   4500 |    6.9 min | lr 3.0e-03 | loss 0.0683 (bce 0.0594, syn 0.0891) | val BER 1.57e-04 BLER 1.22e-03
+  step   5000 |    7.7 min | lr 3.0e-03 | loss 0.0761 (bce 0.0661, syn 0.0998) | val BER 1.26e-04 BLER 1.04e-03
+  step   5500 |    8.5 min | lr 3.0e-03 | loss 0.0700 (bce 0.0605, syn 0.0952) | val BER 1.36e-04 BLER 1.04e-03
+  step   6000 |    9.2 min | lr 3.0e-03 | loss 0.0738 (bce 0.0645, syn 0.0930) | val BER 1.39e-04 BLER 1.10e-03
+  plateau: lr -> 1.5e-03 (restored best, score 0.001095)
+  step   6500 |   10.0 min | lr 1.5e-03 | loss 0.0716 (bce 0.0621, syn 0.0952) | val BER 1.36e-04 BLER 1.16e-03
+  step   7000 |   10.8 min | lr 1.5e-03 | loss 0.0836 (bce 0.0734, syn 0.1022) | val BER 1.36e-04 BLER 1.16e-03
+  step   7500 |   11.5 min | lr 1.5e-03 | loss 0.0727 (bce 0.0629, syn 0.0973) | val BER 1.51e-04 BLER 1.40e-03
+  step   8000 |   12.3 min | lr 1.5e-03 | loss 0.0730 (bce 0.0636, syn 0.0937) | val BER 1.32e-04 BLER 1.16e-03
+  step   8500 |   13.1 min | lr 1.5e-03 | loss 0.0736 (bce 0.0642, syn 0.0943) | val BER 1.48e-04 BLER 1.28e-03
+  step   9000 |   13.8 min | lr 1.5e-03 | loss 0.0699 (bce 0.0607, syn 0.0915) | val BER 1.13e-04 BLER 9.77e-04
+  step   9500 |   14.6 min | lr 1.5e-03 | loss 0.0762 (bce 0.0663, syn 0.0990) | val BER 1.28e-04 BLER 1.22e-03
+  step  10000 |   15.4 min | lr 1.5e-03 | loss 0.0642 (bce 0.0559, syn 0.0821) | val BER 1.54e-04 BLER 1.28e-03
+  step  10500 |   16.2 min | lr 1.5e-03 | loss 0.0680 (bce 0.0591, syn 0.0885) | val BER 1.46e-04 BLER 1.16e-03
+  step  11000 |   16.9 min | lr 1.5e-03 | loss 0.0759 (bce 0.0665, syn 0.0941) | val BER 1.24e-04 BLER 1.04e-03
+  step  11500 |   17.7 min | lr 1.5e-03 | loss 0.0796 (bce 0.0690, syn 0.1061) | val BER 1.21e-04 BLER 9.77e-04
+  step  12000 |   18.5 min | lr 1.5e-03 | loss 0.0666 (bce 0.0578, syn 0.0880) | val BER 1.30e-04 BLER 1.04e-03
+  plateau: lr -> 7.5e-04 (restored best, score 0.001089)
+  step  12500 |   19.2 min | lr 7.5e-04 | loss 0.0675 (bce 0.0581, syn 0.0934) | val BER 1.41e-04 BLER 1.16e-03
+  step  12998 |   20.0 min | lr 7.5e-04 | loss 0.0731 (bce 0.0637, syn 0.0940) | val BER 1.39e-04 BLER 1.10e-03
+
+=== final_learned_normal_mackay_96_48+ccsds_128_64_ccsds_128_64: training GNN only (10 it) (11577 parameters) on ['ccsds_128_64'] ===
+  step    500 |    1.3 min | lr 2.0e-03 | loss 0.1260 (bce 0.1066, syn 0.1938) | val BER 4.29e-03 BLER 1.25e-01
+  step   1000 |    2.6 min | lr 2.0e-03 | loss 0.1289 (bce 0.1134, syn 0.1557) | val BER 1.97e-03 BLER 5.03e-02
+  step   1500 |    3.9 min | lr 2.0e-03 | loss 0.1257 (bce 0.1091, syn 0.1660) | val BER 2.46e-03 BLER 7.55e-02
+  step   2000 |    5.2 min | lr 2.0e-03 | loss 0.1193 (bce 0.1058, syn 0.1350) | val BER 1.49e-03 BLER 3.95e-02
+  step   2500 |    6.5 min | lr 2.0e-03 | loss 0.1542 (bce 0.1401, syn 0.1415) | val BER 5.48e-03 BLER 1.54e-01
+  step   3000 |    7.9 min | lr 2.0e-03 | loss 0.1261 (bce 0.1100, syn 0.1608) | val BER 2.32e-03 BLER 5.41e-02
+  step   3500 |    9.2 min | lr 2.0e-03 | loss 0.1200 (bce 0.1072, syn 0.1280) | val BER 1.59e-03 BLER 3.00e-02
+  step   4000 |   10.5 min | lr 2.0e-03 | loss 0.1517 (bce 0.1304, syn 0.2127) | val BER 4.16e-03 BLER 1.38e-01
+  step   4500 |   11.8 min | lr 2.0e-03 | loss 0.1388 (bce 0.1185, syn 0.2031) | val BER 3.17e-03 BLER 9.80e-02
+  step   5000 |   13.2 min | lr 2.0e-03 | loss 0.1748 (bce 0.1474, syn 0.2744) | val BER 7.52e-03 BLER 2.59e-01
+  step   5500 |   14.5 min | lr 2.0e-03 | loss 0.1249 (bce 0.1099, syn 0.1498) | val BER 2.25e-03 BLER 5.93e-02
+  step   6000 |   15.8 min | lr 2.0e-03 | loss 0.1296 (bce 0.1167, syn 0.1287) | val BER 2.47e-03 BLER 6.99e-02
+  step   6500 |   17.1 min | lr 2.0e-03 | loss 0.1760 (bce 0.1530, syn 0.2296) | val BER 8.48e-03 BLER 2.75e-01
+  plateau: lr -> 1.0e-03 (restored best, score 0.0316)
+  step   7000 |   18.5 min | lr 1.0e-03 | loss 0.1189 (bce 0.1039, syn 0.1499) | val BER 9.23e-04 BLER 2.09e-02
+  step   7500 |   19.8 min | lr 1.0e-03 | loss 0.1181 (bce 0.1033, syn 0.1480) | val BER 8.74e-04 BLER 1.93e-02
+  step   8000 |   21.1 min | lr 1.0e-03 | loss 0.1164 (bce 0.1028, syn 0.1355) | val BER 8.33e-04 BLER 1.85e-02
+  step   8500 |   22.4 min | lr 1.0e-03 | loss 0.1133 (bce 0.1024, syn 0.1087) | val BER 1.33e-03 BLER 2.68e-02
+  step   9000 |   23.7 min | lr 1.0e-03 | loss 0.1133 (bce 0.1009, syn 0.1236) | val BER 8.97e-04 BLER 1.66e-02
+  step   9500 |   25.0 min | lr 1.0e-03 | loss 0.1074 (bce 0.0972, syn 0.1022) | val BER 1.00e-03 BLER 1.97e-02
+  step  10000 |   26.3 min | lr 1.0e-03 | loss 0.1258 (bce 0.1089, syn 0.1685) | val BER 2.57e-03 BLER 8.28e-02
+  step  10500 |   27.6 min | lr 1.0e-03 | loss 0.1055 (bce 0.0920, syn 0.1355) | val BER 8.98e-04 BLER 1.79e-02
+  step  11000 |   28.9 min | lr 1.0e-03 | loss 0.1150 (bce 0.1023, syn 0.1266) | val BER 1.78e-03 BLER 4.41e-02
+  step  11500 |   30.3 min | lr 1.0e-03 | loss 0.1267 (bce 0.1134, syn 0.1329) | val BER 1.31e-03 BLER 2.33e-02
+  step  12000 |   31.6 min | lr 1.0e-03 | loss 0.1156 (bce 0.1040, syn 0.1159) | val BER 1.96e-03 BLER 7.56e-02
+  plateau: lr -> 5.0e-04 (restored best, score 0.01751)
+  step  12500 |   32.9 min | lr 5.0e-04 | loss 0.1098 (bce 0.0975, syn 0.1231) | val BER 6.99e-04 BLER 1.37e-02
+  step  13000 |   34.2 min | lr 5.0e-04 | loss 0.1048 (bce 0.0950, syn 0.0985) | val BER 6.53e-04 BLER 1.11e-02
+  step  13500 |   35.5 min | lr 5.0e-04 | loss 0.1073 (bce 0.0952, syn 0.1211) | val BER 6.29e-04 BLER 1.26e-02
+  step  14000 |   36.8 min | lr 5.0e-04 | loss 0.1120 (bce 0.0996, syn 0.1232) | val BER 8.86e-04 BLER 2.03e-02
+  step  14500 |   38.1 min | lr 5.0e-04 | loss 0.1261 (bce 0.1166, syn 0.0946) | val BER 1.57e-03 BLER 4.72e-02
+  step  15000 |   39.4 min | lr 5.0e-04 | loss 0.0994 (bce 0.0880, syn 0.1137) | val BER 1.33e-03 BLER 3.45e-02
+  step  15500 |   40.7 min | lr 5.0e-04 | loss 0.0984 (bce 0.0884, syn 0.1004) | val BER 7.81e-04 BLER 1.80e-02
+  step  16000 |   42.1 min | lr 5.0e-04 | loss 0.1205 (bce 0.1070, syn 0.1348) | val BER 1.46e-03 BLER 3.49e-02
+  plateau: lr -> 2.5e-04 (restored best, score 0.01175)
+  step  16500 |   43.4 min | lr 2.5e-04 | loss 0.1117 (bce 0.1001, syn 0.1156) | val BER 6.07e-04 BLER 1.09e-02
+  step  17000 |   44.7 min | lr 2.5e-04 | loss 0.1070 (bce 0.0963, syn 0.1066) | val BER 5.12e-04 BLER 1.02e-02
+  step  17118 |   45.0 min | lr 2.5e-04 | loss 0.1119 (bce 0.1009, syn 0.1094) | val BER 6.14e-04 BLER 1.07e-02
+GPU: Tesla T4 | NVML: True | energy counter: True
+  memory BP-GNN (5x10 BP it)                train step B=256:   1428.6 MB | inference B=4096:   1433.1 MB | max train batch 2048
+  memory BP-GNN (5x40 BP it)                train step B=256:   2028.6 MB | inference B=4096:   1433.1 MB | max train batch 1024
+  memory NBP per-edge (50 it)               train step B=256:    286.2 MB | inference B=4096:     80.1 MB | max train batch 8192
+  memory GNN only (10 it)                   train step B=256:   1547.0 MB | inference B=4096:   1373.1 MB | max train batch 2048
+
+--- final_learned_normal_mackay_96_48+ccsds_128_64_ccsds_128_64: evaluating on ccsds_128_64 {'name': 'ccsds_128_64', 'n': 128, 'k': 64, 'rate': 0.5, 'H_shape': [64, 128], 'edges': 512, 'rank': 64} ---
+  BP-GNN (5x10 BP it)                1.00dB:8.3e-01 1.50dB:6.2e-01 2.00dB:3.8e-01 2.50dB:1.8e-01 3.00dB:7.0e-02 3.50dB:2.1e-02 4.00dB:4.0e-03 4.50dB:5.2e-04 5.00dB:6.0e-05 5.50dB:5.0e-06 6.00dB:0.0e+00
+  BP-GNN (5x10 BP it) + OSD-2        1.00dB:2.9e-01 1.50dB:1.7e-01 2.00dB:8.3e-02 2.50dB:3.7e-02 3.00dB:1.4e-02 3.50dB:4.2e-03 4.00dB:7.3e-04 4.50dB:9.2e-05 5.00dB:8.7e-06 5.50dB:0.0e+00
+  BP-GNN (5x40 BP it)                1.00dB:7.7e-01 1.50dB:5.5e-01 2.00dB:3.3e-01 2.50dB:1.4e-01 3.00dB:5.1e-02 3.50dB:1.3e-02 4.00dB:2.2e-03 4.50dB:2.0e-04 5.00dB:1.6e-05 5.50dB:1.0e-06 6.00dB:0.0e+00
+  BP-GNN (5x40 BP it) + OSD-2        1.00dB:2.9e-01 1.50dB:1.6e-01 2.00dB:7.5e-02 2.50dB:3.1e-02 3.00dB:1.1e-02 3.50dB:2.3e-03 4.00dB:4.4e-04 4.50dB:6.1e-05 5.00dB:4.0e-06 5.50dB:3.3e-07 6.00dB:0.0e+00
+  NBP per-edge (50 it)               1.00dB:7.9e-01 1.50dB:5.8e-01 2.00dB:3.6e-01 2.50dB:1.6e-01 3.00dB:6.4e-02 3.50dB:1.7e-02 4.00dB:3.4e-03 4.50dB:3.7e-04 5.00dB:3.2e-05 5.50dB:3.0e-06 6.00dB:0.0e+00
+  NBP per-edge (50 it) + OSD-2       1.00dB:3.0e-01 1.50dB:1.7e-01 2.00dB:9.1e-02 2.50dB:3.7e-02 3.00dB:1.5e-02 3.50dB:4.4e-03 4.00dB:7.5e-04 4.50dB:1.2e-04 5.00dB:9.3e-06 5.50dB:1.0e-06 6.00dB:0.0e+00
+  GNN only (10 it)                   1.00dB:8.9e-01 1.50dB:7.4e-01 2.00dB:5.5e-01 2.50dB:3.4e-01 3.00dB:1.6e-01 3.50dB:6.9e-02 4.00dB:2.0e-02 4.50dB:5.4e-03 5.00dB:1.4e-03 5.50dB:3.1e-04 6.00dB:6.2e-05
+  BP (50 it)                         1.00dB:7.7e-01 1.50dB:5.7e-01 2.00dB:3.5e-01 2.50dB:1.6e-01 3.00dB:6.3e-02 3.50dB:1.6e-02 4.00dB:3.5e-03 4.50dB:5.4e-04 5.00dB:5.7e-05 5.50dB:6.0e-06 6.00dB:0.0e+00
+  profiling at Eb/N0 = 4.0 dB (idle GPU 33.4 W)
+    BP-GNN (5x10 BP it) [fixed]  | B=1  36.936 ms | B=4096       4857 cw/s |   65.9 W | 13366.91 uJ/cw
+    BP-GNN (5x10 BP it) [fixed, CUDA graph] | B=1   5.152 ms | B=4096       4925 cw/s |   65.9 W | 12547.08 uJ/cw
+    BP-GNN (5x10 BP it) [early-stop] | B=1   2.544 ms | B=4096      67647 cw/s |   34.9 W |  1857.89 uJ/cw
+    BP-GNN (5x10 BP it) + OSD-2 [early-stop] | B=1   2.125 ms | B=4096      35753 cw/s |   33.5 W |  3390.78 uJ/cw
+    BP-GNN (5x40 BP it) [fixed]  | B=1 107.813 ms | B=4096       3598 cw/s |   64.9 W | 16695.95 uJ/cw
+    BP-GNN (5x40 BP it) [fixed, CUDA graph] | B=1  18.920 ms | B=4096       3411 cw/s |   64.9 W | 16745.85 uJ/cw
+    BP-GNN (5x40 BP it) [early-stop] | B=1   3.170 ms | B=4096      25580 cw/s |   33.5 W |  3471.84 uJ/cw
+    BP-GNN (5x40 BP it) + OSD-2 [early-stop] | B=1   2.818 ms | B=4096      18870 cw/s |   33.3 W |  6648.09 uJ/cw
+    NBP per-edge (50 it) [fixed] | B=1  23.346 ms | B=4096      40418 cw/s |   67.3 W |  1548.63 uJ/cw
+    NBP per-edge (50 it) [fixed, CUDA graph] | B=1   3.274 ms | B=4096      40263 cw/s |   67.0 W |  1254.65 uJ/cw
+    NBP per-edge (50 it) [early-stop] | B=1   2.912 ms | B=4096      86514 cw/s |   36.1 W |  1372.12 uJ/cw
+    NBP per-edge (50 it) + OSD-2 [early-stop] | B=1   2.457 ms | B=4096      37170 cw/s |   34.7 W |  3439.47 uJ/cw
+    GNN only (10 it) [fixed]     | B=1  13.867 ms | B=4096       4747 cw/s |   64.8 W | 13417.40 uJ/cw
+    GNN only (10 it) [fixed, CUDA graph] | B=1   1.508 ms | B=4096       5059 cw/s |   66.5 W | 12581.86 uJ/cw
+    GNN only (10 it) [early-stop] | B=1   3.987 ms | B=4096      14932 cw/s |   66.0 W |  4582.46 uJ/cw
+    BP (50 it) [fixed]           | B=1  21.984 ms | B=4096      41859 cw/s |   67.4 W |  1465.86 uJ/cw
+    BP (50 it) [fixed, CUDA graph] | B=1   3.203 ms | B=4096      41846 cw/s |   65.2 W |  1172.62 uJ/cw
+    BP (50 it) [early-stop]      | B=1   2.756 ms | B=4096      94176 cw/s |   35.7 W |  1308.86 uJ/cw
+    [cpu] BP-GNN (5x10 BP it) [fixed] | B=1 26.30 ms | B=64 326.21 ms
+    [cpu] BP-GNN (5x40 BP it) [fixed] | B=1 66.72 ms | B=64 532.11 ms
+    [cpu] NBP per-edge (50 it) [fixed] | B=1 13.43 ms | B=64 63.92 ms
+    [cpu] GNN only (10 it) [fixed] | B=1 12.29 ms | B=64 333.25 ms
+    [cpu] BP (50 it) [fixed]     | B=1 12.55 ms | B=64 63.08 ms
+done

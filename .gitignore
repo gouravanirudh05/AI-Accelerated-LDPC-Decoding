@@ -239,3 +239,8 @@ results/
 # SparseGT_BP: track tuning/final results (small; largest file < 500 KB)
 !SparseGT_BP/results/
 !SparseGT_BP/results/**
+
+# Nvidia_GNN+BP(lLatest): track results and final configs (small; largest file ~1.1 MB)
+!Nvidia_GNN+BP(lLatest)/results/
+!Nvidia_GNN+BP(lLatest)/results/**
+!Nvidia_GNN+BP(lLatest)/final/*.json
