@@ -1,0 +1,7 @@
+{
+    "name": "DAT-NoSelf",
+    "_note": "Ablation: cross attention only, no global linear self-attention. DAT vs DAT-NoSelf measures whether the all-bit global branch helps.",
+    "overrides": {
+        "self_attn": false
+    }
+}

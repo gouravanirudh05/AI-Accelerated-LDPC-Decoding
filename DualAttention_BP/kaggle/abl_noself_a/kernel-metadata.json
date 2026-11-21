@@ -1,0 +1,16 @@
+{
+  "id": "gourasri/dat-ldpc-abl-noself-a",
+  "title": "DAT LDPC Abl Noself A",
+  "code_file": "dat-ldpc-abl-noself-a.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

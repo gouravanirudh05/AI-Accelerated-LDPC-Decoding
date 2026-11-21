@@ -1,0 +1,5 @@
+{
+    "name": "DAT",
+    "_note": "Main model: dual attention on the Tanner graph (sparse edge-aware cross attention bits<->checks + global linear self-attention within bits and within checks), 2 layers, GNN+ tricks, RWSE. Defaults in dat/specs.py MODEL.",
+    "overrides": {}
+}
