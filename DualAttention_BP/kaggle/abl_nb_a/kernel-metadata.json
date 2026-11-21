@@ -1,0 +1,16 @@
+{
+  "id": "gourasri/dat-ldpc-abl-nb-a",
+  "title": "DAT LDPC Abl Nb A",
+  "code_file": "dat-ldpc-abl-nb-a.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}

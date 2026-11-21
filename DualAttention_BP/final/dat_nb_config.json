@@ -1,0 +1,7 @@
+{
+    "name": "DAT-NB",
+    "_note": "Second candidate: non-backtracking (extrinsic) edge-state message passing in place of the sparse cross attention, same global linear self-attention.",
+    "overrides": {
+        "cross": "nb"
+    }
+}
