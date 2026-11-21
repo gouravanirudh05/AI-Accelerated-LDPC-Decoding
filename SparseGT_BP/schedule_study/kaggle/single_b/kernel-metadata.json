@@ -1,0 +1,16 @@
+{
+  "id": "gouravanirudh1105/sgt-single-stage-b",
+  "title": "SGT Single Stage B",
+  "code_file": "sgt-single-stage-b.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}
