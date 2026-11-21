@@ -1,0 +1,7 @@
+{
+    "name": "PGNN-NoPool",
+    "_note": "Ablation: GNN+ tricks and concatenated readout only, no pooled graph. Separates the effect of pooling from the effect of the GNN+ tricks.",
+    "overrides": {
+        "pool": "none"
+    }
+}

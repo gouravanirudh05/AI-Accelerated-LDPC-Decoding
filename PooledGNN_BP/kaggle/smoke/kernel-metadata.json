@@ -1,0 +1,15 @@
+{
+  "id": "gouravanirudh/pgnn-ldpc-smoke",
+  "title": "PGNN LDPC Smoke",
+  "code_file": "pgnn-ldpc-smoke.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": false,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [],
+  "model_sources": []
+}

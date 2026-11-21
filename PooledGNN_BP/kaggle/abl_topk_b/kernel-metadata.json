@@ -1,0 +1,16 @@
+{
+  "id": "arnavoruganty/pgnn-ldpc-abl-topk-b",
+  "title": "PGNN LDPC Abl Topk B",
+  "code_file": "pgnn-ldpc-abl-topk-b.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}
