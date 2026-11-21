@@ -1,0 +1,7 @@
+{
+    "name": "PGNN-TopK",
+    "_note": "Ablation: dual Top-K / SAGPool (12.5% of bits, 25% of checks; checks scored with the hard syndrome) in place of BiDiffPool.",
+    "overrides": {
+        "pool": "topk"
+    }
+}

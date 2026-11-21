@@ -1,0 +1,5 @@
+{
+    "name": "PGNN",
+    "_note": "Main model: BiDiffPool (5G: protograph clusters; other codes: learned soft clusters, K = n/16, m/16) + concatenated readout, GNN+ tricks. Defaults in pgnn/specs.py MODEL.",
+    "overrides": {}
+}

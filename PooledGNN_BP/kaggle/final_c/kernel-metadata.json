@@ -1,0 +1,16 @@
+{
+  "id": "gourasri/pgnn-ldpc-final-c",
+  "title": "PGNN LDPC Final C",
+  "code_file": "pgnn-ldpc-final-c.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_tpu": false,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "kernel_sources": [],
+  "competition_sources": [],
+  "model_sources": [],
+  "machine_shape": "NvidiaTeslaT4"
+}
