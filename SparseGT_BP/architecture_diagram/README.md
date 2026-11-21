@@ -9,6 +9,7 @@ bias, |L| selection, residual fix on the previous prior.
 
 | file | shows |
 |---|---|
+| `paper_figure/sgt_architecture.{pdf,png,svg}` | **publication-style figure (TikZ)**: pipeline, one SGT stage, Tanner-graph selection + token features, and the transformer block, in one figure. Use this one for papers and slides. |
 | `sgt_pipeline.{svg,png}` | the interleaved pipeline: BP(T) → SGT → BP(T) → … (5 BP runs, 4 SGT stages) and per-iteration early exit |
 | `sgt_stage.{svg,png}` | one SGT stage (`refine()`): per-bit statistics, top-k selection, token features, Tanner-graph attention bias, transformer block, correction head and scatter back into the prior |
 
