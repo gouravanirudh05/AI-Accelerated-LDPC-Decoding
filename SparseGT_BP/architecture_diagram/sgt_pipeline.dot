@@ -1,0 +1,43 @@
+// BP-SGT decoding pipeline. Source of truth: sgt/sgt_decoder.py (SparseGTBPDecoder.decode / forward)
+// and Nvidia_GNN+BP(lLatest)/common/bp.py (staged_decode, bp_stage).
+// Final config (README "Winner"): stages S = 4, bp_iters T = 10 (5x10) or 40 (5x40), warm = False.
+// Render: dot -Tsvg sgt_pipeline.dot -o sgt_pipeline.svg
+digraph pipeline {
+  rankdir=LR; nodesep=0.5; ranksep=0.35;
+  node [fontname="Helvetica", fontsize=11, style="rounded,filled", shape=box, color="#555555"];
+  edge [fontname="Helvetica", fontsize=9, color="#444444"];
+  labelloc=b; fontname="Helvetica"; fontsize=10;
+
+  llr  [label="channel LLR\nllr [B, n]", fillcolor="#e8eef7"];
+  bp0  [label="BP(T)\nrun 1", fillcolor="#cfe3ff"];
+  sgt1 [label="SGT\nstage 1", fillcolor="#ffd9b3"];
+  bp1  [label="BP(T)\nrun 2", fillcolor="#cfe3ff"];
+  sgt2 [label="SGT\nstage 2", fillcolor="#ffd9b3"];
+  bp2  [label="BP(T)\nrun 3", fillcolor="#cfe3ff"];
+  sgt3 [label="SGT\nstage 3", fillcolor="#ffd9b3"];
+  bp3  [label="BP(T)\nrun 4", fillcolor="#cfe3ff"];
+  sgt4 [label="SGT\nstage 4", fillcolor="#ffd9b3"];
+  bp4  [label="BP(T)\nrun 5", fillcolor="#cfe3ff"];
+  out  [label="hard decision\nx̂ = (L < 0)\n[B, n]", fillcolor="#e2f5e2"];
+
+  llr -> bp0 [weight=10];
+  bp0 -> sgt1 [weight=10, label="unsolved\nframes"];
+  sgt1 -> bp1 [weight=10, label="prior'"];
+  bp1 -> sgt2 [weight=10]; sgt2 -> bp2 [weight=10];
+  bp2 -> sgt3 [weight=10]; sgt3 -> bp3 [weight=10];
+  bp3 -> sgt4 [weight=10]; sgt4 -> bp4 [weight=10];
+  bp4 -> out [weight=10];
+
+  exit [label="syndrome = 0 → frame leaves the batch\n(early stop checked after every BP iteration; batch compacted;\nits current L is written to the output)",
+        fillcolor="#e2f5e2", fontsize=10];
+  {bp0 bp1 bp2 bp3} -> exit [style=dashed, color="#2e7d32", constraint=false];
+
+  label=<
+   <table border="0" cellborder="1" cellspacing="0" cellpadding="5" bgcolor="#f7f7f7">
+    <tr><td colspan="2" bgcolor="#ffffff" border="0"><font point-size="15"><b>BP-SGT decoder: BP and the sparse graph transformer interleaved (S = 4 SGT stages, T BP iterations per run)</b></font></td></tr>
+    <tr><td align="left" balign="left"><b>BP(T)</b></td><td align="left" balign="left">T sum-product iterations (common/bp.py). warm=False (final): every run restarts from the new prior;<br/>warm=True (tuned, not kept): resumes from the previous check messages c2v.</td></tr>
+    <tr><td align="left" balign="left"><b>SGT</b></td><td align="left" balign="left">reads the stuck BP state (llr, prior, L, v2c, c2v), corrects the prior of the k least confident bits<br/>(see sgt_stage diagram). Head is zero-initialised: untrained model = BP with 4 restarts.</td></tr>
+    <tr><td align="left" balign="left"><b>Training</b></td><td align="left" balign="left">forward(): no early stop, gradients flow through all 5 BP runs; BCE on every BP run after an SGT<br/>+ 0.1 x soft-syndrome loss; hard-example mining of BP(10) failures.</td></tr>
+    <tr><td align="left" balign="left"><b>Budget</b></td><td align="left" balign="left">5x10 = 50 BP iterations max (compare BP(50)); 5x40 = 200 (compare BP(200)).</td></tr>
+   </table>>;
+}
